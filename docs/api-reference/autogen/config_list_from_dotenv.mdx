@@ -1,0 +1,38 @@
+---
+sidebarTitle: config_list_from_dotenv
+title: autogen.config_list_from_dotenv
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### config_list_from_dotenv
+
+```python
+config_list_from_dotenv(
+    dotenv_file_path: str | None = None,
+    model_api_key_map: dict[str, typing.Any] | None = None,
+    filter_dict: dict[str, list[str | None] | set[str | None]] | None = None
+) -> list[dict[str, str | set[str]]]
+```
+
+    Load API configurations from a specified .env file or environment variables and construct a list of configurations.
+    
+    This function will:
+    - Load API keys from a provided .env file or from existing environment variables.
+    - Create a configuration dictionary for each model using the API keys and additional configurations.
+    - Filter and return the configurations based on provided filters.
+    
+    model_api_key_map will default to `\{"gpt-4": "OPENAI_API_KEY", "gpt-3.5-turbo": "OPENAI_API_KEY"}` if none
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `dotenv_file_path` | The path to the .env file.<br/><br/>Defaults to None.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+| `model_api_key_map` | A dictionary mapping models to their API key configurations.<br/><br/>If a string is provided as configuration, it is considered as an environment variable name storing the API key.<br/><br/>If a dict is provided, it should contain at least 'api_key_env_var' key, and optionally other API configurations like 'base_url', 'api_type', and 'api_version'.<br/><br/>Defaults to a basic map with 'gpt-4' and 'gpt-3.5-turbo' mapped to 'OPENAI_API_KEY'.<br/><br/>**Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
+| `filter_dict` | A dictionary containing the models to be loaded.<br/><br/>Containing a 'model' key mapped to a set of model names to be loaded.<br/><br/>Defaults to None, which loads all found configurations.<br/><br/>**Type:** `dict[str, list[str \| None] \| set[str \| None]] \| None`<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[dict[str, str \| set[str]]]` | List[Dict[str, Union[str, Set[str]]]]: A list of configuration dictionaries for each model. |
+
+<br />

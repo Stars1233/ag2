@@ -1,0 +1,22 @@
+---
+sidebarTitle: wrap_message
+title: autogen.messages.wrap_message
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### wrap_message
+
+```python
+wrap_message(message_cls: type[autogen.messages.BaseMessage]) -> type[pydantic.main.BaseModel]
+```
+
+    Wrap a message class with a type field to be used in a union type
+    
+    This is needed for proper serialization and deserialization of messages in a union type.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `message_cls` | Message class to wrap<br/><br/>**Type:** `type[autogen.messages.BaseMessage]` |
+
+<br />

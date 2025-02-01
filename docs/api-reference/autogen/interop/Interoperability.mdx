@@ -1,0 +1,95 @@
+---
+sidebarTitle: Interoperability
+title: autogen.interop.Interoperability
+---
+<h2 id="autogen.interop.Interoperability" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">Interoperability</span>
+</h2>
+
+```python
+Interoperability()
+```
+
+    A class to handle interoperability between different tool types.
+    
+    This class allows the conversion of tools to various interoperability classes and provides functionality
+    for retrieving and registering interoperability classes.
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### registry
+<br />
+
+    <br />
+
+### Static Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### convert_tool
+
+```python
+convert_tool(
+    *,
+    tool: Any,
+    type: str,
+    **kwargs: Any
+) -> autogen.tools.Tool
+```
+
+    Converts a given tool to an instance of a specified interoperability type.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `tool` | The tool object to be converted.<br/><br/>**Type:** `Any` |
+| `type` | The type of interoperability to convert the tool to.<br/><br/>**Type:** `str` |
+| `**kwargs` | Additional arguments to be passed during conversion.<br/><br/>**Type:** `Any` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `autogen.tools.Tool` | Tool: The converted tool. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_interoperability_class
+
+```python
+get_interoperability_class(type: str) -> type[autogen.interop.Interoperable]
+```
+
+    Retrieves the interoperability class corresponding to the specified type.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `type` | The type of the interoperability class to retrieve.<br/><br/>**Type:** `str` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `type[autogen.interop.Interoperable]` | Type[Interoperable]: The interoperability class type. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_supported_types
+
+```python
+get_supported_types() -> list[str]
+```
+
+    Returns a sorted list of all supported interoperability types.
+    
+    Returns:
+        List[str]: A sorted list of strings representing the supported interoperability types.
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[str]` | List[str]: A sorted list of strings representing the supported interoperability types. |
+
+<br />

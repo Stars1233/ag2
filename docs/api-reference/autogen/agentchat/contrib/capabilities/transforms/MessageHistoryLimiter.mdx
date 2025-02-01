@@ -1,0 +1,71 @@
+---
+sidebarTitle: MessageHistoryLimiter
+title: autogen.agentchat.contrib.capabilities.transforms.MessageHistoryLimiter
+---
+<h2 id="autogen.agentchat.contrib.capabilities.transforms.MessageHistoryLimiter" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">MessageHistoryLimiter</span>
+</h2>
+
+```python
+MessageHistoryLimiter(max_messages: int | None = None, keep_first_message: bool = False)
+```
+
+    Limits the number of messages considered by an agent for response generation.
+    
+    This transform keeps only the most recent messages up to the specified maximum number of messages (max_messages).
+    It trims the conversation history by removing older messages, retaining only the most recent messages.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `max_messages` | **Type:** `int \| None`<br/><br/>**Default:** None |
+| `keep_first_message` | **Type:** `bool`<br/><br/>**Default:** False |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### apply_transform
+
+```python
+apply_transform(self, messages: list[dict]) -> list[dict]
+```
+
+    Truncates the conversation history to the specified maximum number of messages.
+    
+    This method returns a new list containing the most recent messages up to the specified
+    maximum number of messages (max_messages). If max_messages is None, it returns the
+    original list of messages unmodified.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `messages` | The list of messages representing the conversation history.<br/><br/>**Type:** `list[dict]` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[dict]` | List[Dict]: A new list containing the most recent messages up to the specified maximum. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_logs
+
+```python
+get_logs(
+    self,
+    pre_transform_messages: list[dict],
+    post_transform_messages: list[dict]
+) -> tuple[str, bool]
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `pre_transform_messages` | **Type:** `list[dict]` |
+| `post_transform_messages` | **Type:** `list[dict]` |
+
+<br />

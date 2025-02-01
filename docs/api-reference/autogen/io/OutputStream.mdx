@@ -1,0 +1,90 @@
+---
+sidebarTitle: OutputStream
+title: autogen.io.OutputStream
+---
+<h2 id="autogen.io.OutputStream" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">OutputStream</span>
+</h2>
+
+```python
+OutputStream(*args, **kwargs)
+```
+
+    Base class for protocol classes.
+    
+    Protocol classes are defined as::
+    
+        class Proto(Protocol):
+            def meth(self) -> int:
+                ...
+    
+    Such classes are primarily used with static type checkers that recognize
+    structural subtyping (static duck-typing), for example::
+    
+        class C:
+            def meth(self) -> int:
+                return 0
+    
+        def func(x: Proto) -> int:
+            return x.meth()
+    
+        func(C())  # Passes static type check
+    
+    See PEP 544 for details. Protocol classes decorated with
+    @typing.runtime_checkable act as simple-minded runtime protocols that check
+    only the presence of given attributes, ignoring their type signatures.
+    Protocol classes can be generic, they are defined as::
+    
+        class GenProto(Protocol[T]):
+            def meth(self) -> T:
+                ...
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### print
+
+```python
+print(
+    self,
+    *objects: Any,
+    sep: str = ' ',
+    end: str = '\n',
+    flush: bool = False
+) -> None
+```
+
+    Print data to the output stream.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*objects` | **Type:** `Any` |
+| `sep` | The separator between objects.<br/><br/>Defaults to " ".<br/><br/>**Type:** `str`<br/><br/>**Default:** ' ' |
+| `end` | The end of the output.<br/><br/>Defaults to "<br/><br/>**Type:** `str`<br/><br/>**Default:** '\n' |
+| `flush` | Whether to flush the output.<br/><br/>Defaults to False.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### send
+
+```python
+send(self, message: autogen.messages.BaseMessage) -> None
+```
+
+    Send data to the output stream.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `message` | BaseMessage from autogen.messages.base_message<br/><br/>**Type:** `autogen.messages.BaseMessage` |
+
+<br />

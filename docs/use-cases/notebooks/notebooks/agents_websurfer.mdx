@@ -1,0 +1,161 @@
+---
+custom_edit_url: https://github.com/ag2ai/ag2/edit/main/notebook/agents_websurfer.ipynb
+description: WebSurfer Agent
+source_notebook: /notebook/agents_websurfer.ipynb
+tags:
+- agents
+- browser-use
+- crawl4ai
+- webscraping
+- function calling
+title: WebSurferAgent
+---
+
+<a href="https://colab.research.google.com/github/ag2ai/ag2/blob/main/notebook/agents_websurfer.ipynb" class="colab-badge" target="_blank"><img noZoom src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a>
+<a href="https://github.com/ag2ai/ag2/blob/main/notebook/agents_websurfer.ipynb" class="github-badge" target="_blank"><img noZoom src="https://img.shields.io/badge/Open%20on%20GitHub-grey?logo=github" alt="Open on GitHub" /></a>
+
+
+
+
+In
+[`browser-use tool`](https://github.com/ag2ai/ag2/blob/main/notebook/tools_browser_use.ipynb)
+and
+[`crawl4ai tool`](https://github.com/ag2ai/ag2/blob/main/notebook/tools_crawl4ai.ipynb)
+notebooks, we demonstrated how to create Agents with basic web surfing
+capabilities.
+
+Now, we’re taking it a step further with `WebSurferAgent`—a powerful
+agent equipped with built-in web surfing tools right out of the box!
+
+## WebSurferAgent with `browser-use` tool
+
+### Installation
+
+To get started with the `browser-use` integration in AG2, follow these
+steps:
+
+1.  Install AG2 with the `browser-use` extra:
+
+    ```bash
+    pip install ag2[browser-use]
+    ```
+
+2.  Set up Playwright:
+
+    ```bash
+    playwright install
+    ```
+
+3.  For running the code in Jupyther, use `nest_asyncio` to allow nested
+    event loops. `bash     pip install nest_asyncio`
+
+You’re all set! Now you can start using browsing features in AG2.
+
+### Imports
+
+```python
+import os
+
+import nest_asyncio
+
+from autogen.agentchat import UserProxyAgent
+from autogen.agents import WebSurferAgent
+
+nest_asyncio.apply()
+```
+
+### `browser-use` WebSurferAgent
+
+```python
+config_list = [{"model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
+
+llm_config = {
+    "config_list": config_list,
+}
+
+user_proxy = UserProxyAgent(name="user_proxy", human_input_mode="NEVER")
+websurfer = WebSurferAgent(name="WebSurfer", llm_config=llm_config, web_tool="browser_use")
+
+websurfer_tools = websurfer.tools
+# WebSurferAgent has a list of tools which are registered for LLM
+# We need to register the tools for execution with the UserProxyAgent
+for tool in websurfer_tools:
+    tool.register_for_execution(user_proxy)
+```
+
+
+```python
+user_proxy.initiate_chat(
+    recipient=websurfer,
+    message="Get info from https://docs.ag2.ai/docs/Home",
+    max_turns=2,
+)
+```
+
+## WebSurferAgent with `crawl4ai` tool
+
+### Installation
+
+To get started with the `crawl4ai` integration in AG2, follow these
+steps:
+
+1.  Install AG2 with the `crawl4ai` extra:
+
+    ```bash
+    pip install ag2[crawl4ai]
+    ```
+
+2.  Set up Playwright:
+
+    ```bash
+    playwright install
+    ```
+
+3.  For running the code in Jupyther, use `nest_asyncio` to allow nested
+    event loops. `bash     pip install nest_asyncio`
+
+You’re all set! Now you can start using browsing features in AG2.
+
+### Imports
+
+```python
+import os
+
+import nest_asyncio
+
+from autogen.agentchat import UserProxyAgent
+from autogen.agents import WebSurferAgent
+
+nest_asyncio.apply()
+```
+
+### Crawl4AI WebSurferAgent
+
+The ONLY difference is the `web_tool` parameter which needs to be set to
+`crawl4ai`
+
+```python
+config_list = [{"model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
+
+llm_config = {
+    "config_list": config_list,
+}
+
+user_proxy = UserProxyAgent(name="user_proxy", human_input_mode="NEVER")
+websurfer = WebSurferAgent(name="WebSurfer", llm_config=llm_config, web_tool="crawl4ai")
+
+websurfer_tools = websurfer.tools
+# WebSurferAgent has a list of tools which are registered for LLM
+# We need to register the tools for execution with the UserProxyAgent
+for tool in websurfer_tools:
+    tool.register_for_execution(user_proxy)
+```
+
+
+```python
+user_proxy.initiate_chat(
+    recipient=websurfer,
+    message="Get info from https://docs.ag2.ai/docs/Home",
+    max_turns=2,
+)
+```

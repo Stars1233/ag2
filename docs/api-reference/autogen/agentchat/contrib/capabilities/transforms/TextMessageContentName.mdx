@@ -1,0 +1,91 @@
+---
+sidebarTitle: TextMessageContentName
+title: autogen.agentchat.contrib.capabilities.transforms.TextMessageContentName
+---
+<h2 id="autogen.agentchat.contrib.capabilities.transforms.TextMessageContentName" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">TextMessageContentName</span>
+</h2>
+
+```python
+TextMessageContentName(
+    position: str = 'start',
+    format_string: str = '\{name}:\n',
+    deduplicate: bool = True,
+    filter_dict: dict | None = None,
+    exclude_filter: bool = True
+)
+```
+
+    A transform for including the agent's name in the content of a message.
+    
+        How to create and apply the transform:
+        # Imports
+        from autogen.agentchat.contrib.capabilities import transform_messages, transforms
+    
+        # Create Transform
+        name_transform = transforms.TextMessageContentName(position="start", format_string="'\{name}' said:
+    ")
+    
+        # Create the TransformMessages
+        context_handling = transform_messages.TransformMessages(
+                    transforms=[
+                        name_transform
+                    ]
+                )
+    
+        # Add it to an agent so when they run inference it will apply to the messages
+        context_handling.add_to_agent(my_agent)
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `position` | The position to add the name to the content.<br/><br/>The possible options are 'start' or 'end'.<br/><br/>Defaults to 'start'.<br/><br/>**Type:** `str`<br/><br/>**Default:** 'start' |
+| `format_string` | The f-string to format the message name with.<br/><br/>Use '\\{name}' as a placeholder for the agent's name.<br/><br/>Defaults to '\\{name}:<br/><br/>**Type:** `str`<br/><br/>**Default:** '\{name} |
+| `deduplicate` | Whether to deduplicate the formatted string so it doesn't appear twice (sometimes the LLM will add it to new messages itself).<br/><br/>Defaults to True.<br/><br/>**Type:** `bool`<br/><br/>**Default:** True |
+| `filter_dict` | A dictionary to filter out messages that you want/don't want to compress.<br/><br/>If None, no filters will be applied.<br/><br/>**Type:** `dict \| None`<br/><br/>**Default:** None |
+| `exclude_filter` | If exclude filter is True (the default value), messages that match the filter will be excluded from compression.<br/><br/>If False, messages that match the filter will be compressed.<br/><br/>**Type:** `bool`<br/><br/>**Default:** True |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### apply_transform
+
+```python
+apply_transform(self, messages: list[dict]) -> list[dict]
+```
+
+    Applies the name change to the message based on the position and format string.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `messages` | A list of message dictionaries.<br/><br/>**Type:** `list[dict]` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[dict]` | List[Dict]: A list of dictionaries with the message content updated with names. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_logs
+
+```python
+get_logs(
+    self,
+    pre_transform_messages: list[dict],
+    post_transform_messages: list[dict]
+) -> tuple[str, bool]
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `pre_transform_messages` | **Type:** `list[dict]` |
+| `post_transform_messages` | **Type:** `list[dict]` |
+
+<br />

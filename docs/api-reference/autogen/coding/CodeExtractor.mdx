@@ -1,0 +1,43 @@
+---
+sidebarTitle: CodeExtractor
+title: autogen.coding.CodeExtractor
+---
+<h2 id="autogen.coding.CodeExtractor" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">CodeExtractor</span>
+</h2>
+
+```python
+CodeExtractor(*args, **kwargs)
+```
+
+    (Experimental) A code extractor class that extracts code blocks from a message.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### extract_code_blocks
+
+```python
+extract_code_blocks(self, message: str | list[Union[UserMessageTextContentPart, UserMessageImageContentPart]] | None) -> list[autogen.coding.CodeBlock]
+```
+
+    (Experimental) Extract code blocks from a message.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `message` | The message to extract code blocks from.<br/><br/>**Type:** `str \| list[Union[UserMessageTextContentPart, UserMessageImageContentPart]] \| None` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[autogen.coding.CodeBlock]` | List[CodeBlock]: The extracted code blocks. |
+
+<br />

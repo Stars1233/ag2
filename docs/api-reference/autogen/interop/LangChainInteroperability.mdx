@@ -1,0 +1,58 @@
+---
+sidebarTitle: LangChainInteroperability
+title: autogen.interop.LangChainInteroperability
+---
+<h2 id="autogen.interop.LangChainInteroperability" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">LangChainInteroperability</span>
+</h2>
+
+```python
+LangChainInteroperability()
+```
+
+    A class implementing the `Interoperable` protocol for converting Langchain tools
+    into a general `Tool` format.
+    
+    This class takes a `LangchainTool` and converts it into a standard `Tool` object,
+    ensuring compatibility between Langchain tools and other systems that expect
+    the `Tool` format.
+
+### Static Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### convert_tool
+
+```python
+convert_tool(tool: Any, **kwargs: Any) -> autogen.tools.Tool
+```
+
+    Converts a given Langchain tool into a general `Tool` format.
+    
+    This method verifies that the provided tool is a valid `LangchainTool`,
+    processes the tool's input and description, and returns a standardized
+    `Tool` object.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `tool` | The tool to convert, expected to be an instance of `LangchainTool`.<br/><br/>**Type:** `Any` |
+| `**kwargs` | Additional arguments, which are not supported by this method.<br/><br/>**Type:** `Any` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `autogen.tools.Tool` | Tool: A standardized `Tool` object converted from the Langchain tool. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_unsupported_reason
+
+```python
+get_unsupported_reason() -> str | None
+```
+
+    
+
+<br />

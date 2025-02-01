@@ -1,0 +1,30 @@
+---
+sidebarTitle: split_text_to_chunks
+title: autogen.retrieve_utils.split_text_to_chunks
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### split_text_to_chunks
+
+```python
+split_text_to_chunks(
+    text: str,
+    max_tokens: int = 4000,
+    chunk_mode: str = 'multi_lines',
+    must_break_at_empty_line: bool = True,
+    overlap: int = 0
+) -> 
+```
+
+    Split a long text into chunks of max_tokens.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `text` | **Type:** `str` |
+| `max_tokens` | **Type:** `int`<br/><br/>**Default:** 4000 |
+| `chunk_mode` | **Type:** `str`<br/><br/>**Default:** 'multi_lines' |
+| `must_break_at_empty_line` | **Type:** `bool`<br/><br/>**Default:** True |
+| `overlap` | **Type:** `int`<br/><br/>**Default:** 0 |
+
+<br />

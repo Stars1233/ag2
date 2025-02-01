@@ -1,0 +1,81 @@
+---
+sidebarTitle: WebSocketProtocol
+title: autogen.agentchat.realtime.experimental.websockets.WebSocketProtocol
+---
+<h2 id="autogen.agentchat.realtime.experimental.websockets.WebSocketProtocol" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">WebSocketProtocol</span>
+</h2>
+
+```python
+WebSocketProtocol(*args, **kwargs)
+```
+
+    WebSocket protocol for sending and receiving JSON data modelled after FastAPI's WebSocket.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### iter_text
+
+```python
+iter_text(self) -> AsyncIterator[str]
+```
+
+    
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### receive_json
+
+```python
+receive_json(self, mode: str = 'text') -> Any
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `mode` | **Type:** `str`<br/><br/>**Default:** 'text' |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### receive_text
+
+```python
+receive_text(self) -> str
+```
+
+    
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### send_json
+
+```python
+send_json(
+    self,
+    data: Any,
+    mode: str = 'text'
+) -> None
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `data` | **Type:** `Any` |
+| `mode` | **Type:** `str`<br/><br/>**Default:** 'text' |
+
+<br />

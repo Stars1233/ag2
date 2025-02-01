@@ -1,0 +1,55 @@
+---
+sidebarTitle: CosmosDBCache
+title: autogen.cache.cosmos_db_cache.CosmosDBCache
+---
+<h2 id="autogen.cache.cosmos_db_cache.CosmosDBCache" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">CosmosDBCache</span>
+</h2>
+
+```python
+CosmosDBCache(**kwargs)
+```
+
+    Synchronous implementation of AbstractCache using Azure Cosmos DB NoSQL API.
+    
+    This class provides a concrete implementation of the AbstractCache
+    interface using Azure Cosmos DB for caching data, with synchronous operations.
+    
+    Attributes:
+        seed (Union[str, int]): A seed or namespace used as a partition key.
+        client (CosmosClient): The Cosmos DB client used for caching.
+        container: The container instance used for caching.
+    
+    Initialize the CosmosDBCache instance.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `**kwargs` |  |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### create_cache
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### from_config
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### from_connection_string
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### from_existing_client
+<br />
+
+    <br />

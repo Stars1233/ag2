@@ -1,0 +1,210 @@
+---
+sidebarTitle: ColoredLogger
+title: autogen.agentchat.contrib.vectordb.utils.ColoredLogger
+---
+<h2 id="autogen.agentchat.contrib.vectordb.utils.ColoredLogger" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">ColoredLogger</span>
+</h2>
+
+```python
+ColoredLogger(name, level=0)
+```
+
+    Instances of the Logger class represent a single logging channel. A
+    "logging channel" indicates an area of an application. Exactly how an
+    "area" is defined is up to the application developer. Since an
+    application can have any number of areas, logging channels are identified
+    by a unique string. Application areas can be nested (e.g. an area
+    of "input processing" might include sub-areas "read CSV files", "read
+    XLS files" and "read Gnumeric files"). To cater for this natural nesting,
+    channel names are organized into a namespace hierarchy where levels are
+    separated by periods, much like the Java or Python package namespace. So
+    in the instance given above, channel names might be "input" for the upper
+    level, and "input.csv", "input.xls" and "input.gnu" for the sub-levels.
+    There is no arbitrary limit to the depth of nesting.
+    
+    Initialize the logger with a name and an optional level.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `name` |  |
+| `level=0` |  |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### critical
+
+```python
+critical(
+    self,
+    msg,
+    *args,
+    color='red',
+    **kwargs
+) -> 
+```
+
+    Log 'msg % args' with severity 'CRITICAL'.
+    
+    To pass exception information, use the keyword argument exc_info with
+    a true value, e.g.
+    
+    logger.critical("Houston, we have a %s", "major disaster", exc_info=1)
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `msg` |  |
+| `*args` |  |
+| `color='red'` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### debug
+
+```python
+debug(
+    self,
+    msg,
+    *args,
+    color=None,
+    **kwargs
+) -> 
+```
+
+    Log 'msg % args' with severity 'DEBUG'.
+    
+    To pass exception information, use the keyword argument exc_info with
+    a true value, e.g.
+    
+    logger.debug("Houston, we have a %s", "thorny problem", exc_info=1)
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `msg` |  |
+| `*args` |  |
+| `color=None` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### error
+
+```python
+error(
+    self,
+    msg,
+    *args,
+    color='light_red',
+    **kwargs
+) -> 
+```
+
+    Log 'msg % args' with severity 'ERROR'.
+    
+    To pass exception information, use the keyword argument exc_info with
+    a true value, e.g.
+    
+    logger.error("Houston, we have a %s", "major problem", exc_info=1)
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `msg` |  |
+| `*args` |  |
+| `color='light_red'` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### fatal
+
+```python
+fatal(
+    self,
+    msg,
+    *args,
+    color='red',
+    **kwargs
+) -> 
+```
+
+    Don't use this method, use critical() instead.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `msg` |  |
+| `*args` |  |
+| `color='red'` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### info
+
+```python
+info(
+    self,
+    msg,
+    *args,
+    color=None,
+    **kwargs
+) -> 
+```
+
+    Log 'msg % args' with severity 'INFO'.
+    
+    To pass exception information, use the keyword argument exc_info with
+    a true value, e.g.
+    
+    logger.info("Houston, we have a %s", "interesting problem", exc_info=1)
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `msg` |  |
+| `*args` |  |
+| `color=None` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### warning
+
+```python
+warning(
+    self,
+    msg,
+    *args,
+    color='yellow',
+    **kwargs
+) -> 
+```
+
+    Log 'msg % args' with severity 'WARNING'.
+    
+    To pass exception information, use the keyword argument exc_info with
+    a true value, e.g.
+    
+    logger.warning("Houston, we have a %s", "bit of a problem", exc_info=1)
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `msg` |  |
+| `*args` |  |
+| `color='yellow'` |  |
+| `**kwargs` |  |
+
+<br />

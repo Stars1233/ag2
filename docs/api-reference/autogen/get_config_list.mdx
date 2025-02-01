@@ -1,0 +1,33 @@
+---
+sidebarTitle: get_config_list
+title: autogen.get_config_list
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### get_config_list
+
+```python
+get_config_list(
+    api_keys: list[str],
+    base_urls: list[str] | None = None,
+    api_type: str | None = None,
+    api_version: str | None = None
+) -> list[dict[str, typing.Any]]
+```
+
+    Get a list of configs for OpenAI API client.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `api_keys` | The api keys for openai api calls.<br/><br/>**Type:** `list[str]` |
+| `base_urls` | The api bases for openai api calls.<br/><br/>If provided, should match the length of api_keys.<br/><br/>**Type:** `list[str] \| None`<br/><br/>**Default:** None |
+| `api_type` | The api type for openai api calls.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+| `api_version` | The api version for openai api calls.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[dict[str, typing.Any]]` | list: A list of configs for OepnAI API calls. |
+
+<br />

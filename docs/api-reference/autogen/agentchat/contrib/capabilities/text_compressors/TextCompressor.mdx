@@ -1,0 +1,45 @@
+---
+sidebarTitle: TextCompressor
+title: autogen.agentchat.contrib.capabilities.text_compressors.TextCompressor
+---
+<h2 id="autogen.agentchat.contrib.capabilities.text_compressors.TextCompressor" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">TextCompressor</span>
+</h2>
+
+```python
+TextCompressor(*args, **kwargs)
+```
+
+    Defines a protocol for text compression to optimize agent interactions.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### compress_text
+
+```python
+compress_text(
+    self,
+    text: str,
+    **compression_params
+) -> dict[str, typing.Any]
+```
+
+    This method takes a string as input and returns a dictionary containing the compressed text and other
+    relevant information. The compressed text should be stored under the 'compressed_text' key in the dictionary.
+    To calculate the number of saved tokens, the dictionary should include 'origin_tokens' and 'compressed_tokens' keys.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `text` | **Type:** `str` |
+| `**compression_params` |  |
+
+<br />

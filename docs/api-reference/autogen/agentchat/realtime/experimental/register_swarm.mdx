@@ -1,0 +1,29 @@
+---
+sidebarTitle: register_swarm
+title: autogen.agentchat.realtime.experimental.register_swarm
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### register_swarm
+
+```python
+register_swarm(
+    *,
+    realtime_agent: RealtimeAgent,
+    initial_agent: autogen.SwarmAgent,
+    agents: list[autogen.SwarmAgent],
+    system_message: str | None = None
+) -> 
+```
+
+    Create a SwarmableRealtimeAgent.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `realtime_agent` | The RealtimeAgent to create the SwarmableRealtimeAgent from.<br/><br/>**Type:** `RealtimeAgent` |
+| `initial_agent` | The initial agent.<br/><br/>**Type:** `autogen.SwarmAgent` |
+| `agents` | The agents in the swarm.<br/><br/>**Type:** `list[autogen.SwarmAgent]` |
+| `system_message` | The system message to set for the agent.<br/><br/>If None, the default system message is used.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+
+<br />

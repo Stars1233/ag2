@@ -1,0 +1,25 @@
+---
+sidebarTitle: load_basemodels_if_needed
+title: autogen.tools.load_basemodels_if_needed
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### load_basemodels_if_needed
+
+```python
+load_basemodels_if_needed(func: Callable[..., Any]) -> Callable[..., Any]
+```
+
+    A decorator to load the parameters of a function if they are Pydantic models
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `func` | The function with annotated parameters<br/><br/>**Type:** `Callable[..., Any]` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `Callable[..., Any]` | A function that loads the parameters before calling the original function |
+
+<br />

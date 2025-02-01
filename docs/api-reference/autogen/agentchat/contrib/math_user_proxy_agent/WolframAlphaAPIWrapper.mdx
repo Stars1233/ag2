@@ -1,0 +1,83 @@
+---
+sidebarTitle: WolframAlphaAPIWrapper
+title: autogen.agentchat.contrib.math_user_proxy_agent.WolframAlphaAPIWrapper
+---
+<h2 id="autogen.agentchat.contrib.math_user_proxy_agent.WolframAlphaAPIWrapper" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">WolframAlphaAPIWrapper</span>
+</h2>
+
+```python
+WolframAlphaAPIWrapper(**data: Any)
+```
+
+    Wrapper for Wolfram Alpha.
+    
+    Docs for using:
+    
+    1. Go to wolfram alpha and sign up for a developer account
+    2. Create an app and get your APP ID
+    3. Save your APP ID into WOLFRAM_ALPHA_APPID env variable
+    4. pip install wolframalpha
+    
+    Create a new model by parsing and validating input data from keyword arguments.
+    
+    Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be
+    validated to form a valid model.
+    
+    `self` is explicitly positional-only to allow `self` as a field name.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `**data` | **Type:** `Any` |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### Config
+<br />
+
+    Configuration for this pydantic object.
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### model_config
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### validate_environment
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### wolfram_alpha_appid
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### wolfram_client
+<br />
+
+    :meta private:
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### run
+
+```python
+run(self, query: str) -> tuple[str, bool]
+```
+
+    Run query through WolframAlpha and parse result.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `query` | **Type:** `str` |
+
+<br />

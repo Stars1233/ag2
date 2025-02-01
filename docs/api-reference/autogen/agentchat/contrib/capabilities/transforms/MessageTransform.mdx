@@ -1,0 +1,74 @@
+---
+sidebarTitle: MessageTransform
+title: autogen.agentchat.contrib.capabilities.transforms.MessageTransform
+---
+<h2 id="autogen.agentchat.contrib.capabilities.transforms.MessageTransform" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">MessageTransform</span>
+</h2>
+
+```python
+MessageTransform(*args, **kwargs)
+```
+
+    Defines a contract for message transformation.
+    
+    Classes implementing this protocol should provide an `apply_transform` method
+    that takes a list of messages and returns the transformed list.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### apply_transform
+
+```python
+apply_transform(self, messages: list[dict]) -> list[dict]
+```
+
+    Applies a transformation to a list of messages.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `messages` | A list of dictionaries representing messages.<br/><br/>**Type:** `list[dict]` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[dict]` | A new list of dictionaries containing the transformed messages. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_logs
+
+```python
+get_logs(
+    self,
+    pre_transform_messages: list[dict],
+    post_transform_messages: list[dict]
+) -> tuple[str, bool]
+```
+
+    Creates the string including the logs of the transformation
+    
+    Alongside the string, it returns a boolean indicating whether the transformation had an effect or not.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `pre_transform_messages` | A list of dictionaries representing messages before the transformation.<br/><br/>**Type:** `list[dict]` |
+| `post_transform_messages` | A list of dictionaries representig messages after the transformation.<br/><br/>**Type:** `list[dict]` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `tuple[str, bool]` | A tuple with a string with the logs and a flag indicating whether the transformation had an effect or not. |
+
+<br />

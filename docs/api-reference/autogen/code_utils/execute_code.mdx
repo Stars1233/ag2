@@ -1,0 +1,38 @@
+---
+sidebarTitle: execute_code
+title: autogen.code_utils.execute_code
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### execute_code
+
+```python
+execute_code(
+    code: str | None = None,
+    timeout: int | None = None,
+    filename: str | None = None,
+    work_dir: str | None = None,
+    use_docker: list[str] | str | bool = &lt;object object>,
+    lang: str | None = 'python'
+) -> tuple[int, str, str | None]
+```
+
+    Execute code in a docker container.
+    This function is not tested on MacOS.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `code` | The code to execute.<br/><br/>If None, the code from the file specified by filename will be executed.<br/><br/>Either code or filename must be provided.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+| `timeout` | The maximum execution time in seconds.<br/><br/>If None, a default timeout will be used.<br/><br/>The default timeout is 600 seconds.<br/><br/>On Windows, the timeout is not enforced when use_docker=False.<br/><br/>**Type:** `int \| None`<br/><br/>**Default:** None |
+| `filename` | The file name to save the code or where the code is stored when `code` is None.<br/><br/>If None, a file with a randomly generated name will be created.<br/><br/>The randomly generated file will be deleted after execution.<br/><br/>The file name must be a relative path.<br/><br/>Relative paths are relative to the working directory.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+| `work_dir` | The working directory for the code execution.<br/><br/>If None, a default working directory will be used.<br/><br/>The default working directory is the "extensions" directory under "path_to_autogen".<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+| `use_docker` | The docker image to use for code execution.<br/><br/>Default is True, which means the code will be executed in a docker container.<br/><br/>A default list of images will be used.<br/><br/>If a list or a str of image name(s) is provided, the code will be executed in a docker container with the first image successfully pulled.<br/><br/>If False, the code will be executed in the current environment.<br/><br/>Expected behaviour: - If `use_docker` is not set (i.e.<br/><br/>left default to True) or is explicitly set to True and the docker package is available, the code will run in a Docker container.<br/><br/>- If `use_docker` is not set (i.e.<br/><br/>left default to True) or is explicitly set to True but the Docker package is missing or docker isn't running, an error will be raised.<br/><br/>- If `use_docker` is explicitly set to False, the code will run natively.<br/><br/>If the code is executed in the current environment, the code must be trusted.<br/><br/>**Type:** `list[str] \| str \| bool`<br/><br/>**Default:** &lt;object object> |
+| `lang` | The language of the code.<br/><br/>Default is "python".<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'python' |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `tuple[int, str, str \| None]` | int: 0 if the code executes successfully. str: The error message if the code fails to execute; the stdout otherwise. image: The docker image name after container run when docker is used. |
+
+<br />

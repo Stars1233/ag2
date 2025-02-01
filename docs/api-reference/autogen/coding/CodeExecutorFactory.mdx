@@ -1,0 +1,37 @@
+---
+sidebarTitle: CodeExecutorFactory
+title: autogen.coding.CodeExecutorFactory
+---
+<h2 id="autogen.coding.CodeExecutorFactory" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">CodeExecutorFactory</span>
+</h2>
+
+```python
+CodeExecutorFactory()
+```
+
+    (Experimental) A factory class for creating code executors.
+
+### Static Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### create
+
+```python
+create(code_execution_config: autogen.coding.base.CodeExecutionConfig) -> autogen.coding.CodeExecutor
+```
+
+    (Experimental) Get a code executor based on the code execution config.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `code_execution_config` | The code execution config, which is a dictionary that must contain the key "executor".<br/><br/>The value of the key "executor" can be either a string or an instance of CodeExecutor, in which case the code executor is returned directly.<br/><br/>**Type:** `autogen.coding.base.CodeExecutionConfig` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `autogen.coding.CodeExecutor` | CodeExecutor: The code executor. |
+
+<br />

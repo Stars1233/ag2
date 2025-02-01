@@ -1,0 +1,44 @@
+---
+sidebarTitle: get_config
+title: autogen.oai.openai_utils.get_config
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### get_config
+
+```python
+get_config(
+    api_key: str | None,
+    base_url: str | None = None,
+    api_type: str | None = None,
+    api_version: str | None = None
+) -> dict[str, typing.Any]
+```
+
+    Constructs a configuration dictionary for a single model with the provided API configurations.
+    
+    Example:
+    ```python
+    config = get_config(api_key="sk-abcdef1234567890", base_url="https://api.openai.com", api_version="v1")
+    # The 'config' variable will now contain:
+    # \{
+    #     "api_key": "sk-abcdef1234567890",
+    #     "base_url": "https://api.openai.com",
+    #     "api_version": "v1"
+    # }
+    ```
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `api_key` | The API key for authenticating API requests.<br/><br/>**Type:** `str \| None` |
+| `base_url` | The base URL of the API.<br/><br/>If not provided, defaults to None.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+| `api_type` | The type of API.<br/><br/>If not provided, defaults to None.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+| `api_version` | The version of the API.<br/><br/>If not provided, defaults to None.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `dict[str, typing.Any]` | Dict: A dictionary containing the provided API configurations. |
+
+<br />

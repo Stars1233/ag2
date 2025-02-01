@@ -1,0 +1,45 @@
+---
+sidebarTitle: should_hide_tools
+title: autogen.oai.client_utils.should_hide_tools
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### should_hide_tools
+
+```python
+should_hide_tools(
+    messages: list[dict[str, typing.Any]],
+    tools: list[dict[str, typing.Any]],
+    hide_tools_param: str
+) -> bool
+```
+
+    Determines if tools should be hidden. This function is used to hide tools when they have been run, minimising the chance of the LLM choosing them when they shouldn't.
+    Parameters:
+        messages (List[Dict[str, Any]]): List of messages
+        tools (List[Dict[str, Any]]): List of tools
+        hide_tools_param (str): "hide_tools" parameter value. Can be "if_all_run" (hide tools if all tools have been run), "if_any_run" (hide tools if any of the tools have been run), "never" (never hide tools). Default is "never".
+    
+    Returns:
+        bool: Indicates whether the tools should be excluded from the response create request
+    
+    Example Usage:
+    ```python
+        # Validating a numerical parameter within specific bounds
+        messages = params.get("messages", [])
+        tools = params.get("tools", None)
+        hide_tools = should_hide_tools(messages, tools, params["hide_tools"])
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `messages` | **Type:** `list[dict[str, typing.Any]]` |
+| `tools` | **Type:** `list[dict[str, typing.Any]]` |
+| `hide_tools_param` | **Type:** `str` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `bool` | bool: Indicates whether the tools should be excluded from the response create request Example Usage: ```python # Validating a numerical parameter within specific bounds messages = params.get("messages", []) tools = params.get("tools", None) hide_tools = should_hide_tools(messages, tools, params["hide_tools"]) |
+
+<br />

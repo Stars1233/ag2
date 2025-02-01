@@ -1,0 +1,28 @@
+---
+sidebarTitle: cache_content_set
+title: autogen.agentchat.contrib.capabilities.transforms_util.cache_content_set
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### cache_content_set
+
+```python
+cache_content_set(
+    cache: autogen.cache.AbstractCache | None,
+    key: str,
+    content: str | list[dict | str] | None,
+    *extra_values
+) -> 
+```
+
+    Sets content into the cache.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `cache` | The cache to set the content into.<br/><br/>If None, the cache is ignored.<br/><br/>**Type:** `autogen.cache.AbstractCache \| None` |
+| `key` | The key to set the content into.<br/><br/>**Type:** `str` |
+| `content` | The message content to set into the cache.<br/><br/>**Type:** `str \| list[dict \| str] \| None` |
+| `*extra_values` | Additional values to be passed to the cache.<br/><br/> |
+
+<br />

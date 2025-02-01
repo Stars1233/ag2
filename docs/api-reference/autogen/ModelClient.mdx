@@ -1,0 +1,144 @@
+---
+sidebarTitle: ModelClient
+title: autogen.ModelClient
+---
+<h2 id="autogen.ModelClient" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">ModelClient</span>
+</h2>
+
+```python
+ModelClient(*args, **kwargs)
+```
+
+    A client class must implement the following methods:
+    - create must return a response object that implements the ModelClientResponseProtocol
+    - cost must return the cost of the response
+    - get_usage must return a dict with the following keys:
+        - prompt_tokens
+        - completion_tokens
+        - total_tokens
+        - cost
+        - model
+    
+    This class is used to create a client that can be used by OpenAIWrapper.
+    The response returned from create must adhere to the ModelClientResponseProtocol but can be extended however needed.
+    The message_retrieval method must be implemented to return a list of str or a list of messages from the response.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### ModelClientResponseProtocol
+<br />
+
+    Base class for protocol classes.
+    
+    Protocol classes are defined as::
+    
+        class Proto(Protocol):
+            def meth(self) -> int:
+                ...
+    
+    Such classes are primarily used with static type checkers that recognize
+    structural subtyping (static duck-typing), for example::
+    
+        class C:
+            def meth(self) -> int:
+                return 0
+    
+        def func(x: Proto) -> int:
+            return x.meth()
+    
+        func(C())  # Passes static type check
+    
+    See PEP 544 for details. Protocol classes decorated with
+    @typing.runtime_checkable act as simple-minded runtime protocols that check
+    only the presence of given attributes, ignoring their type signatures.
+    Protocol classes can be generic, they are defined as::
+    
+        class GenProto(Protocol[T]):
+            def meth(self) -> T:
+                ...
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### RESPONSE_USAGE_KEYS
+<br />
+
+    <br />
+
+### Static Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_usage
+
+```python
+get_usage(response: ModelClientResponseProtocol) -> dict
+```
+
+    Return usage summary of the response using RESPONSE_USAGE_KEYS.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `response` | **Type:** `ModelClientResponseProtocol` |
+
+<br />
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### cost
+
+```python
+cost(self, response: ModelClientResponseProtocol) -> float
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `response` | **Type:** `ModelClientResponseProtocol` |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### create
+
+```python
+create(self, params: dict[str, Any]) -> ModelClientResponseProtocol
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `params` | **Type:** `dict[str, Any]` |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### message_retrieval
+
+```python
+message_retrieval(self, response: ModelClientResponseProtocol) -> Union[list[str], list[ModelClient.ModelClientResponseProtocol.Choice.Message]]
+```
+
+    Retrieve and return a list of strings or a list of Choice.Message from the response.
+    
+    NOTE: if a list of Choice.Message is returned, it currently needs to contain the fields of OpenAI's ChatCompletion Message object,
+    since that is expected for function or tool calling in the rest of the codebase at the moment, unless a custom agent is being used.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `response` | **Type:** `ModelClientResponseProtocol` |
+
+<br />

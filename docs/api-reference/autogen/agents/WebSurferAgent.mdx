@@ -1,0 +1,39 @@
+---
+sidebarTitle: WebSurferAgent
+title: autogen.agents.WebSurferAgent
+---
+<h2 id="autogen.agents.WebSurferAgent" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">WebSurferAgent</span>
+</h2>
+
+```python
+WebSurferAgent(
+    llm_config: dict[str, typing.Any],
+    *args,
+    web_tool: Literal['browser_use', 'crawl4ai'] = 'browser_use',
+    web_tool_kwargs: dict[str, typing.Any] = None,
+    **kwargs
+)
+```
+
+    An agent that uses web tools to interact with the web.
+    
+    Initialize the WebSurferAgent.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `llm_config` | The LLM configuration.<br/><br/>**Type:** `dict[str, typing.Any]` |
+| `*args` |  |
+| `web_tool` | The web tool to use.<br/><br/>Defaults to "browser_use".<br/><br/>**Type:** `Literal['browser_use', 'crawl4ai']`<br/><br/>**Default:** 'browser_use' |
+| `web_tool_kwargs` | The keyword arguments for the web tool.<br/><br/>Defaults to None.<br/><br/>**Type:** `dict[str, typing.Any]`<br/><br/>**Default:** None |
+| `**kwargs` |  |
+
+### Instance Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### tools
+<br />
+
+    <br />

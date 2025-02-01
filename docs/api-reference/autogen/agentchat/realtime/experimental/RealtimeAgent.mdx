@@ -1,0 +1,127 @@
+---
+sidebarTitle: RealtimeAgent
+title: autogen.agentchat.realtime.experimental.RealtimeAgent
+---
+<h2 id="autogen.agentchat.realtime.experimental.RealtimeAgent" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">RealtimeAgent</span>
+</h2>
+
+```python
+RealtimeAgent(
+    *,
+    name: str,
+    audio_adapter: autogen.agentchat.realtime.experimental.RealtimeObserver | None = None,
+    system_message: str = 'You are a helpful AI Assistant.',
+    llm_config: dict[str, typing.Any],
+    logger: logging.Logger | None = None,
+    **client_kwargs: Any
+)
+```
+
+    (Experimental) Agent for interacting with the Realtime Clients.
+    
+    (Experimental) Agent for interacting with the Realtime Clients.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `name` | The name of the agent.<br/><br/>**Type:** `str` |
+| `audio_adapter` | The audio adapter for the agent.<br/><br/>**Type:** `autogen.agentchat.realtime.experimental.RealtimeObserver \| None`<br/><br/>**Default:** None |
+| `system_message` | The system message for the agent.<br/><br/>**Type:** `str`<br/><br/>**Default:** 'You are a helpful AI Assistant.' |
+| `llm_config` | The config for the agent.<br/><br/>**Type:** `dict[str, typing.Any]` |
+| `logger` | The logger for the agent.<br/><br/>**Type:** `logging.Logger \| None`<br/><br/>**Default:** None |
+| `**client_kwargs` | The keyword arguments for the client.<br/><br/>**Type:** `Any` |
+
+### Instance Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### logger
+<br />
+
+    Get the logger for the agent.
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### realtime_client
+<br />
+
+    Get the OpenAI Realtime Client.
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### registred_realtime_tools
+<br />
+
+    Get the registered realtime tools.
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### system_message
+<br />
+
+    Get the system message for the agent.
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### register_observer
+
+```python
+register_observer(self, observer: autogen.agentchat.realtime.experimental.RealtimeObserver) -> None
+```
+
+    Register an observer with the Realtime Agent.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `observer` | The observer to register.<br/><br/>**Type:** `autogen.agentchat.realtime.experimental.RealtimeObserver` |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### register_realtime_function
+
+```python
+register_realtime_function(
+    self,
+    *,
+    name: str | None = None,
+    description: str | None = None
+) -> Callable[[~F | autogen.tools.Tool], autogen.tools.Tool]
+```
+
+    Decorator for registering a function to be used by an agent.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `name` | The name of the function.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+| `description` | The description of the function.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `Callable[[~F \| autogen.tools.Tool], autogen.tools.Tool]` | Callable[[Union[F, Tool]], Tool]: The decorator for registering a function. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### run
+
+```python
+run(self) -> None
+```
+
+    Run the agent.
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### start_observers
+
+```python
+start_observers(self) -> None
+```
+
+    
+
+<br />

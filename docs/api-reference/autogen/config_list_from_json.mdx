@@ -1,0 +1,40 @@
+---
+sidebarTitle: config_list_from_json
+title: autogen.config_list_from_json
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### config_list_from_json
+
+```python
+config_list_from_json(
+    env_or_file: str,
+    file_location: str | None = '',
+    filter_dict: dict[str, list[str | None] | set[str | None]] | None = None
+) -> list[dict[str, typing.Any]]
+```
+
+    Retrieves a list of API configurations from a JSON stored in an environment variable or a file.
+    
+    This function attempts to parse JSON data from the given `env_or_file` parameter. If `env_or_file` is an
+    environment variable containing JSON data, it will be used directly. Otherwise, it is assumed to be a filename,
+    and the function will attempt to read the file from the specified `file_location`.
+    
+    The `filter_dict` parameter allows for filtering the configurations based on specified criteria. Each key in the
+    `filter_dict` corresponds to a field in the configuration dictionaries, and the associated value is a list or set
+    of acceptable values for that field. If a field is missing in a configuration and `None` is included in the list
+    of acceptable values for that field, the configuration will still be considered a match.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `env_or_file` | The name of the environment variable, the filename, or the environment variable of the filename that containing the JSON data.<br/><br/>**Type:** `str` |
+| `file_location` | The directory path where the file is located, if `env_or_file` is a filename.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** '' |
+| `filter_dict` | A dictionary specifying the filtering criteria for the configurations, with keys representing field names and values being lists or sets of acceptable values for those fields.<br/><br/>**Type:** `dict[str, list[str \| None] \| set[str \| None]] \| None`<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[dict[str, typing.Any]]` | List[Dict]: A list of configuration dictionaries that match the filtering criteria specified in `filter_dict`. |
+
+<br />

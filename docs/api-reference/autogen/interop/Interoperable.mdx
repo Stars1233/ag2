@@ -1,0 +1,70 @@
+---
+sidebarTitle: Interoperable
+title: autogen.interop.Interoperable
+---
+<h2 id="autogen.interop.Interoperable" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">Interoperable</span>
+</h2>
+
+```python
+Interoperable(*args, **kwargs)
+```
+
+    A Protocol defining the interoperability interface for tool conversion.
+    
+    This protocol ensures that any class implementing it provides the method
+    `convert_tool` to convert a given tool into a desired format or type.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+### Static Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### convert_tool
+
+```python
+convert_tool(tool: Any, **kwargs: Any) -> autogen.tools.Tool
+```
+
+    Converts a given tool to a desired format or type.
+    
+    This method should be implemented by any class adhering to the `Interoperable` protocol.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `tool` | The tool object to be converted.<br/><br/>**Type:** `Any` |
+| `**kwargs` | Additional parameters to pass during the conversion process.<br/><br/>**Type:** `Any` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `autogen.tools.Tool` | Tool: The converted tool in the desired format or type. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_unsupported_reason
+
+```python
+get_unsupported_reason() -> str | None
+```
+
+    Returns the reason for the tool being unsupported.
+    
+    This method should be implemented by any class adhering to the `Interoperable` protocol.
+    
+    Returns:
+        str: The reason for the interoperability class being unsupported.
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `str \| None` | str: The reason for the interoperability class being unsupported. |
+
+<br />

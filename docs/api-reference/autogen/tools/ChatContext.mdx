@@ -1,0 +1,44 @@
+---
+sidebarTitle: ChatContext
+title: autogen.tools.ChatContext
+---
+<h2 id="autogen.tools.ChatContext" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">ChatContext</span>
+</h2>
+
+```python
+ChatContext(agent: ConversableAgent)
+```
+
+    ChatContext class that extends BaseContext.
+    
+    This class is used to represent a chat context that holds a list of messages.
+    It inherits from `BaseContext` and adds the `messages` attribute.
+    
+    Initializes the ChatContext with an agent.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `agent` | The agent to use for retrieving chat messages.<br/><br/>**Type:** `ConversableAgent` |
+
+### Instance Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### chat_messages
+<br />
+
+    The messages in the chat.
+    
+    Returns:
+        A dictionary of agents and their messages.
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### last_message
+<br />
+
+    The last message in the chat.
+    
+    Returns:
+        The last message in the chat.

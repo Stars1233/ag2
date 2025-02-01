@@ -1,0 +1,91 @@
+---
+sidebarTitle: FunctionWithRequirements
+title: autogen.coding.func_with_reqs.FunctionWithRequirements
+---
+<h2 id="autogen.coding.func_with_reqs.FunctionWithRequirements" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">FunctionWithRequirements</span>
+</h2>
+
+```python
+FunctionWithRequirements(
+    func: Callable[~P, ~T],
+    python_packages: list[str] = &lt;factory>,
+    global_imports: list[str | autogen.coding.func_with_reqs.ImportFromModule | autogen.coding.func_with_reqs.Alias] = &lt;factory>
+)
+```
+
+    FunctionWithRequirements(func: Callable[~P, ~T], python_packages: list[str] = &lt;factory>, global_imports: list[typing.Union[str, autogen.coding.func_with_reqs.ImportFromModule, autogen.coding.func_with_reqs.Alias]] = &lt;factory>)
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `func` | **Type:** `Callable[~P, ~T]` |
+| `python_packages` | **Type:** `list[str]`<br/><br/>**Default:** &lt;factory> |
+| `global_imports` | **Type:** `list[str \| autogen.coding.func_with_reqs.ImportFromModule \| autogen.coding.func_with_reqs.Alias]`<br/><br/>**Default:** &lt;factory> |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### func
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### global_imports
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### python_packages
+<br />
+
+    <br />
+
+### Static Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### from_callable
+
+```python
+from_callable(
+    func: Callable[~P, ~T],
+    python_packages: list[str] = [],
+    global_imports: list[str | autogen.coding.func_with_reqs.ImportFromModule | autogen.coding.func_with_reqs.Alias] = []
+) -> autogen.coding.func_with_reqs.FunctionWithRequirements[~T, ~P]
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `func` | **Type:** `Callable[~P, ~T]` |
+| `python_packages` | **Type:** `list[str]`<br/><br/>**Default:** [] |
+| `global_imports` | **Type:** `list[str \| autogen.coding.func_with_reqs.ImportFromModule \| autogen.coding.func_with_reqs.Alias]`<br/><br/>**Default:** [] |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### from_str
+
+```python
+from_str(
+    func: str,
+    python_packages: list[str] = [],
+    global_imports: list[str | autogen.coding.func_with_reqs.ImportFromModule | autogen.coding.func_with_reqs.Alias] = []
+) -> autogen.coding.func_with_reqs.FunctionWithRequirementsStr
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `func` | **Type:** `str` |
+| `python_packages` | **Type:** `list[str]`<br/><br/>**Default:** [] |
+| `global_imports` | **Type:** `list[str \| autogen.coding.func_with_reqs.ImportFromModule \| autogen.coding.func_with_reqs.Alias]`<br/><br/>**Default:** [] |
+
+<br />

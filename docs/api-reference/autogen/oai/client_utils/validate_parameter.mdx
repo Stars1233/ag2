@@ -1,0 +1,70 @@
+---
+sidebarTitle: validate_parameter
+title: autogen.oai.client_utils.validate_parameter
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### validate_parameter
+
+```python
+validate_parameter(
+    params: dict[str, typing.Any],
+    param_name: str,
+    allowed_types: tuple,
+    allow_None: bool,
+    default_value: Any,
+    numerical_bound: tuple,
+    allowed_values: list
+) -> Any
+```
+
+    Validates a given config parameter, checking its type, values, and setting defaults
+    Parameters:
+        params (Dict[str, Any]): Dictionary containing parameters to validate.
+        param_name (str): The name of the parameter to validate.
+        allowed_types (Tuple): Tuple of acceptable types for the parameter.
+        allow_None (bool): Whether the parameter can be `None`.
+        default_value (Any): The default value to use if the parameter is invalid or missing.
+        numerical_bound (Optional[Tuple[Optional[float], Optional[float]]]):
+            A tuple specifying the lower and upper bounds for numerical parameters.
+            Each bound can be `None` if not applicable.
+        allowed_values (Optional[List[Any]]): A list of acceptable values for the parameter.
+            Can be `None` if no specific values are required.
+    
+    Returns:
+        Any: The validated parameter value or the default value if validation fails.
+    
+    Raises:
+        TypeError: If `allowed_values` is provided but is not a list.
+    
+    Example Usage:
+    ```python
+        # Validating a numerical parameter within specific bounds
+        params = \{"temperature": 0.5, "safety_model": "Meta-Llama/Llama-Guard-7b"}
+        temperature = validate_parameter(params, "temperature", (int, float), True, 0.7, (0, 1), None)
+        # Result: 0.5
+    
+        # Validating a parameter that can be one of a list of allowed values
+        model = validate_parameter(
+        params, "safety_model", str, True, None, None, ["Meta-Llama/Llama-Guard-7b", "Meta-Llama/Llama-Guard-13b"]
+        )
+        # If "safety_model" is missing or invalid in params, defaults to "default"
+    ```
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `params` | **Type:** `dict[str, typing.Any]` |
+| `param_name` | **Type:** `str` |
+| `allowed_types` | **Type:** `tuple` |
+| `allow_None` | **Type:** `bool` |
+| `default_value` | **Type:** `Any` |
+| `numerical_bound` | **Type:** `tuple` |
+| `allowed_values` | **Type:** `list` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `Any` | Any: The validated parameter value or the default value if validation fails. |
+
+<br />

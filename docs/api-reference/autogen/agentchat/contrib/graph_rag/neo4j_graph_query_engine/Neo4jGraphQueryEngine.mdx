@@ -1,0 +1,46 @@
+---
+sidebarTitle: Neo4jGraphQueryEngine
+title: autogen.agentchat.contrib.graph_rag.neo4j_graph_query_engine.Neo4jGraphQueryEngine
+---
+<h2 id="autogen.agentchat.contrib.graph_rag.neo4j_graph_query_engine.Neo4jGraphQueryEngine" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">Neo4jGraphQueryEngine</span>
+</h2>
+
+```python
+Neo4jGraphQueryEngine(**kwargs)
+```
+
+    This class serves as a wrapper for a property graph query engine backed by LlamaIndex and Neo4j,
+    facilitating the creating, connecting, updating, and querying of LlamaIndex property graphs.
+    
+    It builds a property graph Index from input documents,
+    storing and retrieving data from the property graph in the Neo4j database.
+    
+    It extracts triplets, i.e., [entity] -> [relationship] -> [entity] sets,
+    from the input documents using llamIndex extractors.
+    
+    Users can provide custom entities, relationships, and schema to guide the extraction process.
+    
+    If strict is True, the engine will extract triplets following the schema
+    of allowed relationships for each entity specified in the schema.
+    
+    It also leverages LlamaIndex's chat engine which has a conversation history internally to provide context-aware responses.
+    
+    For usage, please refer to example notebook/agentchat_graph_rag_neo4j.ipynb
+    
+    Initialize a Neo4j Property graph.
+    Please also refer to https://docs.llamaindex.ai/en/stable/examples/property_graph/graph_store/
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `**kwargs` |  |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### connect_db
+<br />
+
+    <br />

@@ -1,0 +1,71 @@
+---
+sidebarTitle: ImageGenerator
+title: autogen.agentchat.contrib.capabilities.generate_images.ImageGenerator
+---
+<h2 id="autogen.agentchat.contrib.capabilities.generate_images.ImageGenerator" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">ImageGenerator</span>
+</h2>
+
+```python
+ImageGenerator(*args, **kwargs)
+```
+
+    This class defines an interface for image generators.
+    
+    Concrete implementations of this protocol must provide a `generate_image` method that takes a string prompt as
+    input and returns a PIL Image object.
+    
+    NOTE: Current implementation does not allow you to edit a previously existing image.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### cache_key
+
+```python
+cache_key(self, prompt: str) -> str
+```
+
+    Generates a unique cache key for the given prompt.
+    
+    This key can be used to store and retrieve generated images based on the prompt.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `prompt` | A string describing the desired image.<br/><br/>**Type:** `str` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `str` | A unique string that can be used as a cache key. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### generate_image
+
+```python
+generate_image(self, prompt: str) -> Image
+```
+
+    Generates an image based on the provided prompt.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `prompt` | A string describing the desired image.<br/><br/>**Type:** `str` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `Image` | A PIL Image object representing the generated image. |
+
+<br />

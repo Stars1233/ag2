@@ -1,0 +1,45 @@
+---
+sidebarTitle: ImageGeneration
+title: autogen.agentchat.contrib.capabilities.generate_images.ImageGeneration
+---
+<h2 id="autogen.agentchat.contrib.capabilities.generate_images.ImageGeneration" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">ImageGeneration</span>
+</h2>
+
+```python
+ImageGeneration(**kwargs)
+```
+
+    This capability allows a ConversableAgent to generate images based on the message received from other Agents.
+    
+    1. Utilizes a TextAnalyzerAgent to analyze incoming messages to identify requests for image generation and
+        extract relevant details.
+    2. Leverages the provided ImageGenerator (e.g., DalleImageGenerator) to create the image.
+    3. Optionally caches generated images for faster retrieval in future conversations.
+    
+    NOTE: This capability increases the token usage of the agent, as it uses TextAnalyzerAgent to analyze every
+        message received by the agent.
+    
+    Example:
+        ```python
+        import autogen
+        from autogen.agentchat.contrib.capabilities.image_generation import ImageGeneration
+    
+        # Assuming you have llm configs configured for the LLMs you want to use and Dalle.
+        # Create the agent
+        agent = autogen.ConversableAgent(
+            name="dalle", llm_config=\{...}, max_consecutive_auto_reply=3, human_input_mode="NEVER"
+        )
+    
+        # Create an ImageGenerator with desired settings
+        dalle_gen = generate_images.DalleImageGenerator(llm_config=\{...})
+    
+        # Add the ImageGeneration capability to the agent
+        agent.add_capability(ImageGeneration(image_generator=dalle_gen))
+        ```
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `**kwargs` |  |

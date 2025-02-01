@@ -1,0 +1,88 @@
+---
+sidebarTitle: WebSocketAudioAdapter
+title: autogen.agentchat.realtime.experimental.WebSocketAudioAdapter
+---
+<h2 id="autogen.agentchat.realtime.experimental.WebSocketAudioAdapter" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">WebSocketAudioAdapter</span>
+</h2>
+
+```python
+WebSocketAudioAdapter(
+    websocket: WebSocket,
+    *,
+    logger: logging.Logger | None = None
+)
+```
+
+    Observer for the OpenAI Realtime API.
+    
+    Observer for handling function calls from the OpenAI Realtime API.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `websocket` | The websocket connection.<br/><br/>**Type:** `WebSocket` |
+| `logger` | The logger for the observer.<br/><br/>**Type:** `logging.Logger \| None`<br/><br/>**Default:** None |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### handle_speech_started_event
+
+```python
+handle_speech_started_event(self) -> None
+```
+
+    Handle interruption when the caller's speech starts.
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### initialize_session
+
+```python
+initialize_session(self) -> None
+```
+
+    Control initial session with OpenAI.
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### on_event
+
+```python
+on_event(self, event: autogen.agentchat.realtime.experimental.realtime_events.RealtimeEvent) -> None
+```
+
+    Receive events from the OpenAI Realtime API, send audio back to websocket.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `event` | **Type:** `autogen.agentchat.realtime.experimental.realtime_events.RealtimeEvent` |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### run_loop
+
+```python
+run_loop(self) -> None
+```
+
+    Reads data from websocket and sends it to the RealtimeClient.
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### send_mark
+
+```python
+send_mark(self) -> None
+```
+
+    
+
+<br />

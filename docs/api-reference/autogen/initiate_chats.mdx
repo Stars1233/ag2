@@ -1,0 +1,25 @@
+---
+sidebarTitle: initiate_chats
+title: autogen.initiate_chats
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### initiate_chats
+
+```python
+initiate_chats(chat_queue: list[dict[str, typing.Any]]) -> list[autogen.ChatResult]
+```
+
+    Initiate a list of chats.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `chat_queue` | A list of dictionaries containing the information about the chats.<br/><br/>Each dictionary should contain the input arguments for [`ConversableAgent.initiate_chat`](/reference/autogen/ConversableAgent#initiate-chat).<br/><br/>**Type:** `list[dict[str, typing.Any]]` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[autogen.ChatResult]` | (list): a list of ChatResult objects corresponding to the finished chats in the chat_queue. |
+
+<br />

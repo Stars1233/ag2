@@ -1,0 +1,31 @@
+---
+sidebarTitle: extract_code
+title: autogen.code_utils.extract_code
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### extract_code
+
+```python
+extract_code(
+    text: str | list,
+    pattern: str = '```[ \\t]*(\\w+)?[ \\t]*\\r?\\n(.*?)\\r?\\n[ \\t]*```',
+    detect_single_line_code: bool = False
+) -> list[tuple[str, str]]
+```
+
+    Extract code from a text.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `text` | The content to extract code from.<br/><br/>The content can be a string or a list, as returned by standard GPT or multimodal GPT.<br/><br/>**Type:** `str \| list` |
+| `pattern` | The regular expression pattern for finding the code block.<br/><br/>Defaults to CODE_BLOCK_PATTERN.<br/><br/>**Type:** `str`<br/><br/>**Default:** '```[ \\t]*(\\w+)?[ \\t]*\\r?\\n(.*?)\\r?\\n[ \\t]*```' |
+| `detect_single_line_code` | Enable the new feature for extracting single line code.<br/><br/>Defaults to False.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[tuple[str, str]]` | list: A list of tuples, each containing the language and the code. If there is no code block in the input text, the language would be "unknown". If there is code block but the language is not specified, the language would be "". |
+
+<br />

@@ -1,0 +1,92 @@
+---
+sidebarTitle: IOStream
+title: autogen.io.IOStream
+---
+<h2 id="autogen.io.IOStream" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">IOStream</span>
+</h2>
+
+```python
+IOStream(*args, **kwargs)
+```
+
+    A protocol for input/output streams.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+### Static Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_default
+
+```python
+get_default() -> autogen.io.IOStream
+```
+
+    Get the default input/output stream.
+    
+    Returns:
+        IOStream: The default input/output stream.
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `autogen.io.IOStream` | IOStream: The default input/output stream. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_global_default
+
+```python
+get_global_default() -> autogen.io.IOStream
+```
+
+    Get the default input/output stream.
+    
+    Returns:
+        IOStream: The default input/output stream.
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `autogen.io.IOStream` | IOStream: The default input/output stream. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### set_default
+
+```python
+set_default(stream: ForwardRef('IOStream') | None) -> Iterator[None]
+```
+
+    Set the default input/output stream.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `stream` | The input/output stream to set as the default.<br/><br/>**Type:** `ForwardRef('IOStream') \| None` |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### set_global_default
+
+```python
+set_global_default(stream: IOStream) -> None
+```
+
+    Set the default input/output stream.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `stream` | The input/output stream to set as the default.<br/><br/>**Type:** `IOStream` |
+
+<br />

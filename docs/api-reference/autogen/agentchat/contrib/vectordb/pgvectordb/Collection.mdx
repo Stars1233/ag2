@@ -1,0 +1,129 @@
+---
+sidebarTitle: Collection
+title: autogen.agentchat.contrib.vectordb.pgvectordb.Collection
+---
+<h2 id="autogen.agentchat.contrib.vectordb.pgvectordb.Collection" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">Collection</span>
+</h2>
+
+```python
+Collection(**kwargs)
+```
+
+    A Collection object for PGVector.
+    
+    Attributes:
+        client: The PGVector client.
+        collection_name (str): The name of the collection. Default is "documents".
+        embedding_function (Callable): The embedding function used to generate the vector representation.
+            Default is None. SentenceTransformer("all-MiniLM-L6-v2").encode will be used when None.
+            Models can be chosen from:
+            https://huggingface.co/models?library=sentence-transformers
+        metadata (Optional[dict]): The metadata of the collection.
+        get_or_create (Optional): The flag indicating whether to get or create the collection.
+    
+    Initialize the Collection object.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `**kwargs` |  |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### add
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### convert_string_to_array
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### cosine_distance
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### count
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### create_collection
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### delete
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### delete_collection
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### euclidean_distance
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### get
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### inner_product_distance
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### modify
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### query
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### set_collection_name
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### table_exists
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### update
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### upsert
+<br />
+
+    <br />

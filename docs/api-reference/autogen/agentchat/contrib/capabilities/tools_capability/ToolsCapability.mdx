@@ -1,0 +1,40 @@
+---
+sidebarTitle: ToolsCapability
+title: autogen.agentchat.contrib.capabilities.tools_capability.ToolsCapability
+---
+<h2 id="autogen.agentchat.contrib.capabilities.tools_capability.ToolsCapability" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">ToolsCapability</span>
+</h2>
+
+```python
+ToolsCapability(tool_list: list[autogen.tools.Tool])
+```
+
+    Adding a list of tools as composable capabilities to a single agent.
+    This class can be inherited from to allow code to run at the point of creating or adding the capability.
+    
+    Note: both caller and executor of the tools are the same agent.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `tool_list` | **Type:** `list[autogen.tools.Tool]` |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### add_to_agent
+
+```python
+add_to_agent(self, agent: autogen.ConversableAgent) -> 
+```
+
+    Add tools to the given agent.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `agent` | **Type:** `autogen.ConversableAgent` |
+
+<br />

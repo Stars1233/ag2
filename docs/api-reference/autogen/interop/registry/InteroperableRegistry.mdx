@@ -1,0 +1,88 @@
+---
+sidebarTitle: InteroperableRegistry
+title: autogen.interop.registry.InteroperableRegistry
+---
+<h2 id="autogen.interop.registry.InteroperableRegistry" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">InteroperableRegistry</span>
+</h2>
+
+```python
+InteroperableRegistry()
+```
+
+    
+
+### Static Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_instance
+
+```python
+get_instance() -> autogen.interop.registry.InteroperableRegistry
+```
+
+    
+
+<br />
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_class
+
+```python
+get_class(self, short_name: str) -> type[autogen.interop.Interoperable]
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `short_name` | **Type:** `str` |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_short_names
+
+```python
+get_short_names(self) -> list[str]
+```
+
+    
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_supported_types
+
+```python
+get_supported_types(self) -> list[str]
+```
+
+    
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### register
+
+```python
+register(
+    self,
+    short_name: str,
+    cls: ~InteroperableClass
+) -> ~InteroperableClass
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `short_name` | **Type:** `str` |
+| `cls` | **Type:** `~InteroperableClass` |
+
+<br />

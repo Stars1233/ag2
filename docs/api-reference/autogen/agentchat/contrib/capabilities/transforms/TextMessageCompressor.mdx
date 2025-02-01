@@ -1,0 +1,82 @@
+---
+sidebarTitle: TextMessageCompressor
+title: autogen.agentchat.contrib.capabilities.transforms.TextMessageCompressor
+---
+<h2 id="autogen.agentchat.contrib.capabilities.transforms.TextMessageCompressor" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">TextMessageCompressor</span>
+</h2>
+
+```python
+TextMessageCompressor(
+    text_compressor: autogen.agentchat.contrib.capabilities.text_compressors.TextCompressor | None = None,
+    min_tokens: int | None = None,
+    compression_params: dict = \{},
+    cache: autogen.cache.AbstractCache | None = None,
+    filter_dict: dict | None = None,
+    exclude_filter: bool = True
+)
+```
+
+    A transform for compressing text messages in a conversation history.
+    
+    It uses a specified text compression method to reduce the token count of messages, which can lead to more efficient
+    processing and response generation by downstream models.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `text_compressor` | An instance of a class that implements the TextCompressor protocol.<br/><br/>If None, it defaults to LLMLingua.<br/><br/>**Type:** `autogen.agentchat.contrib.capabilities.text_compressors.TextCompressor \| None`<br/><br/>**Default:** None |
+| `min_tokens` | Minimum number of tokens in messages to apply the transformation.<br/><br/>Must be greater than or equal to 0 if not None.<br/><br/>If None, no threshold-based compression is applied.<br/><br/>**Type:** `int \| None`<br/><br/>**Default:** None |
+| `compression_params` | **Type:** `dict`<br/><br/>**Default:** \{} |
+| `cache` | The cache client to use to store and retrieve previously compressed messages.<br/><br/>If None, no caching will be used.<br/><br/>**Type:** `autogen.cache.AbstractCache \| None`<br/><br/>**Default:** None |
+| `filter_dict` | A dictionary to filter out messages that you want/don't want to compress.<br/><br/>If None, no filters will be applied.<br/><br/>**Type:** `dict \| None`<br/><br/>**Default:** None |
+| `exclude_filter` | If exclude filter is True (the default value), messages that match the filter will be excluded from compression.<br/><br/>If False, messages that match the filter will be compressed.<br/><br/>**Type:** `bool`<br/><br/>**Default:** True |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### apply_transform
+
+```python
+apply_transform(self, messages: list[dict]) -> list[dict]
+```
+
+    Applies compression to messages in a conversation history based on the specified configuration.
+    
+    The function processes each message according to the `compression_args` and `min_tokens` settings, applying
+    the specified compression configuration and returning a new list of messages with reduced token counts
+    where possible.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `messages` | A list of message dictionaries to be compressed.<br/><br/>**Type:** `list[dict]` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[dict]` | List[Dict]: A list of dictionaries with the message content compressed according to the configured method and scope. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_logs
+
+```python
+get_logs(
+    self,
+    pre_transform_messages: list[dict],
+    post_transform_messages: list[dict]
+) -> tuple[str, bool]
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `pre_transform_messages` | **Type:** `list[dict]` |
+| `post_transform_messages` | **Type:** `list[dict]` |
+
+<br />

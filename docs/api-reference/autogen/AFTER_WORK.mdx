@@ -1,0 +1,27 @@
+---
+sidebarTitle: AFTER_WORK
+title: autogen.AFTER_WORK
+---
+<h2 id="autogen.AFTER_WORK" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">AFTER_WORK</span>
+</h2>
+
+```python
+AFTER_WORK(agent: autogen.AfterWorkOption | ForwardRef('SwarmAgent') | str | Callable)
+```
+
+    Handles the next step in the conversation when an agent doesn't suggest a tool call or a handoff
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `agent` | The agent to hand off to or the after work option.<br/><br/>Can be a SwarmAgent, a string name of a SwarmAgent, an AfterWorkOption, or a Callable.<br/><br/>The Callable signature is: def my_after_work_func(last_speaker: SwarmAgent, messages: List[Dict[str, Any]], groupchat: GroupChat) -> Union[AfterWorkOption, SwarmAgent, str]:<br/><br/>**Type:** `autogen.AfterWorkOption \| ForwardRef('SwarmAgent') \| str \| Callable` |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### agent
+<br />
+
+    <br />

@@ -1,0 +1,34 @@
+---
+sidebarTitle: register_function
+title: autogen.register_function
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### register_function
+
+```python
+register_function(
+    f: Callable[..., Any],
+    *,
+    caller: autogen.ConversableAgent,
+    executor: autogen.ConversableAgent,
+    name: str | None = None,
+    description: str
+) -> None
+```
+
+    Register a function to be proposed by an agent and executed for an executor.
+    
+    This function can be used instead of function decorators `@ConversationAgent.register_for_llm` and
+    `@ConversationAgent.register_for_execution`.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `f` | the function to be registered.<br/><br/>**Type:** `Callable[..., Any]` |
+| `caller` | the agent calling the function, typically an instance of ConversableAgent.<br/><br/>**Type:** `autogen.ConversableAgent` |
+| `executor` | the agent executing the function, typically an instance of UserProxy.<br/><br/>**Type:** `autogen.ConversableAgent` |
+| `name` | name of the function.<br/><br/>If None, the function name will be used (default: None).<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+| `description` | description of the function.<br/><br/>The description is used by LLM to decode whether the function is called.<br/><br/>Make sure the description is properly describing what the function does or it might not be called by LLM when needed.<br/><br/>**Type:** `str` |
+
+<br />

@@ -1,0 +1,29 @@
+---
+sidebarTitle: content_str
+title: autogen.code_utils.content_str
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### content_str
+
+```python
+content_str(content: str | list[autogen.types.UserMessageTextContentPart | autogen.types.UserMessageImageContentPart] | None) -> str
+```
+
+    Converts the `content` field of an OpenAI message into a string format.
+    
+    This function processes content that may be a string, a list of mixed text and image URLs, or None,
+    and converts it into a string. Text is directly appended to the result string, while image URLs are
+    represented by a placeholder image token. If the content is None, an empty string is returned.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `content` | **Type:** `str \| list[autogen.types.UserMessageTextContentPart \| autogen.types.UserMessageImageContentPart] \| None` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `str` | str: A string representation of the input content. Image URLs are replaced with an image token. |
+
+<br />

@@ -1,0 +1,25 @@
+---
+sidebarTitle: extract_sft_dataset
+title: autogen.agentchat.contrib.reasoning_agent.extract_sft_dataset
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### extract_sft_dataset
+
+```python
+extract_sft_dataset(root: autogen.ThinkNode) -> list[dict]
+```
+
+    Extract the best trajectory or multiple equally good trajectories for SFT training.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `root` | The root node of the tree.<br/><br/>**Type:** `autogen.ThinkNode` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[dict]` | List[Dict]: List of best trajectories, each one is a pair of instruction and response. |
+
+<br />

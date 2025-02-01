@@ -1,0 +1,30 @@
+---
+sidebarTitle: quantify_criteria
+title: autogen.agentchat.contrib.agent_eval.agent_eval.quantify_criteria
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### quantify_criteria
+
+```python
+quantify_criteria(
+    llm_config: dict | Literal[False] | None = None,
+    criteria: list[autogen.agentchat.contrib.agent_eval.criterion.Criterion] = None,
+    task: autogen.agentchat.contrib.agent_eval.task.Task = None,
+    test_case: str = '',
+    ground_truth: str = ''
+) -> 
+```
+
+    Quantifies the performance of a system using the provided criteria.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `llm_config` | llm inference configuration.<br/><br/>**Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
+| `criteria` | A list of criteria for evaluating the utility of a given task.<br/><br/>**Type:** `list[autogen.agentchat.contrib.agent_eval.criterion.Criterion]`<br/><br/>**Default:** None |
+| `task` | The task to evaluate.<br/><br/>**Type:** `autogen.agentchat.contrib.agent_eval.task.Task`<br/><br/>**Default:** None |
+| `test_case` | The test case to evaluate.<br/><br/>**Type:** `str`<br/><br/>**Default:** '' |
+| `ground_truth` | The ground truth for the test case.<br/><br/>**Type:** `str`<br/><br/>**Default:** '' |
+
+<br />

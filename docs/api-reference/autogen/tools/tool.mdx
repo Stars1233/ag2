@@ -1,0 +1,26 @@
+---
+sidebarTitle: tool
+title: autogen.tools.tool
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### tool
+
+```python
+tool(name: str | None = None, description: str | None = None) -> Callable[[Callable[..., Any]], autogen.tools.Tool]
+```
+
+    Decorator to create a Tool from a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `name` | The name of the tool.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+| `description` | The description of the tool.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `Callable[[Callable[..., Any]], autogen.tools.Tool]` | Callable[[Callable[..., Any]], Tool]: A decorator that creates a Tool from a function. |
+
+<br />

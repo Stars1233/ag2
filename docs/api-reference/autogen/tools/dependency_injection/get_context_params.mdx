@@ -1,0 +1,26 @@
+---
+sidebarTitle: get_context_params
+title: autogen.tools.dependency_injection.get_context_params
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### get_context_params
+
+```python
+get_context_params(func: Callable[..., Any], subclass: type[autogen.tools.BaseContext] | type[autogen.tools.ChatContext]) -> list[str]
+```
+
+    Gets the names of the context parameters in a function signature.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `func` | The function to inspect for context parameters.<br/><br/>**Type:** `Callable[..., Any]` |
+| `subclass` | The subclass to search for.<br/><br/>**Type:** `type[autogen.tools.BaseContext] \| type[autogen.tools.ChatContext]` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[str]` | A list of parameter names that are instances of the specified subclass. |
+
+<br />

@@ -1,0 +1,30 @@
+---
+sidebarTitle: generate_criteria
+title: autogen.agentchat.contrib.agent_eval.agent_eval.generate_criteria
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### generate_criteria
+
+```python
+generate_criteria(
+    llm_config: dict | Literal[False] | None = None,
+    task: autogen.agentchat.contrib.agent_eval.task.Task = None,
+    additional_instructions: str = '',
+    max_round=2,
+    use_subcritic: bool = False
+) -> 
+```
+
+    Creates a list of criteria for evaluating the utility of a given task.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `llm_config` | llm inference configuration.<br/><br/>**Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
+| `task` | The task to evaluate.<br/><br/>**Type:** `autogen.agentchat.contrib.agent_eval.task.Task`<br/><br/>**Default:** None |
+| `additional_instructions` | Additional instructions for the criteria agent.<br/><br/>**Type:** `str`<br/><br/>**Default:** '' |
+| `max_round=2` |  |
+| `use_subcritic` | Whether to use the subcritic agent to generate subcriteria.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
+
+<br />

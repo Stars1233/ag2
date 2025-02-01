@@ -1,0 +1,26 @@
+---
+sidebarTitle: create_virtual_env
+title: autogen.code_utils.create_virtual_env
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### create_virtual_env
+
+```python
+create_virtual_env(dir_path: str, **env_args) -> types.SimpleNamespace
+```
+
+    Creates a python virtual environment and returns the context.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `dir_path` | Directory path where the env will be created.<br/><br/>**Type:** `str` |
+| `**env_args` | Any extra args to pass to the `EnvBuilder`<br/><br/> |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `types.SimpleNamespace` | SimpleNamespace: the virtual env context object. |
+
+<br />

@@ -1,0 +1,96 @@
+---
+sidebarTitle: ThinkNode
+title: autogen.ThinkNode
+---
+<h2 id="autogen.ThinkNode" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">ThinkNode</span>
+</h2>
+
+```python
+ThinkNode(content: str, parent: ForwardRef('ThinkNode') | None = None)
+```
+
+    A node in a tree structure representing a step in the reasoning process.
+    
+    This class implements a tree node that stores content (text describing a reasoning step),
+    maintains parent-child relationships, tracks node statistics, and provides utilities
+    for traversing/visualizing the reasoning path.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `content` | The text content/description for this reasoning step.<br/><br/>**Type:** `str` |
+| `parent` | The parent node in the tree, if any.<br/><br/>**Type:** `ForwardRef('ThinkNode') \| None`<br/><br/>**Default:** None |
+
+### Static Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### from_dict
+
+```python
+from_dict(data: dict, parent: ForwardRef('ThinkNode') | None = None) -> autogen.ThinkNode
+```
+
+    Create ThinkNode from dictionary representation.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `data` | Dictionary containing node data<br/><br/>**Type:** `dict` |
+| `parent` | Parent node to attach to<br/><br/>**Type:** `ForwardRef('ThinkNode') \| None`<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `autogen.ThinkNode` | ThinkNode: Reconstructed node with all children |
+
+<br />
+
+### Instance Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### trajectory
+<br />
+
+    Get a formatted string representation of the path from root to this node.
+    
+    Returns:
+        str: A formatted string showing the question and each step in the reasoning process
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### backpropagate
+
+```python
+backpropagate(self, reward: float) -> None
+```
+
+    Update the score of this node and its parents using moving average.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `reward` | The reward to backpropagate up the tree.<br/><br/>**Type:** `float` |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### to_dict
+
+```python
+to_dict(self) -> dict
+```
+
+    Convert ThinkNode to dictionary representation.
+    
+    Returns:
+        Dict: Dictionary containing all node attributes and recursive children
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `dict` | Dict: Dictionary containing all node attributes and recursive children |
+
+<br />

@@ -1,0 +1,26 @@
+---
+sidebarTitle: to_dict
+title: autogen.logger.logger_utils.to_dict
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### to_dict
+
+```python
+to_dict(
+    obj: int | float | str | bool | dict[typing.Any, typing.Any] | list[typing.Any] | tuple[typing.Any, ...] | Any,
+    exclude: tuple[str, ...] = (),
+    no_recursive: tuple[typing.Any, ...] = ()
+) -> Any
+```
+
+    Convert object to dictionary.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `obj` | Object to convert<br/><br/>**Type:** `int \| float \| str \| bool \| dict[typing.Any, typing.Any] \| list[typing.Any] \| tuple[typing.Any, ...] \| Any` |
+| `exclude` | Keys to exclude.<br/><br/>Defaults to ().<br/><br/>**Type:** `tuple[str, ...]`<br/><br/>**Default:** () |
+| `no_recursive` | Types to exclude from recursive conversion.<br/><br/>Defaults to ().<br/><br/>**Type:** `tuple[typing.Any, ...]`<br/><br/>**Default:** () |
+
+<br />

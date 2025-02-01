@@ -1,0 +1,26 @@
+---
+sidebarTitle: chroma_results_to_query_results
+title: autogen.agentchat.contrib.vectordb.utils.chroma_results_to_query_results
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### chroma_results_to_query_results
+
+```python
+chroma_results_to_query_results(data_dict: dict[str, list[list[typing.Any]]], special_key='distances') -> list[list[tuple[autogen.agentchat.contrib.vectordb.base.Document, float]]]
+```
+
+    Converts a dictionary with list-of-list values to a list of tuples.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `data_dict` | A dictionary where keys map to lists of lists or None.<br/><br/>**Type:** `dict[str, list[list[typing.Any]]]` |
+| `special_key='distances'` |  |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[list[tuple[autogen.agentchat.contrib.vectordb.base.Document, float]]]` | A list of tuples, where each tuple contains a sub-dictionary with some keys from the original dictionary and the value from the special_key. |
+
+<br />

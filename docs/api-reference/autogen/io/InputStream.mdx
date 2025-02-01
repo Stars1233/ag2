@@ -1,0 +1,76 @@
+---
+sidebarTitle: InputStream
+title: autogen.io.InputStream
+---
+<h2 id="autogen.io.InputStream" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">InputStream</span>
+</h2>
+
+```python
+InputStream(*args, **kwargs)
+```
+
+    Base class for protocol classes.
+    
+    Protocol classes are defined as::
+    
+        class Proto(Protocol):
+            def meth(self) -> int:
+                ...
+    
+    Such classes are primarily used with static type checkers that recognize
+    structural subtyping (static duck-typing), for example::
+    
+        class C:
+            def meth(self) -> int:
+                return 0
+    
+        def func(x: Proto) -> int:
+            return x.meth()
+    
+        func(C())  # Passes static type check
+    
+    See PEP 544 for details. Protocol classes decorated with
+    @typing.runtime_checkable act as simple-minded runtime protocols that check
+    only the presence of given attributes, ignoring their type signatures.
+    Protocol classes can be generic, they are defined as::
+    
+        class GenProto(Protocol[T]):
+            def meth(self) -> T:
+                ...
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### input
+
+```python
+input(
+    self,
+    prompt: str = '',
+    *,
+    password: bool = False
+) -> str
+```
+
+    Read a line from the input stream.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `prompt` | The prompt to display.<br/><br/>Defaults to "".<br/><br/>**Type:** `str`<br/><br/>**Default:** '' |
+| `password` | Whether to read a password.<br/><br/>Defaults to False.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `str` | str: The line read from the input stream. |
+
+<br />

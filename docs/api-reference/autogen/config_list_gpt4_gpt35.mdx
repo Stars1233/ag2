@@ -1,0 +1,35 @@
+---
+sidebarTitle: config_list_gpt4_gpt35
+title: autogen.config_list_gpt4_gpt35
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### config_list_gpt4_gpt35
+
+```python
+config_list_gpt4_gpt35(
+    key_file_path: str | None = '.',
+    openai_api_key_file: str | None = 'key_openai.txt',
+    aoai_api_key_file: str | None = 'key_aoai.txt',
+    aoai_api_base_file: str | None = 'base_aoai.txt',
+    exclude: str | None = None
+) -> list[dict[str, typing.Any]]
+```
+
+    Get a list of configs for 'gpt-4' followed by 'gpt-3.5-turbo' API calls.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `key_file_path` | The path to the key files.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** '.' |
+| `openai_api_key_file` | The file name of the openai api key.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'key_openai.txt' |
+| `aoai_api_key_file` | The file name of the azure openai api key.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'key_aoai.txt' |
+| `aoai_api_base_file` | The file name of the azure openai api base.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'base_aoai.txt' |
+| `exclude` | The api type to exclude, "openai" or "aoai".<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[dict[str, typing.Any]]` | list: A list of configs for openai api calls. |
+
+<br />

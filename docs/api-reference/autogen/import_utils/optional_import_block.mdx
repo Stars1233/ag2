@@ -1,0 +1,25 @@
+---
+sidebarTitle: optional_import_block
+title: autogen.import_utils.optional_import_block
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### optional_import_block
+
+```python
+optional_import_block() -> Generator[autogen.import_utils.Result, None, None]
+```
+
+    Guard a block of code to suppress ImportErrors
+    
+    A context manager to temporarily suppress ImportErrors.
+    Use this to attempt imports without failing immediately on missing modules.
+    
+    Example:
+    ```python
+    with optional_import_block():
+        import some_module
+        import some_other_module
+    ```
+
+<br />

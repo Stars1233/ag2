@@ -1,0 +1,43 @@
+---
+sidebarTitle: config_list_openai_aoai
+title: autogen.config_list_openai_aoai
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### config_list_openai_aoai
+
+```python
+config_list_openai_aoai(
+    key_file_path: str | None = '.',
+    openai_api_key_file: str | None = 'key_openai.txt',
+    aoai_api_key_file: str | None = 'key_aoai.txt',
+    openai_api_base_file: str | None = 'base_openai.txt',
+    aoai_api_base_file: str | None = 'base_aoai.txt',
+    exclude: str | None = None
+) -> list[dict[str, typing.Any]]
+```
+
+    Get a list of configs for OpenAI API client (including Azure or local model deployments that support OpenAI's chat completion API).
+    
+    This function constructs configurations by reading API keys and base URLs from environment variables or text files.
+    It supports configurations for both OpenAI and Azure OpenAI services, allowing for the exclusion of one or the other.
+    When text files are used, the environment variables will be overwritten.
+    To prevent text files from being used, set the corresponding file name to None.
+    Or set key_file_path to None to disallow reading from text files.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `key_file_path` | The directory path where the API key files are located.<br/><br/>Defaults to the current directory.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** '.' |
+| `openai_api_key_file` | The filename containing the OpenAI API key.<br/><br/>Defaults to 'key_openai.txt'.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'key_openai.txt' |
+| `aoai_api_key_file` | The filename containing the Azure OpenAI API key.<br/><br/>Defaults to 'key_aoai.txt'.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'key_aoai.txt' |
+| `openai_api_base_file` | The filename containing the OpenAI API base URL.<br/><br/>Defaults to 'base_openai.txt'.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'base_openai.txt' |
+| `aoai_api_base_file` | The filename containing the Azure OpenAI API base URL.<br/><br/>Defaults to 'base_aoai.txt'.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'base_aoai.txt' |
+| `exclude` | The API type to exclude from the configuration list.<br/><br/>Can be 'openai' or 'aoai'.<br/><br/>Defaults to None.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[dict[str, typing.Any]]` | List[Dict]: A list of configuration dictionaries. Each dictionary contains keys for 'api_key', and optionally 'base_url', 'api_type', and 'api_version'. |
+
+<br />

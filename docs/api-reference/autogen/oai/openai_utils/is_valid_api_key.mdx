@@ -1,0 +1,27 @@
+---
+sidebarTitle: is_valid_api_key
+title: autogen.oai.openai_utils.is_valid_api_key
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### is_valid_api_key
+
+```python
+is_valid_api_key(api_key: str) -> bool
+```
+
+    Determine if input is valid OpenAI API key. As of 2024-09-24 there's no official definition of the key structure
+    so we will allow anything starting with "sk-" and having at least 48 alphanumeric (plus underscore and dash) characters.
+    Keys are known to start with "sk-", "sk-proj", "sk-None", and "sk-svcaat"
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `api_key` | An input string to be validated.<br/><br/>**Type:** `str` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `bool` | bool: A boolean that indicates if input is valid OpenAI API key. |
+
+<br />

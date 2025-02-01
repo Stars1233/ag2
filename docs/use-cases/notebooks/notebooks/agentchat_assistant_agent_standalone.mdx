@@ -1,0 +1,151 @@
+---
+custom_edit_url: https://github.com/ag2ai/ag2/edit/main/notebook/agentchat_assistant_agent_standalone.ipynb
+description: Run a standalone AssistantAgent, browsing the web using the BrowserUseTool
+source_notebook: /notebook/agentchat_assistant_agent_standalone.ipynb
+tags:
+- assistantagent
+- run
+- browser-use
+- webscraping
+- function calling
+title: Run a standalone AssistantAgent
+---
+
+<a href="https://colab.research.google.com/github/ag2ai/ag2/blob/main/notebook/agentchat_assistant_agent_standalone.ipynb" class="colab-badge" target="_blank"><img noZoom src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a>
+<a href="https://github.com/ag2ai/ag2/blob/main/notebook/agentchat_assistant_agent_standalone.ipynb" class="github-badge" target="_blank"><img noZoom src="https://img.shields.io/badge/Open%20on%20GitHub-grey?logo=github" alt="Open on GitHub" /></a>
+
+
+
+
+AG2 supports running `AssistantAgent` as a standalone agent with the
+ability to execute simple tasks without the need for interacting with
+other agents.
+
+In this notebook, we’ll enable our assistant agent access to surf the
+web. We will use the `BrowserUseTool` Tool, for which we need to install
+the browser-use optional dependency and
+[playwright](https://playwright.dev/python/docs/intro).
+
+
+<div class="info Requirements">
+<Info>
+Install `ag2`:
+
+```bash
+pip install ag2[browser-use]
+playwright install
+```
+</Info>
+</div>
+
+```python
+import autogen
+from autogen import AssistantAgent
+from autogen.tools.experimental.browser_use.browser_use import BrowserUseTool
+```
+
+
+```python
+import nest_asyncio
+
+nest_asyncio.apply()
+```
+
+## Set your API Endpoint
+
+The
+[`config_list_from_json`](https://docs.ag2.ai/reference/autogen/config_list_from_json#config-list-from-json)
+function loads a list of configurations from an environment variable or
+a JSON file.
+
+```python
+config_list = autogen.config_list_from_json(
+    "OAI_CONFIG_LIST",
+    filter_dict={
+        "tags": ["gpt-4o-mini"],
+    },
+)
+
+llm_config = {
+    "timeout": 600,
+    "config_list": config_list,
+    "temperature": 0.8,
+}
+```
+
+# Configure your assistant agent
+
+Here we will configure two assistant agents: 1. x_assistant, tasked with
+exploring the trending topics on X (formally Twitter) 2.
+arxiv_researcher, tasked with discovery of papers that allign with the
+hot topic of the day
+
+We will set the browser configuration to not run headless, this will
+open the browser as a window so you can see it in action.
+
+```python
+x_assistant = AssistantAgent(name="x_assistant", llm_config=llm_config)
+
+arxiv_researcher = AssistantAgent(name="arxiv", llm_config=llm_config)
+
+browser_use_tool = BrowserUseTool(
+    llm_config=llm_config,
+    browser_config={"headless": False},
+)
+```
+
+## Running the assistant agents
+
+Let’s run our x_assistant to discover the hot topic of the day.
+
+To be able to do this we give our assistant the capability to browse the
+web using a `BrowserUseTool` Tool.
+
+```python
+hot_topic_res = x_assistant.run(
+    "Find out today's hot topic and an influencer who is talking about it on X using a web search",
+    tools=browser_use_tool,
+    user_input=False,
+)
+
+print(hot_topic_res.summary)
+```
+
+After discovering the hot topic, let’s run the discovery of papers that
+align with the topic
+
+```python
+paper_abstract = arxiv_researcher.run(
+    "Get the abstract of a relevant paper based on:\n" + hot_topic_res.summary,
+    user_input=False,
+)
+
+print(paper_abstract.summary)
+```
+
+Now, let’s create an X post using our x_assistant
+
+```python
+# Scenario 1. This task requires x_assistant's past state
+post = x_assistant.run(
+    "Create an X post based on the hot topic and the following and mention the influencer:\n" + paper_abstract.summary,
+    user_input=False,
+)
+
+print(post.summary)
+```
+
+Finally, let’s ask our x_assistant who should we follow on X
+
+```python
+# Scenario 2. Doing another task that does not require history or past state
+
+influencer_choice = x_assistant.run(
+    "Find a influencer I should follow on Twitter by searching the web",
+    clear_history=True,
+    tools=browser_use_tool,
+    user_input=False,
+)
+
+print(influencer_choice.summary)
+```

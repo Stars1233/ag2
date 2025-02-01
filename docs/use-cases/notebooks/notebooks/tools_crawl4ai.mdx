@@ -1,0 +1,151 @@
+---
+custom_edit_url: https://github.com/ag2ai/ag2/edit/main/notebook/tools_crawl4ai.ipynb
+description: Supercharging Web Crawling with Crawl4AI
+source_notebook: /notebook/tools_crawl4ai.ipynb
+tags:
+- tools
+- browser-use
+- webscraping
+- function calling
+title: Supercharging Web Crawling with Crawl4AI
+---
+
+<a href="https://colab.research.google.com/github/ag2ai/ag2/blob/main/notebook/tools_crawl4ai.ipynb" class="colab-badge" target="_blank"><img noZoom src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a>
+<a href="https://github.com/ag2ai/ag2/blob/main/notebook/tools_crawl4ai.ipynb" class="github-badge" target="_blank"><img noZoom src="https://img.shields.io/badge/Open%20on%20GitHub-grey?logo=github" alt="Open on GitHub" /></a>
+
+
+
+
+## Installation
+
+To get started with the `crawl4ai` integration in AG2, follow these
+steps:
+
+1.  Install AG2 with the `crawl4ai` extra:
+
+    ```bash
+    pip install ag2[crawl4ai]
+    ```
+
+2.  Set up Playwright:
+
+    ```bash
+    playwright install
+    ```
+
+3.  For running the code in Jupyther, use `nest_asyncio` to allow nested
+    event loops. `bash     pip install nest_asyncio`
+
+You’re all set! Now you can start using browsing features in AG2.
+
+## Imports
+
+```python
+import os
+
+import nest_asyncio
+from pydantic import BaseModel
+
+from autogen import AssistantAgent, UserProxyAgent
+from autogen.tools.experimental import Crawl4AITool
+
+nest_asyncio.apply()
+```
+
+## LLM-Free Crawl4AI
+
+```python
+config_list = [{"model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
+
+llm_config = {
+    "config_list": config_list,
+}
+
+user_proxy = UserProxyAgent(name="user_proxy", human_input_mode="NEVER")
+assistant = AssistantAgent(name="assistant", llm_config=llm_config)
+```
+
+
+```python
+crawlai_tool = Crawl4AITool()
+
+crawlai_tool.register_for_execution(user_proxy)
+crawlai_tool.register_for_llm(assistant)
+```
+
+
+```python
+result = user_proxy.initiate_chat(
+    recipient=assistant,
+    message="Get info from https://docs.ag2.ai/docs/Home",
+    max_turns=2,
+)
+```
+
+## Crawl4AI with LLM
+
+```python
+config_list = [{"model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
+
+llm_config = {
+    "config_list": config_list,
+}
+
+user_proxy = UserProxyAgent(name="user_proxy", human_input_mode="NEVER")
+assistant = AssistantAgent(name="assistant", llm_config=llm_config)
+```
+
+
+```python
+# Set llm_config to Crawl4AITool
+crawlai_tool = Crawl4AITool(llm_config=llm_config)
+
+crawlai_tool.register_for_execution(user_proxy)
+crawlai_tool.register_for_llm(assistant)
+```
+
+
+```python
+result = user_proxy.initiate_chat(
+    recipient=assistant,
+    message="Get info from https://docs.ag2.ai/docs/Home",
+    max_turns=2,
+)
+```
+
+## Crawl4AI with LLM & Schema for Structured Data 
+
+```python
+config_list = [{"model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
+
+llm_config = {
+    "config_list": config_list,
+}
+
+user_proxy = UserProxyAgent(name="user_proxy", human_input_mode="NEVER")
+assistant = AssistantAgent(name="assistant", llm_config=llm_config)
+```
+
+
+```python
+class Blog(BaseModel):
+    title: str
+    url: str
+
+
+# Set llm_config and extraction_model to Crawl4AITool
+crawlai_tool = Crawl4AITool(llm_config=llm_config, extraction_model=Blog)
+
+crawlai_tool.register_for_execution(user_proxy)
+crawlai_tool.register_for_llm(assistant)
+```
+
+
+```python
+message = "Extract all blog posts from https://docs.ag2.ai/blog"
+result = user_proxy.initiate_chat(
+    recipient=assistant,
+    message=message,
+    max_turns=2,
+)
+```

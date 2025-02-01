@@ -1,0 +1,171 @@
+---
+sidebarTitle: OpenAIWrapper
+title: autogen.OpenAIWrapper
+---
+<h2 id="autogen.OpenAIWrapper" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">OpenAIWrapper</span>
+</h2>
+
+```python
+OpenAIWrapper(
+    *,
+    config_list: Optional[list[dict[str, Any]]] = None,
+    **base_config: Any
+)
+```
+
+    A wrapper class for openai client.
+    
+    Initialize the OpenAIWrapper.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `config_list` | a list of config dicts to override the base_config.<br/><br/>They can contain additional kwargs as allowed in the [create](/reference/autogen/OpenAIWrapper#create) method.<br/><br/>E.g., ```python config_list = [ \\{ "model": "gpt-4", "api_key": os.environ.get("AZURE_OPENAI_API_KEY"), "api_type": "azure", "base_url": os.environ.get("AZURE_OPENAI_API_BASE"), "api_version": "2024-02-01", }, \\{ "model": "gpt-3.5-turbo", "api_key": os.environ.get("OPENAI_API_KEY"), "api_type": "openai", "base_url": "https://api.openai.com/v1", }, \\{ "model": "llama-7B", "base_url": "http://127.0.0.1:8080", }, ] ```<br/><br/>**Type:** `Optional[list[dict[str, Any]]]`<br/><br/>**Default:** None |
+| `**base_config` | **Type:** `Any` |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### actual_usage_summary
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### aopenai_kwargs
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### extra_kwargs
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### openai_kwargs
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### total_usage_summary
+<br />
+
+    <br />
+
+### Static Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### extract_text_or_completion_object
+
+```python
+extract_text_or_completion_object(response: ModelClient.ModelClientResponseProtocol) -> list[str] | list[autogen.oai.client.ModelClient.ModelClientResponseProtocol.Choice.Message]
+```
+
+    Extract the text or ChatCompletion objects from a completion or chat response.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `response` | The response from openai.<br/><br/>**Type:** `ModelClient.ModelClientResponseProtocol` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `list[str] \| list[autogen.oai.client.ModelClient.ModelClientResponseProtocol.Choice.Message]` | A list of text, or a list of ChatCompletion objects if function_call/tool_calls are present. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### instantiate
+
+```python
+instantiate(
+    template: Optional[Union[str, Callable[[dict[str, Any]], str]]],
+    context: Optional[dict[str, Any]] = None,
+    allow_format_str_template: Optional[bool] = False
+) -> str | None
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `template` | **Type:** `Optional[Union[str, Callable[[dict[str, Any]], str]]]` |
+| `context` | **Type:** `Optional[dict[str, Any]]`<br/><br/>**Default:** None |
+| `allow_format_str_template` | **Type:** `Optional[bool]`<br/><br/>**Default:** False |
+
+<br />
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### clear_usage_summary
+
+```python
+clear_usage_summary(self) -> None
+```
+
+    Clear the usage summary.
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### create
+
+```python
+create(self, **config: Any) -> autogen.oai.client.ModelClient.ModelClientResponseProtocol
+```
+
+    Make a completion for a given config using available clients.
+    Besides the kwargs allowed in openai's [or other] client, we allow the following additional kwargs.
+    The config in each client will be overridden by the config.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `**config` | **Type:** `Any` |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### print_usage_summary
+
+```python
+print_usage_summary(self, mode: Union[str, list[str]] = ['actual', 'total']) -> None
+```
+
+    Print the usage summary.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `mode` | **Type:** `Union[str, list[str]]`<br/><br/>**Default:** ['actual', 'total'] |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### register_model_client
+
+```python
+register_model_client(
+    self,
+    model_client_cls: ModelClient,
+    **kwargs
+) -> 
+```
+
+    Register a model client.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `model_client_cls` | A custom client class that follows the ModelClient interface<br/><br/>**Type:** `ModelClient` |
+| `**kwargs` | The kwargs for the custom client class to be initialized with<br/><br/> |
+
+<br />

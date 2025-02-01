@@ -1,0 +1,26 @@
+---
+sidebarTitle: with_requirements
+title: autogen.coding.func_with_reqs.with_requirements
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### with_requirements
+
+```python
+with_requirements(python_packages: list[str] = [], global_imports: list[str | autogen.coding.func_with_reqs.ImportFromModule | autogen.coding.func_with_reqs.Alias] = []) -> Callable[[Callable[~P, ~T]], autogen.coding.func_with_reqs.FunctionWithRequirements[~T, ~P]]
+```
+
+    Decorate a function with package and import requirements
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `python_packages` | Packages required to function.<br/><br/>Can include version info..<br/><br/>Defaults to [].<br/><br/>**Type:** `list[str]`<br/><br/>**Default:** [] |
+| `global_imports` | Required imports.<br/><br/>Defaults to [].<br/><br/>**Type:** `list[str \| autogen.coding.func_with_reqs.ImportFromModule \| autogen.coding.func_with_reqs.Alias]`<br/><br/>**Default:** [] |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `Callable[[Callable[~P, ~T]], autogen.coding.func_with_reqs.FunctionWithRequirements[~T, ~P]]` | Callable[[Callable[P, T]], FunctionWithRequirements[T, P]]: The decorated function |
+
+<br />

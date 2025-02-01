@@ -1,0 +1,186 @@
+---
+sidebarTitle: OpenAIRealtimeClient
+title: autogen.agentchat.realtime.experimental.clients.OpenAIRealtimeClient
+---
+<h2 id="autogen.agentchat.realtime.experimental.clients.OpenAIRealtimeClient" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">OpenAIRealtimeClient</span>
+</h2>
+
+```python
+OpenAIRealtimeClient(
+    *,
+    llm_config: dict[str, typing.Any],
+    logger: logging.Logger | None = None
+)
+```
+
+    (Experimental) Client for OpenAI Realtime API.
+    
+    (Experimental) Client for OpenAI Realtime API.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `llm_config` | The config for the client.<br/><br/>**Type:** `dict[str, typing.Any]` |
+| `logger` | **Type:** `logging.Logger \| None`<br/><br/>**Default:** None |
+
+### Static Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_factory
+
+```python
+get_factory(
+    llm_config: dict[str, typing.Any],
+    logger: logging.Logger,
+    **kwargs: Any
+) -> 
+```
+
+    Create a Realtime API client.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `llm_config` | **Type:** `dict[str, typing.Any]` |
+| `logger` | **Type:** `logging.Logger` |
+| `**kwargs` | **Type:** `Any` |
+
+<br />
+
+### Instance Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### connection
+<br />
+
+    Get the OpenAI WebSocket connection.
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### logger
+<br />
+
+    Get the logger for the OpenAI Realtime API.
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### connect
+
+```python
+connect(self) -> AsyncGenerator[None, None]
+```
+
+    Connect to the OpenAI Realtime API.
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### read_events
+
+```python
+read_events(self) -> AsyncGenerator[autogen.agentchat.realtime.experimental.realtime_events.RealtimeEvent, None]
+```
+
+    Read messages from the OpenAI Realtime API.
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### send_audio
+
+```python
+send_audio(self, audio: str) -> None
+```
+
+    Send audio to the OpenAI Realtime API.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `audio` | The audio to send.<br/><br/>**Type:** `str` |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### send_function_result
+
+```python
+send_function_result(
+    self,
+    call_id: str,
+    result: str
+) -> None
+```
+
+    Send the result of a function call to the OpenAI Realtime API.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `call_id` | The ID of the function call.<br/><br/>**Type:** `str` |
+| `result` | The result of the function call.<br/><br/>**Type:** `str` |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### send_text
+
+```python
+send_text(
+    self,
+    *,
+    role: Literal['user', 'assistant', 'system'],
+    text: str
+) -> None
+```
+
+    Send a text message to the OpenAI Realtime API.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `role` | The role of the message.<br/><br/>**Type:** `Literal['user', 'assistant', 'system']` |
+| `text` | The text of the message.<br/><br/>**Type:** `str` |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### session_update
+
+```python
+session_update(self, session_options: dict[str, typing.Any]) -> None
+```
+
+    Send a session update to the OpenAI Realtime API.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `session_options` | The session options to update.<br/><br/>**Type:** `dict[str, typing.Any]` |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### truncate_audio
+
+```python
+truncate_audio(
+    self,
+    audio_end_ms: int,
+    content_index: int,
+    item_id: str
+) -> None
+```
+
+    Truncate audio in the OpenAI Realtime API.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `audio_end_ms` | The end of the audio to truncate.<br/><br/>**Type:** `int` |
+| `content_index` | The index of the content to truncate.<br/><br/>**Type:** `int` |
+| `item_id` | The ID of the item to truncate.<br/><br/>**Type:** `str` |
+
+<br />

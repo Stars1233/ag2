@@ -1,0 +1,35 @@
+---
+sidebarTitle: create_swarm_transition
+title: autogen.agentchat.contrib.swarm_agent.create_swarm_transition
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### create_swarm_transition
+
+```python
+create_swarm_transition(
+    initial_agent: SwarmAgent,
+    tool_execution: SwarmAgent,
+    swarm_agent_names: list[str],
+    user_agent: autogen.UserProxyAgent | None,
+    swarm_after_work: autogen.AfterWorkOption | Callable | None
+) -> Callable[[autogen.SwarmAgent, autogen.GroupChat], autogen.Agent | None]
+```
+
+    Creates a transition function for swarm chat with enclosed state for the use_initial_agent.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `initial_agent` | The first agent to speak<br/><br/>**Type:** `SwarmAgent` |
+| `tool_execution` | The tool execution agent<br/><br/>**Type:** `SwarmAgent` |
+| `swarm_agent_names` | List of all agent names<br/><br/>**Type:** `list[str]` |
+| `user_agent` | Optional user proxy agent<br/><br/>**Type:** `autogen.UserProxyAgent \| None` |
+| `swarm_after_work` | Swarm-level after work<br/><br/>**Type:** `autogen.AfterWorkOption \| Callable \| None` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `Callable[[autogen.SwarmAgent, autogen.GroupChat], autogen.Agent \| None]` | Callable transition function (for sync and async swarm chats) |
+
+<br />

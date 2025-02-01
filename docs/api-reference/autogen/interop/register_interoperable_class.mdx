@@ -1,0 +1,37 @@
+---
+sidebarTitle: register_interoperable_class
+title: autogen.interop.register_interoperable_class
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### register_interoperable_class
+
+```python
+register_interoperable_class(short_name: str) -> Callable[[~InteroperableClass], ~InteroperableClass]
+```
+
+    Register an Interoperable class in the global registry.
+    
+    Returns:
+        Callable[[InteroperableClass], InteroperableClass]: Decorator function
+    
+    Example:
+        ```python
+        @register_interoperable_class("myinterop")
+        class MyInteroperability(Interoperable):
+            def convert_tool(self, tool: Any) -> Tool:
+                # implementation
+                ...
+        ```
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `short_name` | **Type:** `str` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `Callable[[~InteroperableClass], ~InteroperableClass]` | Callable[[InteroperableClass], InteroperableClass]: Decorator function |
+
+<br />

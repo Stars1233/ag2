@@ -1,0 +1,39 @@
+---
+sidebarTitle: initiate_swarm_chat
+title: autogen.initiate_swarm_chat
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### initiate_swarm_chat
+
+```python
+initiate_swarm_chat(
+    initial_agent: SwarmAgent,
+    messages: list[dict[str, typing.Any]] | str,
+    agents: list['SwarmAgent'],
+    user_agent: autogen.UserProxyAgent | None = None,
+    max_rounds: int = 20,
+    context_variables: dict[str, typing.Any] | None = None,
+    after_work: autogen.AfterWorkOption | Callable | None = AFTER_WORK(agent=&lt;AfterWorkOption.TERMINATE: 'TERMINATE'>)
+) -> tuple[autogen.ChatResult, dict[str, typing.Any], 'SwarmAgent']
+```
+
+    Initialize and run a swarm chat
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `initial_agent` | The first receiving agent of the conversation.<br/><br/>**Type:** `SwarmAgent` |
+| `messages` | Initial message(s).<br/><br/>**Type:** `list[dict[str, typing.Any]] \| str` |
+| `agents` | List of swarm agents.<br/><br/>**Type:** `list['SwarmAgent']` |
+| `user_agent` | Optional user proxy agent for falling back to.<br/><br/>**Type:** `autogen.UserProxyAgent \| None`<br/><br/>**Default:** None |
+| `max_rounds` | Maximum number of conversation rounds.<br/><br/>**Type:** `int`<br/><br/>**Default:** 20 |
+| `context_variables` | Starting context variables.<br/><br/>**Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
+| `after_work` | Method to handle conversation continuation when an agent doesn't select the next agent.<br/><br/>If no agent is selected and no tool calls are output, we will use this method to determine the next agent.<br/><br/>Must be a AFTER_WORK instance (which is a dataclass accepting a SwarmAgent, AfterWorkOption, A str (of the AfterWorkOption)) or a callable.<br/><br/>AfterWorkOption: - TERMINATE (Default): Terminate the conversation.<br/><br/>- REVERT_TO_USER : Revert to the user agent if a user agent is provided.<br/><br/>If not provided, terminate the conversation.<br/><br/>- STAY : Stay with the last speaker.<br/><br/>Callable: A custom function that takes the current agent, messages, and groupchat as arguments and returns an AfterWorkOption or a SwarmAgent (by reference or string name).<br/><br/>```python def custom_afterwork_func(last_speaker: SwarmAgent, messages: List[Dict[str, Any]], groupchat: GroupChat) -> Union[AfterWorkOption, SwarmAgent, str]: ```<br/><br/>**Type:** `autogen.AfterWorkOption \| Callable \| None = AFTER_WORK(agent`<br/><br/>**Default:** &lt;AfterWorkOption.TERMINATE |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `tuple[autogen.ChatResult, dict[str, typing.Any], 'SwarmAgent']` | ChatResult: Conversations chat history. Dict[str, Any]: Updated Context variables. SwarmAgent: Last speaker. |
+
+<br />

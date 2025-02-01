@@ -1,0 +1,68 @@
+---
+sidebarTitle: CodeExecutor
+title: autogen.coding.CodeExecutor
+---
+<h2 id="autogen.coding.CodeExecutor" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">CodeExecutor</span>
+</h2>
+
+```python
+CodeExecutor(*args, **kwargs)
+```
+
+    (Experimental) A code executor class that executes code blocks and returns the result.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+### Instance Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### code_extractor
+<br />
+
+    (Experimental) The code extractor used by this code executor.
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### execute_code_blocks
+
+```python
+execute_code_blocks(self, code_blocks: list[CodeBlock]) -> autogen.coding.CodeResult
+```
+
+    (Experimental) Execute code blocks and return the result.
+    
+    This method should be implemented by the code executor.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `code_blocks` | The code blocks to execute.<br/><br/>**Type:** `list[CodeBlock]` |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `autogen.coding.CodeResult` | CodeResult: The result of the code execution. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### restart
+
+```python
+restart(self) -> None
+```
+
+    (Experimental) Restart the code executor.
+    
+    This method should be implemented by the code executor.
+    
+    This method is called when the agent is reset.
+
+<br />

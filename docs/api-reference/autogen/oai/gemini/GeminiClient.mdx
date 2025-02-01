@@ -1,0 +1,59 @@
+---
+sidebarTitle: GeminiClient
+title: autogen.oai.gemini.GeminiClient
+---
+<h2 id="autogen.oai.gemini.GeminiClient" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">GeminiClient</span>
+</h2>
+
+```python
+GeminiClient(**kwargs)
+```
+
+    Client for Google's Gemini API.
+    
+    Uses either either api_key for authentication from the LLM config
+    (specifying the GOOGLE_GEMINI_API_KEY environment variable also works),
+    or follows the Google authentication mechanism for VertexAI in Google Cloud if no api_key is specified,
+    where project_id and location can also be passed as parameters. Previously created credentials object can be provided,
+    or a Service account key file can also be used. If neither a service account key file, nor the api_key are passed,
+    then the default credentials will be used, which could be a personal account if the user is already authenticated in,
+    like in Google Cloud Shell.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `**kwargs` |  |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### PARAMS_MAPPING
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### cost
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### create
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### get_usage
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### message_retrieval
+<br />
+
+    <br />
