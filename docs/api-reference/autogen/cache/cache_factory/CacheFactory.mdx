@@ -24,7 +24,7 @@ cache_factory(
     redis_url: str | None = None,
     cache_path_root: str = '.cache',
     cosmosdb_config: dict[str, typing.Any] | None = None
-) -> autogen.cache.AbstractCache
+) -> autogen.cache.abstract_cache_base.AbstractCache
 ```
 
     Factory function for creating cache instances.
@@ -45,6 +45,6 @@ cache_factory(
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.cache.AbstractCache` | An instance of RedisCache, DiskCache, or CosmosDBCache. |
+| `autogen.cache.abstract_cache_base.AbstractCache` | An instance of RedisCache, DiskCache, or CosmosDBCache. |
 
 <br />

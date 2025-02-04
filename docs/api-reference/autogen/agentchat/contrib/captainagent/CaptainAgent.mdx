@@ -32,7 +32,7 @@ CaptainAgent(
 |--|--|
 | `name` | agent name.<br/><br/>**Type:** `str` |
 | `system_message` | system message for the ChatCompletion inference.<br/><br/>Please override this attribute if you want to reprogram the agent.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
-| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/reference/autogen/OpenAIWrapper#create) for available options.<br/><br/>**Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
+| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create) for available options.<br/><br/>**Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
 | `is_termination_msg` | a function that takes a message in the form of a dictionary and returns a boolean value indicating if this received message is a termination message.<br/><br/>The dict can contain the following keys: "content", "role", "name", "function_call".<br/><br/>**Type:** `Callable[[dict], bool] \| None`<br/><br/>**Default:** None |
 | `max_consecutive_auto_reply` | the maximum number of consecutive auto replies.<br/><br/>default to None (no limit provided, class attribute MAX_CONSECUTIVE_AUTO_REPLY will be used as the limit in this case).<br/><br/>The limit only plays a role when human_input_mode is not "ALWAYS".<br/><br/>**Type:** `int \| None`<br/><br/>**Default:** None |
 | `human_input_mode` | **Type:** `str \| None`<br/><br/>**Default:** 'NEVER' |

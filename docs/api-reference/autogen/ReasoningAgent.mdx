@@ -62,7 +62,7 @@ ReasoningAgent(
 generate_forest_response(
     self,
     messages: list[dict],
-    sender: autogen.Agent,
+    sender: autogen.agentchat.agent.Agent,
     config: dict | None = None
 ) -> tuple[bool, str]
 ```
@@ -73,7 +73,7 @@ generate_forest_response(
 | Name | Description |
 |--|--|
 | `messages` | Input messages to respond to<br/><br/>**Type:** `list[dict]` |
-| `sender` | Agent sending the messages<br/><br/>**Type:** `autogen.Agent` |
+| `sender` | Agent sending the messages<br/><br/>**Type:** `autogen.agentchat.agent.Agent` |
 | `config` | Optional configuration<br/><br/>**Type:** `dict \| None`<br/><br/>**Default:** None |
 
 <b>Returns:</b>
@@ -89,7 +89,7 @@ generate_forest_response(
 ```python
 rate_node(
     self,
-    node: autogen.ThinkNode,
+    node: autogen.agentchat.contrib.reasoning_agent.ThinkNode,
     ground_truth: str = None,
     is_outcome: bool = False
 ) -> float
@@ -100,7 +100,7 @@ rate_node(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `node` | Node containing the reasoning trajectory to evaluate<br/><br/>**Type:** `autogen.ThinkNode` |
+| `node` | Node containing the reasoning trajectory to evaluate<br/><br/>**Type:** `autogen.agentchat.contrib.reasoning_agent.ThinkNode` |
 | `ground_truth` | Optional ground truth to provide to the grader<br/><br/>**Type:** `str`<br/><br/>**Default:** None |
 | `is_outcome` | indicates whether the rating is for an outcome (final answer) or a process (thinking trajectory).<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
 

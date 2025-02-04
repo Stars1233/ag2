@@ -25,7 +25,7 @@ CodeExtractor(*args, **kwargs)
 #### extract_code_blocks
 
 ```python
-extract_code_blocks(self, message: str | list[Union[UserMessageTextContentPart, UserMessageImageContentPart]] | None) -> list[autogen.coding.CodeBlock]
+extract_code_blocks(self, message: str | list[Union[UserMessageTextContentPart, UserMessageImageContentPart]] | None) -> list[autogen.coding.base.CodeBlock]
 ```
 
     (Experimental) Extract code blocks from a message.
@@ -38,6 +38,6 @@ extract_code_blocks(self, message: str | list[Union[UserMessageTextContentPar
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `list[autogen.coding.CodeBlock]` | List[CodeBlock]: The extracted code blocks. |
+| `list[autogen.coding.base.CodeBlock]` | List[CodeBlock]: The extracted code blocks. |
 
 <br />

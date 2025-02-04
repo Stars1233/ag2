@@ -11,7 +11,7 @@ title: autogen.agentchat.realtime.experimental.RealtimeAgent
 RealtimeAgent(
     *,
     name: str,
-    audio_adapter: autogen.agentchat.realtime.experimental.RealtimeObserver | None = None,
+    audio_adapter: autogen.agentchat.realtime.experimental.realtime_observer.RealtimeObserver | None = None,
     system_message: str = 'You are a helpful AI Assistant.',
     llm_config: dict[str, typing.Any],
     logger: logging.Logger | None = None,
@@ -27,7 +27,7 @@ RealtimeAgent(
 | Name | Description |
 |--|--|
 | `name` | The name of the agent.<br/><br/>**Type:** `str` |
-| `audio_adapter` | The audio adapter for the agent.<br/><br/>**Type:** `autogen.agentchat.realtime.experimental.RealtimeObserver \| None`<br/><br/>**Default:** None |
+| `audio_adapter` | The audio adapter for the agent.<br/><br/>**Type:** `autogen.agentchat.realtime.experimental.realtime_observer.RealtimeObserver \| None`<br/><br/>**Default:** None |
 | `system_message` | The system message for the agent.<br/><br/>**Type:** `str`<br/><br/>**Default:** 'You are a helpful AI Assistant.' |
 | `llm_config` | The config for the agent.<br/><br/>**Type:** `dict[str, typing.Any]` |
 | `logger` | The logger for the agent.<br/><br/>**Type:** `logging.Logger \| None`<br/><br/>**Default:** None |
@@ -65,7 +65,7 @@ RealtimeAgent(
 #### register_observer
 
 ```python
-register_observer(self, observer: autogen.agentchat.realtime.experimental.RealtimeObserver) -> None
+register_observer(self, observer: autogen.agentchat.realtime.experimental.realtime_observer.RealtimeObserver) -> None
 ```
 
     Register an observer with the Realtime Agent.
@@ -73,7 +73,7 @@ register_observer(self, observer: autogen.agentchat.realtime.experimental.Realt
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `observer` | The observer to register.<br/><br/>**Type:** `autogen.agentchat.realtime.experimental.RealtimeObserver` |
+| `observer` | The observer to register.<br/><br/>**Type:** `autogen.agentchat.realtime.experimental.realtime_observer.RealtimeObserver` |
 
 <br />
 
@@ -86,7 +86,7 @@ register_realtime_function(
     *,
     name: str | None = None,
     description: str | None = None
-) -> Callable[[~F | autogen.tools.Tool], autogen.tools.Tool]
+) -> Callable[[~F | autogen.tools.tool.Tool], autogen.tools.tool.Tool]
 ```
 
     Decorator for registering a function to be used by an agent.
@@ -100,7 +100,7 @@ register_realtime_function(
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `Callable[[~F \| autogen.tools.Tool], autogen.tools.Tool]` | Callable[[Union[F, Tool]], Tool]: The decorator for registering a function. |
+| `Callable[[~F \| autogen.tools.tool.Tool], autogen.tools.tool.Tool]` | Callable[[Union[F, Tool]], Tool]: The decorator for registering a function. |
 
 <br />
 

@@ -10,8 +10,8 @@ title: autogen.agentchat.realtime.experimental.register_swarm
 register_swarm(
     *,
     realtime_agent: RealtimeAgent,
-    initial_agent: autogen.SwarmAgent,
-    agents: list[autogen.SwarmAgent],
+    initial_agent: autogen.agentchat.contrib.swarm_agent.SwarmAgent,
+    agents: list[autogen.agentchat.contrib.swarm_agent.SwarmAgent],
     system_message: str | None = None
 ) -> 
 ```
@@ -22,8 +22,8 @@ register_swarm(
 | Name | Description |
 |--|--|
 | `realtime_agent` | The RealtimeAgent to create the SwarmableRealtimeAgent from.<br/><br/>**Type:** `RealtimeAgent` |
-| `initial_agent` | The initial agent.<br/><br/>**Type:** `autogen.SwarmAgent` |
-| `agents` | The agents in the swarm.<br/><br/>**Type:** `list[autogen.SwarmAgent]` |
+| `initial_agent` | The initial agent.<br/><br/>**Type:** `autogen.agentchat.contrib.swarm_agent.SwarmAgent` |
+| `agents` | The agents in the swarm.<br/><br/>**Type:** `list[autogen.agentchat.contrib.swarm_agent.SwarmAgent]` |
 | `system_message` | The system message to set for the agent.<br/><br/>If None, the default system message is used.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
 
 <br />

@@ -18,7 +18,7 @@ SwarmAgent(
     human_input_mode: Literal['ALWAYS', 'NEVER', 'TERMINATE'] = 'NEVER',
     description: str | None = None,
     code_execution_config=False,
-    update_agent_state_before_reply: list[Callable | autogen.UPDATE_SYSTEM_MESSAGE] | Callable | autogen.UPDATE_SYSTEM_MESSAGE | None = None,
+    update_agent_state_before_reply: list[Callable | autogen.agentchat.contrib.swarm_agent.UPDATE_SYSTEM_MESSAGE] | Callable | autogen.agentchat.contrib.swarm_agent.UPDATE_SYSTEM_MESSAGE | None = None,
     **kwargs
 )
 ```
@@ -36,14 +36,14 @@ SwarmAgent(
 |--|--|
 | `name` | name of the agent.<br/><br/>**Type:** `str` |
 | `system_message` | system message for the ChatCompletion inference.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'You are a helpful AI Assistant.' |
-| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/reference/autogen/OpenAIWrapper#create) for available options.<br/><br/>When using OpenAI or Azure OpenAI endpoints, please specify a non-empty 'model' either in `llm_config` or in each config of 'config_list' in `llm_config`.<br/><br/>To disable llm-based auto reply, set to False.<br/><br/>When set to None, will use self.DEFAULT_CONFIG, which defaults to False.<br/><br/>**Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
+| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create) for available options.<br/><br/>When using OpenAI or Azure OpenAI endpoints, please specify a non-empty 'model' either in `llm_config` or in each config of 'config_list' in `llm_config`.<br/><br/>To disable llm-based auto reply, set to False.<br/><br/>When set to None, will use self.DEFAULT_CONFIG, which defaults to False.<br/><br/>**Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
 | `functions` | **Type:** `list[typing.Callable] \| Callable`<br/><br/>**Default:** None |
 | `is_termination_msg` | a function that takes a message in the form of a dictionary and returns a boolean value indicating if this received message is a termination message.<br/><br/>The dict can contain the following keys: "content", "role", "name", "function_call".<br/><br/>**Type:** `Callable[[dict], bool] \| None`<br/><br/>**Default:** None |
 | `max_consecutive_auto_reply` | the maximum number of consecutive auto replies.<br/><br/>default to None (no limit provided, class attribute MAX_CONSECUTIVE_AUTO_REPLY will be used as the limit in this case).<br/><br/>When set to 0, no auto reply will be generated.<br/><br/>**Type:** `int \| None`<br/><br/>**Default:** None |
 | `human_input_mode` | whether to ask for human inputs every time a message is received.<br/><br/>Possible values are "ALWAYS", "TERMINATE", "NEVER".<br/><br/>(1) When "ALWAYS", the agent prompts for human input every time a message is received.<br/><br/>Under this mode, the conversation stops when the human input is "exit", or when is_termination_msg is True and there is no human input.<br/><br/>(2) When "TERMINATE", the agent only prompts for human input only when a termination message is received or the number of auto reply reaches the max_consecutive_auto_reply.<br/><br/>(3) When "NEVER", the agent will never prompt for human input.<br/><br/>Under this mode, the conversation stops when the number of auto reply reaches the max_consecutive_auto_reply or when is_termination_msg is True.<br/><br/>**Type:** `Literal['ALWAYS', 'NEVER', 'TERMINATE']`<br/><br/>**Default:** 'NEVER' |
 | `description` | a short description of the agent.<br/><br/>This description is used by other agents (e.g.<br/><br/>the GroupChatManager) to decide when to call upon this agent.<br/><br/>(Default: system_message)<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
 | `code_execution_config=False` |  |
-| `update_agent_state_before_reply` | **Type:** `list[Callable \| autogen.UPDATE_SYSTEM_MESSAGE] \| Callable \| autogen.UPDATE_SYSTEM_MESSAGE \| None`<br/><br/>**Default:** None |
+| `update_agent_state_before_reply` | **Type:** `list[Callable \| autogen.agentchat.contrib.swarm_agent.UPDATE_SYSTEM_MESSAGE] \| Callable \| autogen.agentchat.contrib.swarm_agent.UPDATE_SYSTEM_MESSAGE \| None`<br/><br/>**Default:** None |
 | `**kwargs` |  |
 
 ### Static Methods
@@ -54,9 +54,9 @@ SwarmAgent(
 ```python
 process_nested_chat_carryover(
     chat: dict[str, typing.Any],
-    recipient: autogen.ConversableAgent,
+    recipient: autogen.agentchat.conversable_agent.ConversableAgent,
     messages: list[dict[str, typing.Any]],
-    sender: autogen.ConversableAgent,
+    sender: autogen.agentchat.conversable_agent.ConversableAgent,
     config: Any,
     trim_n_messages: int = 0
 ) -> None
@@ -78,9 +78,9 @@ process_nested_chat_carryover(
 | Name | Description |
 |--|--|
 | `chat` | The chat dictionary containing the carryover configuration<br/><br/>**Type:** `dict[str, typing.Any]` |
-| `recipient` | The recipient agent<br/><br/>**Type:** `autogen.ConversableAgent` |
+| `recipient` | The recipient agent<br/><br/>**Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
 | `messages` | The messages from the parent chat<br/><br/>**Type:** `list[dict[str, typing.Any]]` |
-| `sender` | The sender agent<br/><br/>**Type:** `autogen.ConversableAgent` |
+| `sender` | The sender agent<br/><br/>**Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
 | `config` | **Type:** `Any` |
 | `trim_n_messages` | The number of latest messages to trim from the messages list<br/><br/>**Type:** `int`<br/><br/>**Default:** 0 |
 
@@ -134,8 +134,8 @@ add_single_function(
 generate_swarm_tool_reply(
     self,
     messages: list[dict] | None = None,
-    sender: autogen.Agent | None = None,
-    config: autogen.OpenAIWrapper | None = None
+    sender: autogen.agentchat.agent.Agent | None = None,
+    config: autogen.oai.client.OpenAIWrapper | None = None
 ) -> tuple[bool, dict]
 ```
 
@@ -150,8 +150,8 @@ generate_swarm_tool_reply(
 | Name | Description |
 |--|--|
 | `messages` | **Type:** `list[dict] \| None`<br/><br/>**Default:** None |
-| `sender` | **Type:** `autogen.Agent \| None`<br/><br/>**Default:** None |
-| `config` | **Type:** `autogen.OpenAIWrapper \| None`<br/><br/>**Default:** None |
+| `sender` | **Type:** `autogen.agentchat.agent.Agent \| None`<br/><br/>**Default:** None |
+| `config` | **Type:** `autogen.oai.client.OpenAIWrapper \| None`<br/><br/>**Default:** None |
 
 <br />
 
@@ -159,7 +159,7 @@ generate_swarm_tool_reply(
 #### register_hand_off
 
 ```python
-register_hand_off(self, hand_to: list[autogen.ON_CONDITION | autogen.AFTER_WORK] | autogen.ON_CONDITION | autogen.AFTER_WORK) -> 
+register_hand_off(self, hand_to: list[autogen.agentchat.contrib.swarm_agent.ON_CONDITION | autogen.agentchat.contrib.swarm_agent.AFTER_WORK] | autogen.agentchat.contrib.swarm_agent.ON_CONDITION | autogen.agentchat.contrib.swarm_agent.AFTER_WORK) -> 
 ```
 
     Register a function to hand off to another agent.
@@ -167,7 +167,7 @@ register_hand_off(self, hand_to: list[autogen.ON_CONDITION | autogen.AFTER_WO
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `hand_to` | A list of ON_CONDITIONs and an, optional, AFTER_WORK condition<br/><br/>**Type:** `list[autogen.ON_CONDITION \| autogen.AFTER_WORK] \| autogen.ON_CONDITION \| autogen.AFTER_WORK` |
+| `hand_to` | A list of ON_CONDITIONs and an, optional, AFTER_WORK condition<br/><br/>**Type:** `list[autogen.agentchat.contrib.swarm_agent.ON_CONDITION \| autogen.agentchat.contrib.swarm_agent.AFTER_WORK] \| autogen.agentchat.contrib.swarm_agent.ON_CONDITION \| autogen.agentchat.contrib.swarm_agent.AFTER_WORK` |
 
 <br />
 

@@ -24,7 +24,7 @@ LangChainInteroperability()
 #### convert_tool
 
 ```python
-convert_tool(tool: Any, **kwargs: Any) -> autogen.tools.Tool
+convert_tool(tool: Any, **kwargs: Any) -> autogen.tools.tool.Tool
 ```
 
     Converts a given Langchain tool into a general `Tool` format.
@@ -42,7 +42,7 @@ convert_tool(tool: Any, **kwargs: Any) -> autogen.tools.Tool
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.tools.Tool` | Tool: A standardized `Tool` object converted from the Langchain tool. |
+| `autogen.tools.tool.Tool` | Tool: A standardized `Tool` object converted from the Langchain tool. |
 
 <br />
 

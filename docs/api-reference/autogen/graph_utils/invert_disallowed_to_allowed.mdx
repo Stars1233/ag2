@@ -7,7 +7,7 @@ title: autogen.graph_utils.invert_disallowed_to_allowed
 #### invert_disallowed_to_allowed
 
 ```python
-invert_disallowed_to_allowed(disallowed_speaker_transitions_dict: dict, agents: list[autogen.Agent]) -> dict
+invert_disallowed_to_allowed(disallowed_speaker_transitions_dict: dict, agents: list[autogen.agentchat.agent.Agent]) -> dict
 ```
 
     Start with a fully connected allowed_speaker_transitions_dict of all agents. Remove edges from the fully connected allowed_speaker_transitions_dict according to the disallowed_speaker_transitions_dict to form the allowed_speaker_transitions_dict.
@@ -16,6 +16,6 @@ invert_disallowed_to_allowed(disallowed_speaker_transitions_dict: dict, agents:
 | Name | Description |
 |--|--|
 | `disallowed_speaker_transitions_dict` | **Type:** `dict` |
-| `agents` | **Type:** `list[autogen.Agent]` |
+| `agents` | **Type:** `list[autogen.agentchat.agent.Agent]` |
 
 <br />

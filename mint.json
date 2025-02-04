@@ -57,15 +57,15 @@
     },
     {
       "name": "Contribute",
-      "url": "contributor-guide"
+      "url": "docs/contributor-guide"
     },
     {
       "name": "FAQs",
-      "url": "faq"
+      "url": "docs/faq"
     },
     {
       "name": "Ecosystem",
-      "url": "ecosystem"
+      "url": "docs/ecosystem"
     },
     {
       "name": "Blog",
@@ -267,37 +267,37 @@
     {
       "group": "Contributor Guide",
       "pages": [
-        "contributor-guide/contributing",
-        "contributor-guide/setup-development-environment",
-        "contributor-guide/documentation",
-        "contributor-guide/file-bug-report",
-        "contributor-guide/maintainer",
-        "contributor-guide/pre-commit",
-        "contributor-guide/tests",
-        "contributor-guide/Research"
+        "docs/contributor-guide/contributing",
+        "docs/contributor-guide/setup-development-environment",
+        "docs/contributor-guide/documentation",
+        "docs/contributor-guide/file-bug-report",
+        "docs/contributor-guide/maintainer",
+        "docs/contributor-guide/pre-commit",
+        "docs/contributor-guide/tests",
+        "docs/contributor-guide/Research"
       ]
     },
     {
       "group": "FAQs",
       "pages": [
-        "faq/FAQ"
+        "docs/faq/FAQ"
       ]
     },
     {
       "group": "Ecosystem",
       "pages": [
-        "ecosystem/agentops",
-        "ecosystem/azure_cosmos_db",
-        "ecosystem/composio",
-        "ecosystem/databricks",
-        "ecosystem/llamaindex",
-        "ecosystem/mem0",
-        "ecosystem/memgpt",
-        "ecosystem/microsoft-fabric",
-        "ecosystem/ollama",
-        "ecosystem/pgvector",
-        "ecosystem/portkey",
-        "ecosystem/promptflow"
+        "docs/ecosystem/agentops",
+        "docs/ecosystem/azure_cosmos_db",
+        "docs/ecosystem/composio",
+        "docs/ecosystem/databricks",
+        "docs/ecosystem/llamaindex",
+        "docs/ecosystem/mem0",
+        "docs/ecosystem/memgpt",
+        "docs/ecosystem/microsoft-fabric",
+        "docs/ecosystem/ollama",
+        "docs/ecosystem/pgvector",
+        "docs/ecosystem/portkey",
+        "docs/ecosystem/promptflow"
       ]
     },
     {
@@ -348,6 +348,8 @@
             {
               "group": "agentchat",
               "pages": [
+                "docs/api-reference/autogen/agentchat/overview",
+                "docs/api-reference/autogen/agentchat/a_initiate_chats",
                 {
                   "group": "chat",
                   "pages": [
@@ -1060,6 +1062,7 @@
                               "group": "realtime_client",
                               "pages": [
                                 "docs/api-reference/autogen/agentchat/realtime/experimental/clients/realtime_client/overview",
+                                "docs/api-reference/autogen/agentchat/realtime/experimental/clients/realtime_client/RealtimeClientProtocol",
                                 "docs/api-reference/autogen/agentchat/realtime/experimental/clients/realtime_client/register_realtime_client"
                               ]
                             }
@@ -1266,6 +1269,13 @@
               "pages": [
                 "docs/api-reference/autogen/exception_utils/overview",
                 "docs/api-reference/autogen/exception_utils/ModelToolNotSupportedError"
+              ]
+            },
+            {
+              "group": "formatting_utils",
+              "pages": [
+                "docs/api-reference/autogen/formatting_utils/overview",
+                "docs/api-reference/autogen/formatting_utils/colored"
               ]
             },
             {

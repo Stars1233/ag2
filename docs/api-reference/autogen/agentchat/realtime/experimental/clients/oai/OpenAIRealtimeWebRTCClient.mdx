@@ -37,7 +37,7 @@ get_factory(
     llm_config: dict[str, typing.Any],
     logger: logging.Logger,
     **kwargs: Any
-) -> Callable[[], autogen.agentchat.realtime.experimental.clients.RealtimeClientProtocol] | None
+) -> Callable[[], autogen.agentchat.realtime.experimental.clients.realtime_client.RealtimeClientProtocol] | None
 ```
 
     Create a Realtime API client.
@@ -52,7 +52,7 @@ get_factory(
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `Callable[[], autogen.agentchat.realtime.experimental.clients.RealtimeClientProtocol] \| None` | RealtimeClientProtocol: The Realtime API client is returned if the model matches the pattern |
+| `Callable[[], autogen.agentchat.realtime.experimental.clients.realtime_client.RealtimeClientProtocol] \| None` | RealtimeClientProtocol: The Realtime API client is returned if the model matches the pattern |
 
 <br />
 

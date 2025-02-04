@@ -20,7 +20,7 @@ ON_CONDITION(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `target` | The agent to hand off to or the nested chat configuration.<br/><br/>Can be a SwarmAgent or a Dict.<br/><br/>If a Dict, it should follow the convention of the nested chat configuration, with the exception of a carryover configuration which is unique to Swarms.<br/><br/>Swarm Nested chat documentation: https://docs.ag2.ai/docs/topics/swarm#registering-handoffs-to-a-nested-chat<br/><br/>**Type:** `ForwardRef('SwarmAgent') \| dict[str, typing.Any]`<br/><br/>**Default:** None |
+| `target` | The agent to hand off to or the nested chat configuration.<br/><br/>Can be a SwarmAgent or a Dict.<br/><br/>If a Dict, it should follow the convention of the nested chat configuration, with the exception of a carryover configuration which is unique to Swarms.<br/><br/>Swarm Nested chat documentation: https://docs.ag2.ai/docs/user-guide/advanced-concepts/swarm-deep-dive#registering-handoffs-to-a-nested-chat<br/><br/>**Type:** `ForwardRef('SwarmAgent') \| dict[str, typing.Any]`<br/><br/>**Default:** None |
 | `condition` | The condition for transitioning to the target agent, evaluated by the LLM to determine whether to call the underlying function/tool which does the transition.<br/><br/>**Type:** `str`<br/><br/>**Default:** '' |
 | `available` | Optional condition to determine if this ON_CONDITION is available.<br/><br/>Can be a Callable or a string.<br/><br/>If a string, it will look up the value of the context variable with that name, which should be a bool.<br/><br/>**Type:** `str \| Callable \| None`<br/><br/>**Default:** None |
 

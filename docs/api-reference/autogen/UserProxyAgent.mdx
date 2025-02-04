@@ -28,7 +28,7 @@ UserProxyAgent(
     UserProxyAgent is a subclass of ConversableAgent configured with `human_input_mode` to ALWAYS
     and `llm_config` to False. By default, the agent will prompt for human input every time a message is received.
     Code execution is enabled by default. LLM-based auto reply is disabled by default.
-    To modify auto reply, register a method with [`register_reply`](conversable_agent#register-reply).
+    To modify auto reply, register a method with [`register_reply`](/docs/api-reference/autogen/ConversableAgent#register-reply).
     To modify the way to get human input, override `get_human_input` method.
     To modify the way to execute code blocks, single code block, or function call, override `execute_code_blocks`,
     `run_code`, and `execute_function` methods respectively.
@@ -43,10 +43,10 @@ UserProxyAgent(
 | `function_map` | Mapping function names (passed to openai) to callable functions.<br/><br/>**Type:** `dict[str, typing.Callable] \| None`<br/><br/>**Default:** None |
 | `code_execution_config` | config for the code execution.<br/><br/>To disable code execution, set to False.<br/><br/>Otherwise, set to a dictionary with the following keys: - work_dir (Optional, str): The working directory for the code execution.<br/><br/>If None, a default working directory will be used.<br/><br/>The default working directory is the "extensions" directory under "path_to_autogen".<br/><br/>- use_docker (Optional, list, str or bool): The docker image to use for code execution.<br/><br/>Default is True, which means the code will be executed in a docker container.<br/><br/>A default list of images will be used.<br/><br/>If a list or a str of image name(s) is provided, the code will be executed in a docker container with the first image successfully pulled.<br/><br/>If False, the code will be executed in the current environment.<br/><br/>We strongly recommend using docker for code execution.<br/><br/>- timeout (Optional, int): The maximum execution time in seconds.<br/><br/>- last_n_messages (Experimental, Optional, int): The number of messages to look back for code execution.<br/><br/>Default to 1.<br/><br/>**Type:** `dict \| Literal[False]`<br/><br/>**Default:** \{} |
 | `default_auto_reply` | the default auto reply message when no code execution or llm based reply is generated.<br/><br/>**Type:** `dict \| str \| None`<br/><br/>**Default:** '' |
-| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/reference/autogen/OpenAIWrapper#create) for available options.<br/><br/>Default to False, which disables llm-based auto reply.<br/><br/>When set to None, will use self.DEFAULT_CONFIG, which defaults to False.<br/><br/>**Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** False |
+| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create) for available options.<br/><br/>Default to False, which disables llm-based auto reply.<br/><br/>When set to None, will use self.DEFAULT_CONFIG, which defaults to False.<br/><br/>**Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** False |
 | `system_message` | system message for ChatCompletion inference.<br/><br/>Only used when llm_config is not False.<br/><br/>Use it to reprogram the agent.<br/><br/>**Type:** `str \| list \| None`<br/><br/>**Default:** '' |
 | `description` | a short description of the agent.<br/><br/>This description is used by other agents (e.g.<br/><br/>the GroupChatManager) to decide when to call upon this agent.<br/><br/>(Default: system_message)<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
-| `**kwargs` | Please refer to other kwargs in [ConversableAgent](conversable_agent#init).<br/><br/> |
+| `**kwargs` | Please refer to other kwargs in [ConversableAgent](/docs/api-reference/autogen/ConversableAgent#conversableagent).<br/><br/> |
 
 ### Class Attributes
 

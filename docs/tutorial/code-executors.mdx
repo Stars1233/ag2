@@ -27,17 +27,17 @@ export const quartoRawHtml =
 </thead>
 <tbody>
 <tr>
-<td><a href="../../reference/autogen/coding/LocalCommandLineCodeExecutor#localcommandlinecodeexecutor"><code>LocalCommandLineCodeExecutor</code></a></td>
+<td><a href="../../docs/api-reference/autogen/coding/LocalCommandLineCodeExecutor#localcommandlinecodeexecutor"><code>LocalCommandLineCodeExecutor</code></a></td>
 <td>Shell</td>
 <td>Local</td>
 </tr>
 <tr>
-<td><a href="../../reference/autogen/coding/DockerCommandLineCodeExecutor#dockercommandlinecodeexecutor"><code>DockerCommandLineCodeExecutor</code></a></td>
+<td><a href="../../docs/api-reference/autogen/coding/DockerCommandLineCodeExecutor#dockercommandlinecodeexecutor"><code>DockerCommandLineCodeExecutor</code></a></td>
 <td>Shell</td>
 <td>Docker</td>
 </tr>
 <tr>
-<td><a href="../../reference/autogen/coding/jupyter/JupyterCodeExecutor#jupytercodeexecutor"><code>jupyter.JupyterCodeExecutor</code></a></td>
+<td><a href="../../docs/api-reference/autogen/coding/jupyter/JupyterCodeExecutor"><code>jupyter.JupyterCodeExecutor</code></a></td>
 <td>Jupyter Kernel (e.g., python3)</td>
 <td>Local/Docker</td>
 </tr>
@@ -79,7 +79,7 @@ Code Executor](../../docs/topics/code-execution/jupyter-code-executor).
 
 The figure below shows the architecture of the local command line code
 executor
-([`autogen.coding.LocalCommandLineCodeExecutor`](../../reference/autogen/coding/LocalCommandLineCodeExecutor#localcommandlinecodeexecutor)).
+([`autogen.coding.LocalCommandLineCodeExecutor`](../../docs/api-reference/autogen/coding/LocalCommandLineCodeExecutor#localcommandlinecodeexecutor)).
 
 
 <div class="danger">
@@ -196,7 +196,7 @@ temp_dir.cleanup()
 
 To mitigate the security risk of running LLM-generated code locally, we
 can use the docker command line code executor
-([`autogen.coding.DockerCommandLineCodeExecutor`](../../reference/autogen/coding/DockerCommandLineCodeExecutor#dockercommandlinecodeexecutor))
+([`autogen.coding.DockerCommandLineCodeExecutor`](../../docs/api-reference/autogen/coding/DockerCommandLineCodeExecutor#dockercommandlinecodeexecutor))
 to execute code in a docker container. This way, the generated code can
 only access resources that are explicitly given to it.
 
@@ -558,11 +558,11 @@ better choice.
 
 In the previous examples, we create the code executor agent directly
 using the
-[`ConversableAgent`](../../reference/autogen/ConversableAgent#conversableagent)
+[`ConversableAgent`](../../docs/api-reference/autogen/ConversableAgent#conversableagent)
 class. Existing AG2 examples often create code executor agent using the
 [`UserProxyAgent`](../../reference/autogen/UserProxyAgent#userproxyagent)
 class, which is a subclass of
-[`ConversableAgent`](../../reference/autogen/ConversableAgent#conversableagent)
+[`ConversableAgent`](../../docs/api-reference/autogen/ConversableAgent#conversableagent)
 with `human_input_mode=ALWAYS` and `llm_config=False` – it always
 requests human input for every message and does not use LLM. It also
 comes with default `description` field for each of the
@@ -573,12 +573,12 @@ creating an agent that is intended to be used as a code executor.
 
 In the previous examples, we created the code writer agent directly
 using the
-[`ConversableAgent`](../../reference/autogen/ConversableAgent#conversableagent)
+[`ConversableAgent`](../../docs/api-reference/autogen/ConversableAgent#conversableagent)
 class. Existing AG2 examples often create the code writer agent using
 the
-[`AssistantAgent`](../../reference/autogen/AssistantAgent#assistantagent)
+[`AssistantAgent`](../../docs/api-reference/autogen/AssistantAgent#assistantagent)
 class, which is a subclass of
-[`ConversableAgent`](../../reference/autogen/ConversableAgent#conversableagent)
+[`ConversableAgent`](../../docs/api-reference/autogen/ConversableAgent#conversableagent)
 with `human_input_mode=NEVER` and `code_execution_config=False` – it
 never requests human input and does not use code executor. It also comes
 with default `system_message` and `description` fields. This class is a
@@ -587,7 +587,7 @@ as a code writer and does not execute code.
 
 In fact, in the previous example we use the default `system_message`
 field of the
-[`AssistantAgent`](../../reference/autogen/AssistantAgent#assistantagent)
+[`AssistantAgent`](../../docs/api-reference/autogen/AssistantAgent#assistantagent)
 class to instruct the code writer agent how to use code executor.
 
 ```python
@@ -639,10 +639,10 @@ pprint.pprint(AssistantAgent.DEFAULT_SYSTEM_MESSAGE)
 It is very important to note that the
 [`UserProxyAgent`](../../reference/autogen/UserProxyAgent#userproxyagent)
 and
-[`AssistantAgent`](../../reference/autogen/AssistantAgent#assistantagent)
+[`AssistantAgent`](../../docs/api-reference/autogen/AssistantAgent#assistantagent)
 are meant to be shortcuts to avoid writing the `system_message`
 instructions for the
-[`ConversableAgent`](../../reference/autogen/ConversableAgent#conversableagent)
+[`ConversableAgent`](../../docs/api-reference/autogen/ConversableAgent#conversableagent)
 class. They are not suitable for all use cases. As we will show in the
 next chapter, tuning the `system_message` field is vital for agent to
 work properly in more complex conversation patterns beyond two-agent
@@ -652,7 +652,7 @@ As a best practice, always tune your agent’s `system_message`
 instructions for your specific use case and avoid subclassing
 [`UserProxyAgent`](../../reference/autogen/UserProxyAgent#userproxyagent)
 and
-[`AssistantAgent`](../../reference/autogen/AssistantAgent#assistantagent).
+[`AssistantAgent`](../../docs/api-reference/autogen/AssistantAgent#assistantagent).
 
 ## Summary
 

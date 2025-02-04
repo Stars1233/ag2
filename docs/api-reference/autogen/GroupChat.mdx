@@ -9,14 +9,14 @@ title: autogen.GroupChat
 
 ```python
 GroupChat(
-    agents: list[autogen.Agent],
+    agents: list[autogen.agentchat.agent.Agent],
     messages: list[dict],
     max_round: int = 10,
     admin_name: str = 'Admin',
     func_call_filter: bool = True,
     speaker_selection_method: Literal['auto', 'manual', 'random', 'round_robin'] | Callable = 'auto',
     max_retries_for_selecting_speaker: int = 2,
-    allow_repeat_speaker: bool | list[autogen.Agent] | None = None,
+    allow_repeat_speaker: bool | list[autogen.agentchat.agent.Agent] | None = None,
     allowed_or_disallowed_speaker_transitions: dict | None = None,
     speaker_transitions_type: Literal['allowed', 'disallowed', None] = None,
     enable_clear_history: bool = False,
@@ -27,7 +27,7 @@ GroupChat(
     select_speaker_auto_none_template: str = 'You didn\'t choose a speaker. As a reminder, to determine the speaker use these prioritised rules:\n    1. If the context refers to themselves as a speaker e.g. "As the..." , choose that speaker\'s name\n    2. If it refers to the "next" speaker name, choose that name\n    3. Otherwise, choose the first provided speaker\'s name in the context\n    The names are case-sensitive and should not be abbreviated or changed.\n    The only names that are accepted are \{agentlist}.\n    Respond with ONLY the name of the speaker and DO NOT provide a reason.',
     select_speaker_transform_messages: autogen.agentchat.contrib.capabilities.transform_messages.TransformMessages | None = None,
     select_speaker_auto_verbose: bool | None = False,
-    select_speaker_auto_model_client_cls: autogen.ModelClient | list[autogen.ModelClient] | None = None,
+    select_speaker_auto_model_client_cls: autogen.oai.client.ModelClient | list[autogen.oai.client.ModelClient] | None = None,
     select_speaker_auto_llm_config: dict | Literal[False] | None = None,
     role_for_select_speaker_messages: str | None = 'system'
 )
@@ -117,14 +117,14 @@ GroupChat(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agents` | **Type:** `list[autogen.Agent]` |
+| `agents` | **Type:** `list[autogen.agentchat.agent.Agent]` |
 | `messages` | **Type:** `list[dict]` |
 | `max_round` | **Type:** `int`<br/><br/>**Default:** 10 |
 | `admin_name` | **Type:** `str`<br/><br/>**Default:** 'Admin' |
 | `func_call_filter` | **Type:** `bool`<br/><br/>**Default:** True |
 | `speaker_selection_method` | **Type:** `Literal['auto', 'manual', 'random', 'round_robin'] \| Callable`<br/><br/>**Default:** 'auto' |
 | `max_retries_for_selecting_speaker` | **Type:** `int`<br/><br/>**Default:** 2 |
-| `allow_repeat_speaker` | **Type:** `bool \| list[autogen.Agent] \| None`<br/><br/>**Default:** None |
+| `allow_repeat_speaker` | **Type:** `bool \| list[autogen.agentchat.agent.Agent] \| None`<br/><br/>**Default:** None |
 | `allowed_or_disallowed_speaker_transitions` | **Type:** `dict \| None`<br/><br/>**Default:** None |
 | `speaker_transitions_type` | **Type:** `Literal['allowed', 'disallowed', None]`<br/><br/>**Default:** None |
 | `enable_clear_history` | **Type:** `bool`<br/><br/>**Default:** False |
@@ -135,7 +135,7 @@ GroupChat(
 | `select_speaker_auto_none_template` | **Type:** `str`<br/><br/>**Default:** 'You didn\'t choose a speaker. As a reminder, to determine the speaker use these prioritised rules |
 | `select_speaker_transform_messages` | **Type:** `autogen.agentchat.contrib.capabilities.transform_messages.TransformMessages \| None`<br/><br/>**Default:** None |
 | `select_speaker_auto_verbose` | **Type:** `bool \| None`<br/><br/>**Default:** False |
-| `select_speaker_auto_model_client_cls` | **Type:** `autogen.ModelClient \| list[autogen.ModelClient] \| None`<br/><br/>**Default:** None |
+| `select_speaker_auto_model_client_cls` | **Type:** `autogen.oai.client.ModelClient \| list[autogen.oai.client.ModelClient] \| None`<br/><br/>**Default:** None |
 | `select_speaker_auto_llm_config` | **Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
 | `role_for_select_speaker_messages` | **Type:** `str \| None`<br/><br/>**Default:** 'system' |
 
@@ -295,11 +295,11 @@ GroupChat(
 ```python
 a_auto_select_speaker(
     self,
-    last_speaker: autogen.Agent,
-    selector: autogen.ConversableAgent,
+    last_speaker: autogen.agentchat.agent.Agent,
+    selector: autogen.agentchat.conversable_agent.ConversableAgent,
     messages: list[dict] | None,
-    agents: list[autogen.Agent] | None
-) -> autogen.Agent
+    agents: list[autogen.agentchat.agent.Agent] | None
+) -> autogen.agentchat.agent.Agent
 ```
 
     (Asynchronous) Selects next speaker for the "auto" speaker selection method. Utilises its own two-agent chat to determine the next speaker and supports requerying.
@@ -315,15 +315,15 @@ a_auto_select_speaker(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `last_speaker` | **Type:** `autogen.Agent` |
-| `selector` | **Type:** `autogen.ConversableAgent` |
+| `last_speaker` | **Type:** `autogen.agentchat.agent.Agent` |
+| `selector` | **Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
 | `messages` | **Type:** `list[dict] \| None` |
-| `agents` | **Type:** `list[autogen.Agent] \| None` |
+| `agents` | **Type:** `list[autogen.agentchat.agent.Agent] \| None` |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.Agent` | Dict: a counter for mentioned agents. |
+| `autogen.agentchat.agent.Agent` | Dict: a counter for mentioned agents. |
 
 <br />
 
@@ -333,9 +333,9 @@ a_auto_select_speaker(
 ```python
 a_select_speaker(
     self,
-    last_speaker: autogen.Agent,
-    selector: autogen.ConversableAgent
-) -> autogen.Agent
+    last_speaker: autogen.agentchat.agent.Agent,
+    selector: autogen.agentchat.conversable_agent.ConversableAgent
+) -> autogen.agentchat.agent.Agent
 ```
 
     Select the next speaker (with requery), asynchronously.
@@ -343,8 +343,8 @@ a_select_speaker(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `last_speaker` | **Type:** `autogen.Agent` |
-| `selector` | **Type:** `autogen.ConversableAgent` |
+| `last_speaker` | **Type:** `autogen.agentchat.agent.Agent` |
+| `selector` | **Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
 
 <br />
 
@@ -357,7 +357,7 @@ agent_by_name(
     name: str,
     recursive: bool = False,
     raise_on_name_conflict: bool = False
-) -> autogen.Agent | None
+) -> autogen.agentchat.agent.Agent | None
 ```
 
     Returns the agent with a given name. If recursive is True, it will search in nested teams.
@@ -378,7 +378,7 @@ agent_by_name(
 append(
     self,
     message: dict,
-    speaker: autogen.Agent
+    speaker: autogen.agentchat.agent.Agent
 ) -> 
 ```
 
@@ -390,7 +390,7 @@ append(
 | Name | Description |
 |--|--|
 | `message` | **Type:** `dict` |
-| `speaker` | **Type:** `autogen.Agent` |
+| `speaker` | **Type:** `autogen.agentchat.agent.Agent` |
 
 <br />
 
@@ -398,7 +398,7 @@ append(
 #### introductions_msg
 
 ```python
-introductions_msg(self, agents: list[autogen.Agent] | None = None) -> str
+introductions_msg(self, agents: list[autogen.agentchat.agent.Agent] | None = None) -> str
 ```
 
     Return the system message for selecting the next speaker. This is always the *first* message in the context.
@@ -406,7 +406,7 @@ introductions_msg(self, agents: list[autogen.Agent] | None = None) -> str
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agents` | **Type:** `list[autogen.Agent] \| None`<br/><br/>**Default:** None |
+| `agents` | **Type:** `list[autogen.agentchat.agent.Agent] \| None`<br/><br/>**Default:** None |
 
 <br />
 
@@ -414,7 +414,7 @@ introductions_msg(self, agents: list[autogen.Agent] | None = None) -> str
 #### manual_select_speaker
 
 ```python
-manual_select_speaker(self, agents: list[autogen.Agent] | None = None) -> autogen.Agent | None
+manual_select_speaker(self, agents: list[autogen.agentchat.agent.Agent] | None = None) -> autogen.agentchat.agent.Agent | None
 ```
 
     Manually select the next speaker.
@@ -422,7 +422,7 @@ manual_select_speaker(self, agents: list[autogen.Agent] | None = None) -> a
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agents` | **Type:** `list[autogen.Agent] \| None`<br/><br/>**Default:** None |
+| `agents` | **Type:** `list[autogen.agentchat.agent.Agent] \| None`<br/><br/>**Default:** None |
 
 <br />
 
@@ -430,7 +430,7 @@ manual_select_speaker(self, agents: list[autogen.Agent] | None = None) -> a
 #### nested_agents
 
 ```python
-nested_agents(self) -> list[autogen.Agent]
+nested_agents(self) -> list[autogen.agentchat.agent.Agent]
 ```
 
     Returns all agents in the group chat manager.
@@ -443,9 +443,9 @@ nested_agents(self) -> list[autogen.Agent]
 ```python
 next_agent(
     self,
-    agent: autogen.Agent,
-    agents: list[autogen.Agent] | None = None
-) -> autogen.Agent
+    agent: autogen.agentchat.agent.Agent,
+    agents: list[autogen.agentchat.agent.Agent] | None = None
+) -> autogen.agentchat.agent.Agent
 ```
 
     Return the next agent in the list.
@@ -453,8 +453,8 @@ next_agent(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | **Type:** `autogen.Agent` |
-| `agents` | **Type:** `list[autogen.Agent] \| None`<br/><br/>**Default:** None |
+| `agent` | **Type:** `autogen.agentchat.agent.Agent` |
+| `agents` | **Type:** `list[autogen.agentchat.agent.Agent] \| None`<br/><br/>**Default:** None |
 
 <br />
 
@@ -462,7 +462,7 @@ next_agent(
 #### random_select_speaker
 
 ```python
-random_select_speaker(self, agents: list[autogen.Agent] | None = None) -> autogen.Agent | None
+random_select_speaker(self, agents: list[autogen.agentchat.agent.Agent] | None = None) -> autogen.agentchat.agent.Agent | None
 ```
 
     Randomly select the next speaker.
@@ -470,7 +470,7 @@ random_select_speaker(self, agents: list[autogen.Agent] | None = None) -> a
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agents` | **Type:** `list[autogen.Agent] \| None`<br/><br/>**Default:** None |
+| `agents` | **Type:** `list[autogen.agentchat.agent.Agent] \| None`<br/><br/>**Default:** None |
 
 <br />
 
@@ -491,9 +491,9 @@ reset(self) ->
 ```python
 select_speaker(
     self,
-    last_speaker: autogen.Agent,
-    selector: autogen.ConversableAgent
-) -> autogen.Agent
+    last_speaker: autogen.agentchat.agent.Agent,
+    selector: autogen.agentchat.conversable_agent.ConversableAgent
+) -> autogen.agentchat.agent.Agent
 ```
 
     Select the next speaker (with requery).
@@ -501,8 +501,8 @@ select_speaker(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `last_speaker` | **Type:** `autogen.Agent` |
-| `selector` | **Type:** `autogen.ConversableAgent` |
+| `last_speaker` | **Type:** `autogen.agentchat.agent.Agent` |
+| `selector` | **Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
 
 <br />
 
@@ -510,7 +510,7 @@ select_speaker(
 #### select_speaker_msg
 
 ```python
-select_speaker_msg(self, agents: list[autogen.Agent] | None = None) -> str
+select_speaker_msg(self, agents: list[autogen.agentchat.agent.Agent] | None = None) -> str
 ```
 
     Return the system message for selecting the next speaker. This is always the *first* message in the context.
@@ -518,7 +518,7 @@ select_speaker_msg(self, agents: list[autogen.Agent] | None = None) -> str
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agents` | **Type:** `list[autogen.Agent] \| None`<br/><br/>**Default:** None |
+| `agents` | **Type:** `list[autogen.agentchat.agent.Agent] \| None`<br/><br/>**Default:** None |
 
 <br />
 
@@ -526,7 +526,7 @@ select_speaker_msg(self, agents: list[autogen.Agent] | None = None) -> str
 #### select_speaker_prompt
 
 ```python
-select_speaker_prompt(self, agents: list[autogen.Agent] | None = None) -> str
+select_speaker_prompt(self, agents: list[autogen.agentchat.agent.Agent] | None = None) -> str
 ```
 
     Return the floating system prompt selecting the next speaker.
@@ -536,6 +536,6 @@ select_speaker_prompt(self, agents: list[autogen.Agent] | None = None) -> s
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agents` | **Type:** `list[autogen.Agent] \| None`<br/><br/>**Default:** None |
+| `agents` | **Type:** `list[autogen.agentchat.agent.Agent] \| None`<br/><br/>**Default:** None |
 
 <br />

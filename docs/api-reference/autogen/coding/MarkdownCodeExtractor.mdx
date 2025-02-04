@@ -25,7 +25,7 @@ MarkdownCodeExtractor(*args, **kwargs)
 #### extract_code_blocks
 
 ```python
-extract_code_blocks(self, message: str | list[autogen.types.UserMessageTextContentPart | autogen.types.UserMessageImageContentPart] | None) -> list[autogen.coding.CodeBlock]
+extract_code_blocks(self, message: str | list[autogen.types.UserMessageTextContentPart | autogen.types.UserMessageImageContentPart] | None) -> list[autogen.coding.base.CodeBlock]
 ```
 
     (Experimental) Extract code blocks from a message. If no code blocks are found,
@@ -39,6 +39,6 @@ extract_code_blocks(self, message: str | list[autogen.types.UserMessageTextCo
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `list[autogen.coding.CodeBlock]` | List[CodeBlock]: The extracted code blocks or an empty list. |
+| `list[autogen.coding.base.CodeBlock]` | List[CodeBlock]: The extracted code blocks or an empty list. |
 
 <br />

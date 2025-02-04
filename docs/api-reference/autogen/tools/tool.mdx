@@ -7,7 +7,7 @@ title: autogen.tools.tool
 #### tool
 
 ```python
-tool(name: str | None = None, description: str | None = None) -> Callable[[Callable[..., Any]], autogen.tools.Tool]
+tool(name: str | None = None, description: str | None = None) -> Callable[[Callable[..., Any]], autogen.tools.tool.Tool]
 ```
 
     Decorator to create a Tool from a function.
@@ -21,6 +21,6 @@ tool(name: str | None = None, description: str | None = None) -> Calla
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `Callable[[Callable[..., Any]], autogen.tools.Tool]` | Callable[[Callable[..., Any]], Tool]: A decorator that creates a Tool from a function. |
+| `Callable[[Callable[..., Any]], autogen.tools.tool.Tool]` | Callable[[Callable[..., Any]], Tool]: A decorator that creates a Tool from a function. |
 
 <br />

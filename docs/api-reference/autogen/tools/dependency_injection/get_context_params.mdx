@@ -7,7 +7,7 @@ title: autogen.tools.dependency_injection.get_context_params
 #### get_context_params
 
 ```python
-get_context_params(func: Callable[..., Any], subclass: type[autogen.tools.BaseContext] | type[autogen.tools.ChatContext]) -> list[str]
+get_context_params(func: Callable[..., Any], subclass: type[autogen.tools.dependency_injection.BaseContext] | type[autogen.tools.dependency_injection.ChatContext]) -> list[str]
 ```
 
     Gets the names of the context parameters in a function signature.
@@ -16,7 +16,7 @@ get_context_params(func: Callable[..., Any], subclass: type[autogen.tools.Bas
 | Name | Description |
 |--|--|
 | `func` | The function to inspect for context parameters.<br/><br/>**Type:** `Callable[..., Any]` |
-| `subclass` | The subclass to search for.<br/><br/>**Type:** `type[autogen.tools.BaseContext] \| type[autogen.tools.ChatContext]` |
+| `subclass` | The subclass to search for.<br/><br/>**Type:** `type[autogen.tools.dependency_injection.BaseContext] \| type[autogen.tools.dependency_injection.ChatContext]` |
 
 <b>Returns:</b>
 | Type | Description |

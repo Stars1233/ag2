@@ -11,7 +11,7 @@ get_client(
     llm_config: dict[str, typing.Any],
     logger: logging.Logger,
     **kwargs: Any
-) -> autogen.agentchat.realtime.experimental.clients.RealtimeClientProtocol
+) -> autogen.agentchat.realtime.experimental.clients.realtime_client.RealtimeClientProtocol
 ```
 
     Get a registered Realtime API client.
@@ -26,6 +26,6 @@ get_client(
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.agentchat.realtime.experimental.clients.RealtimeClientProtocol` | RealtimeClientProtocol: The Realtime API client. |
+| `autogen.agentchat.realtime.experimental.clients.realtime_client.RealtimeClientProtocol` | RealtimeClientProtocol: The Realtime API client. |
 
 <br />

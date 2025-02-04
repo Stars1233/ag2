@@ -8,7 +8,7 @@ title: autogen.agentchat.contrib.captainagent.tool_retriever.LocalExecutorWithTo
 </h2>
 
 ```python
-LocalExecutorWithTools(tools: list[autogen.tools.Tool] | None = None, work_dir: pathlib.Path | str = PosixPath('.'))
+LocalExecutorWithTools(tools: list[autogen.tools.tool.Tool] | None = None, work_dir: pathlib.Path | str = PosixPath('.'))
 ```
 
     An executor that executes code blocks with injected tools. In this executor, the func within the tools can be called directly without declaring in the code block.
@@ -44,7 +44,7 @@ LocalExecutorWithTools(tools: list[autogen.tools.Tool] | None = None, work_
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `tools` | The tools to inject into the code execution environment.<br/><br/>Default is an empty list.<br/><br/>**Type:** `list[autogen.tools.Tool] \| None`<br/><br/>**Default:** None |
+| `tools` | The tools to inject into the code execution environment.<br/><br/>Default is an empty list.<br/><br/>**Type:** `list[autogen.tools.tool.Tool] \| None`<br/><br/>**Default:** None |
 | `work_dir` | The working directory for the code execution.<br/><br/>Default is the current directory.<br/><br/>**Type:** `pathlib.Path \| str`<br/><br/>**Default:** PosixPath('.') |
 
 ### Instance Attributes
@@ -61,7 +61,7 @@ LocalExecutorWithTools(tools: list[autogen.tools.Tool] | None = None, work_
 #### execute_code_blocks
 
 ```python
-execute_code_blocks(self, code_blocks: list[autogen.coding.CodeBlock]) -> autogen.coding.CodeResult
+execute_code_blocks(self, code_blocks: list[autogen.coding.base.CodeBlock]) -> autogen.coding.base.CodeResult
 ```
 
     Execute code blocks and return the result.
@@ -69,12 +69,12 @@ execute_code_blocks(self, code_blocks: list[autogen.coding.CodeBlock]) -> autog
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `code_blocks` | The code blocks to execute.<br/><br/>**Type:** `list[autogen.coding.CodeBlock]` |
+| `code_blocks` | The code blocks to execute.<br/><br/>**Type:** `list[autogen.coding.base.CodeBlock]` |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.coding.CodeResult` | CodeResult: The result of the code execution. |
+| `autogen.coding.base.CodeResult` | CodeResult: The result of the code execution. |
 
 <br />
 

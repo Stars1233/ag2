@@ -7,7 +7,7 @@ title: autogen.agentchat.contrib.reasoning_agent.extract_rlhf_preference_dataset
 #### extract_rlhf_preference_dataset
 
 ```python
-extract_rlhf_preference_dataset(root: autogen.ThinkNode, contrastive_threshold: float = 0.2) -> list[dict]
+extract_rlhf_preference_dataset(root: autogen.agentchat.contrib.reasoning_agent.ThinkNode, contrastive_threshold: float = 0.2) -> list[dict]
 ```
 
     Extract and generate preference pairs for RLHF training by comparing sibling nodes.
@@ -15,7 +15,7 @@ extract_rlhf_preference_dataset(root: autogen.ThinkNode, contrastive_threshold:
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `root` | The root node of the tree.<br/><br/>**Type:** `autogen.ThinkNode` |
+| `root` | The root node of the tree.<br/><br/>**Type:** `autogen.agentchat.contrib.reasoning_agent.ThinkNode` |
 | `contrastive_threshold` | between (0, 1), a distance measure that we are confident to call one is positive and another is negative.<br/><br/>**Type:** `float`<br/><br/>**Default:** 0.2 |
 
 <b>Returns:</b>

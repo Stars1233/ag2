@@ -73,7 +73,7 @@ cosmos_db(
 #### disk
 
 ```python
-disk(cache_seed: str | int = 42, cache_path_root: str = '.cache') -> autogen.Cache
+disk(cache_seed: str | int = 42, cache_path_root: str = '.cache') -> autogen.cache.cache.Cache
 ```
 
     Create a Disk cache instance.
@@ -87,7 +87,7 @@ disk(cache_seed: str | int = 42, cache_path_root: str = '.cache') -> aut
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.Cache` | Cache: A Cache instance configured for Disk caching. |
+| `autogen.cache.cache.Cache` | Cache: A Cache instance configured for Disk caching. |
 
 <br />
 
@@ -95,7 +95,7 @@ disk(cache_seed: str | int = 42, cache_path_root: str = '.cache') -> aut
 #### redis
 
 ```python
-redis(cache_seed: str | int = 42, redis_url: str = 'redis://localhost:6379/0') -> autogen.Cache
+redis(cache_seed: str | int = 42, redis_url: str = 'redis://localhost:6379/0') -> autogen.cache.cache.Cache
 ```
 
     Create a Redis cache instance.
@@ -109,7 +109,7 @@ redis(cache_seed: str | int = 42, redis_url: str = 'redis://localhost:63
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.Cache` | Cache: A Cache instance configured for Redis. |
+| `autogen.cache.cache.Cache` | Cache: A Cache instance configured for Redis. |
 
 <br />
 
@@ -125,5 +125,52 @@ close(self) -> None
     Close the cache.
     
     Perform any necessary cleanup, such as closing connections or releasing resources.
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get
+
+```python
+get(
+    self,
+    key: str,
+    default: Any | None = None
+) -> Any | None
+```
+
+    Retrieve an item from the cache.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `key` | The key identifying the item in the cache.<br/><br/>**Type:** `str` |
+| `default` | The default value to return if the key is not found.<br/><br/>Defaults to None.<br/><br/>**Type:** `Any \| None`<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| `Any \| None` | The value associated with the key if found, else the default value. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### set
+
+```python
+set(
+    self,
+    key: str,
+    value: Any
+) -> None
+```
+
+    Set an item in the cache.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `key` | The key under which the item is to be stored.<br/><br/>**Type:** `str` |
+| `value` | The value to be stored in the cache.<br/><br/>**Type:** `Any` |
 
 <br />

@@ -25,8 +25,8 @@ TextAnalyzerAgent(
 | `name='analyzer'` |  |
 | `system_message` | system message for the ChatCompletion inference.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'You are an expert in text analysis.\nThe user will give you TEXT to analyze.\nThe user will give you analysis INSTRUCTIONS copied twice, at both the beginning and the end.\nYou will follow these INSTRUCTIONS in analyzing the TEXT, then give the results of your expert analysis in the format requested.' |
 | `human_input_mode` | This agent should NEVER prompt the human for input.<br/><br/>**Type:** `Literal['ALWAYS', 'NEVER', 'TERMINATE']`<br/><br/>**Default:** 'NEVER' |
-| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/reference/autogen/OpenAIWrapper#create) for available options.<br/><br/>To disable llm-based auto reply, set to False.<br/><br/>**Type:** `dict \| bool \| None`<br/><br/>**Default:** None |
-| `**kwargs` | other kwargs in [ConversableAgent](../conversable_agent#init).<br/><br/> |
+| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create) for available options.<br/><br/>To disable llm-based auto reply, set to False.<br/><br/>**Type:** `dict \| bool \| None`<br/><br/>**Default:** None |
+| `**kwargs` | other kwargs in [ConversableAgent](/docs/api-reference/autogen/ConversableAgent#conversableagent).<br/><br/> |
 
 ### Instance Methods
 

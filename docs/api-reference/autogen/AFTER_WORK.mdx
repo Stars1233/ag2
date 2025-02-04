@@ -8,7 +8,7 @@ title: autogen.AFTER_WORK
 </h2>
 
 ```python
-AFTER_WORK(agent: autogen.AfterWorkOption | ForwardRef('SwarmAgent') | str | Callable)
+AFTER_WORK(agent: autogen.agentchat.contrib.swarm_agent.AfterWorkOption | ForwardRef('SwarmAgent') | str | Callable)
 ```
 
     Handles the next step in the conversation when an agent doesn't suggest a tool call or a handoff
@@ -16,7 +16,7 @@ AFTER_WORK(agent: autogen.AfterWorkOption | ForwardRef('SwarmAgent') | str�
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | The agent to hand off to or the after work option.<br/><br/>Can be a SwarmAgent, a string name of a SwarmAgent, an AfterWorkOption, or a Callable.<br/><br/>The Callable signature is: def my_after_work_func(last_speaker: SwarmAgent, messages: List[Dict[str, Any]], groupchat: GroupChat) -> Union[AfterWorkOption, SwarmAgent, str]:<br/><br/>**Type:** `autogen.AfterWorkOption \| ForwardRef('SwarmAgent') \| str \| Callable` |
+| `agent` | The agent to hand off to or the after work option.<br/><br/>Can be a SwarmAgent, a string name of a SwarmAgent, an AfterWorkOption, or a Callable.<br/><br/>The Callable signature is: def my_after_work_func(last_speaker: SwarmAgent, messages: List[Dict[str, Any]], groupchat: GroupChat) -> Union[AfterWorkOption, SwarmAgent, str]:<br/><br/>**Type:** `autogen.agentchat.contrib.swarm_agent.AfterWorkOption \| ForwardRef('SwarmAgent') \| str \| Callable` |
 
 ### Class Attributes
 

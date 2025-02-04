@@ -28,7 +28,7 @@ MathUserProxyAgent(
 | `human_input_mode` | whether to ask for human inputs every time a message is received.<br/><br/>Possible values are "ALWAYS", "TERMINATE", "NEVER".<br/><br/>(1) When "ALWAYS", the agent prompts for human input every time a message is received.<br/><br/>Under this mode, the conversation stops when the human input is "exit", or when is_termination_msg is True and there is no human input.<br/><br/>(2) When "TERMINATE", the agent only prompts for human input only when a termination message is received or the number of auto reply reaches the max_consecutive_auto_reply.<br/><br/>(3) (Default) When "NEVER", the agent will never prompt for human input.<br/><br/>Under this mode, the conversation stops when the number of auto reply reaches the max_consecutive_auto_reply or when is_termination_msg is True.<br/><br/>**Type:** `Literal['ALWAYS', 'NEVER', 'TERMINATE']`<br/><br/>**Default:** 'NEVER' |
 | `default_auto_reply` | the default auto reply message when no code execution or llm based reply is generated.<br/><br/>**Type:** `dict \| str \| None`<br/><br/>**Default:** 'Continue. Please keep solving the problem until you need to query. (If you get to the answer, put it in \\boxed\{}.)' |
 | `max_invalid_q_per_step=3` |  |
-| `**kwargs` | other kwargs in [UserProxyAgent](../user_proxy_agent#init).<br/><br/> |
+| `**kwargs` | other kwargs in [UserProxyAgent](/docs/api-reference/autogen/UserProxyAgent#userproxyagent).<br/><br/> |
 
 ### Class Attributes
 

@@ -9,7 +9,7 @@ title: autogen.GroupChatManager
 
 ```python
 GroupChatManager(
-    groupchat: autogen.GroupChat,
+    groupchat: autogen.agentchat.groupchat.GroupChat,
     name: str | None = 'chat_manager',
     max_consecutive_auto_reply: int | None = 9223372036854775807,
     human_input_mode: Literal['ALWAYS', 'NEVER', 'TERMINATE'] = 'NEVER',
@@ -24,7 +24,7 @@ GroupChatManager(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `groupchat` | **Type:** `autogen.GroupChat` |
+| `groupchat` | **Type:** `autogen.agentchat.groupchat.GroupChat` |
 | `name` | name of the agent.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'chat_manager' |
 | `max_consecutive_auto_reply` | the maximum number of consecutive auto replies.<br/><br/>default to None (no limit provided, class attribute MAX_CONSECUTIVE_AUTO_REPLY will be used as the limit in this case).<br/><br/>When set to 0, no auto reply will be generated.<br/><br/>**Type:** `int \| None`<br/><br/>**Default:** 9223372036854775807 |
 | `human_input_mode` | whether to ask for human inputs every time a message is received.<br/><br/>Possible values are "ALWAYS", "TERMINATE", "NEVER".<br/><br/>(1) When "ALWAYS", the agent prompts for human input every time a message is received.<br/><br/>Under this mode, the conversation stops when the human input is "exit", or when is_termination_msg is True and there is no human input.<br/><br/>(2) When "TERMINATE", the agent only prompts for human input only when a termination message is received or the number of auto reply reaches the max_consecutive_auto_reply.<br/><br/>(3) When "NEVER", the agent will never prompt for human input.<br/><br/>Under this mode, the conversation stops when the number of auto reply reaches the max_consecutive_auto_reply or when is_termination_msg is True.<br/><br/>**Type:** `Literal['ALWAYS', 'NEVER', 'TERMINATE']`<br/><br/>**Default:** 'NEVER' |
@@ -92,7 +92,7 @@ a_resume(
     messages: list[dict] | str,
     remove_termination_string: str | Callable[[str], str] | None = None,
     silent: bool | None = False
-) -> tuple[autogen.ConversableAgent, dict]
+) -> tuple[autogen.agentchat.conversable_agent.ConversableAgent, dict]
 ```
 
     Resumes a group chat using the previous messages as a starting point, asynchronously. Requires the agents, group chat, and group chat manager to be established
@@ -108,7 +108,7 @@ a_resume(
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `tuple[autogen.ConversableAgent, dict]` | - Tuple[ConversableAgent, Dict]: A tuple containing the last agent who spoke and their message |
+| `tuple[autogen.agentchat.conversable_agent.ConversableAgent, dict]` | - Tuple[ConversableAgent, Dict]: A tuple containing the last agent who spoke and their message |
 
 <br />
 
@@ -119,8 +119,8 @@ a_resume(
 a_run_chat(
     self,
     messages: list[dict] | None = None,
-    sender: autogen.Agent | None = None,
-    config: autogen.GroupChat | None = None
+    sender: autogen.agentchat.agent.Agent | None = None,
+    config: autogen.agentchat.groupchat.GroupChat | None = None
 ) -> 
 ```
 
@@ -130,8 +130,8 @@ a_run_chat(
 | Name | Description |
 |--|--|
 | `messages` | **Type:** `list[dict] \| None`<br/><br/>**Default:** None |
-| `sender` | **Type:** `autogen.Agent \| None`<br/><br/>**Default:** None |
-| `config` | **Type:** `autogen.GroupChat \| None`<br/><br/>**Default:** None |
+| `sender` | **Type:** `autogen.agentchat.agent.Agent \| None`<br/><br/>**Default:** None |
+| `config` | **Type:** `autogen.agentchat.groupchat.GroupChat \| None`<br/><br/>**Default:** None |
 
 <br />
 
@@ -139,7 +139,7 @@ a_run_chat(
 #### chat_messages_for_summary
 
 ```python
-chat_messages_for_summary(self, agent: autogen.Agent) -> list[dict]
+chat_messages_for_summary(self, agent: autogen.agentchat.agent.Agent) -> list[dict]
 ```
 
     The list of messages in the group chat as a conversation to summarize.
@@ -148,7 +148,7 @@ chat_messages_for_summary(self, agent: autogen.Agent) -> list[dict]
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | **Type:** `autogen.Agent` |
+| `agent` | **Type:** `autogen.agentchat.agent.Agent` |
 
 <br />
 
@@ -159,7 +159,7 @@ chat_messages_for_summary(self, agent: autogen.Agent) -> list[dict]
 clear_agents_history(
     self,
     reply: dict,
-    groupchat: autogen.GroupChat
+    groupchat: autogen.agentchat.groupchat.GroupChat
 ) -> str
 ```
 
@@ -177,7 +177,7 @@ clear_agents_history(
 | Name | Description |
 |--|--|
 | `reply` | reply message dict to analyze.<br/><br/>**Type:** `dict` |
-| `groupchat` | GroupChat object.<br/><br/>**Type:** `autogen.GroupChat` |
+| `groupchat` | GroupChat object.<br/><br/>**Type:** `autogen.agentchat.groupchat.GroupChat` |
 
 <br />
 
@@ -233,7 +233,7 @@ resume(
     messages: list[dict] | str,
     remove_termination_string: str | Callable[[str], str] | None = None,
     silent: bool | None = False
-) -> tuple[autogen.ConversableAgent, dict]
+) -> tuple[autogen.agentchat.conversable_agent.ConversableAgent, dict]
 ```
 
     Resumes a group chat using the previous messages as a starting point. Requires the agents, group chat, and group chat manager to be established
@@ -249,7 +249,7 @@ resume(
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `tuple[autogen.ConversableAgent, dict]` | - Tuple[ConversableAgent, Dict]: A tuple containing the last agent who spoke and their message |
+| `tuple[autogen.agentchat.conversable_agent.ConversableAgent, dict]` | - Tuple[ConversableAgent, Dict]: A tuple containing the last agent who spoke and their message |
 
 <br />
 
@@ -260,8 +260,8 @@ resume(
 run_chat(
     self,
     messages: list[dict] | None = None,
-    sender: autogen.Agent | None = None,
-    config: autogen.GroupChat | None = None
+    sender: autogen.agentchat.agent.Agent | None = None,
+    config: autogen.agentchat.groupchat.GroupChat | None = None
 ) -> tuple[bool, str | None]
 ```
 
@@ -271,7 +271,7 @@ run_chat(
 | Name | Description |
 |--|--|
 | `messages` | **Type:** `list[dict] \| None`<br/><br/>**Default:** None |
-| `sender` | **Type:** `autogen.Agent \| None`<br/><br/>**Default:** None |
-| `config` | **Type:** `autogen.GroupChat \| None`<br/><br/>**Default:** None |
+| `sender` | **Type:** `autogen.agentchat.agent.Agent \| None`<br/><br/>**Default:** None |
+| `config` | **Type:** `autogen.agentchat.groupchat.GroupChat \| None`<br/><br/>**Default:** None |
 
 <br />
