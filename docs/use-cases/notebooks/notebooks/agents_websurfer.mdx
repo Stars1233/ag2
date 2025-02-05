@@ -206,6 +206,14 @@ nest_asyncio.apply()
 
 ### Crawl4AI WebSurferAgent
 
+> **Note:** [`Crawl4AI`](https://github.com/unclecode/crawl4ai) is built
+> on top of [LiteLLM](https://github.com/BerriAI/litellm) and supports
+> the same models as LiteLLM.
+>
+> We had great experience with `OpenAI`, `Anthropic`, `Gemini` and
+> `Ollama`. However, as of this writing, `DeepSeek` is encountering some
+> issues.
+
 ```python
 config_list = [{"model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
 
