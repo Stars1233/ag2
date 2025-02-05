@@ -21,7 +21,9 @@ ConversableAgent(
     description: str | None = None,
     chat_messages: dict[autogen.agentchat.agent.Agent, list[dict]] | None = None,
     silent: bool | None = None,
-    context_variables: dict[str, typing.Any] | None = None
+    context_variables: dict[str, typing.Any] | None = None,
+    functions: list[typing.Callable] | Callable = None,
+    update_agent_state_before_reply: list[Callable | autogen.agentchat.conversable_agent.UpdateSystemMessage] | Callable | autogen.agentchat.conversable_agent.UpdateSystemMessage | None = None
 )
 ```
 
@@ -53,6 +55,8 @@ ConversableAgent(
 | `chat_messages` | the previous chat messages that this agent had in the past with other agents.<br/><br/>Can be used to give the agent a memory by providing the chat history.<br/><br/>This will allow the agent to resume previous had conversations.<br/><br/>Defaults to an empty chat history.<br/><br/>**Type:** `dict[autogen.agentchat.agent.Agent, list[dict]] \| None`<br/><br/>**Default:** None |
 | `silent` | (Experimental) whether to print the message sent.<br/><br/>If None, will use the value of silent in each function.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** None |
 | `context_variables` | Context variables that provide a persistent context for the agent.<br/><br/>Note: Will maintain a reference to the passed in context variables (enabling a shared context) Only used in Swarms at this stage: https://docs.ag2.ai/docs/reference/agentchat/contrib/swarm_agent<br/><br/>**Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
+| `functions` | A list of functions to register with the agent.<br/><br/>These functions will be provided to the LLM, however they won't, by default, be executed by the agent.<br/><br/>If the agent is in a swarm, the swarm's tool executor will execute the function.<br/><br/>When not in a swarm, you can have another agent execute the tools by adding them to that agent's function_map.<br/><br/>**Type:** `list[typing.Callable] \| Callable`<br/><br/>**Default:** None |
+| `update_agent_state_before_reply` | A list of functions, including UpdateSystemMessage's, called to update the agent before it replies.<br/><br/>**Type:** `list[Callable \| autogen.agentchat.conversable_agent.UpdateSystemMessage] \| Callable \| autogen.agentchat.conversable_agent.UpdateSystemMessage \| None`<br/><br/>**Default:** None |
 
 ### Class Attributes
 

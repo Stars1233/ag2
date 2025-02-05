@@ -1,0 +1,34 @@
+---
+sidebarTitle: AfterWork
+title: autogen.AfterWork
+---
+<h2 id="autogen.AfterWork" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">AfterWork</span>
+</h2>
+
+```python
+AfterWork(agent: autogen.agentchat.contrib.swarm_agent.AfterWorkOption | autogen.agentchat.conversable_agent.ConversableAgent | str | Callable, next_agent_selection_msg: str | autogen.agentchat.contrib.swarm_agent.ContextStr | Callable | None = None)
+```
+
+    Handles the next step in the conversation when an agent doesn't suggest a tool call or a handoff
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `agent` | The agent to hand off to or the after work option.<br/><br/>Can be a ConversableAgent, a string name of a ConversableAgent, an AfterWorkOption, or a Callable.<br/><br/>The Callable signature is: def my_after_work_func(last_speaker: ConversableAgent, messages: List[Dict[str, Any]], groupchat: GroupChat) -> Union[AfterWorkOption, ConversableAgent, str]:<br/><br/>**Type:** `autogen.agentchat.contrib.swarm_agent.AfterWorkOption \| autogen.agentchat.conversable_agent.ConversableAgent \| str \| Callable` |
+| `next_agent_selection_msg` | Optional[Union[str, Callable]]: Optional message to use for the agent selection (in internal group chat), only valid for when agent is AfterWorkOption.SWARM_MANAGER.<br/><br/>If a string, it will be used as a template and substitute the context variables.<br/><br/>If a Callable, it should have the signature: def my_selection_message(agent: ConversableAgent, messages: List[Dict[str, Any]]) -> str<br/><br/>**Type:** `str \| autogen.agentchat.contrib.swarm_agent.ContextStr \| Callable \| None`<br/><br/>**Default:** None |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### agent
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### next_agent_selection_msg
+<br />
+
+    <br />

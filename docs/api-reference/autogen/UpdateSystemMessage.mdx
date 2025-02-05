@@ -1,0 +1,27 @@
+---
+sidebarTitle: UpdateSystemMessage
+title: autogen.UpdateSystemMessage
+---
+<h2 id="autogen.UpdateSystemMessage" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">UpdateSystemMessage</span>
+</h2>
+
+```python
+UpdateSystemMessage(content_updater: str | Callable)
+```
+
+    Update the agent's system message before they reply
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `content_updater` | The format string or function to update the agent's system message.<br/><br/>Can be a format string or a Callable.<br/><br/>If a string, it will be used as a template and substitute the context variables.<br/><br/>If a Callable, it should have the signature: def my_content_updater(agent: ConversableAgent, messages: List[Dict[str, Any]]) -> str<br/><br/>**Type:** `str \| Callable` |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### content_updater
+<br />
+
+    <br />

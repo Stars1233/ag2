@@ -8,12 +8,12 @@ title: autogen.agentchat.contrib.swarm_agent.create_swarm_transition
 
 ```python
 create_swarm_transition(
-    initial_agent: SwarmAgent,
-    tool_execution: SwarmAgent,
+    initial_agent: autogen.agentchat.conversable_agent.ConversableAgent,
+    tool_execution: autogen.agentchat.conversable_agent.ConversableAgent,
     swarm_agent_names: list[str],
     user_agent: autogen.agentchat.user_proxy_agent.UserProxyAgent | None,
     swarm_after_work: autogen.agentchat.contrib.swarm_agent.AfterWorkOption | Callable | None
-) -> Callable[[autogen.agentchat.contrib.swarm_agent.SwarmAgent, autogen.agentchat.groupchat.GroupChat], autogen.agentchat.agent.Agent | None]
+) -> Callable[[autogen.agentchat.conversable_agent.ConversableAgent, autogen.agentchat.groupchat.GroupChat], autogen.agentchat.agent.Agent | None]
 ```
 
     Creates a transition function for swarm chat with enclosed state for the use_initial_agent.
@@ -21,8 +21,8 @@ create_swarm_transition(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `initial_agent` | The first agent to speak<br/><br/>**Type:** `SwarmAgent` |
-| `tool_execution` | The tool execution agent<br/><br/>**Type:** `SwarmAgent` |
+| `initial_agent` | The first agent to speak<br/><br/>**Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
+| `tool_execution` | The tool execution agent<br/><br/>**Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
 | `swarm_agent_names` | List of all agent names<br/><br/>**Type:** `list[str]` |
 | `user_agent` | Optional user proxy agent<br/><br/>**Type:** `autogen.agentchat.user_proxy_agent.UserProxyAgent \| None` |
 | `swarm_after_work` | Swarm-level after work<br/><br/>**Type:** `autogen.agentchat.contrib.swarm_agent.AfterWorkOption \| Callable \| None` |
@@ -30,6 +30,6 @@ create_swarm_transition(
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `Callable[[autogen.agentchat.contrib.swarm_agent.SwarmAgent, autogen.agentchat.groupchat.GroupChat], autogen.agentchat.agent.Agent \| None]` | Callable transition function (for sync and async swarm chats) |
+| `Callable[[autogen.agentchat.conversable_agent.ConversableAgent, autogen.agentchat.groupchat.GroupChat], autogen.agentchat.agent.Agent \| None]` | Callable transition function (for sync and async swarm chats) |
 
 <br />

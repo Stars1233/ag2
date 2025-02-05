@@ -34,6 +34,14 @@ orchestration:
 -   Nested chats
 
 
+<div class="note">
+<Note>
+This notebook has been updated as swarms can now accommodate any ConversableAgent.
+</Note>
+</div>
+
+
+
 <div class="info Requirements">
 <Info>
 Install `ag2`:
@@ -99,15 +107,15 @@ Key aspects of this swarm are:
 from typing import Any, Dict, List
 
 from autogen import (
-    AFTER_WORK,
-    ON_CONDITION,
-    UPDATE_SYSTEM_MESSAGE,
+    AfterWork,
     AfterWorkOption,
     ConversableAgent,
-    SwarmAgent,
+    OnCondition,
     SwarmResult,
+    UpdateSystemMessage,
     UserProxyAgent,
     initiate_swarm_chat,
+    register_hand_off,
 )
 ```
 
@@ -256,10 +264,10 @@ Logged in: {logged_in}
 Enquiring for Order ID: {order_id}
 """
 
-order_triage_agent = SwarmAgent(
+order_triage_agent = ConversableAgent(
     name="order_triage_agent",
     update_agent_state_before_reply=[
-        UPDATE_SYSTEM_MESSAGE(order_triage_prompt),
+        UpdateSystemMessage(order_triage_prompt),
     ],
     functions=[check_order_id, record_order_id],
     llm_config=llm_config,
@@ -267,7 +275,7 @@ order_triage_agent = SwarmAgent(
 
 authentication_prompt = "You are an authentication agent that verifies the identity of the customer."
 
-authentication_agent = SwarmAgent(
+authentication_agent = ConversableAgent(
     name="authentication_agent",
     system_message=authentication_prompt,
     functions=[login_customer_by_username],
@@ -286,10 +294,10 @@ Logged in: {logged_in}
 Enquiring for Order ID: {order_id}
 """
 
-order_mgmt_agent = SwarmAgent(
+order_mgmt_agent = ConversableAgent(
     name="order_mgmt_agent",
     update_agent_state_before_reply=[
-        UPDATE_SYSTEM_MESSAGE(order_management_prompt),
+        UpdateSystemMessage(order_management_prompt),
     ],
     functions=[check_order_id, record_order_id],
     llm_config=llm_config,
@@ -340,59 +348,62 @@ nested_chat_two = {
 chat_queue = [nested_chat_one, nested_chat_two]
 ```
 
-### Handoffs (ON_CONDITIONS and AFTER_WORKS)
+### Handoffs (OnCondition and AfterWork)
 
 ```python
 # HANDOFFS
-order_triage_agent.register_hand_off(
-    [
-        ON_CONDITION(
+register_hand_off(
+    agent=order_triage_agent,
+    hand_to=[
+        OnCondition(
             target=authentication_agent,
             condition="The customer is not logged in, authenticate the customer.",
             available="requires_login",
         ),
-        ON_CONDITION(
+        OnCondition(
             target=order_mgmt_agent,
             condition="The customer is logged in, continue with the order triage.",
             available="logged_in",
         ),
-        AFTER_WORK(AfterWorkOption.REVERT_TO_USER),
-    ]
+        AfterWork(AfterWorkOption.REVERT_TO_USER),
+    ],
 )
 
-authentication_agent.register_hand_off(
-    [
-        ON_CONDITION(
+register_hand_off(
+    agent=authentication_agent,
+    hand_to=[
+        OnCondition(
             target=order_triage_agent,
             condition="The customer is logged in, continue with the order triage.",
             available="logged_in",
         ),
-        AFTER_WORK(AfterWorkOption.REVERT_TO_USER),
-    ]
+        AfterWork(AfterWorkOption.REVERT_TO_USER),
+    ],
 )
 
 
-def has_order_in_context(agent: SwarmAgent, messages: List[Dict[str, Any]]) -> bool:
+def has_order_in_context(agent: ConversableAgent, messages: List[Dict[str, Any]]) -> bool:
     return agent.get_context("has_order_id")
 
 
-order_mgmt_agent.register_hand_off(
-    [
-        ON_CONDITION(
+register_hand_off(
+    agent=order_mgmt_agent,
+    hand_to=[
+        OnCondition(
             target={
                 "chat_queue": chat_queue,
             },
             condition="Retrieve the status of the order",
             available=has_order_in_context,
         ),
-        ON_CONDITION(
+        OnCondition(
             target=authentication_agent,
             condition="The customer is not logged in, authenticate the customer.",
             available="requires_login",
         ),
-        ON_CONDITION(target=order_triage_agent, condition="The customer has no more enquiries about this order."),
-        AFTER_WORK(AfterWorkOption.REVERT_TO_USER),
-    ]
+        OnCondition(target=order_triage_agent, condition="The customer has no more enquiries about this order."),
+        AfterWork(AfterWorkOption.REVERT_TO_USER),
+    ],
 )
 ```
 
@@ -435,7 +446,7 @@ Next speaker: Tool_Execution
 Tool_Execution (to chat_manager):
 
 ***** Response from calling tool (call_RhIdaMav5FoXxvXiYhyDoivV) *****
-SwarmAgent --> authentication_agent
+Swarm agent --> authentication_agent
 **********************************************************************
 
 --------------------------------------------------------------------------------
@@ -536,7 +547,7 @@ Next speaker: Tool_Execution
 Tool_Execution (to chat_manager):
 
 ***** Response from calling tool (call_mXHJHDzVPTXWDhll0UH7w3QI) *****
-SwarmAgent --> order_mgmt_agent
+Swarm agent --> order_mgmt_agent
 **********************************************************************
 
 --------------------------------------------------------------------------------
@@ -698,7 +709,7 @@ Next speaker: Tool_Execution
 Tool_Execution (to chat_manager):
 
 ***** Response from calling tool (call_sYsVS1U3k3Cf2KbqKJ4hhyRa) *****
-SwarmAgent --> nested_chat_order_mgmt_agent_1
+Swarm agent --> nested_chat_order_mgmt_agent_1
 **********************************************************************
 
 --------------------------------------------------------------------------------
@@ -804,7 +815,7 @@ Next speaker: Tool_Execution
 Tool_Execution (to chat_manager):
 
 ***** Response from calling tool (call_VtBmcKhDAhh7JUz9aXyPq9Aj) *****
-SwarmAgent --> order_triage_agent
+Swarm agent --> order_triage_agent
 **********************************************************************
 
 --------------------------------------------------------------------------------

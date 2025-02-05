@@ -1,0 +1,47 @@
+---
+sidebarTitle: ContextStr
+title: autogen.agentchat.contrib.swarm_agent.ContextStr
+---
+<h2 id="autogen.agentchat.contrib.swarm_agent.ContextStr" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">ContextStr</span>
+</h2>
+
+```python
+ContextStr(template: str)
+```
+
+    A string that requires context variable substitution.
+    
+    Use the format method to substitute context variables into the string.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `template` | The string to be substituted with context variables.<br/><br/>It is expected that the string will contain \\{var} placeholders and that string format will be able to replace all values.<br/><br/>**Type:** `str` |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### template
+<br />
+
+    <br />
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### format
+
+```python
+format(self, context_variables: dict[str, typing.Any]) -> str
+```
+
+    Substitute context variables into the string.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `context_variables` | The context variables to substitute into the string.<br/><br/>**Type:** `dict[str, typing.Any]` |
+
+<br />

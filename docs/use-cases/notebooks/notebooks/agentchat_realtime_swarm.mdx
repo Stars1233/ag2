@@ -32,6 +32,14 @@ In this notebook, we implement OpenAI’s [airline customer service
 example](https://github.com/openai/swarm/tree/main/examples/airline) in
 AG2 using the RealtimeAgent for enhanced interaction.
 
+
+<div class="note">
+<Note>
+This notebook has been updated as swarms can now accommodate any ConversableAgent.
+</Note>
+</div>
+
+
 ## Install AG2 with twilio dependencies
 
 To use the realtime agent we will connect it to twilio service, this
@@ -254,10 +262,10 @@ def non_flight_enquiry() -> str:
 ## Define Agents and register functions
 
 ```python
-from autogen import ON_CONDITION, SwarmAgent
+from autogen import ConversableAgent, OnCondition, register_hand_off
 
 # Triage Agent
-triage_agent = SwarmAgent(
+triage_agent = ConversableAgent(
     name="Triage_Agent",
     system_message=triage_instructions(context_variables=context_variables),
     llm_config=llm_config,
@@ -265,7 +273,7 @@ triage_agent = SwarmAgent(
 )
 
 # Flight Modification Agent
-flight_modification = SwarmAgent(
+flight_modification = ConversableAgent(
     name="Flight_Modification_Agent",
     system_message="""You are a Flight Modification Agent for a customer service airline.
       Your task is to determine if the user wants to cancel or change their flight.
@@ -275,7 +283,7 @@ flight_modification = SwarmAgent(
 )
 
 # Flight Cancel Agent
-flight_cancel = SwarmAgent(
+flight_cancel = ConversableAgent(
     name="Flight_Cancel_Traversal",
     system_message=STARTER_PROMPT + FLIGHT_CANCELLATION_POLICY,
     llm_config=llm_config,
@@ -283,7 +291,7 @@ flight_cancel = SwarmAgent(
 )
 
 # Flight Change Agent
-flight_change = SwarmAgent(
+flight_change = ConversableAgent(
     name="Flight_Change_Traversal",
     system_message=STARTER_PROMPT + FLIGHT_CHANGE_POLICY,
     llm_config=llm_config,
@@ -291,7 +299,7 @@ flight_change = SwarmAgent(
 )
 
 # Lost Baggage Agent
-lost_baggage = SwarmAgent(
+lost_baggage = ConversableAgent(
     name="Lost_Baggage_Traversal",
     system_message=STARTER_PROMPT + LOST_BAGGAGE_POLICY,
     llm_config=llm_config,
@@ -303,27 +311,29 @@ lost_baggage = SwarmAgent(
 
 Now we register the handoffs for the agents. Note that you don’t need to
 define the transfer functions and pass them in. Instead, you can
-directly register the handoffs using the `ON_CONDITION` class.
+directly register the handoffs using the `OnCondition` class.
 
 ```python
 # Register hand-offs
-triage_agent.register_hand_off(
-    [
-        ON_CONDITION(flight_modification, "To modify a flight"),
-        ON_CONDITION(lost_baggage, "To find lost baggage"),
-    ]
+register_hand_off(
+    agent=triage_agent,
+    hand_to=[
+        OnCondition(flight_modification, "To modify a flight"),
+        OnCondition(lost_baggage, "To find lost baggage"),
+    ],
 )
 
-flight_modification.register_hand_off(
-    [
-        ON_CONDITION(flight_cancel, "To cancel a flight"),
-        ON_CONDITION(flight_change, "To change a flight"),
-    ]
+register_hand_off(
+    agent=flight_modification,
+    hand_to=[
+        OnCondition(flight_cancel, "To cancel a flight"),
+        OnCondition(flight_change, "To change a flight"),
+    ],
 )
 
 transfer_to_triage_description = "Call this function when a user needs to be transferred to a different agent and a different policy.\nFor instance, if a user is asking about a topic that is not handled by the current agent, call this function."
 for agent in [flight_modification, flight_cancel, flight_change, lost_baggage]:
-    agent.register_hand_off(ON_CONDITION(triage_agent, transfer_to_triage_description))
+    register_hand_off(agent=agent, hand_to=OnCondition(triage_agent, transfer_to_triage_description))
 ```
 
 ### Before you start the server
