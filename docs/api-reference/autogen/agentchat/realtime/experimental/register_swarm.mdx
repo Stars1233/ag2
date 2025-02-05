@@ -12,7 +12,8 @@ register_swarm(
     realtime_agent: RealtimeAgent,
     initial_agent: autogen.agentchat.conversable_agent.ConversableAgent,
     agents: list[autogen.agentchat.conversable_agent.ConversableAgent],
-    system_message: str | None = None
+    system_message: str | None = None,
+    question_message: str | None = None
 ) -> 
 ```
 
@@ -25,5 +26,6 @@ register_swarm(
 | `initial_agent` | The initial agent.<br/><br/>**Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
 | `agents` | The agents in the swarm.<br/><br/>**Type:** `list[autogen.agentchat.conversable_agent.ConversableAgent]` |
 | `system_message` | The system message to set for the agent.<br/><br/>If None, the default system message is used.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+| `question_message` | The question message to set for the agent.<br/><br/>If None, the default QUESTION_MESSAGE is used.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
 
 <br />

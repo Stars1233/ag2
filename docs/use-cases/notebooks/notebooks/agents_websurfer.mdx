@@ -88,6 +88,13 @@ nest_asyncio.apply()
 
 ### `browser-use` WebSurferAgent
 
+> **Note:** [`Browser Use`](https://github.com/browser-use/browser-use)
+> supports the following models: [Supported
+> Models](https://docs.browser-use.com/customize/supported-models#supported-models)
+>
+> We had great experience with `OpenAI`, `Anthropic`, and `Gemini`.
+> However, `DeepSeek` and `Ollama` haven’t performed as well.
+
 ```python
 config_list = [{"model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
 
