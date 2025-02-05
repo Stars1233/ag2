@@ -39,7 +39,17 @@ Unstructured-IO is a dependency for this notebook to parse the PDF. Please insta
 
 - Install Poppler https://pdf2image.readthedocs.io/en/latest/installation.html
 - Install Tesseract https://tesseract-ocr.github.io/tessdoc/Installation.html
-- pip install ag2[neo4j], unstructured==0.16.11, pi-heif==0.21.0, unstructured_inference==0.8.1, unstructured.pytesseract==0.3.13, pytesseract==0.3.13
+- `pip install ag2[neo4j], unstructured==0.16.11, pi-heif==0.21.0, unstructured_inference==0.8.1, unstructured.pytesseract==0.3.13, pytesseract==0.3.13`
+
+> **Note:** If you have been using `autogen` or `pyautogen`, all you need to do is upgrade it using:  
+> ```bash
+> pip install -U autogen[neo4j]
+> ```
+> or  
+> ```bash
+> pip install -U pyautogen[neo4j]
+> ```
+> as `pyautogen`, `autogen`, and `ag2` are aliases for the same PyPI package.
 </Info>
 </div>
 

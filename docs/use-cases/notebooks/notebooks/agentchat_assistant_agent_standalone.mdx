@@ -29,12 +29,34 @@ the browser-use optional dependency and
 
 <div class="info Requirements">
 <Info>
-Install `ag2`:
+**Warning:** [`Browser Use`](https://github.com/browser-use/browser-use)
+requires **Python 3.11 or higher**.
+
+Install `ag2` and `playwright`:
 
 ```bash
 pip install ag2[browser-use]
+# Installs Playwright and browsers for all OS
 playwright install
+# Additional command, mandatory for Linux only
+playwright install-deps
 ```
+
+> **Note:** If you have been using `autogen` or `pyautogen`, all you
+> need to do is upgrade it using:
+>
+> ```bash
+> pip install -U autogen[browser-use]
+> ```
+>
+> or
+>
+> ```bash
+> pip install -U pyautogen[browser-use]
+> ```
+>
+> as `pyautogen`, `autogen`, and `ag2` are aliases for the same PyPI
+> package.
 </Info>
 </div>
 

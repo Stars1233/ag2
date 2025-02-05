@@ -30,6 +30,9 @@ for tasks like data collection, web automation, and more.
 
 ## Installation
 
+**Warning:** [`Browser Use`](https://github.com/browser-use/browser-use)
+requires **Python 3.11 or higher**.
+
 To get started with the `browser-use` integration in AG2, follow these
 steps:
 
@@ -39,10 +42,29 @@ steps:
     pip install ag2[browser-use]
     ```
 
+    > **Note:** If you have been using `autogen` or `pyautogen`, all you
+    > need to do is upgrade it using:
+    >
+    > ```bash
+    > pip install -U autogen[browser-use]
+    > ```
+    >
+    > or
+    >
+    > ```bash
+    > pip install -U pyautogen[browser-use]
+    > ```
+    >
+    > as `pyautogen`, `autogen`, and `ag2` are aliases for the same PyPI
+    > package.
+
 2.  Set up Playwright:
 
     ```bash
+    # Installs Playwright and browsers for all OS
     playwright install
+    # Additional command, mandatory for Linux only
+    playwright install-deps
     ```
 
 You’re all set! Now you can start using browsing features in AG2.

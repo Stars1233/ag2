@@ -51,6 +51,17 @@ Install `ag2`:
 pip install ag2
 ```
 
+> **Note:** If you have been using `autogen` or `pyautogen`, all you need to do is upgrade it using:  
+> ```bash
+> pip install -U autogen
+> ```
+> or  
+> ```bash
+> pip install -U pyautogen
+> ```
+> as `pyautogen`, `autogen`, and `ag2` are aliases for the same PyPI package.  
+
+
 For more information, please refer to the [installation guide](/docs/user-guide/basic-concepts/installing-ag2).
 </Info>
 </div>
@@ -332,142 +343,4 @@ chat_history, context_variables, last_agent = initiate_swarm_chat(
     messages="I want to cancel flight",
     after_work=AfterWorkOption.REVERT_TO_USER,
 )
-```
-
-``` text
-User (to chat_manager):
-
-I want to cancel flight
-
---------------------------------------------------------------------------------
-
-Next speaker: Triage_Agent
-
-Triage_Agent (to chat_manager):
-
-What is the reason for canceling your flight?
-
---------------------------------------------------------------------------------
-
-Next speaker: User
-
-User (to chat_manager):
-
-please cancel it
-
---------------------------------------------------------------------------------
-
-Next speaker: Triage_Agent
-
-Triage_Agent (to chat_manager):
-
-***** Suggested tool call (call_Qgji9KAw1e3ktxykLU8v1wg7): transfer_to_Flight_Modification_Agent *****
-Arguments: 
-{}
-******************************************************************************************************
-
---------------------------------------------------------------------------------
-
-Next speaker: Tool_Execution
-
-
->>>>>>>> EXECUTING FUNCTION transfer_to_Flight_Modification_Agent...
-Tool_Execution (to chat_manager):
-
-***** Response from calling tool (call_Qgji9KAw1e3ktxykLU8v1wg7) *****
-Swarm agent --> Flight_Modification_Agent
-**********************************************************************
-
---------------------------------------------------------------------------------
-
-Next speaker: Flight_Modification_Agent
-
-Flight_Modification_Agent (to chat_manager):
-
-I'm here to help you with your flight cancellation. We can proceed with the process now.
-***** Suggested tool call (call_QYu7uBko1EaEZ7VzxPwx2jNO): transfer_to_Flight_Cancel_Traversal *****
-Arguments: 
-{}
-****************************************************************************************************
-
---------------------------------------------------------------------------------
-
-Next speaker: Tool_Execution
-
-
->>>>>>>> EXECUTING FUNCTION transfer_to_Flight_Cancel_Traversal...
-Tool_Execution (to chat_manager):
-
-***** Response from calling tool (call_QYu7uBko1EaEZ7VzxPwx2jNO) *****
-Swarm agent --> Flight_Cancel_Traversal
-**********************************************************************
-
---------------------------------------------------------------------------------
-
-Next speaker: Flight_Cancel_Traversal
-
-Flight_Cancel_Traversal (to chat_manager):
-
-I can assist you with cancelling your flight. Can you please confirm which flight you would like to cancel?
-
---------------------------------------------------------------------------------
-
-Next speaker: User
-
-User (to chat_manager):
-
-1919
-
---------------------------------------------------------------------------------
-
-Next speaker: Flight_Cancel_Traversal
-
-Flight_Cancel_Traversal (to chat_manager):
-
-Thank you for confirming the flight number as 1919. Do you want a refund for this flight or flight credits for future travel?
-
---------------------------------------------------------------------------------
-
-Next speaker: User
-
-User (to chat_manager):
-
-refund
-
---------------------------------------------------------------------------------
-
-Next speaker: Flight_Cancel_Traversal
-
-Flight_Cancel_Traversal (to chat_manager):
-
-***** Suggested tool call (call_yYakoWErBeNwrNfI5YGOaMf0): initiate_refund *****
-Arguments: 
-{}
-********************************************************************************
-
---------------------------------------------------------------------------------
-
-Next speaker: Tool_Execution
-
-
->>>>>>>> EXECUTING FUNCTION initiate_refund...
-Tool_Execution (to chat_manager):
-
-***** Response from calling tool (call_yYakoWErBeNwrNfI5YGOaMf0) *****
-Refund initiated
-**********************************************************************
-
---------------------------------------------------------------------------------
-
-Next speaker: Flight_Cancel_Traversal
-
-Flight_Cancel_Traversal (to chat_manager):
-
-The refund process has been initiated and you can expect it to be processed within 3-5 business days. 
-
-If you have any more questions or need further assistance, feel free to ask!
-
---------------------------------------------------------------------------------
-
-Next speaker: User
 ```
