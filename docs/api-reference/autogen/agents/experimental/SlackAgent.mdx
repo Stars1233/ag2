@@ -1,0 +1,41 @@
+---
+sidebarTitle: SlackAgent
+title: autogen.agents.experimental.SlackAgent
+---
+<h2 id="autogen.agents.experimental.SlackAgent" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">SlackAgent</span>
+</h2>
+
+```python
+SlackAgent(
+    system_message: str | list | None = None,
+    *args,
+    bot_token: str,
+    channel_id: str,
+    has_writing_instructions: bool = True,
+    **kwargs
+)
+```
+
+    An agent that can send messages and retrieve messages on Slack.
+    
+    Initialize the SlackAgent.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `system_message` | **Type:** `str \| list \| None`<br/><br/>**Default:** None |
+| `*args` |  |
+| `bot_token` | Bot User OAuth Token starting with "xoxb-".<br/><br/>**Type:** `str` |
+| `channel_id` | Channel ID where messages will be sent.<br/><br/>**Type:** `str` |
+| `has_writing_instructions` | Whether to add writing instructions to the system message.<br/><br/>Defaults to True.<br/><br/>**Type:** `bool`<br/><br/>**Default:** True |
+| `**kwargs` |  |
+
+### Instance Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### tools
+<br />
+
+    <br />

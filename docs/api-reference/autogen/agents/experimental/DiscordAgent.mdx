@@ -1,0 +1,43 @@
+---
+sidebarTitle: DiscordAgent
+title: autogen.agents.experimental.DiscordAgent
+---
+<h2 id="autogen.agents.experimental.DiscordAgent" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">DiscordAgent</span>
+</h2>
+
+```python
+DiscordAgent(
+    system_message: str | list | None = None,
+    *args,
+    bot_token: str,
+    channel_name: str,
+    guild_name: str,
+    has_writing_instructions: bool = True,
+    **kwargs
+)
+```
+
+    An agent that can send messages and retrieve messages on Discord.
+    
+    Initialize the DiscordAgent.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `system_message` | **Type:** `str \| list \| None`<br/><br/>**Default:** None |
+| `*args` |  |
+| `bot_token` | Discord bot token<br/><br/>**Type:** `str` |
+| `channel_name` | Channel name where messages will be sent / retrieved<br/><br/>**Type:** `str` |
+| `guild_name` | Guild (server) name where the channel is located<br/><br/>**Type:** `str` |
+| `has_writing_instructions` | Whether to add writing instructions to the system message.<br/><br/>Defaults to True.<br/><br/>**Type:** `bool`<br/><br/>**Default:** True |
+| `**kwargs` |  |
+
+### Instance Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### tools
+<br />
+
+    <br />

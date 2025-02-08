@@ -1138,8 +1138,16 @@
             {
               "group": "agents",
               "pages": [
-                "docs/api-reference/autogen/agents/overview",
-                "docs/api-reference/autogen/agents/WebSurferAgent"
+                {
+                  "group": "experimental",
+                  "pages": [
+                    "docs/api-reference/autogen/agents/experimental/overview",
+                    "docs/api-reference/autogen/agents/experimental/DiscordAgent",
+                    "docs/api-reference/autogen/agents/experimental/SlackAgent",
+                    "docs/api-reference/autogen/agents/experimental/TelegramAgent",
+                    "docs/api-reference/autogen/agents/experimental/WebSurferAgent"
+                  ]
+                }
               ]
             },
             {

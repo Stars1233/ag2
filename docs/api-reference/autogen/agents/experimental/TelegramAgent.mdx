@@ -1,0 +1,43 @@
+---
+sidebarTitle: TelegramAgent
+title: autogen.agents.experimental.TelegramAgent
+---
+<h2 id="autogen.agents.experimental.TelegramAgent" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">TelegramAgent</span>
+</h2>
+
+```python
+TelegramAgent(
+    system_message: str | list | None = None,
+    *args,
+    api_id: str,
+    api_hash: str,
+    chat_id: str,
+    has_writing_instructions: bool = True,
+    **kwargs
+)
+```
+
+    An agent that can send messages and retrieve messages on Telegram.
+    
+    Initialize the TelegramAgent.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `system_message` | **Type:** `str \| list \| None`<br/><br/>**Default:** None |
+| `*args` |  |
+| `api_id` | Telegram API ID from https://my.telegram.org/apps.<br/><br/>**Type:** `str` |
+| `api_hash` | Telegram API hash from https://my.telegram.org/apps.<br/><br/>**Type:** `str` |
+| `chat_id` | The ID of the destination (Channel, Group, or User ID).<br/><br/>**Type:** `str` |
+| `has_writing_instructions` | Whether to add writing instructions to the system message.<br/><br/>Defaults to True.<br/><br/>**Type:** `bool`<br/><br/>**Default:** True |
+| `**kwargs` |  |
+
+### Instance Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### tools
+<br />
+
+    <br />
