@@ -1640,6 +1640,12 @@
                     "docs/api-reference/autogen/tools/experimental/overview",
                     "docs/api-reference/autogen/tools/experimental/BrowserUseTool",
                     "docs/api-reference/autogen/tools/experimental/Crawl4AITool",
+                    "docs/api-reference/autogen/tools/experimental/DiscordRetrieveTool",
+                    "docs/api-reference/autogen/tools/experimental/DiscordSendTool",
+                    "docs/api-reference/autogen/tools/experimental/SlackRetrieveTool",
+                    "docs/api-reference/autogen/tools/experimental/SlackSendTool",
+                    "docs/api-reference/autogen/tools/experimental/TelegramRetrieveTool",
+                    "docs/api-reference/autogen/tools/experimental/TelegramSendTool",
                     {
                       "group": "browser_use",
                       "pages": [
