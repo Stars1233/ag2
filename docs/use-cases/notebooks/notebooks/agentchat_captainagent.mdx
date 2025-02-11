@@ -96,9 +96,9 @@ config_list = autogen.config_list_from_json(
 ## Using CaptainAgent without libraries
 
 We begin with demonstrating how to use CaptainAgent without retrieving
-from libaries. In this case, CaptainAgent will automatically generate a
-set of experts according to its identified subtask and initate the group
-chat. By default, the backbone of the LLM is set to `gpt-4o`. For
+from libraries. In this case, CaptainAgent will automatically generate a
+set of experts according to its identified subtask and initiate the
+group chat. By default, the backbone of the LLM is set to `gpt-4o`. For
 instructions on configuring the backbone, refer to docs on
 [`nested_mode`](https://docs.ag2.ai/docs/topics/captainagent/configurations).
 
@@ -108,7 +108,7 @@ from autogen.agentchat.contrib.captainagent import CaptainAgent
 
 llm_config = {"temperature": 0, "config_list": config_list}
 
-## build agents
+# build agents
 captain_agent = CaptainAgent(
     name="captain_agent",
     llm_config=llm_config,
@@ -132,7 +132,7 @@ result = captain_user_proxy.initiate_chat(
 One significant feature of CaptainAgent is that the agents and tools can
 be retrieved from a dedicated library. When CaptainAgent starts building
 experts for group chat, it will retrieve and select from agent library,
-then assign tools retreived from tool library to the experts.
+then assign tools retrieved from tool library to the experts.
 
 For agent library, refer to
 [`captainagent_expert_library.json`](https://github.com/ag2ai/ag2/blob/main/notebook/captainagent_expert_library.json)
@@ -189,12 +189,12 @@ import os
 from autogen import UserProxyAgent
 from autogen.agentchat.contrib.captainagent import CaptainAgent
 
-os.environ["BING_API_KEY"] = ""  # set your bing api key here, if you donot need search engine, you can skip this step
+os.environ["BING_API_KEY"] = ""  # set your bing api key here, if you don't need search engine, you can skip this step
 os.environ["RAPID_API_KEY"] = (
     ""  # set your rapid api key here, in order for this example to work, you need to subscribe to the youtube transcription api(https://rapidapi.com/solid-api-solid-api-default/api/youtube-transcript3)
 )
 
-## build agents
+# build agents
 captain_agent = CaptainAgent(
     name="captain_agent",
     llm_config=llm_config,

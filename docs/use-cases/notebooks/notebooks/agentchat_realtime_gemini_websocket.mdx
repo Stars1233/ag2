@@ -15,7 +15,7 @@ title: RealtimeAgent with gemini client
 
 
 
-AG2 **RealtimeAgent** suports Gemini [Multimodal Live
+AG2 **RealtimeAgent** supports Gemini [Multimodal Live
 API](https://ai.google.dev/api/multimodal-live)
 
 **Note**: This notebook cannot be run in Google Colab because it depends
@@ -39,8 +39,8 @@ cd ag2
 
 ## Install AG2 and dependencies
 
-To use the realtime agent we will connect it to a local websocket trough
-the browser.
+To use the realtime agent we will connect it to a local websocket
+through the browser.
 
 We have prepared a `WebSocketAudioAdapter` to enable you to connect your
 realtime agent to a websocket service.
@@ -217,7 +217,7 @@ async def start_chat(request: Request):
     return templates.TemplateResponse("chat.html", {"request": request, "port": port})
 ```
 
-### Prepare endpint for converstion audio stream
+### Prepare endpoint for conversation audio stream
 
 1.  **Set Up the WebSocket Endpoint**: Define the `/media-stream`
     WebSocket route to handle audio streaming.

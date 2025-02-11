@@ -126,34 +126,32 @@ user = autogen.UserProxyAgent(
     },  # Please set use_docker=True if docker is available to run the generated code. Using docker is safer than running the generated code directly.
 )
 
-chat_results = await user.a_initiate_chats(
-    [
-        {
-            "chat_id": 1,
-            "recipient": financial_assistant,
-            "message": financial_tasks[0],
-            "silent": False,
-            "summary_method": "reflection_with_llm",
-        },
-        {
-            "chat_id": 2,
-            "prerequisites": [1],
-            "recipient": research_assistant,
-            "message": financial_tasks[1],
-            "silent": False,
-            "summary_method": "reflection_with_llm",
-        },
-        {
-            "chat_id": 3,
-            "prerequisites": [1],
-            "recipient": financial_assistant,
-            "message": financial_tasks[2],
-            "silent": False,
-            "summary_method": "reflection_with_llm",
-        },
-        {"chat_id": 4, "prerequisites": [1, 2, 3], "recipient": writer, "silent": False, "message": writing_tasks[0]},
-    ]
-)
+chat_results = await user.a_initiate_chats([
+    {
+        "chat_id": 1,
+        "recipient": financial_assistant,
+        "message": financial_tasks[0],
+        "silent": False,
+        "summary_method": "reflection_with_llm",
+    },
+    {
+        "chat_id": 2,
+        "prerequisites": [1],
+        "recipient": research_assistant,
+        "message": financial_tasks[1],
+        "silent": False,
+        "summary_method": "reflection_with_llm",
+    },
+    {
+        "chat_id": 3,
+        "prerequisites": [1],
+        "recipient": financial_assistant,
+        "message": financial_tasks[2],
+        "silent": False,
+        "summary_method": "reflection_with_llm",
+    },
+    {"chat_id": 4, "prerequisites": [1, 2, 3], "recipient": writer, "silent": False, "message": writing_tasks[0]},
+])
 ```
 
 ```` text
@@ -610,7 +608,7 @@ Conversation cost:  ({'total_cost': 0.02817, 'gpt-4-0125-preview': {'cost': 0.02
 ### Scenario 2: With human inputs revising tasks in the middle
 
 Since AutoGen agents support soliciting human inputs during a chat if
-`human_input_mode` is specificed properly, the actual task might be
+`human_input_mode` is specified properly, the actual task might be
 revised in the middle of a chat.
 
 The example below showcases that even if a task is revised in the middle
@@ -631,34 +629,32 @@ user = autogen.UserProxyAgent(
     },  # Please set use_docker=True if docker is available to run the generated code. Using docker is safer than running the generated code directly.
 )
 
-chat_results = await user.a_initiate_chats(
-    [
-        {
-            "chat_id": 1,
-            "recipient": financial_assistant,
-            "message": financial_tasks[0],
-            "silent": False,
-            "summary_method": "reflection_with_llm",
-        },
-        {
-            "chat_id": 2,
-            "prerequisites": [1],
-            "recipient": research_assistant,
-            "message": financial_tasks[1],
-            "silent": True,
-            "summary_method": "reflection_with_llm",
-        },
-        {
-            "chat_id": 3,
-            "prerequisites": [1],
-            "recipient": financial_assistant,
-            "message": financial_tasks[2],
-            "silent": False,
-            "summary_method": "reflection_with_llm",
-        },
-        {"chat_id": 4, "prerequisites": [1, 2, 3], "recipient": writer, "message": writing_tasks[0]},
-    ]
-)
+chat_results = await user.a_initiate_chats([
+    {
+        "chat_id": 1,
+        "recipient": financial_assistant,
+        "message": financial_tasks[0],
+        "silent": False,
+        "summary_method": "reflection_with_llm",
+    },
+    {
+        "chat_id": 2,
+        "prerequisites": [1],
+        "recipient": research_assistant,
+        "message": financial_tasks[1],
+        "silent": True,
+        "summary_method": "reflection_with_llm",
+    },
+    {
+        "chat_id": 3,
+        "prerequisites": [1],
+        "recipient": financial_assistant,
+        "message": financial_tasks[2],
+        "silent": False,
+        "summary_method": "reflection_with_llm",
+    },
+    {"chat_id": 4, "prerequisites": [1, 2, 3], "recipient": writer, "message": writing_tasks[0]},
+])
 ```
 
 ```` text
@@ -1197,26 +1193,24 @@ user = autogen.UserProxyAgent(
         "use_docker": False,
     },  # Please set use_docker=True if docker is available to run the generated code. Using docker is safer than running the generated code directly.
 )
-await user.a_initiate_chats(
-    [
-        {"chat_id": 1, "recipient": research_assistant, "message": financial_tasks[0], "summary_method": "last_msg"},
-        {
-            "chat_id": 2,
-            "prerequisites": [1],
-            "recipient": manager_1,
-            "message": financial_tasks[1],
-            "summary_method": "reflection_with_llm",
-        },
-        {
-            "chat_id": 3,
-            "prerequisites": [1],
-            "recipient": manager_1,
-            "message": financial_tasks[2],
-            "summary_method": "reflection_with_llm",
-        },
-        {"chat_id": 4, "prerequisites": [1, 2, 3], "recipient": manager_2, "message": writing_tasks[0]},
-    ]
-)
+await user.a_initiate_chats([
+    {"chat_id": 1, "recipient": research_assistant, "message": financial_tasks[0], "summary_method": "last_msg"},
+    {
+        "chat_id": 2,
+        "prerequisites": [1],
+        "recipient": manager_1,
+        "message": financial_tasks[1],
+        "summary_method": "reflection_with_llm",
+    },
+    {
+        "chat_id": 3,
+        "prerequisites": [1],
+        "recipient": manager_1,
+        "message": financial_tasks[2],
+        "summary_method": "reflection_with_llm",
+    },
+    {"chat_id": 4, "prerequisites": [1, 2, 3], "recipient": manager_2, "message": writing_tasks[0]},
+])
 ```
 
 ```` text

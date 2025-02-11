@@ -454,7 +454,7 @@ async def start_chat(request: Request):
     return templates.TemplateResponse("chat.html", {"request": request, "port": port})
 ```
 
-### Prepare endpint for converstion audio stream
+### Prepare endpoint for conversation audio stream
 
 1.  **Set Up the WebSocket Endpoint**: Define the `/media-stream`
     WebSocket route to handle audio streaming.

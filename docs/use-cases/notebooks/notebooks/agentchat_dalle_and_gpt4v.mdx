@@ -80,7 +80,7 @@ The `config_list_dalle` should be something like:
 
 ## Helper Functions
 
-We first create a warpper for DALLE call, make the
+We first create a wrapper for DALLE call, make the
 
 ```python
 def dalle_call(client: OpenAI, model: str, prompt: str, size: str, quality: str, n: int) -> str:
@@ -231,24 +231,6 @@ user_proxy.initiate_chat(
 )
 ```
 
-``` text
-User_proxy (to Dalle):
-
-Create an image with black background, a happy robot is showing a sign with "I Love AutoGen".
-
---------------------------------------------------------------------------------
-```
-
-``` text
-/home/beibinli/autogen/autogen/agentchat/user_proxy_agent.py:83: UserWarning: Using None to signal a default code_execution_config is deprecated. Use {} to use default or False to disable code execution.
-  super().__init__(
-/home/beibinli/autogen/autogen/agentchat/conversable_agent.py:954: UserWarning: Cannot extract summary using last_msg: 'list' object has no attribute 'replace'
-  warnings.warn(f"Cannot extract summary using last_msg: {e}", UserWarning)
-```
-
-``` text
-ChatResult(chat_id=None, chat_history=[{'content': 'Create an image with black background, a happy robot is showing a sign with "I Love AutoGen".', 'role': 'assistant'}, {'content': [{'type': 'image_url', 'image_url': {'url': <PIL.PngImagePlugin.PngImageFile image mode=RGB size=1024x1024 at 0x7F8EB52561C0>}}], 'role': 'user'}], summary='', cost=({'total_cost': 0}, {'total_cost': 0}), human_input=[])
-```
 
 ```python
 img = extract_img(dalle)
@@ -257,8 +239,6 @@ plt.imshow(img)
 plt.axis("off")  # Turn off axis numbers
 plt.show()
 ```
-
-![](agentchat_dalle_and_gpt4v_files/figure-markdown_strict/cell-8-output-1.png)
 
 ## Example With Critics: Iterate several times to improve
 
@@ -289,7 +269,7 @@ class DalleCreator(AssistantAgent):
 
         img_prompt = messages[-1]["content"]
 
-        ## Define the agents
+        # Define the agents
         self.critics = MultimodalConversableAgent(
             name="Critics",
             system_message="""You need to improve the prompt of the figures you saw.
@@ -356,101 +336,6 @@ user_proxy = UserProxyAgent(name="User", human_input_mode="NEVER", max_consecuti
 user_proxy.initiate_chat(
     creator, message="""Create an image with black background, a happy robot is showing a sign with "I Love AutoGen"."""
 )
-```
-
-``` text
-User (to DALLE Creator!):
-
-Create an image with black background, a happy robot is showing a sign with "I Love AutoGen".
-
---------------------------------------------------------------------------------
-DALLE Creator! (to Dalle):
-
-Create an image with black background, a happy robot is showing a sign with "I Love AutoGen".
-
---------------------------------------------------------------------------------
-```
-
-![](agentchat_dalle_and_gpt4v_files/figure-markdown_strict/cell-10-output-2.png)
-
-``` text
-Image PLOTTED
-DALLE Creator! (to Critics):
-
-Here is the prompt: Create an image with black background, a happy robot is showing a sign with "I Love AutoGen"..
-            Here is the figure <image>.
-            Now, critic and create a prompt so that DALLE can give me a better image.
-            Show me both "CRITICS" and "PROMPT"!
-            
-
---------------------------------------------------------------------------------
-Critics (to DALLE Creator!):
-
-CRITICS: The image needs to improve in the following aspects:
-
-1. Lighting: The robot and the sign could benefit from additional lighting to enhance details and textures, ensuring that they stand out more against the black background.
-2. Legibility: The text on the sign could be more prominent and the font size increased for better readability. Additionally, a contrasting color could be used for the text to ensure it pops against the background.
-3. Robot's Expression: While the robot appears happy, its expression could be made more apparent with clearer facial features or more exaggerated happiness indicators in its body language or facial features.
-4. Composition: The robot and the sign could be positioned in a way that creates a more dynamic composition, keeping the viewer’s eye engaged.
-5. Resolution: A higher resolution would make the image sharper, improving the overall quality and detail.
-
-PROMPT: Create a high-resolution image with a richly detailed, happy robot made of shiny metal, standing center frame against a stark black background. The robot is holding up a large, rectangular sign with rounded corners that reads "I ❤️ AutoGen" in bold, white sans-serif font, with the heart symbol in a vivid red color. The sign should be well-lit with a soft glow that highlights the text and makes it stand out. Ensure the robot's features clearly convey joy, perhaps through a broad smile and posture conveying enthusiasm. The composition should be balanced and visually appealing, with an intelligent use of space that guides the viewer's attention to the robot and the sign.
-
---------------------------------------------------------------------------------
-DALLE Creator! (to Dalle):
-
-Create a high-resolution image with a richly detailed, happy robot made of shiny metal, standing center frame against a stark black background. The robot is holding up a large, rectangular sign with rounded corners that reads "I ❤️ AutoGen" in bold, white sans-serif font, with the heart symbol in a vivid red color. The sign should be well-lit with a soft glow that highlights the text and makes it stand out. Ensure the robot's features clearly convey joy, perhaps through a broad smile and posture conveying enthusiasm. The composition should be balanced and visually appealing, with an intelligent use of space that guides the viewer's attention to the robot and the sign.
-
---------------------------------------------------------------------------------
-```
-
-![](agentchat_dalle_and_gpt4v_files/figure-markdown_strict/cell-10-output-4.png)
-
-``` text
-Image 0 PLOTTED
-DALLE Creator! (to Critics):
-
-Here is the prompt: Create a high-resolution image with a richly detailed, happy robot made of shiny metal, standing center frame against a stark black background. The robot is holding up a large, rectangular sign with rounded corners that reads "I ❤️ AutoGen" in bold, white sans-serif font, with the heart symbol in a vivid red color. The sign should be well-lit with a soft glow that highlights the text and makes it stand out. Ensure the robot's features clearly convey joy, perhaps through a broad smile and posture conveying enthusiasm. The composition should be balanced and visually appealing, with an intelligent use of space that guides the viewer's attention to the robot and the sign..
-            Here is the figure <image>.
-            Now, critic and create a prompt so that DALLE can give me a better image.
-            Show me both "CRITICS" and "PROMPT"!
-            
-
---------------------------------------------------------------------------------
-Critics (to DALLE Creator!):
-
-CRITICS: The image could be improved in the following ways:
-
-1. Color Contrast: The overall color contrast between the robot and the sign could be enhanced to make the elements more distinct from one another.
-2. Clarity and Details: The details of the robot's material and structure could be made sharper and more intricate to accentuate its shiny metal look.
-3. Sign's Design: The design of the sign could be simplified by using negative space more effectively, ensuring the message "I ❤️ AutoGen" is instantly recognizable and stands out more.
-4. Lighting and Shadows: The lighting could be diversified to cast subtle shadows, which would add depth and volume, making the image more three-dimensional.
-5. Emotion and Posture: The robot's expression and posture could be exaggerated further to emphasize its joyfulness and the message it is conveying.
-6. Background: While the background is appropriately black, adding a subtle texture or gradient could give the image more depth without distracting from the main subject.
-
-PROMPT: Generate a high-resolution 3D rendering of an exuberant, animated-style robot constructed from glossy, reflective metal surfaces. It stands in the center of a pure black background with a soft, radial gradient to provide subtle depth. The robot is displaying a sizable sign with prominent "I ❤️ AutoGen" lettering in a bold, white, sans-serif font, the heart being a luminous red, creating a stark, elegant contrast. Incorporate adequate lighting from multiple angles to cast dynamic, gentle shadows around the robot, enhancing its dimensional appearance. Ensure that the robot's facial features and stance radiate delight, featuring an exaggerated smile and arms raised in a victorious, welcoming gesture. The sign should be backlit with a soft halo effect, making it vibrant and eye-catching. The overall composition must be striking yet harmonious, drawing attention to both the robot’s delighted demeanor and the message it presents.
-
---------------------------------------------------------------------------------
-DALLE Creator! (to Dalle):
-
-Generate a high-resolution 3D rendering of an exuberant, animated-style robot constructed from glossy, reflective metal surfaces. It stands in the center of a pure black background with a soft, radial gradient to provide subtle depth. The robot is displaying a sizable sign with prominent "I ❤️ AutoGen" lettering in a bold, white, sans-serif font, the heart being a luminous red, creating a stark, elegant contrast. Incorporate adequate lighting from multiple angles to cast dynamic, gentle shadows around the robot, enhancing its dimensional appearance. Ensure that the robot's facial features and stance radiate delight, featuring an exaggerated smile and arms raised in a victorious, welcoming gesture. The sign should be backlit with a soft halo effect, making it vibrant and eye-catching. The overall composition must be striking yet harmonious, drawing attention to both the robot’s delighted demeanor and the message it presents.
-
---------------------------------------------------------------------------------
-```
-
-![](agentchat_dalle_and_gpt4v_files/figure-markdown_strict/cell-10-output-6.png)
-
-``` text
-Image 1 PLOTTED
-DALLE Creator! (to User):
-
-result.jpg
-
---------------------------------------------------------------------------------
-```
-
-``` text
-ChatResult(chat_id=None, chat_history=[{'content': 'Create an image with black background, a happy robot is showing a sign with "I Love AutoGen".', 'role': 'assistant'}, {'content': 'result.jpg', 'role': 'user'}], summary='result.jpg', cost=({'total_cost': 0}, {'total_cost': 0}), human_input=[])
 ```
 
 <div className="edit-url-container">

@@ -116,42 +116,6 @@ user_proxy.initiate_chat(
 gpt_assistant.delete_assistant()
 ```
 
-``` text
-OpenAI client config of GPTAssistantAgent(Coder Assistant) - model: gpt-4-turbo
-Matching assistant found, using the first matching assistant: {'id': 'asst_xBMxObFj0TzDex04NAKbBCmP', 'created_at': 1710321320, 'description': None, 'file_ids': [], 'instructions': 'You are an expert at solving math questions. Write code and run it to solve math problems. Reply TERMINATE when the task is solved and there is no problem.', 'metadata': {}, 'model': 'gpt-4-turbo', 'name': 'Coder Assistant', 'object': 'assistant', 'tools': [ToolCodeInterpreter(type='code_interpreter')]}
-```
-
-``` text
-user_proxy (to Coder Assistant):
-
-If $725x + 727y = 1500$ and $729x+ 731y = 1508$, what is the value of $x - y$ ?
-
---------------------------------------------------------------------------------
-Coder Assistant (to user_proxy):
-
-The value of \( x - y \) is \(-48\).
-
-
---------------------------------------------------------------------------------
-user_proxy (to Coder Assistant):
-
-
-
---------------------------------------------------------------------------------
-Coder Assistant (to user_proxy):
-
-It seems you have no further inquiries. If you have more questions in the future, feel free to ask. Goodbye!
-
-TERMINATE
-
-
---------------------------------------------------------------------------------
-```
-
-``` text
-Permanently deleting assistant...
-```
-
 ### Example 2: Plotting with Code Interpreter
 
 Code Interpreter can outputs files, such as generating image diagrams.
@@ -179,40 +143,6 @@ user_proxy.initiate_chat(
 )
 ```
 
-``` text
-OpenAI client config of GPTAssistantAgent(Coder Assistant) - model: gpt-4-turbo
-No matching assistant found, creating a new assistant
-```
-
-``` text
-user_proxy (to Coder Assistant):
-
-Draw a line chart to show the population trend in US. Show how you solved it with code.
-
---------------------------------------------------------------------------------
-Coder Assistant (to user_proxy):
-
-To draw a line chart showing the population trend in the US, we first need to obtain the data that contains the population figures over a range of years. As I don't have access to the internet in this environment, I cannot download the data directly. However, if you can provide the data, I can proceed to create a line chart for you.
-
-For the purpose of this demonstration, let's assume we have some hypothetical US population data for a few years. I'll generate some sample data and create a line chart using the `matplotlib` library in Python.
-
-Here's how we can do it:
-
-
-Received file id=assistant-tvLtfOn6uAJ9kxmnxgK2OXID
-
-Here is a line chart that illustrates the hypothetical US population trend from 2010 to 2020. The data used here is for demonstration purposes only. If you have actual population data, you can provide it, and I will update the chart accordingly.
-
-TERMINATE
-
-
---------------------------------------------------------------------------------
-```
-
-``` text
-ChatResult(chat_id=None, chat_history=[{'content': 'Draw a line chart to show the population trend in US. Show how you solved it with code.', 'role': 'assistant'}, {'content': "To draw a line chart showing the population trend in the US, we first need to obtain the data that contains the population figures over a range of years. As I don't have access to the internet in this environment, I cannot download the data directly. However, if you can provide the data, I can proceed to create a line chart for you.\n\nFor the purpose of this demonstration, let's assume we have some hypothetical US population data for a few years. I'll generate some sample data and create a line chart using the `matplotlib` library in Python.\n\nHere's how we can do it:\n\n\nReceived file id=assistant-tvLtfOn6uAJ9kxmnxgK2OXID\n\nHere is a line chart that illustrates the hypothetical US population trend from 2010 to 2020. The data used here is for demonstration purposes only. If you have actual population data, you can provide it, and I will update the chart accordingly.\n\nTERMINATE\n", 'role': 'user'}], summary="To draw a line chart showing the population trend in the US, we first need to obtain the data that contains the population figures over a range of years. As I don't have access to the internet in this environment, I cannot download the data directly. However, if you can provide the data, I can proceed to create a line chart for you.\n\nFor the purpose of this demonstration, let's assume we have some hypothetical US population data for a few years. I'll generate some sample data and create a line chart using the `matplotlib` library in Python.\n\nHere's how we can do it:\n\n\nReceived file id=assistant-tvLtfOn6uAJ9kxmnxgK2OXID\n\nHere is a line chart that illustrates the hypothetical US population trend from 2010 to 2020. The data used here is for demonstration purposes only. If you have actual population data, you can provide it, and I will update the chart accordingly.\n\n\n", cost=({'total_cost': 0}, {'total_cost': 0}), human_input=[])
-```
-
 Now we have the file id. We can download and display it.
 
 ```python
@@ -227,14 +157,9 @@ if api_response.status_code == 200:
     display(image)
 ```
 
-![](agentchat_oai_code_interpreter_files/figure-markdown_strict/cell-5-output-1.png)
 
 ```python
 gpt_assistant.delete_assistant()
-```
-
-``` text
-Permanently deleting assistant...
 ```
 
 <div className="edit-url-container">

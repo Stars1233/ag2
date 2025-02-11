@@ -154,17 +154,15 @@ Cognitive Search service.
 
 ```python
 def search(query: str):
-    payload = json.dumps(
-        {
-            "search": query,
-            "vectorQueries": [{"kind": "text", "text": query, "k": 5, "fields": "vector"}],
-            "queryType": "semantic",
-            "semanticConfiguration": AZURE_SEARCH_SEMANTIC_SEARCH_CONFIG,
-            "captions": "extractive",
-            "answers": "extractive|count-3",
-            "queryLanguage": "en-US",
-        }
-    )
+    payload = json.dumps({
+        "search": query,
+        "vectorQueries": [{"kind": "text", "text": query, "k": 5, "fields": "vector"}],
+        "queryType": "semantic",
+        "semanticConfiguration": AZURE_SEARCH_SEMANTIC_SEARCH_CONFIG,
+        "captions": "extractive",
+        "answers": "extractive|count-3",
+        "queryLanguage": "en-US",
+    })
 
     response = list(client.search(payload))
 

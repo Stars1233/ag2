@@ -311,7 +311,7 @@ def transfer_to_triage() -> str:
 # Define an agent to execute all functions
 tool_execution = UserProxyAgent(
     name="tool_execution",
-    system_message="A proxy to excute code",
+    system_message="A proxy to execute code",
     is_termination_msg=lambda x: x.get("content", "") and x.get("content", "").rstrip().endswith("TERMINATE"),
     human_input_mode="NEVER",
     max_consecutive_auto_reply=100,
@@ -357,9 +357,9 @@ example in the image below:
          alt="stateflow-swarm-example"> </img>
 <div dangerouslySetInnerHTML={{ __html: quartoRawHtml[2] }} />
 
-A human user is trying to contact the aline custom serivce. Given a
-request, we will also call `triage_agent` to determin whether it is lost
-of baggage or flight modification and route the request to the
+A human user is trying to contact an airline custom service. Given a
+request, we will also call `triage_agent` to determine whether it is
+lost of baggage or flight modification and route the request to the
 corresponding agent. The `Flight_Modificaiton_Agent` is a pure router
 that decides whether to call `Flight_Cancel_Traversal` or
 `Flight_Change_Traversal` based on the user input.

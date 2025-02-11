@@ -120,27 +120,25 @@ user = autogen.UserProxyAgent(
     },  # Please set use_docker=True if docker is available to run the generated code. Using docker is safer than running the generated code directly.
 )
 
-chat_results = user.initiate_chats(
-    [
-        {
-            "recipient": financial_assistant,
-            "message": financial_tasks[0],
-            "clear_history": True,
-            "silent": False,
-            "summary_method": "last_msg",
-        },
-        {
-            "recipient": research_assistant,
-            "message": financial_tasks[1],
-            "summary_method": "reflection_with_llm",
-        },
-        {
-            "recipient": writer,
-            "message": writing_tasks[0],
-            "carryover": "I want to include a figure or a table of data in the blogpost.",
-        },
-    ]
-)
+chat_results = user.initiate_chats([
+    {
+        "recipient": financial_assistant,
+        "message": financial_tasks[0],
+        "clear_history": True,
+        "silent": False,
+        "summary_method": "last_msg",
+    },
+    {
+        "recipient": research_assistant,
+        "message": financial_tasks[1],
+        "summary_method": "reflection_with_llm",
+    },
+    {
+        "recipient": writer,
+        "message": writing_tasks[0],
+        "carryover": "I want to include a figure or a table of data in the blogpost.",
+    },
+])
 ```
 
 ```` text
@@ -582,7 +580,7 @@ Conversation cost:  ({'total_cost': 0.06447, 'gpt-4': {'cost': 0.06447, 'prompt_
 ### Scenario 2: With human inputs revising tasks in the middle
 
 Since AutoGen agents support soliciting human inputs during a chat if
-`human_input_mode` is specificed properly, the actual task might be
+`human_input_mode` is specified properly, the actual task might be
 revised in the middle of a chat.
 
 The example below showcases that even if a task is revised in the middle
@@ -603,26 +601,24 @@ user = autogen.UserProxyAgent(
     },  # Please set use_docker=True if docker is available to run the generated code. Using docker is safer than running the generated code directly.
 )
 
-chat_results = user.initiate_chats(
-    [
-        {
-            "recipient": financial_assistant,
-            "message": financial_tasks[0],
-            "clear_history": True,
-            "silent": False,
-            "summary_method": "reflection_with_llm",
-        },
-        {
-            "recipient": research_assistant,
-            "message": financial_tasks[1],
-            "summary_method": "reflection_with_llm",
-        },
-        {
-            "recipient": writer,
-            "message": writing_tasks[0],
-        },
-    ]
-)
+chat_results = user.initiate_chats([
+    {
+        "recipient": financial_assistant,
+        "message": financial_tasks[0],
+        "clear_history": True,
+        "silent": False,
+        "summary_method": "reflection_with_llm",
+    },
+    {
+        "recipient": research_assistant,
+        "message": financial_tasks[1],
+        "summary_method": "reflection_with_llm",
+    },
+    {
+        "recipient": writer,
+        "message": writing_tasks[0],
+    },
+])
 ```
 
 ```` text
@@ -1205,13 +1201,11 @@ user = autogen.UserProxyAgent(
         "use_docker": False,
     },  # Please set use_docker=True if docker is available to run the generated code. Using docker is safer than running the generated code directly.
 )
-user.initiate_chats(
-    [
-        {"recipient": research_assistant, "message": financial_tasks[0], "summary_method": "last_msg"},
-        {"recipient": manager_1, "message": financial_tasks[1], "summary_method": "reflection_with_llm"},
-        {"recipient": manager_2, "message": writing_tasks[0]},
-    ]
-)
+user.initiate_chats([
+    {"recipient": research_assistant, "message": financial_tasks[0], "summary_method": "last_msg"},
+    {"recipient": manager_1, "message": financial_tasks[1], "summary_method": "reflection_with_llm"},
+    {"recipient": manager_2, "message": writing_tasks[0]},
+])
 ```
 
 ```` text

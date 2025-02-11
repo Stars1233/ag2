@@ -107,7 +107,7 @@ default_path = "backend_dir/"
 
 
 @user_proxy.register_for_execution()
-@engineer.register_for_llm(description="List files in choosen directory.")
+@engineer.register_for_llm(description="List files in chosen directory.")
 def list_dir(directory: Annotated[str, "Directory to check."]):
     files = os.listdir(default_path + directory)
     return 0, files

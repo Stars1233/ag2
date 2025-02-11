@@ -166,13 +166,11 @@ def recognize_transcript_from_video(filepath: Annotated[str, "path of the video 
         for segment in result["segments"]:
             # If new sentence starts, save the previous one and reset variables
             if segment["start"] != start_time and sentence:
-                transcript.append(
-                    {
-                        "sentence": sentence.strip() + ".",
-                        "timestamp_start": start_time,
-                        "timestamp_end": segment["start"],
-                    }
-                )
+                transcript.append({
+                    "sentence": sentence.strip() + ".",
+                    "timestamp_start": start_time,
+                    "timestamp_end": segment["start"],
+                })
                 sentence = ""
                 start_time = segment["start"]
 
@@ -181,13 +179,11 @@ def recognize_transcript_from_video(filepath: Annotated[str, "path of the video 
 
         # Add the final sentence
         if sentence:
-            transcript.append(
-                {
-                    "sentence": sentence.strip() + ".",
-                    "timestamp_start": start_time,
-                    "timestamp_end": result["segments"][-1]["end"],
-                }
-            )
+            transcript.append({
+                "sentence": sentence.strip() + ".",
+                "timestamp_start": start_time,
+                "timestamp_end": result["segments"][-1]["end"],
+            })
 
         # Save the transcript to a file
         with open("transcription.txt", "w") as file:

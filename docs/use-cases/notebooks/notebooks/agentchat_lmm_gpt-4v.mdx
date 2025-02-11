@@ -213,7 +213,7 @@ class FigureCreator(ConversableAgent):
 
         user_question = messages[-1]["content"]
 
-        ### Define the agents
+        # Define the agents
         commander = AssistantAgent(
             name="Commander",
             human_input_mode="NEVER",
@@ -620,7 +620,7 @@ agent2 = MultimodalConversableAgent(
 
 user_proxy = autogen.UserProxyAgent(
     name="User_proxy",
-    system_message="Desribe image for me.",
+    system_message="Describe image for me.",
     human_input_mode="TERMINATE",  # Try between ALWAYS, NEVER, and TERMINATE
     max_consecutive_auto_reply=10,
     code_execution_config={

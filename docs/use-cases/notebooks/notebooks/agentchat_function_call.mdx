@@ -185,53 +185,6 @@ with Cache.disk() as cache:
     )
 ```
 
-``` text
-user_proxy (to chatbot):
-
-Draw two agents chatting with each other with an example dialog. Don't add plt.show().
-
---------------------------------------------------------------------------------
-chatbot (to user_proxy):
-
-***** Suggested tool call (call_BiLzujDvfB7WMZ0hqcgBdjN2): python *****
-Arguments: 
-{"cell":"import matplotlib.pyplot as plt\nimport numpy as np\n\n# Create a simple representation of two agents\nagent1_x, agent1_y = [1, 2], [1, 1]\nagent2_x, agent2_y = [4, 3], [1, 1]\n\n# Create dialog bubbles\nbubble1_x = np.linspace(1.5, 2.5, 100)\nbubble1_y = np.sin(np.pi * (bubble1_x - 1.5)) + 1.2\nbubble2_x = np.linspace(3.5, 2.5, 100)\nbubble2_y = np.sin(np.pi * (bubble2_x - 2.5)) + 1.2\n\n# Drawing agents and dialog bubbles\nplt.figure(figsize=(6, 3))\nplt.plot(agent1_x, agent1_y, 'ko-', markersize=20)\nplt.plot(agent2_x, agent2_y, 'ko-', markersize=20)\nplt.plot(bubble1_x, bubble1_y, 'k')\nplt.plot(bubble2_x, bubble2_y, 'k')\nplt.fill_between(bubble1_x, 1, bubble1_y, color = 'grey', alpha = 0.5)\nplt.fill_between(bubble2_x, 1, bubble2_y, color = 'grey', alpha = 0.5)\n\n# Example Dialog\nplt.text(1.5, 1.5, 'Hi!', fontsize=12)\nplt.text(3.5, 1.5, 'Hello!', fontsize=12)\n\nplt.xlim(0, 5)\nplt.ylim(0, 2.5)\nplt.axis('off')\n"}
-***********************************************************************
-
---------------------------------------------------------------------------------
-
->>>>>>>> EXECUTING FUNCTION python...
-```
-
-![](agentchat_function_call_files/figure-markdown_strict/cell-5-output-2.png)
-
-``` text
-user_proxy (to chatbot):
-
-user_proxy (to chatbot):
-
-***** Response from calling tool (call_BiLzujDvfB7WMZ0hqcgBdjN2) *****
-(0.0, 5.0, 0.0, 2.5)
-**********************************************************************
-
---------------------------------------------------------------------------------
-chatbot (to user_proxy):
-
-I've drawn two agents chatting with each other, including example dialogues saying "Hi!" and "Hello!" within their speech bubbles. This visualization is created using matplotlib, and the conversation is represented graphically with the agents and their dialogue bubbles placed on a 2D plot. The drawing does not include `plt.show()`, adhering to your instruction.
-
---------------------------------------------------------------------------------
-user_proxy (to chatbot):
-
-
-
---------------------------------------------------------------------------------
-chatbot (to user_proxy):
-
-It seems your last message was empty. How can I assist you further?
-
---------------------------------------------------------------------------------
-```
-
 <div className="edit-url-container">
     <a className="edit-url" href="https://github.com/ag2ai/ag2/edit/main/notebook/agentchat_function_call.ipynb" target='_blank'><Icon icon="pen" iconType="solid" size="13px"/> Edit this page</a>
 </div>

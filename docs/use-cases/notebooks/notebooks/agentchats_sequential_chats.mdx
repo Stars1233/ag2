@@ -121,31 +121,29 @@ user_proxy = autogen.UserProxyAgent(
 )
 
 
-chat_results = autogen.initiate_chats(
-    [
-        {
-            "sender": user_proxy_auto,
-            "recipient": financial_assistant,
-            "message": financial_tasks[0],
-            "clear_history": True,
-            "silent": False,
-            "summary_method": "last_msg",
-        },
-        {
-            "sender": user_proxy_auto,
-            "recipient": research_assistant,
-            "message": financial_tasks[1],
-            "max_turns": 2,  # max number of turns for the conversation (added for demo purposes, generally not necessarily needed)
-            "summary_method": "reflection_with_llm",
-        },
-        {
-            "sender": user_proxy,
-            "recipient": writer,
-            "message": writing_tasks[0],
-            "carryover": "I want to include a figure or a table of data in the blogpost.",  # additional carryover to include to the conversation (added for demo purposes, generally not necessarily needed)
-        },
-    ]
-)
+chat_results = autogen.initiate_chats([
+    {
+        "sender": user_proxy_auto,
+        "recipient": financial_assistant,
+        "message": financial_tasks[0],
+        "clear_history": True,
+        "silent": False,
+        "summary_method": "last_msg",
+    },
+    {
+        "sender": user_proxy_auto,
+        "recipient": research_assistant,
+        "message": financial_tasks[1],
+        "max_turns": 2,  # max number of turns for the conversation (added for demo purposes, generally not necessarily needed)
+        "summary_method": "reflection_with_llm",
+    },
+    {
+        "sender": user_proxy,
+        "recipient": writer,
+        "message": writing_tasks[0],
+        "carryover": "I want to include a figure or a table of data in the blogpost.",  # additional carryover to include to the conversation (added for demo purposes, generally not necessarily needed)
+    },
+])
 ```
 
 ```` text
@@ -796,7 +794,7 @@ Conversation cost:  ({'total_cost': 0.14765999999999999, 'gpt-4': {'cost': 0.147
 
 ### Example 2: Solve a Sequence of Tasks involving User Defined Message
 
-In this example, say I have two tasks. One resarch task and a one
+In this example, say I have two tasks. One research task and a one
 writing task. The writing task needs data from research task. In this
 example, we direct read data from a file as part of the message.
 
@@ -853,26 +851,24 @@ user_proxy_auto = autogen.UserProxyAgent(
     },  # Please set use_docker=True if docker is available to run the generated code. Using docker is safer than running the generated code directly.
 )
 
-chat_results = autogen.initiate_chats(
-    [
-        {
-            "sender": user_proxy_auto,
-            "recipient": researcher,
-            "message": research_task,
-            "clear_history": True,
-            "silent": False,
-            "summary_method": "last_msg",
-        },
-        {
-            "sender": user_proxy_auto,
-            "recipient": writer,
-            "message": my_writing_task,
-            "max_turns": 2,  # max number of turns for the conversation (added for demo purposes, generally not necessarily needed)
-            "summary_method": "reflection_with_llm",
-            "work_dir": "tasks",
-        },
-    ]
-)
+chat_results = autogen.initiate_chats([
+    {
+        "sender": user_proxy_auto,
+        "recipient": researcher,
+        "message": research_task,
+        "clear_history": True,
+        "silent": False,
+        "summary_method": "last_msg",
+    },
+    {
+        "sender": user_proxy_auto,
+        "recipient": writer,
+        "message": my_writing_task,
+        "max_turns": 2,  # max number of turns for the conversation (added for demo purposes, generally not necessarily needed)
+        "summary_method": "reflection_with_llm",
+        "work_dir": "tasks",
+    },
+])
 ```
 
 ```` text

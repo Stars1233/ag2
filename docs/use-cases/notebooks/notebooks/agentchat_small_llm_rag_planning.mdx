@@ -26,7 +26,7 @@ you can.
 Small LLMs, like the IBM Granite 8B, are advantageous because they can
 run locally on a powerful laptop, eliminating the need for API calls to
 external service providers. But can you create effective agents with
-them? This answer is “yes” - with the right techinques.
+them? This answer is “yes” - with the right techniques.
 
 This notebook demonstrates how to optimize the performance of small
 language models, such as the IBM Granite 8B, in a Retrieval-Augmented
@@ -100,7 +100,7 @@ import tempfile
 
 from langchain_milvus import Milvus
 
-db_file = tempfile.NamedTemporaryFile(prefix="milvus_", suffix=".db", delete=False).name
+db_file = tempfile.NamedTemporaryFile(prefix="milvus_", suffix=".db", delete=False).name  # noqa: SIM115
 print(f"The vector database will be saved to {db_file}")
 
 vector_db = Milvus(
@@ -168,7 +168,7 @@ vector_db.add_documents(texts)
 ## Agent Prompts
 
 The following are the prompts for the agents that we will define later.
-Try running with these prompts intitially, and update them later if
+Try running with these prompts initially, and update them later if
 needed for your use case.
 
 ````python
@@ -225,7 +225,7 @@ REFLECTION_ASSISTANT_PROMPT = """You are an assistant. Please tell me what is th
 
     Instructions:
         1. If the very last step of the plan has already been executed, or the goal has already been achieved regardless of what step is next, then reply with the exact text: ##TERMINATE##
-        2. Look at the "Previous Step". If the previous step was not successful and it is integral to acheiving the goal, think of how it can be retried with better instructions. Inspect why the previous step was not successful, and modify the instruction to find another way to achieve the step's objective in a way that won't repeat the same error.
+        2. Look at the "Previous Step". If the previous step was not successful and it is integral to achieving the goal, think of how it can be retried with better instructions. Inspect why the previous step was not successful, and modify the instruction to find another way to achieve the step's objective in a way that won't repeat the same error.
         3. If the last previous was successful, determine what the next step will be. Always prefer to execute the next sequential step in the plan unless the previous step was unsuccessful and you need to re-run the previous step using a modified instruction.
         4. When determining the next step, you may use the "Previous Step", "Previous Output", and "Steps Taken" to give you contextual information to decide what next step to take.
 
@@ -309,7 +309,7 @@ api_key = "ollama"
 # LLM to use for all agents. The value below corresponds to its name in Ollama.
 default_model = "granite3.1-dense:8b"
 
-# Model temperature. A lower temperature gives more predictible results.
+# Model temperature. A lower temperature gives more predictable results.
 model_temp = 0
 
 # Maximum number of steps that are allowed to be executed in a plan (prevents a never-ending loop)
@@ -431,12 +431,12 @@ def do_knowledge_search(search_instruction: Annotated[str, "search instruction"]
 
 ## Web Search Tool
 
-The following is a tool that can be registerd for web search usage. For
+The following is a tool that can be registered for web search usage. For
 a quick and easy demonstration, the implementation below uses the
 `googlesearch-python` library to perform the search, which is not
-offically supported by Google. If you require the web search tool beyond
-a PoC, you should use the official library and APIs of your favorite
-search provider, or a multi-engine service such as Tavily.
+officially supported by Google. If you require the web search tool
+beyond a PoC, you should use the official library and APIs of your
+favorite search provider, or a multi-engine service such as Tavily.
 
 ```python
 ! pip install googlesearch-python
@@ -602,7 +602,7 @@ def run_agentic_workflow(user_message: str) -> str:
             ).chat_history[-1]["content"]
 
             # Only append the previous step and its output to the record if it accomplished its task successfully.
-            # It was found that storing information about unsuccesful steps causes more confusion than help to the agents
+            # It was found that storing information about unsuccessful steps causes more confusion than help to the agents
             if "##NO##" not in was_job_accomplished:
                 answer_output.append(last_output)
                 steps_taken.append(last_step)

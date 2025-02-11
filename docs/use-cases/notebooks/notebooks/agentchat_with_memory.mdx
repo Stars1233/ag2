@@ -133,7 +133,7 @@ memories. The agent then formulates a response based on both the
 question and the retrieved contextual information.
 
 ```python
-data = "I forgot the order numnber, can you quickly tell me?"
+data = "I forgot the order number, can you quickly tell me?"
 
 relevant_memories = memory.search(data, user_id="customer_service_bot")
 flatten_relevant_memories = "\n".join([m["memory"] for m in relevant_memories])

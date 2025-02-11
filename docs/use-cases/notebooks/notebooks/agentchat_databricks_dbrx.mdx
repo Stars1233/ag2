@@ -102,7 +102,7 @@ uncomment and run the below:
 
 ## Setup DBRX config list
 
-See Autogen docs for more inforation on the use of `config_list`: [LLM
+See Autogen docs for more information on the use of `config_list`: [LLM
 Configuration](https://docs.ag2.ai/docs/user-guide/advanced-concepts/llm-configuration-deep-dive#why-is-it-a-list)
 
 ```python
@@ -112,12 +112,12 @@ import os
 # To a secret you have already set up: dbutils.secrets.get('your_scope_name','databricks_host')
 
 # DATABRICKS_HOST format: "https://{your workspace url}" (no trailing slash)
-## AWS Workspace example: "https://my-databricks-workspace.cloud.databricks.com"
-## Azure Workspace example: "https://adb-123456790123.12.azuredatabricks.net"
+# AWS Workspace example: "https://my-databricks-workspace.cloud.databricks.com"
+# Azure Workspace example: "https://adb-123456790123.12.azuredatabricks.net"
 os.environ["DATABRICKS_HOST"] = "<FILL IN WITH YOUR WORKSPACE URL IN SUPPORTED DBRX REGION>"
 
 # DATABRICKS_TOKEN format: "dapi..."
-## Temp token: dbutils.notebook.entry_point.getDbutils().notebook().getContext().apiToken().get()
+# Temp token: dbutils.notebook.entry_point.getDbutils().notebook().getContext().apiToken().get()
 os.environ["DATABRICKS_TOKEN"] = "dapi...."
 
 llm_config = {
@@ -482,7 +482,7 @@ class DatabricksAutoGenLogger:
 
         try:
             sdf.write.format("delta").mode(mode).saveAsTable(target_delta_table)
-            print(f"Logs sucessfully written to table {target_delta_table} in {mode} mode")
+            print(f"Logs successfully written to table {target_delta_table} in {mode} mode")
         except Exception as e:
             print(f"An error occurred: {e}")
 ```
@@ -588,7 +588,7 @@ display(spark.table(target_delta_table))
 ```
 
 ``` text
-Logs sucessfully written to table shared.tjc.autogent_logs in append mode
+Logs successfully written to table shared.tjc.autogent_logs in append mode
 ```
 
 <div dangerouslySetInnerHTML={{ __html: quartoRawHtml[1] }} />
