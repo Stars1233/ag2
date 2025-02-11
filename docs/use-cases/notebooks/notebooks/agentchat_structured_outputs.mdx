@@ -105,16 +105,6 @@ class MathReasoning(BaseModel):
     final_answer: str
 ```
 
-### Applying the Response Format
-
-The `response_format` is added to the LLM configuration and then this
-configuration is applied to the agent.
-
-```python
-for config in config_list:
-    config["response_format"] = MathReasoning
-```
-
 ### Define chat actors
 
 Now we can define the agents that will solve the posed math problem. We
@@ -125,8 +115,15 @@ The `AssistantAgent` will be constrained to solving the math problem
 step-by-step by using the `MathReasoning` response format we defined
 above.
 
+The `response_format` is added to the LLM configuration and then this
+configuration is applied to the agent.
+
 ```python
-llm_config = {"config_list": config_list, "cache_seed": 42}
+llm_config = {
+    "config_list": config_list,
+    "cache_seed": 42,
+    "response_format": MathReasoning,
+}
 
 user_proxy = autogen.UserProxyAgent(
     name="User_proxy",
@@ -209,7 +206,11 @@ assistant = autogen.AssistantAgent(
     llm_config=llm_config,
 )
 
-user_proxy.initiate_chat(assistant, message="how can I solve 8x + 7 = -23", max_turns=1, summary_method="last_msg")
+print(
+    user_proxy.initiate_chat(
+        assistant, message="how can I solve 8x + 7 = -23", max_turns=1, summary_method="last_msg"
+    ).summary
+)
 ```
 
 Normal function calling still works alongside structured output, so your

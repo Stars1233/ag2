@@ -70,6 +70,10 @@
       "url": "docs/use-cases"
     },
     {
+      "name": "User Stories",
+      "url": "docs/user-stories"
+    },
+    {
       "name": "Contribute",
       "url": "docs/contributor-guide"
     },
@@ -1683,6 +1687,17 @@
       ]
     },
     {
+      "group": "User Stories",
+      "pages": [
+        {
+          "group": "User Stories",
+          "pages": [
+            "docs/user-stories/2024-10-23-NOVA/index"
+          ]
+        }
+      ]
+    },
+    {
       "group": "Blog",
       "pages": [
         {
@@ -1704,7 +1719,6 @@
             "docs/blog/2024-11-27-Prompt-Leakage-Probing/index",
             "docs/blog/2024-11-17-Swarm/index",
             "docs/blog/2024-11-15-CaptainAgent/index",
-            "docs/blog/2024-10-23-NOVA/index",
             "docs/blog/2024-07-25-AgentOps/index",
             "docs/blog/2024-06-24-AltModels-Classes/index",
             "docs/blog/2024-06-21-AgentEval/index",
