@@ -83,7 +83,8 @@ nest_asyncio.apply()
 ## Starting the Conversation
 
 This code initializes `DeepResearchAgent` and asks it to find out
-`what's going on with Elon Musk and OpenAI` using `GPT-4o`.
+`What was the impact of DeepSeek on stock prices and why?` using
+`GPT-4o`.
 
 > **Note:** Models like `gpt-4o-mini` often don’t perform well enough
 > for complex tasks.
@@ -98,7 +99,7 @@ agent = DeepResearchAgent(
     llm_config=llm_config,
 )
 
-message = "What's going on with Elon Musk and OpenAI?"
+message = "What was the impact of DeepSeek on stock prices and why?"
 
 result = agent.run(
     message=message,
