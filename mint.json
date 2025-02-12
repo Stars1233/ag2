@@ -937,6 +937,13 @@
                         "docs/api-reference/autogen/agentchat/contrib/rag/overview",
                         "docs/api-reference/autogen/agentchat/contrib/rag/handle_input",
                         {
+                          "group": "docling_query_engine",
+                          "pages": [
+                            "docs/api-reference/autogen/agentchat/contrib/rag/docling_query_engine/overview",
+                            "docs/api-reference/autogen/agentchat/contrib/rag/docling_query_engine/DoclingMdQueryEngine"
+                          ]
+                        },
+                        {
                           "group": "document_utils",
                           "pages": [
                             "docs/api-reference/autogen/agentchat/contrib/rag/document_utils/overview",
