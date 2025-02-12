@@ -1,0 +1,55 @@
+---
+sidebarTitle: DeepResearchTool
+title: autogen.tools.experimental.DeepResearchTool
+---
+<h2 id="autogen.tools.experimental.DeepResearchTool" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">DeepResearchTool</span>
+</h2>
+
+```python
+DeepResearchTool(llm_config: dict[str, typing.Any], max_web_steps: int = 30)
+```
+
+    A tool that delegates a web research task to the subteams of agents.
+    
+    Initialize the DeepResearchTool.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `llm_config` | The LLM configuration.<br/><br/>**Type:** `dict[str, typing.Any]` |
+| `max_web_steps` | The maximum number of web steps.<br/><br/>Defaults to 30.<br/><br/>**Type:** `int`<br/><br/>**Default:** 30 |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### ANSWER_CONFIRMED_PREFIX
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### SUBQUESTIONS_ANSWER_PREFIX
+<br />
+
+    <br />
+
+### Static Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_generate_subquestions
+
+```python
+get_generate_subquestions(llm_config: dict[str, typing.Any], max_web_steps: int) -> Callable[..., str]
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `llm_config` | **Type:** `dict[str, typing.Any]` |
+| `max_web_steps` | **Type:** `int` |
+
+<br />

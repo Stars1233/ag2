@@ -1,0 +1,116 @@
+---
+custom_edit_url: https://github.com/ag2ai/ag2/edit/main/notebook/agents_deep_researcher.ipynb
+description: DeepReaserch Agent
+source_notebook: /notebook/agents_deep_researcher.ipynb
+tags:
+- agents
+- browser-use
+- DeepReaserch
+- webscraping
+- function calling
+title: DeepReaserchAgent
+---
+
+<a href="https://colab.research.google.com/github/ag2ai/ag2/blob/main/notebook/agents_deep_researcher.ipynb" class="colab-badge" target="_blank"><img noZoom src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a>
+<a href="https://github.com/ag2ai/ag2/blob/main/notebook/agents_deep_researcher.ipynb" class="github-badge" target="_blank"><img noZoom src="https://img.shields.io/badge/Open%20on%20GitHub-grey?logo=github" alt="Open on GitHub" /></a>
+
+
+
+
+`DeepResearchAgent` helps break down complex tasks into smaller steps,
+using web scraping and other techniques to find the information you
+need. Instead of handling everything at once, it tackles each part step
+by step, making research easier and more efficient. Whether you’re
+looking for specific details, gathering data, or just trying to solve a
+tricky problem, this agent does the heavy lifting for you.
+
+## Installation
+
+**Note:** `DeepResearchAgent` is built on top of
+[`Browser Use`](https://github.com/browser-use/browser-use), which
+requires **Python 3.11 or higher**.
+
+To get started with the `DeepResearchAgent` agent, follow these steps:
+
+1.  Install AG2 with the `browser-use` extra:
+
+    ```bash
+    pip install ag2[browser-use]
+    ```
+
+    > **Note:** If you have been using `autogen` or `pyautogen`, all you
+    > need to do is upgrade it using:
+    >
+    > ```bash
+    > pip install -U autogen[browser-use]
+    > ```
+    >
+    > or
+    >
+    > ```bash
+    > pip install -U pyautogen[browser-use]
+    > ```
+    >
+    > as `pyautogen`, `autogen`, and `ag2` are aliases for the same PyPI
+    > package.
+
+2.  Set up Playwright:
+
+    ```bash
+    # Installs Playwright and browsers for all OS
+    playwright install
+    # Additional command, mandatory for Linux only
+    playwright install-deps
+    ```
+
+3.  For running the code in Jupyter, use `nest_asyncio` to allow nested
+    event loops. `bash     pip install nest_asyncio`
+
+You’re all set! Now you can start solving complex tasks.
+
+### Imports
+
+```python
+import os
+
+import nest_asyncio
+
+from autogen.agents.experimental import DeepResearchAgent
+
+nest_asyncio.apply()
+```
+
+## Starting the Conversation
+
+This code initializes `DeepResearchAgent` and asks it to find out
+`what's going on with Elon Musk and OpenAI` using `GPT-4o`.
+
+> **Note:** Models like `gpt-4o-mini` often don’t perform well enough
+> for complex tasks.
+
+```python
+llm_config = {
+    "config_list": [{"model": "gpt-4o", "api_key": os.environ["OPENAI_API_KEY"]}],
+}
+
+agent = DeepResearchAgent(
+    name="DeepResearchAgent",
+    llm_config=llm_config,
+)
+
+message = "What's going on with Elon Musk and OpenAI?"
+
+result = agent.run(
+    message=message,
+    tools=agent.tools,
+    max_turns=2,
+    user_input=False,
+    summary_method="reflection_with_llm",
+)
+
+result.summary
+```
+
+<div className="edit-url-container">
+    <a className="edit-url" href="https://github.com/ag2ai/ag2/edit/main/notebook/agents_deep_researcher.ipynb" target='_blank'><Icon icon="pen" iconType="solid" size="13px"/> Edit this page</a>
+</div>

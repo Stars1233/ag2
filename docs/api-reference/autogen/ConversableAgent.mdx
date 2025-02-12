@@ -467,7 +467,8 @@ a_run(
     max_turns: int | None = None,
     msg_to: Literal['agent', 'user'] = 'agent',
     clear_history: bool = False,
-    user_input: bool = True
+    user_input: bool = True,
+    summary_method: str | Callable | None = 'last_msg'
 ) -> autogen.agentchat.chat.ChatResult
 ```
 
@@ -487,6 +488,7 @@ a_run(
 | `msg_to` | which agent is receiving the message and will be the first to reply, defaults to the agent.<br/><br/>**Type:** `Literal['agent', 'user']`<br/><br/>**Default:** 'agent' |
 | `clear_history` | whether to clear the chat history.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
 | `user_input` | the user will be asked for input at their turn.<br/><br/>**Type:** `bool`<br/><br/>**Default:** True |
+| `summary_method` | **Type:** `str \| Callable \| None`<br/><br/>**Default:** 'last_msg' |
 
 <br />
 
@@ -1353,7 +1355,8 @@ run(
     max_turns: int | None = None,
     msg_to: Literal['agent', 'user'] = 'agent',
     clear_history: bool = False,
-    user_input: bool = True
+    user_input: bool = True,
+    summary_method: str | Callable | None = 'last_msg'
 ) -> autogen.agentchat.chat.ChatResult
 ```
 
@@ -1373,6 +1376,7 @@ run(
 | `msg_to` | which agent is receiving the message and will be the first to reply, defaults to the agent.<br/><br/>**Type:** `Literal['agent', 'user']`<br/><br/>**Default:** 'agent' |
 | `clear_history` | whether to clear the chat history.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
 | `user_input` | the user will be asked for input at their turn.<br/><br/>**Type:** `bool`<br/><br/>**Default:** True |
+| `summary_method` | **Type:** `str \| Callable \| None`<br/><br/>**Default:** 'last_msg' |
 
 <br />
 

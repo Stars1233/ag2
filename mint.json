@@ -261,6 +261,7 @@
             "docs/use-cases/notebooks/notebooks/async_human_input",
             "docs/use-cases/notebooks/notebooks/agentchat_custom_model",
             "docs/use-cases/notebooks/notebooks/tools_chat_context_dependency_injection",
+            "docs/use-cases/notebooks/notebooks/agents_deep_researcher",
             "docs/use-cases/notebooks/notebooks/agentchat_nested_chats_chess",
             "docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_groupchat",
             "docs/use-cases/notebooks/notebooks/agentchat_captainagent_crosstool",
@@ -1151,6 +1152,7 @@
                   "group": "experimental",
                   "pages": [
                     "docs/api-reference/autogen/agents/experimental/overview",
+                    "docs/api-reference/autogen/agents/experimental/DeepResearchAgent",
                     "docs/api-reference/autogen/agents/experimental/DiscordAgent",
                     "docs/api-reference/autogen/agents/experimental/SlackAgent",
                     "docs/api-reference/autogen/agents/experimental/TelegramAgent",
@@ -1657,6 +1659,7 @@
                     "docs/api-reference/autogen/tools/experimental/overview",
                     "docs/api-reference/autogen/tools/experimental/BrowserUseTool",
                     "docs/api-reference/autogen/tools/experimental/Crawl4AITool",
+                    "docs/api-reference/autogen/tools/experimental/DeepResearchTool",
                     "docs/api-reference/autogen/tools/experimental/DiscordRetrieveTool",
                     "docs/api-reference/autogen/tools/experimental/DiscordSendTool",
                     "docs/api-reference/autogen/tools/experimental/SlackRetrieveTool",
@@ -1692,7 +1695,7 @@
         {
           "group": "User Stories",
           "pages": [
-            "docs/user-stories/2024-10-23-NOVA/index"
+            "docs/user-stories/2025-02-11-NOVA/index"
           ]
         }
       ]
