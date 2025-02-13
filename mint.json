@@ -213,7 +213,6 @@
             "docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_twoagents_basic",
             "docs/use-cases/notebooks/notebooks/agentchat_nestedchat",
             "docs/use-cases/notebooks/notebooks/agentchat_oai_code_interpreter",
-            "docs/use-cases/notebooks/notebooks/agentchat_surfer",
             "docs/use-cases/notebooks/notebooks/agentchat_groupchat_customized",
             "docs/use-cases/notebooks/notebooks/agentchat_structured_outputs",
             "docs/use-cases/notebooks/notebooks/agentchat_custom_model",
@@ -1713,6 +1712,7 @@
         {
           "group": "Recent posts",
           "pages": [
+            "docs/blog/2025-02-13-DeepResearchAgent/index",
             "docs/blog/2025-01-31-Websurfing-Tools/index",
             "docs/blog/2025-01-31-WebSurferAgent/index",
             "docs/blog/2025-01-29-RealtimeAgent-with-gemini/index",
