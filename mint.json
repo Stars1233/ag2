@@ -1457,7 +1457,7 @@
                     "docs/api-reference/autogen/messages/agent_messages/SelectSpeakerMessage",
                     "docs/api-reference/autogen/messages/agent_messages/SpeakerAttemptFailedMultipleAgentsMessage",
                     "docs/api-reference/autogen/messages/agent_messages/SpeakerAttemptFailedNoAgentsMessage",
-                    "docs/api-reference/autogen/messages/agent_messages/SpeakerAttemptSuccessfullMessage",
+                    "docs/api-reference/autogen/messages/agent_messages/SpeakerAttemptSuccessfulMessage",
                     "docs/api-reference/autogen/messages/agent_messages/TerminationAndHumanReplyMessage",
                     "docs/api-reference/autogen/messages/agent_messages/TextMessage",
                     "docs/api-reference/autogen/messages/agent_messages/ToolCallMessage",
