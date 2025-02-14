@@ -11,9 +11,7 @@ title: autogen.agentchat.contrib.graph_rag.graph_query_engine.GraphQueryEngine
 GraphQueryEngine(*args, **kwargs)
 ```
 
-    An abstract base class that represents a graph query engine on top of a underlying graph database.
-    
-    This interface defines the basic methods for graph-based RAG.
+    An abstract base class that represents a graph query engine on top of a underlying graph database.<br/>This interface defines the basic methods for graph-based RAG.
 
 <b>Parameters:</b>
 | Name | Description |
@@ -46,11 +44,8 @@ add_records(self, new_records: list) -> bool
 init_db(self, input_doc: list[autogen.agentchat.contrib.graph_rag.document.Document] | None = None) -> 
 ```
 
-    This method initializes graph database with the input documents or records.
-    Usually, it takes the following steps,
-    1. connecting to a graph database.
-    2. extract graph nodes, edges based on input data, graph schema and etc.
-    3. build indexes etc.
+    This method initializes graph database with the input documents or records.<br/>Usually, it takes the following steps,
+    1. connecting to a graph database.<br/>2. extract graph nodes, edges based on input data, graph schema and etc.<br/>3. build indexes etc.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

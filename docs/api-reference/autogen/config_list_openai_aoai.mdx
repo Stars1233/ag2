@@ -17,13 +17,7 @@ config_list_openai_aoai(
 ) -> list[dict[str, typing.Any]]
 ```
 
-    Get a list of configs for OpenAI API client (including Azure or local model deployments that support OpenAI's chat completion API).
-    
-    This function constructs configurations by reading API keys and base URLs from environment variables or text files.
-    It supports configurations for both OpenAI and Azure OpenAI services, allowing for the exclusion of one or the other.
-    When text files are used, the environment variables will be overwritten.
-    To prevent text files from being used, set the corresponding file name to None.
-    Or set key_file_path to None to disallow reading from text files.
+    Get a list of configs for OpenAI API client (including Azure or local model deployments that support OpenAI's chat completion API).<br/>This function constructs configurations by reading API keys and base URLs from environment variables or text files.<br/>It supports configurations for both OpenAI and Azure OpenAI services, allowing for the exclusion of one or the other.<br/>When text files are used, the environment variables will be overwritten.<br/>To prevent text files from being used, set the corresponding file name to None.<br/>Or set key_file_path to None to disallow reading from text files.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

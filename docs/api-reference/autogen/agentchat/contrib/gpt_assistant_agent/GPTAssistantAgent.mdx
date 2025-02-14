@@ -19,18 +19,17 @@ GPTAssistantAgent(
 )
 ```
 
-    An experimental AutoGen agent class that leverages the OpenAI Assistant API for conversational capabilities.
-    This agent is unique in its reliance on the OpenAI Assistant for state management, differing from other agents like ConversableAgent.
+    An experimental AutoGen agent class that leverages the OpenAI Assistant API for conversational capabilities.<br/>This agent is unique in its reliance on the OpenAI Assistant for state management, differing from other agents like ConversableAgent.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
 | `name='GPT Assistant'` |  |
-| `instructions` | instructions for the OpenAI assistant configuration.<br/><br/>When instructions is not None, the system message of the agent will be set to the provided instructions and used in the assistant run, irrespective of the overwrite_instructions flag.<br/><br/>But when instructions is None, and the assistant does not exist, the system message will be set to AssistantAgent.DEFAULT_SYSTEM_MESSAGE.<br/><br/>If the assistant exists, the system message will be set to the existing assistant instructions.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
-| `llm_config` | llm inference configuration.<br/><br/>- model: Model to use for the assistant (gpt-4-1106-preview, gpt-3.5-turbo-1106).<br/><br/>assistant_config - assistant_id: ID of the assistant to use.<br/><br/>If None, a new assistant will be created.<br/><br/>- check_every_ms: check thread run status interval - tools: Give Assistants access to OpenAI-hosted tools like Code Interpreter and Knowledge Retrieval, or build your own tools using Function calling.<br/><br/>ref https://platform.openai.com/docs/assistants/tools - file_ids: (Deprecated) files used by retrieval in run.<br/><br/>It is Deprecated, use tool_resources instead.<br/><br/>https://platform.openai.com/docs/assistants/migration/what-has-changed.<br/><br/>- tool_resources: A set of resources that are used by the assistant's tools.<br/><br/>The resources are specific to the type of tool.<br/><br/>**Type:** `dict \| bool \| None`<br/><br/>**Default:** None |
+| `instructions` | **Type:** `str \| None`<br/><br/>**Default:** None |
+| `llm_config` | **Type:** `dict \| bool \| None`<br/><br/>**Default:** None |
 | `assistant_config` | **Type:** `dict \| None`<br/><br/>**Default:** None |
-| `overwrite_instructions` | whether to overwrite the instructions of an existing assistant.<br/><br/>This parameter is in effect only when assistant_id is specified in llm_config.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
-| `overwrite_tools` | whether to overwrite the tools of an existing assistant.<br/><br/>This parameter is in effect only when assistant_id is specified in llm_config.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
+| `overwrite_instructions` | **Type:** `bool`<br/><br/>**Default:** False |
+| `overwrite_tools` | **Type:** `bool`<br/><br/>**Default:** False |
 | `**kwargs` |  |
 
 ### Class Attributes
@@ -76,7 +75,7 @@ GPTAssistantAgent(
 clear_history(self, agent: autogen.agentchat.agent.Agent | None = None) -> 
 ```
 
-    Clear the chat history of the agent.
+    Clear the chat history of the agent.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -108,8 +107,7 @@ find_matching_assistant(
 ) -> 
 ```
 
-    Find the matching assistant from a list of candidate assistants.
-    Filter out candidates with the same name but different instructions, and function names.
+    Find the matching assistant from a list of candidate assistants.<br/>Filter out candidates with the same name but different instructions, and function names.
 
 <b>Parameters:</b>
 | Name | Description |

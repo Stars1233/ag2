@@ -11,9 +11,7 @@ title: autogen.oai.groq.GroqClient
 GroqClient(**kwargs)
 ```
 
-    Client for Groq's API.
-    
-    Requires api_key or environment variable to be set
+    Client for Groq's API.<br/>Requires api_key or environment variable to be set
 
 <b>Parameters:</b>
 | Name | Description |
@@ -71,9 +69,7 @@ cost(self, response) -> float
 message_retrieval(self, response) -> list
 ```
 
-    Retrieve and return a list of strings or a list of Choice.Message from the response.
-    
-    NOTE: if a list of Choice.Message is returned, it currently needs to contain the fields of OpenAI's ChatCompletion Message object,
+    Retrieve and return a list of strings or a list of Choice.Message from the response.<br/>NOTE: if a list of Choice.Message is returned, it currently needs to contain the fields of OpenAI's ChatCompletion Message object,
     since that is expected for function or tool calling in the rest of the codebase at the moment, unless a custom agent is being used.
 
 <b>Parameters:</b>

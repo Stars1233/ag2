@@ -10,25 +10,25 @@ title: autogen.agentchat.contrib.math_user_proxy_agent.MathUserProxyAgent
 ```python
 MathUserProxyAgent(
     name: str | None = 'MathChatAgent',
-    is_termination_msg: Callable[[dict], bool] | None = &lt;function _is_termination_msg_mathchat>,
+    is_termination_msg: Callable[[dict], bool] | None = <function _is_termination_msg_mathchat>,
     human_input_mode: Literal['ALWAYS', 'NEVER', 'TERMINATE'] = 'NEVER',
-    default_auto_reply: dict | str | None = 'Continue. Please keep solving the problem until you need to query. (If you get to the answer, put it in \\boxed\{}.)',
+    default_auto_reply: dict | str | None = 'Continue. Please keep solving the problem until you need to query. (If you get to the answer, put it in \\boxed{}.)',
     max_invalid_q_per_step=3,
     **kwargs
 )
 ```
 
-    (Experimental) A MathChat agent that can handle math problems.
+    (Experimental) A MathChat agent that can handle math problems.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `name` | name of the agent<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'MathChatAgent' |
-| `is_termination_msg` | a function that takes a message in the form of a dictionary and returns a boolean value indicating if this received message is a termination message.<br/><br/>The dict can contain the following keys: "content", "role", "name", "function_call".<br/><br/>**Type:** `Callable[[dict], bool] \| None`<br/><br/>**Default:** &lt;function _is_termination_msg_mathchat> |
-| `human_input_mode` | whether to ask for human inputs every time a message is received.<br/><br/>Possible values are "ALWAYS", "TERMINATE", "NEVER".<br/><br/>(1) When "ALWAYS", the agent prompts for human input every time a message is received.<br/><br/>Under this mode, the conversation stops when the human input is "exit", or when is_termination_msg is True and there is no human input.<br/><br/>(2) When "TERMINATE", the agent only prompts for human input only when a termination message is received or the number of auto reply reaches the max_consecutive_auto_reply.<br/><br/>(3) (Default) When "NEVER", the agent will never prompt for human input.<br/><br/>Under this mode, the conversation stops when the number of auto reply reaches the max_consecutive_auto_reply or when is_termination_msg is True.<br/><br/>**Type:** `Literal['ALWAYS', 'NEVER', 'TERMINATE']`<br/><br/>**Default:** 'NEVER' |
-| `default_auto_reply` | the default auto reply message when no code execution or llm based reply is generated.<br/><br/>**Type:** `dict \| str \| None`<br/><br/>**Default:** 'Continue. Please keep solving the problem until you need to query. (If you get to the answer, put it in \\boxed\{}.)' |
+| `name` | **Type:** `str \| None`<br/><br/>**Default:** 'MathChatAgent' |
+| `is_termination_msg` | a function that takes a message in the form of a dictionary and returns a boolean value indicating if this received message is a termination message.br/> The dict can contain the following keys: "content", "role", "name", "function_call".br/>human_input_mode (str): whether to ask for human inputs every time a message is received.br/> Possible values are "ALWAYS", "TERMINATE", "NEVER".br/> (1) When "ALWAYS", the agent prompts for human input every time a message is received.br/> Under this mode, the conversation stops when the human input is "exit", or when is_termination_msg is True and there is no human input.br/> (2) When "TERMINATE", the agent only prompts for human input only when a termination message is received or the number of auto reply reaches the max_consecutive_auto_reply.br/> (3) (Default) When "NEVER", the agent will never prompt for human input.<br/><br/>Under this mode, the conversation stops when the number of auto reply reaches the max_consecutive_auto_reply or when is_termination_msg is True.br/>default_auto_reply (str or dict or None): the default auto reply message when no code execution or llm based reply is generated.br/>max_invalid_q_per_step (int): (ADDED) the maximum number of invalid queries per step.br/>**kwargs (dict): other kwargs in [UserProxyAgent](/docs/api-reference/autogen/UserProxyAgent#userproxyagent).<br/><br/>**Type:** `Callable[[dict], bool] \| None`<br/><br/>**Default:** function _is_termination_msg_mathchat> |
+| `human_input_mode` | **Type:** `Literal['ALWAYS', 'NEVER', 'TERMINATE']`<br/><br/>**Default:** 'NEVER' |
+| `default_auto_reply` | **Type:** `dict \| str \| None`<br/><br/>**Default:** 'Continue. Please keep solving the problem until you need to query. (If you get to the answer, put it in \\boxed\{}.)' |
 | `max_invalid_q_per_step=3` |  |
-| `**kwargs` | other kwargs in [UserProxyAgent](/docs/api-reference/autogen/UserProxyAgent#userproxyagent).<br/><br/> |
+| `**kwargs` |  |
 
 ### Class Attributes
 
@@ -57,7 +57,7 @@ message_generator(
 ) -> 
 ```
 
-    Generate a prompt for the assistant agent with the given problem and prompt.
+    Generate a prompt for the assistant agent with the given problem and prompt.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -77,10 +77,7 @@ message_generator(
 execute_one_python_code(self, pycode) -> 
 ```
 
-    Execute python code blocks.
-    
-    Previous python code will be saved and executed together with the new code.
-    the "print" function will also be added to the last line of the code if needed
+    Execute python code blocks.<br/>Previous python code will be saved and executed together with the new code.<br/>the "print" function will also be added to the last line of the code if needed
 
 <b>Parameters:</b>
 | Name | Description |
@@ -96,7 +93,7 @@ execute_one_python_code(self, pycode) ->
 execute_one_wolfram_query(self, query: str) -> 
 ```
 
-    Run one wolfram query and return the output.
+    Run one wolfram query and return the output.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

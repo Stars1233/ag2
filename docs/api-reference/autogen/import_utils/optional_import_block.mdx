@@ -12,13 +12,9 @@ optional_import_block() -> Generator[autogen.import_utils.Result, None, None]
 
     Guard a block of code to suppress ImportErrors
     
-    A context manager to temporarily suppress ImportErrors.
-    Use this to attempt imports without failing immediately on missing modules.
-    
-    Example:
+    A context manager to temporarily suppress ImportErrors.<br/>Use this to attempt imports without failing immediately on missing modules.<br/>Example: 
     ```python
-    with optional_import_block():
-        import some_module
+    with optional_import_block(): <br/>    import some_module
         import some_other_module
     ```
 

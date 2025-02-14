@@ -16,14 +16,12 @@ OpenAIRealtimeWebRTCClient(
 )
 ```
 
-    (Experimental) Client for OpenAI Realtime API that uses WebRTC protocol.
-    
-    (Experimental) Client for OpenAI Realtime API.
+    (Experimental) Client for OpenAI Realtime API that uses WebRTC protocol.<br/>(Experimental) Client for OpenAI Realtime API.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `llm_config` | The config for the client.<br/><br/>**Type:** `dict[str, typing.Any]` |
+| `llm_config` | **Type:** `dict[str, typing.Any]` |
 | `websocket` | **Type:** `WebSocket` |
 | `logger` | **Type:** `logging.Logger \| None`<br/><br/>**Default:** None |
 
@@ -40,7 +38,7 @@ get_factory(
 ) -> Callable[[], autogen.agentchat.realtime.experimental.clients.realtime_client.RealtimeClientProtocol] | None
 ```
 
-    Create a Realtime API client.
+    Create a Realtime API client.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -73,9 +71,7 @@ get_factory(
 connect(self) -> AsyncGenerator[None, None]
 ```
 
-    Connect to the OpenAI Realtime API.
-    
-    In the case of WebRTC, we pass connection information over the
+    Connect to the OpenAI Realtime API.<br/>In the case of WebRTC, we pass connection information over the
     websocket, so that javascript on the other end of websocket open
     actual connection to OpenAI
 
@@ -88,8 +84,7 @@ connect(self) -> AsyncGenerator[None, None]
 read_events(self) -> AsyncGenerator[autogen.agentchat.realtime.experimental.realtime_events.RealtimeEvent, None]
 ```
 
-    Read messages from the OpenAI Realtime API.
-    Again, in case of WebRTC, we do not read OpenAI messages directly since we
+    Read messages from the OpenAI Realtime API.<br/>Again, in case of WebRTC, we do not read OpenAI messages directly since we
     do not hold connection to OpenAI. Instead we read messages from the websocket, and javascript
     client on the other side of the websocket that is connected to OpenAI is relaying events to us.
 
@@ -102,7 +97,7 @@ read_events(self) -> AsyncGenerator[autogen.agentchat.realtime.experimental.real
 send_audio(self, audio: str) -> None
 ```
 
-    Send audio to the OpenAI Realtime API.
+    Send audio to the OpenAI Realtime API.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -122,7 +117,7 @@ send_function_result(
 ) -> None
 ```
 
-    Send the result of a function call to the OpenAI Realtime API.
+    Send the result of a function call to the OpenAI Realtime API.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -144,7 +139,7 @@ send_text(
 ) -> None
 ```
 
-    Send a text message to the OpenAI Realtime API.
+    Send a text message to the OpenAI Realtime API.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -172,9 +167,7 @@ session_init_data(self) -> List[dict[str, Any]]
 session_update(self, session_options: dict[str, typing.Any]) -> None
 ```
 
-    Send a session update to the OpenAI Realtime API.
-    
-    In the case of WebRTC we can not send it directly, but we can send it
+    Send a session update to the OpenAI Realtime API.<br/>In the case of WebRTC we can not send it directly, but we can send it
     to the javascript over the websocket, and rely on it to send session
     update to OpenAI
 
@@ -197,7 +190,7 @@ truncate_audio(
 ) -> None
 ```
 
-    Truncate audio in the OpenAI Realtime API.
+    Truncate audio in the OpenAI Realtime API.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

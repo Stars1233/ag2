@@ -14,14 +14,7 @@ config_list_from_dotenv(
 ) -> list[dict[str, str | set[str]]]
 ```
 
-    Load API configurations from a specified .env file or environment variables and construct a list of configurations.
-    
-    This function will:
-    - Load API keys from a provided .env file or from existing environment variables.
-    - Create a configuration dictionary for each model using the API keys and additional configurations.
-    - Filter and return the configurations based on provided filters.
-    
-    model_api_key_map will default to `\{"gpt-4": "OPENAI_API_KEY", "gpt-3.5-turbo": "OPENAI_API_KEY"}` if none
+    Load API configurations from a specified .env file or environment variables and construct a list of configurations.<br/>This function will: <br/>- Load API keys from a provided .env file or from existing environment variables.<br/>- Create a configuration dictionary for each model using the API keys and additional configurations.<br/>- Filter and return the configurations based on provided filters.<br/>model_api_key_map will default to `\{"gpt-4": "OPENAI_API_KEY", "gpt-3.5-turbo": "OPENAI_API_KEY"}` if none
 
 <b>Parameters:</b>
 | Name | Description |

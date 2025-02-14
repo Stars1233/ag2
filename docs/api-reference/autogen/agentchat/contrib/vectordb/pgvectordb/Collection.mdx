@@ -11,19 +11,8 @@ title: autogen.agentchat.contrib.vectordb.pgvectordb.Collection
 Collection(**kwargs)
 ```
 
-    A Collection object for PGVector.
-    
-    Attributes:
-        client: The PGVector client.
-        collection_name (str): The name of the collection. Default is "documents".
-        embedding_function (Callable): The embedding function used to generate the vector representation.
-            Default is None. SentenceTransformer("all-MiniLM-L6-v2").encode will be used when None.
-            Models can be chosen from:
-            https://huggingface.co/models?library=sentence-transformers
-        metadata (Optional[dict]): The metadata of the collection.
-        get_or_create (Optional): The flag indicating whether to get or create the collection.
-    
-    Initialize the Collection object.
+    A Collection object for PGVector.<br/>Attributes: <br/>    client: The PGVector client.<br/>    collection_name (str): The name of the collection. Default is "documents".<br/>    embedding_function (Callable): The embedding function used to generate the vector representation.<br/>        Default is None. SentenceTransformer("all-MiniLM-L6-v2").encode will be used when None.<br/>        Models can be chosen from: <br/>        https://huggingface.co/models?library=sentence-transformers
+        metadata (Optional[dict]): The metadata of the collection.<br/>    get_or_create (Optional): The flag indicating whether to get or create the collection.<br/>Initialize the Collection object.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

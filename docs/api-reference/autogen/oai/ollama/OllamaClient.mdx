@@ -11,9 +11,7 @@ title: autogen.oai.ollama.OllamaClient
 OllamaClient(**kwargs)
 ```
 
-    Client for Ollama's API.
-    
-    Note that no api_key or environment variable is required for Ollama.
+    Client for Ollama's API.<br/>Note that no api_key or environment variable is required for Ollama.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -89,9 +87,7 @@ cost(self, response) -> float
 message_retrieval(self, response) -> list
 ```
 
-    Retrieve and return a list of strings or a list of Choice.Message from the response.
-    
-    NOTE: if a list of Choice.Message is returned, it currently needs to contain the fields of OpenAI's ChatCompletion Message object,
+    Retrieve and return a list of strings or a list of Choice.Message from the response.<br/>NOTE: if a list of Choice.Message is returned, it currently needs to contain the fields of OpenAI's ChatCompletion Message object,
     since that is expected for function or tool calling in the rest of the codebase at the moment, unless a custom agent is being used.
 
 <b>Parameters:</b>
@@ -112,8 +108,7 @@ oai_messages_to_ollama_messages(
 ) -> list[dict[str, typing.Any]]
 ```
 
-    Convert messages from OAI format to Ollama's format.
-    We correct for any specific role orders and types, and convert tools to messages (as Ollama can't use tool messages)
+    Convert messages from OAI format to Ollama's format.<br/>We correct for any specific role orders and types, and convert tools to messages (as Ollama can't use tool messages)
 
 <b>Parameters:</b>
 | Name | Description |

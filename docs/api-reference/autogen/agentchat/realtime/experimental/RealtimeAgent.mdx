@@ -19,17 +19,17 @@ RealtimeAgent(
 )
 ```
 
-    (Experimental) Agent for interacting with the Realtime Clients.
+    (Experimental) Agent for interacting with the Realtime Clients.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `name` | The name of the agent.<br/><br/>**Type:** `str` |
-| `audio_adapter` | The audio adapter for the agent.<br/><br/>**Type:** `autogen.agentchat.realtime.experimental.realtime_observer.RealtimeObserver \| None`<br/><br/>**Default:** None |
-| `system_message` | The system message for the agent.<br/><br/>**Type:** `str`<br/><br/>**Default:** 'You are a helpful AI Assistant.' |
-| `llm_config` | The config for the agent.<br/><br/>**Type:** `dict[str, typing.Any]` |
-| `logger` | The logger for the agent.<br/><br/>**Type:** `logging.Logger \| None`<br/><br/>**Default:** None |
-| `**client_kwargs` | The keyword arguments for the client.<br/><br/>**Type:** `Any` |
+| `name` | **Type:** `str` |
+| `audio_adapter` | **Type:** `autogen.agentchat.realtime.experimental.realtime_observer.RealtimeObserver \| None`<br/><br/>**Default:** None |
+| `system_message` | **Type:** `str`<br/><br/>**Default:** 'You are a helpful AI Assistant.' |
+| `llm_config` | **Type:** `dict[str, typing.Any]` |
+| `logger` | **Type:** `logging.Logger \| None`<br/><br/>**Default:** None |
+| `**client_kwargs` | **Type:** `Any` |
 
 ### Instance Attributes
 
@@ -66,7 +66,7 @@ RealtimeAgent(
 register_observer(self, observer: autogen.agentchat.realtime.experimental.realtime_observer.RealtimeObserver) -> None
 ```
 
-    Register an observer with the Realtime Agent.
+    Register an observer with the Realtime Agent.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -87,7 +87,7 @@ register_realtime_function(
 ) -> Callable[[~F | autogen.tools.tool.Tool], autogen.tools.tool.Tool]
 ```
 
-    Decorator for registering a function to be used by an agent.
+    Decorator for registering a function to be used by an agent.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

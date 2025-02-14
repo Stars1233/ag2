@@ -11,9 +11,7 @@ title: autogen.agentchat.contrib.capabilities.transforms.MessageTransform
 MessageTransform(*args, **kwargs)
 ```
 
-    Defines a contract for message transformation.
-    
-    Classes implementing this protocol should provide an `apply_transform` method
+    Defines a contract for message transformation.<br/>Classes implementing this protocol should provide an `apply_transform` method
     that takes a list of messages and returns the transformed list.
 
 <b>Parameters:</b>
@@ -31,7 +29,7 @@ MessageTransform(*args, **kwargs)
 apply_transform(self, messages: list[dict]) -> list[dict]
 ```
 
-    Applies a transformation to a list of messages.
+    Applies a transformation to a list of messages.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -58,7 +56,7 @@ get_logs(
 
     Creates the string including the logs of the transformation
     
-    Alongside the string, it returns a boolean indicating whether the transformation had an effect or not.
+    Alongside the string, it returns a boolean indicating whether the transformation had an effect or not.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

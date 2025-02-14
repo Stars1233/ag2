@@ -19,17 +19,17 @@ GroupChatManager(
 )
 ```
 
-    (In preview) A chat manager agent that can manage a group chat of multiple agents.
+    (In preview) A chat manager agent that can manage a group chat of multiple agents.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
 | `groupchat` | **Type:** `autogen.agentchat.groupchat.GroupChat` |
-| `name` | name of the agent.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'chat_manager' |
-| `max_consecutive_auto_reply` | the maximum number of consecutive auto replies.<br/><br/>default to None (no limit provided, class attribute MAX_CONSECUTIVE_AUTO_REPLY will be used as the limit in this case).<br/><br/>When set to 0, no auto reply will be generated.<br/><br/>**Type:** `int \| None`<br/><br/>**Default:** 9223372036854775807 |
-| `human_input_mode` | whether to ask for human inputs every time a message is received.<br/><br/>Possible values are "ALWAYS", "TERMINATE", "NEVER".<br/><br/>(1) When "ALWAYS", the agent prompts for human input every time a message is received.<br/><br/>Under this mode, the conversation stops when the human input is "exit", or when is_termination_msg is True and there is no human input.<br/><br/>(2) When "TERMINATE", the agent only prompts for human input only when a termination message is received or the number of auto reply reaches the max_consecutive_auto_reply.<br/><br/>(3) When "NEVER", the agent will never prompt for human input.<br/><br/>Under this mode, the conversation stops when the number of auto reply reaches the max_consecutive_auto_reply or when is_termination_msg is True.<br/><br/>**Type:** `Literal['ALWAYS', 'NEVER', 'TERMINATE']`<br/><br/>**Default:** 'NEVER' |
-| `system_message` | system message for the ChatCompletion inference.<br/><br/>**Type:** `str \| list \| None`<br/><br/>**Default:** 'Group chat manager.' |
-| `silent` | (Experimental) whether to print the message sent.<br/><br/>If None, will use the value of silent in each function.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
+| `name` | **Type:** `str \| None`<br/><br/>**Default:** 'chat_manager' |
+| `max_consecutive_auto_reply` | **Type:** `int \| None`<br/><br/>**Default:** 9223372036854775807 |
+| `human_input_mode` | **Type:** `Literal['ALWAYS', 'NEVER', 'TERMINATE']`<br/><br/>**Default:** 'NEVER' |
+| `system_message` | **Type:** `str \| list \| None`<br/><br/>**Default:** 'Group chat manager.' |
+| `silent` | **Type:** `bool`<br/><br/>**Default:** False |
 | `**kwargs` |  |
 
 ### Instance Attributes
@@ -44,21 +44,16 @@ GroupChatManager(
 #### last_speaker
 <br />
 
-    Return the agent who sent the last message to group chat manager.
-    
-    In a group chat, an agent will always send a message to the group chat manager, and the group chat manager will
+    Return the agent who sent the last message to group chat manager.<br/>In a group chat, an agent will always send a message to the group chat manager, and the group chat manager will
     send the message to all other agents in the group chat. So, when an agent receives a message, it will always be
     from the group chat manager. With this property, the agent receiving the message can know who actually sent the
-    message.
-    
-    Example:
+    message.<br/>Example: 
     ```python
     from autogen import ConversableAgent
     from autogen import GroupChat, GroupChatManager
     
     
-    def print_messages(recipient, messages, sender, config):
-        # Print the message immediately
+    def print_messages(recipient, messages, sender, config): <br/>    # Print the message immediately
         print(f"Sender: \{sender.name} | Recipient: \{recipient.name} | Message: \{messages[-1].get('content')}")
         print(f"Real Sender: \{sender.last_speaker.name}")
         assert sender.last_speaker.name in messages[-1].get("content")
@@ -68,8 +63,7 @@ GroupChatManager(
     agent_a = ConversableAgent("agent A", default_auto_reply="I'm agent A.")
     agent_b = ConversableAgent("agent B", default_auto_reply="I'm agent B.")
     agent_c = ConversableAgent("agent C", default_auto_reply="I'm agent C.")
-    for agent in [agent_a, agent_b, agent_c]:
-        agent.register_reply([ConversableAgent, None], reply_func=print_messages, config=None)
+    for agent in [agent_a, agent_b, agent_c]: <br/>    agent.register_reply([ConversableAgent, None], reply_func=print_messages, config=None)
     group_chat = GroupChat(
         [agent_a, agent_b, agent_c],
         messages=[],
@@ -96,7 +90,7 @@ a_resume(
 ```
 
     Resumes a group chat using the previous messages as a starting point, asynchronously. Requires the agents, group chat, and group chat manager to be established
-    as per the original group chat.
+    as per the original group chat.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -142,8 +136,7 @@ a_run_chat(
 chat_messages_for_summary(self, agent: autogen.agentchat.agent.Agent) -> list[dict]
 ```
 
-    The list of messages in the group chat as a conversation to summarize.
-    The agent is ignored.
+    The list of messages in the group chat as a conversation to summarize.<br/>The agent is ignored.
 
 <b>Parameters:</b>
 | Name | Description |
@@ -163,15 +156,9 @@ clear_agents_history(
 ) -> str
 ```
 
-    Clears history of messages for all agents or selected one. Can preserve selected number of last messages.
-    That function is called when user manually provide "clear history" phrase in his reply.
-    When "clear history" is provided, the history of messages for all agents is cleared.
-    When "clear history `&lt;agent_name>`" is provided, the history of messages for selected agent is cleared.
-    When "clear history `&lt;nr_of_messages_to_preserve>`" is provided, the history of messages for all agents is cleared
-    except last `&lt;nr_of_messages_to_preserve>` messages.
-    When "clear history `&lt;agent_name>` `&lt;nr_of_messages_to_preserve>`" is provided, the history of messages for selected
-    agent is cleared except last `&lt;nr_of_messages_to_preserve>` messages.
-    Phrase "clear history" and optional arguments are cut out from the reply before it passed to the chat.
+    Clears history of messages for all agents or selected one. Can preserve selected number of last messages.<br/>That function is called when user manually provide "clear history" phrase in his reply.<br/>When "clear history" is provided, the history of messages for all agents is cleared.<br/>When "clear history `<agent_name>`" is provided, the history of messages for selected agent is cleared.<br/>When "clear history `<nr_of_messages_to_preserve>`" is provided, the history of messages for all agents is cleared
+    except last `<nr_of_messages_to_preserve>` messages.<br/>When "clear history `<agent_name>` `<nr_of_messages_to_preserve>`" is provided, the history of messages for selected
+    agent is cleared except last `<nr_of_messages_to_preserve>` messages.<br/>Phrase "clear history" and optional arguments are cut out from the reply before it passed to the chat.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -209,8 +196,7 @@ messages_from_string(self, message_string: str) -> list[dict]
 messages_to_string(self, messages: list[dict]) -> str
 ```
 
-    Converts the provided messages into a Json string that can be used for resuming the chat.
-    The state is made up of a list of messages
+    Converts the provided messages into a Json string that can be used for resuming the chat.<br/>The state is made up of a list of messages
 
 <b>Parameters:</b>
 | Name | Description |
@@ -237,7 +223,7 @@ resume(
 ```
 
     Resumes a group chat using the previous messages as a starting point. Requires the agents, group chat, and group chat manager to be established
-    as per the original group chat.
+    as per the original group chat.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

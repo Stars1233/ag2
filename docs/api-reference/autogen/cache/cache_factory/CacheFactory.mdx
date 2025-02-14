@@ -27,12 +27,10 @@ cache_factory(
 ) -> autogen.cache.abstract_cache_base.AbstractCache
 ```
 
-    Factory function for creating cache instances.
-    
-    This function decides whether to create a RedisCache, DiskCache, or CosmosDBCache instance
+    Factory function for creating cache instances.<br/>This function decides whether to create a RedisCache, DiskCache, or CosmosDBCache instance
     based on the provided parameters. If RedisCache is available and a redis_url is provided,
     a RedisCache instance is created. If connection_string, database_id, and container_id
-    are provided, a CosmosDBCache is created. Otherwise, a DiskCache instance is used.
+    are provided, a CosmosDBCache is created. Otherwise, a DiskCache instance is used.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

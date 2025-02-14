@@ -20,9 +20,9 @@ OnCondition(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `target` | The agent to hand off to or the nested chat configuration.<br/><br/>Can be a ConversableAgent or a Dict.<br/><br/>If a Dict, it should follow the convention of the nested chat configuration, with the exception of a carryover configuration which is unique to Swarms.<br/><br/>Swarm Nested chat documentation: https://docs.ag2.ai/docs/user-guide/advanced-concepts/swarm-deep-dive#registering-handoffs-to-a-nested-chat<br/><br/>**Type:** `autogen.agentchat.conversable_agent.ConversableAgent \| dict[str, typing.Any]`<br/><br/>**Default:** None |
-| `condition` | The condition for transitioning to the target agent, evaluated by the LLM.<br/><br/>If a string or Callable, no automatic context variable substitution occurs.<br/><br/>If a ContextStr, context variable substitution occurs.<br/><br/>The Callable signature is: def my_condition_string(agent: ConversableAgent, messages: List[Dict[str, Any]]) -> str<br/><br/>**Type:** `str \| autogen.agentchat.contrib.swarm_agent.ContextStr \| Callable`<br/><br/>**Default:** '' |
-| `available` | Optional condition to determine if this OnCondition is included for the LLM to evaluate.<br/><br/>Can be a Callable or a string.<br/><br/>If a string, it will look up the value of the context variable with that name, which should be a bool, to determine whether it should include this condition.<br/><br/>The Callable signature is: def my_available_func(agent: ConversableAgent, messages: List[Dict[str, Any]]) -> bool<br/><br/>**Type:** `str \| Callable \| None`<br/><br/>**Default:** None |
+| `target` | **Type:** `autogen.agentchat.conversable_agent.ConversableAgent \| dict[str, typing.Any]`<br/><br/>**Default:** None |
+| `condition` | **Type:** `str \| autogen.agentchat.contrib.swarm_agent.ContextStr \| Callable`<br/><br/>**Default:** '' |
+| `available` | **Type:** `str \| Callable \| None`<br/><br/>**Default:** None |
 
 ### Class Attributes
 

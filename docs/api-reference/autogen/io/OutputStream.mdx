@@ -11,34 +11,16 @@ title: autogen.io.OutputStream
 OutputStream(*args, **kwargs)
 ```
 
-    Base class for protocol classes.
+    Base class for protocol classes.<br/>Protocol classes are defined as:: <br/>    class Proto(Protocol): <br/>        def meth(self) -> int: <br/>            ...<br/>Such classes are primarily used with static type checkers that recognize
+    structural subtyping (static duck-typing), for example:: <br/>    class C: <br/>        def meth(self) -> int: <br/>            return 0
     
-    Protocol classes are defined as::
-    
-        class Proto(Protocol):
-            def meth(self) -> int:
-                ...
-    
-    Such classes are primarily used with static type checkers that recognize
-    structural subtyping (static duck-typing), for example::
-    
-        class C:
-            def meth(self) -> int:
-                return 0
-    
-        def func(x: Proto) -> int:
-            return x.meth()
+        def func(x: Proto) -> int: <br/>        return x.meth()
     
         func(C())  # Passes static type check
     
     See PEP 544 for details. Protocol classes decorated with
     @typing.runtime_checkable act as simple-minded runtime protocols that check
-    only the presence of given attributes, ignoring their type signatures.
-    Protocol classes can be generic, they are defined as::
-    
-        class GenProto(Protocol[T]):
-            def meth(self) -> T:
-                ...
+    only the presence of given attributes, ignoring their type signatures.<br/>Protocol classes can be generic, they are defined as:: <br/>    class GenProto(Protocol[T]): <br/>        def meth(self) -> T: <br/>            ...
 
 <b>Parameters:</b>
 | Name | Description |
@@ -61,7 +43,7 @@ print(
 ) -> None
 ```
 
-    Print data to the output stream.
+    Print data to the output stream.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -80,7 +62,7 @@ print(
 send(self, message: autogen.messages.base_message.BaseMessage) -> None
 ```
 
-    Send data to the output stream.
+    Send data to the output stream.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

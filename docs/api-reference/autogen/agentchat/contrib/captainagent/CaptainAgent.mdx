@@ -25,24 +25,24 @@ CaptainAgent(
 )
 ```
 
-    (In preview) Captain agent, designed to solve a task with an agent or a group of agents.
+    (In preview) Captain agent, designed to solve a task with an agent or a group of agents.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `name` | agent name.<br/><br/>**Type:** `str` |
-| `system_message` | system message for the ChatCompletion inference.<br/><br/>Please override this attribute if you want to reprogram the agent.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
-| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create) for available options.<br/><br/>**Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
-| `is_termination_msg` | a function that takes a message in the form of a dictionary and returns a boolean value indicating if this received message is a termination message.<br/><br/>The dict can contain the following keys: "content", "role", "name", "function_call".<br/><br/>**Type:** `Callable[[dict], bool] \| None`<br/><br/>**Default:** None |
-| `max_consecutive_auto_reply` | the maximum number of consecutive auto replies.<br/><br/>default to None (no limit provided, class attribute MAX_CONSECUTIVE_AUTO_REPLY will be used as the limit in this case).<br/><br/>The limit only plays a role when human_input_mode is not "ALWAYS".<br/><br/>**Type:** `int \| None`<br/><br/>**Default:** None |
+| `name` | **Type:** `str` |
+| `system_message` | **Type:** `str \| None`<br/><br/>**Default:** None |
+| `llm_config` | **Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
+| `is_termination_msg` | **Type:** `Callable[[dict], bool] \| None`<br/><br/>**Default:** None |
+| `max_consecutive_auto_reply` | **Type:** `int \| None`<br/><br/>**Default:** None |
 | `human_input_mode` | **Type:** `str \| None`<br/><br/>**Default:** 'NEVER' |
 | `code_execution_config` | **Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** False |
-| `nested_config` | the configuration for the nested chat instantiated by CaptainAgent.<br/><br/>A full list of keys and their functionalities can be found in [docs](https://docs.ag2.ai/docs/topics/captainagent/configurations).<br/><br/>**Type:** `dict \| None`<br/><br/>**Default:** None |
-| `agent_lib` | the path or a JSON file of the agent library for retrieving the nested chat instantiated by CaptainAgent.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
-| `tool_lib` | the path to the tool library for retrieving the tools used in the nested chat instantiated by CaptainAgent.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
-| `agent_config_save_path` | the path to save the generated or retrieved agent configuration.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+| `nested_config` | **Type:** `dict \| None`<br/><br/>**Default:** None |
+| `agent_lib` | **Type:** `str \| None`<br/><br/>**Default:** None |
+| `tool_lib` | **Type:** `str \| None`<br/><br/>**Default:** None |
+| `agent_config_save_path` | **Type:** `str \| None`<br/><br/>**Default:** None |
 | `description` | **Type:** `str \| None`<br/><br/>**Default:** 'A helpful AI assistant that can build a group of agents at a proper time to solve a task.' |
-| `**kwargs` | Please refer to other kwargs in [ConversableAgent](https://github.com/ag2ai/ag2/blob/main/autogen/agentchat/conversable_agent.py#L74).<br/><br/> |
+| `**kwargs` |  |
 
 ### Class Attributes
 

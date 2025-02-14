@@ -11,14 +11,12 @@ title: autogen.agentchat.realtime.experimental.RealtimeObserver
 RealtimeObserver(*, logger: logging.Logger | None = None)
 ```
 
-    Observer for the OpenAI Realtime API.
-    
-    Observer for the OpenAI Realtime API.
+    Observer for the OpenAI Realtime API.<br/>Observer for the OpenAI Realtime API.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `logger` | The logger for the observer.<br/><br/>**Type:** `logging.Logger \| None`<br/><br/>**Default:** None |
+| `logger` | **Type:** `logging.Logger \| None`<br/><br/>**Default:** None |
 
 ### Instance Attributes
 
@@ -60,7 +58,7 @@ initialize_session(self) -> None
 on_event(self, event: autogen.agentchat.realtime.experimental.realtime_events.RealtimeEvent) -> None
 ```
 
-    Handle an event from the OpenAI Realtime API.
+    Handle an event from the OpenAI Realtime API.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -76,9 +74,7 @@ on_event(self, event: autogen.agentchat.realtime.experimental.realtime_events.R
 run(self, agent: RealtimeAgent) -> 
 ```
 
-    Run the observer with the agent.
-    
-    When implementing, be sure to call `self._ready_event.set()` when the observer is ready to process events.
+    Run the observer with the agent.<br/>When implementing, be sure to call `self._ready_event.set()` when the observer is ready to process events.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -94,11 +90,7 @@ run(self, agent: RealtimeAgent) ->
 run_loop(self) -> None
 ```
 
-    Run the loop if needed.
-    
-    This method is called after the observer is ready to process events.
-    Events will be processed by the on_event method, this is just a hook for additional processing.
-    Use initialize_session to set up the session.
+    Run the loop if needed.<br/>This method is called after the observer is ready to process events.<br/>Events will be processed by the on_event method, this is just a hook for additional processing.<br/>Use initialize_session to set up the session.
 
 <br />
 

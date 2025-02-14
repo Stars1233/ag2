@@ -12,15 +12,12 @@ EmbeddedIPythonCodeExecutor(**kwargs)
 ```
 
     (Experimental) A code executor class that executes code statefully using an embedded
-    IPython kernel managed by this class.
-    
-    **This will execute LLM generated code on the local machine.**
+    IPython kernel managed by this class.<br/>**This will execute LLM generated code on the local machine.**
     
     Each execution is stateful and can access variables created from previous
     executions in the same session. The kernel must be installed before using
-    this class. The kernel can be installed using the following command:
-    `python -m ipykernel install --user --name \{kernel_name}`
-    where `kernel_name` is the name of the kernel to install.
+    this class. The kernel can be installed using the following command: <br/>`python -m ipykernel install --user --name \{kernel_name}`
+    where `kernel_name` is the name of the kernel to install.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -215,17 +212,11 @@ EmbeddedIPythonCodeExecutor(**kwargs)
 #### model_extra
 <br />
 
-    Get extra fields set during validation.
-    
-    Returns:
-        A dictionary of extra fields, or `None` if `config.extra` is not set to `"allow"`.
+    Get extra fields set during validation.<br/>Returns: <br/>    A dictionary of extra fields, or `None` if `config.extra` is not set to `"allow"`.
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### model_fields_set
 <br />
 
-    Returns the set of fields that have been explicitly set on this model instance.
-    
-    Returns:
-        A set of strings representing the fields that have been set,
+    Returns the set of fields that have been explicitly set on this model instance.<br/>Returns: <br/>    A set of strings representing the fields that have been set,
             i.e. that were not filled from defaults.

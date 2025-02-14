@@ -11,12 +11,8 @@ title: autogen.agentchat.contrib.capabilities.generate_images.ImageGenerator
 ImageGenerator(*args, **kwargs)
 ```
 
-    This class defines an interface for image generators.
-    
-    Concrete implementations of this protocol must provide a `generate_image` method that takes a string prompt as
-    input and returns a PIL Image object.
-    
-    NOTE: Current implementation does not allow you to edit a previously existing image.
+    This class defines an interface for image generators.<br/>Concrete implementations of this protocol must provide a `generate_image` method that takes a string prompt as
+    input and returns a PIL Image object.<br/>NOTE: Current implementation does not allow you to edit a previously existing image.
 
 <b>Parameters:</b>
 | Name | Description |
@@ -33,9 +29,7 @@ ImageGenerator(*args, **kwargs)
 cache_key(self, prompt: str) -> str
 ```
 
-    Generates a unique cache key for the given prompt.
-    
-    This key can be used to store and retrieve generated images based on the prompt.
+    Generates a unique cache key for the given prompt.<br/>This key can be used to store and retrieve generated images based on the prompt.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -56,7 +50,7 @@ cache_key(self, prompt: str) -> str
 generate_image(self, prompt: str) -> Image
 ```
 
-    Generates an image based on the provided prompt.
+    Generates an image based on the provided prompt.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

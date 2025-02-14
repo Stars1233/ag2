@@ -11,9 +11,7 @@ title: autogen.interop.Interoperable
 Interoperable(*args, **kwargs)
 ```
 
-    A Protocol defining the interoperability interface for tool conversion.
-    
-    This protocol ensures that any class implementing it provides the method
+    A Protocol defining the interoperability interface for tool conversion.<br/>This protocol ensures that any class implementing it provides the method
     `convert_tool` to convert a given tool into a desired format or type.
 
 <b>Parameters:</b>
@@ -31,9 +29,7 @@ Interoperable(*args, **kwargs)
 convert_tool(tool: Any, **kwargs: Any) -> autogen.tools.tool.Tool
 ```
 
-    Converts a given tool to a desired format or type.
-    
-    This method should be implemented by any class adhering to the `Interoperable` protocol.
+    Converts a given tool to a desired format or type.<br/>This method should be implemented by any class adhering to the `Interoperable` protocol.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -55,12 +51,7 @@ convert_tool(tool: Any, **kwargs: Any) -> autogen.tools.tool.Tool
 get_unsupported_reason() -> str | None
 ```
 
-    Returns the reason for the tool being unsupported.
-    
-    This method should be implemented by any class adhering to the `Interoperable` protocol.
-    
-    Returns:
-        str: The reason for the interoperability class being unsupported.
+    Returns the reason for the tool being unsupported.<br/>This method should be implemented by any class adhering to the `Interoperable` protocol.<br/>Returns: <br/>    str: The reason for the interoperability class being unsupported.
 
 <b>Returns:</b>
 | Type | Description |

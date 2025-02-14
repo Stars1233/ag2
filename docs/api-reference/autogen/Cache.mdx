@@ -11,24 +11,14 @@ title: autogen.Cache
 Cache(config: dict[str, Any])
 ```
 
-    A wrapper class for managing cache configuration and instances.
-    
-    This class provides a unified interface for creating and interacting with
+    A wrapper class for managing cache configuration and instances.<br/>This class provides a unified interface for creating and interacting with
     different types of cache (e.g., Redis, Disk). It abstracts the underlying
-    cache implementation details, providing methods for cache operations.
-    
-    Attributes:
-        config (Dict[str, Any]): A dictionary containing cache configuration.
-        cache: The cache instance created based on the provided configuration.
-    
-    Initialize the Cache with the given configuration.
-    
-    Validates the configuration keys and creates the cache instance.
+    cache implementation details, providing methods for cache operations.<br/>Attributes: <br/>    config (Dict[str, Any]): A dictionary containing cache configuration.<br/>    cache: The cache instance created based on the provided configuration.<br/>Initialize the Cache with the given configuration.<br/>Validates the configuration keys and creates the cache instance.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `config` | A dictionary containing the cache configuration.<br/><br/>**Type:** `dict[str, Any]` |
+| `config` | **Type:** `dict[str, Any]` |
 
 ### Class Attributes
 
@@ -52,7 +42,7 @@ cosmos_db(
 ) -> Cache
 ```
 
-    Create a Cosmos DB cache instance with 'autogen_cache' as database ID.
+    Create a Cosmos DB cache instance with 'autogen_cache' as database ID.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -76,7 +66,7 @@ cosmos_db(
 disk(cache_seed: str | int = 42, cache_path_root: str = '.cache') -> autogen.cache.cache.Cache
 ```
 
-    Create a Disk cache instance.
+    Create a Disk cache instance.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -98,7 +88,7 @@ disk(cache_seed: str | int = 42, cache_path_root: str = '.cache') -> aut
 redis(cache_seed: str | int = 42, redis_url: str = 'redis://localhost:6379/0') -> autogen.cache.cache.Cache
 ```
 
-    Create a Redis cache instance.
+    Create a Redis cache instance.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -122,9 +112,7 @@ redis(cache_seed: str | int = 42, redis_url: str = 'redis://localhost:63
 close(self) -> None
 ```
 
-    Close the cache.
-    
-    Perform any necessary cleanup, such as closing connections or releasing resources.
+    Close the cache.<br/>Perform any necessary cleanup, such as closing connections or releasing resources.
 
 <br />
 
@@ -139,7 +127,7 @@ get(
 ) -> Any | None
 ```
 
-    Retrieve an item from the cache.
+    Retrieve an item from the cache.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -165,7 +153,7 @@ set(
 ) -> None
 ```
 
-    Set an item in the cache.
+    Set an item in the cache.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

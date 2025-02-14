@@ -15,17 +15,14 @@ AgentOptimizer(
 )
 ```
 
-    Base class for optimizing AutoGen agents. Specifically, it is used to optimize the functions used in the agent.
-    More information could be found in the following paper: https://arxiv.org/abs/2402.11359.
-    
-    (These APIs are experimental and may change in the future.)
+    Base class for optimizing AutoGen agents. Specifically, it is used to optimize the functions used in the agent.<br/>More information could be found in the following paper: https://arxiv.org/abs/2402.11359.<br/>(These APIs are experimental and may change in the future.)
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `max_actions_per_step` | the maximum number of actions that the optimizer can take in one step.<br/><br/>**Type:** `int` |
-| `llm_config` | llm inference configuration.<br/><br/>Please refer to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create) for available options.<br/><br/>When using OpenAI or Azure OpenAI endpoints, please specify a non-empty 'model' either in `llm_config` or in each config of 'config_list' in `llm_config`.<br/><br/>**Type:** `dict` |
-| `optimizer_model` | the model used for the optimizer.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'gpt-4-1106-preview' |
+| `max_actions_per_step` | **Type:** `int` |
+| `llm_config` | **Type:** `dict` |
+| `optimizer_model` | **Type:** `str \| None`<br/><br/>**Default:** 'gpt-4-1106-preview' |
 
 ### Instance Methods
 
@@ -40,7 +37,7 @@ record_one_conversation(
 ) -> 
 ```
 
-    Record one conversation history.
+    Record one conversation history.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -69,7 +66,6 @@ step(self) ->
 ```
 
     One step of training. It will return register_for_llm and register_for_executor at each iteration,
-    which are subsequently utilized to update the assistant and executor agents, respectively.
-    See example: https://github.com/ag2ai/ag2/blob/main/notebook/agentchat_agentoptimizer.ipynb
+    which are subsequently utilized to update the assistant and executor agents, respectively.<br/>See example: https://github.com/ag2ai/ag2/blob/main/notebook/agentchat_agentoptimizer.ipynb
 
 <br />

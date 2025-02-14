@@ -12,9 +12,7 @@ CrewAIInteroperability()
 ```
 
     A class implementing the `Interoperable` protocol for converting CrewAI tools
-    to a general `Tool` format.
-    
-    This class takes a `CrewAITool` and converts it into a standard `Tool` object.
+    to a general `Tool` format.<br/>This class takes a `CrewAITool` and converts it into a standard `Tool` object.
 
 ### Static Methods
 
@@ -25,11 +23,9 @@ CrewAIInteroperability()
 convert_tool(tool: Any, **kwargs: Any) -> autogen.tools.tool.Tool
 ```
 
-    Converts a given CrewAI tool into a general `Tool` format.
-    
-    This method ensures that the provided tool is a valid `CrewAITool`, sanitizes
+    Converts a given CrewAI tool into a general `Tool` format.<br/>This method ensures that the provided tool is a valid `CrewAITool`, sanitizes
     the tool's name, processes its description, and prepares a function to interact
-    with the tool's arguments. It then returns a standardized `Tool` object.
+    with the tool's arguments. It then returns a standardized `Tool` object.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

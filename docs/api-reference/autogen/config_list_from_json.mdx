@@ -14,16 +14,12 @@ config_list_from_json(
 ) -> list[dict[str, typing.Any]]
 ```
 
-    Retrieves a list of API configurations from a JSON stored in an environment variable or a file.
-    
-    This function attempts to parse JSON data from the given `env_or_file` parameter. If `env_or_file` is an
+    Retrieves a list of API configurations from a JSON stored in an environment variable or a file.<br/>This function attempts to parse JSON data from the given `env_or_file` parameter. If `env_or_file` is an
     environment variable containing JSON data, it will be used directly. Otherwise, it is assumed to be a filename,
-    and the function will attempt to read the file from the specified `file_location`.
-    
-    The `filter_dict` parameter allows for filtering the configurations based on specified criteria. Each key in the
+    and the function will attempt to read the file from the specified `file_location`.<br/>The `filter_dict` parameter allows for filtering the configurations based on specified criteria. Each key in the
     `filter_dict` corresponds to a field in the configuration dictionaries, and the associated value is a list or set
     of acceptable values for that field. If a field is missing in a configuration and `None` is included in the list
-    of acceptable values for that field, the configuration will still be considered a match.
+    of acceptable values for that field, the configuration will still be considered a match.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

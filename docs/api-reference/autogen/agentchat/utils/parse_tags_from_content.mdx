@@ -10,16 +10,11 @@ title: autogen.agentchat.utils.parse_tags_from_content
 parse_tags_from_content(tag: str, content: str | list[dict[str, typing.Any]]) -> list[dict[str, dict[str, str]]]
 ```
 
-    Parses HTML style tags from message contents.
-    
-    The parsing is done by looking for patterns in the text that match the format of HTML tags. The tag to be parsed is
+    Parses HTML style tags from message contents.<br/>The parsing is done by looking for patterns in the text that match the format of HTML tags. The tag to be parsed is
     specified as an argument to the function. The function looks for this tag in the text and extracts its content. The
     content of a tag is everything that is inside the tag, between the opening and closing angle brackets. The content
-    can be a single string or a set of attribute-value pairs.
-    
-    Examples:
-        `&lt;img http://example.com/image.png> -> [\{"tag": "img", "attr": \{"src": "http://example.com/image.png"}, "match": re.Match}]`
-        ```&lt;audio text="Hello I'm a robot" prompt="whisper"> ->
+    can be a single string or a set of attribute-value pairs.<br/>Examples: <br/>    `<img http://example.com/image.png> -> [\{"tag": "img", "attr": \{"src": "http://example.com/image.png"}, "match": re.Match}]`
+        ```<audio text="Hello I'm a robot" prompt="whisper"> ->
                 [\{"tag": "audio", "attr": \{"text": "Hello I'm a robot", "prompt": "whisper"}, "match": re.Match}]```
 
 <b>Parameters:</b>

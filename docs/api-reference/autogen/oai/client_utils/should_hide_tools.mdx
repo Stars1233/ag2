@@ -14,16 +14,11 @@ should_hide_tools(
 ) -> bool
 ```
 
-    Determines if tools should be hidden. This function is used to hide tools when they have been run, minimising the chance of the LLM choosing them when they shouldn't.
-    Parameters:
-        messages (List[Dict[str, Any]]): List of messages
+    Determines if tools should be hidden. This function is used to hide tools when they have been run, minimising the chance of the LLM choosing them when they shouldn't.<br/>Parameters: <br/>    messages (List[Dict[str, Any]]): List of messages
         tools (List[Dict[str, Any]]): List of tools
-        hide_tools_param (str): "hide_tools" parameter value. Can be "if_all_run" (hide tools if all tools have been run), "if_any_run" (hide tools if any of the tools have been run), "never" (never hide tools). Default is "never".
+        hide_tools_param (str): "hide_tools" parameter value. Can be "if_all_run" (hide tools if all tools have been run), "if_any_run" (hide tools if any of the tools have been run), "never" (never hide tools). Default is "never".<br/>Returns: <br/>    bool: Indicates whether the tools should be excluded from the response create request
     
-    Returns:
-        bool: Indicates whether the tools should be excluded from the response create request
-    
-    Example Usage:
+    Example Usage: 
     ```python
         # Validating a numerical parameter within specific bounds
         messages = params.get("messages", [])

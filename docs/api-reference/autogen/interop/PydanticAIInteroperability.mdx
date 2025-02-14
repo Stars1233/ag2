@@ -12,9 +12,7 @@ PydanticAIInteroperability()
 ```
 
     A class implementing the `Interoperable` protocol for converting Pydantic AI tools
-    into a general `Tool` format.
-    
-    This class takes a `PydanticAITool` and converts it into a standard `Tool` object,
+    into a general `Tool` format.<br/>This class takes a `PydanticAITool` and converts it into a standard `Tool` object,
     ensuring compatibility between Pydantic AI tools and other systems that expect
     the `Tool` format. It also provides a mechanism for injecting context parameters
     into the tool's function.
@@ -32,10 +30,8 @@ convert_tool(
 ) -> autogen.interop.pydantic_ai.pydantic_ai_tool.PydanticAITool
 ```
 
-    Converts a given Pydantic AI tool into a general `Tool` format.
-    
-    This method verifies that the provided tool is a valid `PydanticAITool`,
-    handles context dependencies if necessary, and returns a standardized `Tool` object.
+    Converts a given Pydantic AI tool into a general `Tool` format.<br/>This method verifies that the provided tool is a valid `PydanticAITool`,
+    handles context dependencies if necessary, and returns a standardized `Tool` object.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -69,10 +65,8 @@ get_unsupported_reason() -> str | None
 inject_params(ctx: Any, tool: Any) -> Callable[..., Any]
 ```
 
-    Wraps the tool's function to inject context parameters and handle retries.
-    
-    This method ensures that context parameters are properly passed to the tool
-    when invoked and that retries are managed according to the tool's settings.
+    Wraps the tool's function to inject context parameters and handle retries.<br/>This method ensures that context parameters are properly passed to the tool
+    when invoked and that retries are managed according to the tool's settings.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

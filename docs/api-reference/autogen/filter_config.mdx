@@ -15,7 +15,7 @@ filter_config(
 ```
 
     This function filters `config_list` by checking each configuration dictionary against the criteria specified in
-    `filter_dict`. A configuration dictionary is retained if for every key in `filter_dict`, see example below.
+    `filter_dict`. A configuration dictionary is retained if for every key in `filter_dict`, see example below.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -27,6 +27,6 @@ filter_config(
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `list[dict[str, typing.Any]]` | list of dict: A list of configuration dictionaries that meet all the criteria specified in `filter_dict`. Example: ```python # Example configuration list with various models and API types configs = [ \\{"model": "gpt-3.5-turbo"}, \\{"model": "gpt-4"}, \\{"model": "gpt-3.5-turbo", "api_type": "azure"}, \\{"model": "gpt-3.5-turbo", "tags": ["gpt35_turbo", "gpt-35-turbo"]}, ] # Define filter criteria to select configurations for the 'gpt-3.5-turbo' model # that are also using the 'azure' API type filter_criteria = \\{ "model": ["gpt-3.5-turbo"], # Only accept configurations for 'gpt-3.5-turbo' "api_type": ["azure"], # Only accept configurations for 'azure' API type } # Apply the filter to the configuration list filtered_configs = filter_config(configs, filter_criteria) # The resulting `filtered_configs` will be: # [\\{'model': 'gpt-3.5-turbo', 'api_type': 'azure', ...}] # Define a filter to select a given tag filter_criteria = \\{ "tags": ["gpt35_turbo"], } # Apply the filter to the configuration list filtered_configs = filter_config(configs, filter_criteria) # The resulting `filtered_configs` will be: # [\\{'model': 'gpt-3.5-turbo', 'tags': ['gpt35_turbo', 'gpt-35-turbo']}] ``` |
+| `list[dict[str, typing.Any]]` | list of dict: A list of configuration dictionaries that meet all the criteria specified in `filter_dict`. Example: ```python # Example configuration list with various models and API types configs = [ \{"model": "gpt-3.5-turbo"}, \{"model": "gpt-4"}, \{"model": "gpt-3.5-turbo", "api_type": "azure"}, \{"model": "gpt-3.5-turbo", "tags": ["gpt35_turbo", "gpt-35-turbo"]}, ] # Define filter criteria to select configurations for the 'gpt-3.5-turbo' model # that are also using the 'azure' API type filter_criteria = \{ "model": ["gpt-3.5-turbo"], # Only accept configurations for 'gpt-3.5-turbo' "api_type": ["azure"], # Only accept configurations for 'azure' API type } # Apply the filter to the configuration list filtered_configs = filter_config(configs, filter_criteria) # The resulting `filtered_configs` will be: # [\{'model': 'gpt-3.5-turbo', 'api_type': 'azure', ...}] # Define a filter to select a given tag filter_criteria = \{ "tags": ["gpt35_turbo"], } # Apply the filter to the configuration list filtered_configs = filter_config(configs, filter_criteria) # The resulting `filtered_configs` will be: # [\{'model': 'gpt-3.5-turbo', 'tags': ['gpt35_turbo', 'gpt-35-turbo']}] ``` |
 
 <br />

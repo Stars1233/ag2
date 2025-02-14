@@ -10,17 +10,11 @@ title: autogen.graph_utils.check_graph_validity
 check_graph_validity(allowed_speaker_transitions_dict: dict, agents: list[autogen.agentchat.agent.Agent]) -> 
 ```
 
-    allowed_speaker_transitions_dict: A dictionary of keys and list as values. The keys are the names of the agents, and the values are the names of the agents that the key agent can transition to.
-    agents: A list of Agents
+    allowed_speaker_transitions_dict: A dictionary of keys and list as values. The keys are the names of the agents, and the values are the names of the agents that the key agent can transition to.<br/>agents: A list of Agents
     
-    Checks for the following:
-        Errors
+    Checks for the following: <br/>    Errors
         1. The dictionary must have a structure of keys and list as values
-        2. Every key exists in agents.
-        3. Every value is a list of Agents (not string).
-    
-    Warnings:
-        1. Warning if there are isolated agent nodes
+        2. Every key exists in agents.<br/>    3. Every value is a list of Agents (not string).<br/>Warnings: <br/>    1. Warning if there are isolated agent nodes
         2. Warning if the set of agents in allowed_speaker_transitions do not match agents
         3. Warning if there are duplicated agents in any values of `allowed_speaker_transitions_dict`
 

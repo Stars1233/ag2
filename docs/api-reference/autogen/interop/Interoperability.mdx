@@ -11,9 +11,7 @@ title: autogen.interop.Interoperability
 Interoperability()
 ```
 
-    A class to handle interoperability between different tool types.
-    
-    This class allows the conversion of tools to various interoperability classes and provides functionality
+    A class to handle interoperability between different tool types.<br/>This class allows the conversion of tools to various interoperability classes and provides functionality
     for retrieving and registering interoperability classes.
 
 ### Class Attributes
@@ -38,7 +36,7 @@ convert_tool(
 ) -> autogen.tools.tool.Tool
 ```
 
-    Converts a given tool to an instance of a specified interoperability type.
+    Converts a given tool to an instance of a specified interoperability type.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -61,7 +59,7 @@ convert_tool(
 get_interoperability_class(type: str) -> type[autogen.interop.interoperable.Interoperable]
 ```
 
-    Retrieves the interoperability class corresponding to the specified type.
+    Retrieves the interoperability class corresponding to the specified type.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -82,10 +80,7 @@ get_interoperability_class(type: str) -> type[autogen.interop.interoperable.Int
 get_supported_types() -> list[str]
 ```
 
-    Returns a sorted list of all supported interoperability types.
-    
-    Returns:
-        List[str]: A sorted list of strings representing the supported interoperability types.
+    Returns a sorted list of all supported interoperability types.<br/>Returns: <br/>    List[str]: A sorted list of strings representing the supported interoperability types.
 
 <b>Returns:</b>
 | Type | Description |

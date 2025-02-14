@@ -11,10 +11,7 @@ title: autogen.agentchat.contrib.capabilities.transforms.MessageHistoryLimiter
 MessageHistoryLimiter(max_messages: int | None = None, keep_first_message: bool = False)
 ```
 
-    Limits the number of messages considered by an agent for response generation.
-    
-    This transform keeps only the most recent messages up to the specified maximum number of messages (max_messages).
-    It trims the conversation history by removing older messages, retaining only the most recent messages.
+    Limits the number of messages considered by an agent for response generation.<br/>This transform keeps only the most recent messages up to the specified maximum number of messages (max_messages).<br/>It trims the conversation history by removing older messages, retaining only the most recent messages.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -31,11 +28,9 @@ MessageHistoryLimiter(max_messages: int | None = None, keep_first_message:�
 apply_transform(self, messages: list[dict]) -> list[dict]
 ```
 
-    Truncates the conversation history to the specified maximum number of messages.
-    
-    This method returns a new list containing the most recent messages up to the specified
+    Truncates the conversation history to the specified maximum number of messages.<br/>This method returns a new list containing the most recent messages up to the specified
     maximum number of messages (max_messages). If max_messages is None, it returns the
-    original list of messages unmodified.
+    original list of messages unmodified.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

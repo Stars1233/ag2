@@ -11,17 +11,15 @@ title: autogen.ThinkNode
 ThinkNode(content: str, parent: ForwardRef('ThinkNode') | None = None)
 ```
 
-    A node in a tree structure representing a step in the reasoning process.
-    
-    This class implements a tree node that stores content (text describing a reasoning step),
+    A node in a tree structure representing a step in the reasoning process.<br/>This class implements a tree node that stores content (text describing a reasoning step),
     maintains parent-child relationships, tracks node statistics, and provides utilities
-    for traversing/visualizing the reasoning path.
+    for traversing/visualizing the reasoning path.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `content` | The text content/description for this reasoning step.<br/><br/>**Type:** `str` |
-| `parent` | The parent node in the tree, if any.<br/><br/>**Type:** `ForwardRef('ThinkNode') \| None`<br/><br/>**Default:** None |
+| `content` | **Type:** `str` |
+| `parent` | **Type:** `ForwardRef('ThinkNode') \| None`<br/><br/>**Default:** None |
 
 ### Static Methods
 
@@ -32,7 +30,7 @@ ThinkNode(content: str, parent: ForwardRef('ThinkNode') | None = None)
 from_dict(data: dict, parent: ForwardRef('ThinkNode') | None = None) -> autogen.agentchat.contrib.reasoning_agent.ThinkNode
 ```
 
-    Create ThinkNode from dictionary representation.
+    Create ThinkNode from dictionary representation.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -53,10 +51,7 @@ from_dict(data: dict, parent: ForwardRef('ThinkNode') | None = None) -> au
 #### trajectory
 <br />
 
-    Get a formatted string representation of the path from root to this node.
-    
-    Returns:
-        str: A formatted string showing the question and each step in the reasoning process
+    Get a formatted string representation of the path from root to this node.<br/>Returns: <br/>    str: A formatted string showing the question and each step in the reasoning process
 
 ### Instance Methods
 
@@ -67,7 +62,7 @@ from_dict(data: dict, parent: ForwardRef('ThinkNode') | None = None) -> au
 backpropagate(self, reward: float) -> None
 ```
 
-    Update the score of this node and its parents using moving average.
+    Update the score of this node and its parents using moving average.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -83,10 +78,7 @@ backpropagate(self, reward: float) -> None
 to_dict(self) -> dict
 ```
 
-    Convert ThinkNode to dictionary representation.
-    
-    Returns:
-        Dict: Dictionary containing all node attributes and recursive children
+    Convert ThinkNode to dictionary representation.<br/>Returns: <br/>    Dict: Dictionary containing all node attributes and recursive children
 
 <b>Returns:</b>
 | Type | Description |

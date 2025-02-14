@@ -11,28 +11,13 @@ title: autogen.cache.disk_cache.DiskCache
 DiskCache(seed: str | int)
 ```
 
-    Implementation of AbstractCache using the DiskCache library.
-    
-    This class provides a concrete implementation of the AbstractCache
-    interface using the diskcache library for caching data on disk.
-    
-    Attributes:
-        cache (diskcache.Cache): The DiskCache instance used for caching.
-    
-    Methods:
-        __init__(self, seed): Initializes the DiskCache with the given seed.
-        get(self, key, default=None): Retrieves an item from the cache.
-        set(self, key, value): Sets an item in the cache.
-        close(self): Closes the cache.
-        __enter__(self): Context management entry.
-        __exit__(self, exc_type, exc_value, traceback): Context management exit.
-    
-    Initialize the DiskCache instance.
+    Implementation of AbstractCache using the DiskCache library.<br/>This class provides a concrete implementation of the AbstractCache
+    interface using the diskcache library for caching data on disk.<br/>Attributes: <br/>    cache (diskcache.Cache): The DiskCache instance used for caching.<br/>Methods: <br/>    __init__(self, seed): Initializes the DiskCache with the given seed.<br/>    get(self, key, default=None): Retrieves an item from the cache.<br/>    set(self, key, value): Sets an item in the cache.<br/>    close(self): Closes the cache.<br/>    __enter__(self): Context management entry.<br/>    __exit__(self, exc_type, exc_value, traceback): Context management exit.<br/>Initialize the DiskCache instance.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `seed` | A seed or namespace for the cache.<br/><br/>This is used to create a unique storage location for the cache data.<br/><br/>**Type:** `str \| int` |
+| `seed` | **Type:** `str \| int` |
 
 ### Instance Methods
 
@@ -43,9 +28,7 @@ DiskCache(seed: str | int)
 close(self) -> None
 ```
 
-    Close the cache.
-    
-    Perform any necessary cleanup, such as closing file handles or
+    Close the cache.<br/>Perform any necessary cleanup, such as closing file handles or
     releasing resources.
 
 <br />
@@ -61,7 +44,7 @@ get(
 ) -> Any | None
 ```
 
-    Retrieve an item from the cache.
+    Retrieve an item from the cache.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -87,7 +70,7 @@ set(
 ) -> None
 ```
 
-    Set an item in the cache.
+    Set an item in the cache.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

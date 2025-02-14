@@ -266,6 +266,7 @@
             "docs/use-cases/notebooks/notebooks/agentchat_nestedchat_optiguide",
             "docs/use-cases/notebooks/notebooks/agentchat_cost_token_tracking",
             "docs/use-cases/notebooks/notebooks/gpt_assistant_agent_function_call",
+            "docs/use-cases/notebooks/notebooks/tools_commsplatforms",
             "docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_retrieval",
             "docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_groupchat",
             "docs/use-cases/notebooks/notebooks/agentchat_function_call_async",
@@ -1713,6 +1714,7 @@
           "group": "Recent posts",
           "pages": [
             "docs/blog/2025-02-13-DeepResearchAgent/index",
+            "docs/blog/2025-02-05-Communication-Agents/index",
             "docs/blog/2025-01-31-Websurfing-Tools/index",
             "docs/blog/2025-01-31-WebSurferAgent/index",
             "docs/blog/2025-01-29-RealtimeAgent-with-gemini/index",

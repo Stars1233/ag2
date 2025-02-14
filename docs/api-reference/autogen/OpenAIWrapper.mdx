@@ -15,14 +15,12 @@ OpenAIWrapper(
 )
 ```
 
-    A wrapper class for openai client.
-    
-    Initialize the OpenAIWrapper.
+    A wrapper class for openai client.<br/>Initialize the OpenAIWrapper.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `config_list` | a list of config dicts to override the base_config.<br/><br/>They can contain additional kwargs as allowed in the [create](/docs/api-reference/autogen/OpenAIWrapper#create) method.<br/><br/>E.g., ```python config_list = [ \\{ "model": "gpt-4", "api_key": os.environ.get("AZURE_OPENAI_API_KEY"), "api_type": "azure", "base_url": os.environ.get("AZURE_OPENAI_API_BASE"), "api_version": "2024-02-01", }, \\{ "model": "gpt-3.5-turbo", "api_key": os.environ.get("OPENAI_API_KEY"), "api_type": "openai", "base_url": "https://api.openai.com/v1", }, \\{ "model": "llama-7B", "base_url": "http://127.0.0.1:8080", }, ] ```<br/><br/>**Type:** `Optional[list[dict[str, Any]]]`<br/><br/>**Default:** None |
+| `config_list` | **Type:** `Optional[list[dict[str, Any]]]`<br/><br/>**Default:** None |
 | `**base_config` | **Type:** `Any` |
 
 ### Class Attributes
@@ -66,7 +64,7 @@ OpenAIWrapper(
 extract_text_or_completion_object(response: ModelClient.ModelClientResponseProtocol) -> list[str] | list[autogen.oai.client.ModelClient.ModelClientResponseProtocol.Choice.Message]
 ```
 
-    Extract the text or ChatCompletion objects from a completion or chat response.
+    Extract the text or ChatCompletion objects from a completion or chat response.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -122,9 +120,7 @@ clear_usage_summary(self) -> None
 create(self, **config: Any) -> autogen.oai.client.ModelClient.ModelClientResponseProtocol
 ```
 
-    Make a completion for a given config using available clients.
-    Besides the kwargs allowed in openai's [or other] client, we allow the following additional kwargs.
-    The config in each client will be overridden by the config.
+    Make a completion for a given config using available clients.<br/>Besides the kwargs allowed in openai's [or other] client, we allow the following additional kwargs.<br/>The config in each client will be overridden by the config.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -160,7 +156,7 @@ register_model_client(
 ) -> 
 ```
 
-    Register a model client.
+    Register a model client.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

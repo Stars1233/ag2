@@ -15,28 +15,10 @@ TransformMessages(
 )
 ```
 
-    Agent capability for transforming messages before reply generation.
-    
-    This capability allows you to apply a series of message transformations to
+    Agent capability for transforming messages before reply generation.<br/>This capability allows you to apply a series of message transformations to
     a ConversableAgent's incoming messages before they are processed for response
-    generation. This is useful for tasks such as:
-    
-    - Limiting the number of messages considered for context.
-    - Truncating messages to meet token limits.
-    - Filtering sensitive information.
-    - Customizing message formatting.
-    
-    To use `TransformMessages`:
-    
-    1. Create message transformations (e.g., `MessageHistoryLimiter`, `MessageTokenLimiter`).
-    2. Instantiate `TransformMessages` with a list of these transformations.
-    3. Add the `TransformMessages` instance to your `ConversableAgent` using `add_to_agent`.
-    
-    NOTE: Order of message transformations is important. You could get different results based on
-        the order of transformations.
-    
-    Example:
-        ```python
+    generation. This is useful for tasks such as: <br/>- Limiting the number of messages considered for context.<br/>- Truncating messages to meet token limits.<br/>- Filtering sensitive information.<br/>- Customizing message formatting.<br/>To use `TransformMessages`: <br/>1. Create message transformations (e.g., `MessageHistoryLimiter`, `MessageTokenLimiter`).<br/>2. Instantiate `TransformMessages` with a list of these transformations.<br/>3. Add the `TransformMessages` instance to your `ConversableAgent` using `add_to_agent`.<br/>NOTE: Order of message transformations is important. You could get different results based on
+        the order of transformations.<br/>Example: <br/>    ```python
         from agentchat import ConversableAgent
         from agentchat.contrib.capabilities import TransformMessages, MessageHistoryLimiter, MessageTokenLimiter
     
@@ -51,8 +33,8 @@ TransformMessages(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `transforms` | A list of message transformations to apply.<br/><br/>**Type:** `list[autogen.agentchat.contrib.capabilities.transforms.MessageTransform]`<br/><br/>**Default:** [] |
-| `verbose` | Whether to print logs of each transformation or not.<br/><br/>**Type:** `bool`<br/><br/>**Default:** True |
+| `transforms` | **Type:** `list[autogen.agentchat.contrib.capabilities.transforms.MessageTransform]`<br/><br/>**Default:** [] |
+| `verbose` | **Type:** `bool`<br/><br/>**Default:** True |
 
 ### Instance Methods
 
@@ -63,11 +45,7 @@ TransformMessages(
 add_to_agent(self, agent: autogen.agentchat.conversable_agent.ConversableAgent) -> 
 ```
 
-    Adds the message transformations capability to the specified ConversableAgent.
-    
-    This function performs the following modifications to the agent:
-    
-    1. Registers a hook that automatically transforms all messages before they are processed for
+    Adds the message transformations capability to the specified ConversableAgent.<br/>This function performs the following modifications to the agent: <br/>1. Registers a hook that automatically transforms all messages before they are processed for
         response generation.
 
 <b>Parameters:</b>

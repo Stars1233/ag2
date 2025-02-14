@@ -11,7 +11,7 @@ title: autogen.agentchat.contrib.vectordb.base.VectorDB
 VectorDB(*args, **kwargs)
 ```
 
-    Abstract class for vector database. A vector database is responsible for storing and retrieving documents.
+    Abstract class for vector database. A vector database is responsible for storing and retrieving documents.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -53,11 +53,8 @@ create_collection(
 ) -> Any
 ```
 
-    Create a collection in the vector database.
-    Case 1. if the collection does not exist, create the collection.
-    Case 2. the collection exists, if overwrite is True, it will overwrite the collection.
-    Case 3. the collection exists and overwrite is False, if get_or_create is True, it will get the collection,
-        otherwise it raise a ValueError.
+    Create a collection in the vector database.<br/>Case 1. if the collection does not exist, create the collection.<br/>Case 2. the collection exists, if overwrite is True, it will overwrite the collection.<br/>Case 3. the collection exists and overwrite is False, if get_or_create is True, it will get the collection,
+        otherwise it raise a ValueError.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -80,7 +77,7 @@ create_collection(
 delete_collection(self, collection_name: str) -> Any
 ```
 
-    Delete the collection from the vector database.
+    Delete the collection from the vector database.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -106,7 +103,7 @@ delete_docs(
 ) -> None
 ```
 
-    Delete documents from the collection of the vector database.
+    Delete documents from the collection of the vector database.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -129,7 +126,7 @@ delete_docs(
 get_collection(self, collection_name: str = None) -> Any
 ```
 
-    Get the collection from the vector database.
+    Get the collection from the vector database.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -156,7 +153,7 @@ get_docs_by_ids(
 ) -> list[autogen.agentchat.contrib.vectordb.base.Document]
 ```
 
-    Retrieve documents from the collection of the vector database based on the ids.
+    Retrieve documents from the collection of the vector database based on the ids.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -186,7 +183,7 @@ insert_docs(
 ) -> None
 ```
 
-    Insert documents into the collection of the vector database.
+    Insert documents into the collection of the vector database.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -217,7 +214,7 @@ retrieve_docs(
 ) -> list[list[tuple[autogen.agentchat.contrib.vectordb.base.Document, float]]]
 ```
 
-    Retrieve documents from the collection of the vector database based on the queries.
+    Retrieve documents from the collection of the vector database based on the queries.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -225,7 +222,7 @@ retrieve_docs(
 | `queries` | List[str] | A list of queries.<br/><br/>Each query is a string.<br/><br/>**Type:** `list[str]` |
 | `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** `str`<br/><br/>**Default:** None |
 | `n_results` | int | The number of relevant documents to return.<br/><br/>Default is 10.<br/><br/>**Type:** `int`<br/><br/>**Default:** 10 |
-| `distance_threshold` | float | The threshold for the distance score, only distance smaller than it will be returned.<br/><br/>Don't filter with it if &lt; 0. Default is -1.<br/><br/>**Type:** `float`<br/><br/>**Default:** -1 |
+| `distance_threshold` | float | The threshold for the distance score, only distance smaller than it will be returned.<br/><br/>Don't filter with it if  0. Default is -1.<br/><br/>**Type:** `float`<br/><br/>**Default:** -1 |
 | `**kwargs` |  |
 
 <b>Returns:</b>
@@ -247,7 +244,7 @@ update_docs(
 ) -> None
 ```
 
-    Update documents in the collection of the vector database.
+    Update documents in the collection of the vector database.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

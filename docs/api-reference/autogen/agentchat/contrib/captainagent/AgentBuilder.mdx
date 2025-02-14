@@ -19,21 +19,18 @@ AgentBuilder(
 )
 ```
 
-    AgentBuilder can help user build an automatic task solving process powered by multi-agent system.
-    Specifically, our building pipeline includes initialize and build.
-    
-    (These APIs are experimental and may change in the future.)
+    AgentBuilder can help user build an automatic task solving process powered by multi-agent system.<br/>Specifically, our building pipeline includes initialize and build.<br/>(These APIs are experimental and may change in the future.)
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `config_file_or_env` | path or environment of the OpenAI api configs.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'OAI_CONFIG_LIST' |
+| `config_file_or_env` | **Type:** `str \| None`<br/><br/>**Default:** 'OAI_CONFIG_LIST' |
 | `config_file_location` | **Type:** `str \| None`<br/><br/>**Default:** '' |
-| `builder_model` | specify a model as the backbone of build manager.<br/><br/>**Type:** `str \| list \| None`<br/><br/>**Default:** [] |
-| `agent_model` | specify a model as the backbone of participant agents.<br/><br/>**Type:** `str \| list \| None`<br/><br/>**Default:** [] |
+| `builder_model` | **Type:** `str \| list \| None`<br/><br/>**Default:** [] |
+| `agent_model` | **Type:** `str \| list \| None`<br/><br/>**Default:** [] |
 | `builder_model_tags` | **Type:** `list \| None`<br/><br/>**Default:** [] |
 | `agent_model_tags` | **Type:** `list \| None`<br/><br/>**Default:** [] |
-| `max_agents` | max agents for each task.<br/><br/>**Type:** `int \| None`<br/><br/>**Default:** 5 |
+| `max_agents` | **Type:** `int \| None`<br/><br/>**Default:** 5 |
 
 ### Class Attributes
 
@@ -122,7 +119,7 @@ build(
 ) -> tuple[list[autogen.agentchat.conversable_agent.ConversableAgent], dict]
 ```
 
-    Auto build agents based on the building task.
+    Auto build agents based on the building task.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -162,9 +159,7 @@ build_from_library(
 ) -> tuple[list[autogen.agentchat.conversable_agent.ConversableAgent], dict]
 ```
 
-    Build agents from a library.
-    The library is a list of agent configs, which contains the name and system_message for each agent.
-    We use a build manager to decide what agent in that library should be involved to the task.
+    Build agents from a library.<br/>The library is a list of agent configs, which contains the name and system_message for each agent.<br/>We use a build manager to decide what agent in that library should be involved to the task.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -198,7 +193,7 @@ clear_agent(
 ) -> 
 ```
 
-    Clear a specific agent by name.
+    Clear a specific agent by name.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -237,7 +232,7 @@ load(
 ) -> tuple[list[autogen.agentchat.conversable_agent.ConversableAgent], dict]
 ```
 
-    Load building configs and call the build function to complete building without calling online LLMs' api.
+    Load building configs and call the build function to complete building without calling online LLMs' api.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -262,7 +257,7 @@ save(self, filepath: str | None = None) -> str
 ```
 
     Save building configs. If the filepath is not specific, this function will create a filename by encrypt the
-    building_task string by md5 with "save_config_" prefix, and save config to the local path.
+    building_task string by md5 with "save_config_" prefix, and save config to the local path.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

@@ -10,18 +10,18 @@ title: autogen.code_utils.implement
 implement(
     definition: str,
     configs: list[dict] | None = None,
-    assertions: str | Callable[[str], tuple[str, float]] | None = &lt;function generate_assertions>
+    assertions: str | Callable[[str], tuple[str, float]] | None = <function generate_assertions>
 ) -> tuple[str, float]
 ```
 
-    `(openai&lt;1)` Implement a function from a definition.
+    `(openai<1)` Implement a function from a definition.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
 | `definition` | The function definition, including the signature and docstr.<br/><br/>**Type:** `str` |
 | `configs` | The list of configurations for completion.<br/><br/>**Type:** `list[dict] \| None`<br/><br/>**Default:** None |
-| `assertions` | The assertion code which serves as a filter of the responses, or an assertion generator.<br/><br/>**Type:** `str \| Callable[[str], tuple[str, float]] \| None`<br/><br/>**Default:** &lt;function generate_assertions> |
+| `assertions` | The assertion code which serves as a filter of the responses, or an assertion generator.<br/><br/>**Type:** `str \| Callable[[str], tuple[str, float]] \| None`<br/><br/>**Default:** function generate_assertions> |
 
 <b>Returns:</b>
 | Type | Description |

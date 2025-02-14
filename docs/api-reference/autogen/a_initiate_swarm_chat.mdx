@@ -15,7 +15,7 @@ a_initiate_swarm_chat(
     swarm_manager_args: dict[str, typing.Any] | None = None,
     max_rounds: int = 20,
     context_variables: dict[str, typing.Any] | None = None,
-    after_work: autogen.agentchat.contrib.swarm_agent.AfterWorkOption | Callable | None = AfterWork(agent=&lt;AfterWorkOption.TERMINATE: 'TERMINATE'>, next_agent_selection_msg=None)
+    after_work: autogen.agentchat.contrib.swarm_agent.AfterWorkOption | Callable | None = AfterWork(agent=<AfterWorkOption.TERMINATE: 'TERMINATE'>, next_agent_selection_msg=None)
 ) -> tuple[autogen.agentchat.chat.ChatResult, dict[str, typing.Any], autogen.agentchat.conversable_agent.ConversableAgent]
 ```
 
@@ -31,7 +31,7 @@ a_initiate_swarm_chat(
 | `swarm_manager_args` | Optional group chat manager arguments used to establish the swarm's groupchat manager, required when AfterWorkOption.SWARM_MANAGER is used.<br/><br/>**Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
 | `max_rounds` | Maximum number of conversation rounds.<br/><br/>**Type:** `int`<br/><br/>**Default:** 20 |
 | `context_variables` | Starting context variables.<br/><br/>**Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
-| `after_work` | Method to handle conversation continuation when an agent doesn't select the next agent.<br/><br/>If no agent is selected and no tool calls are output, we will use this method to determine the next agent.<br/><br/>Must be a AfterWork instance (which is a dataclass accepting a ConversableAgent, AfterWorkOption, A str (of the AfterWorkOption)) or a callable.<br/><br/>AfterWorkOption: - TERMINATE (Default): Terminate the conversation.<br/><br/>- REVERT_TO_USER : Revert to the user agent if a user agent is provided.<br/><br/>If not provided, terminate the conversation.<br/><br/>- STAY : Stay with the last speaker.<br/><br/>Callable: A custom function that takes the current agent, messages, and groupchat as arguments and returns an AfterWorkOption or a ConversableAgent (by reference or string name).<br/><br/>```python def custom_afterwork_func(last_speaker: ConversableAgent, messages: List[Dict[str, Any]], groupchat: GroupChat) -> Union[AfterWorkOption, ConversableAgent, str]: ```<br/><br/>**Type:** `autogen.agentchat.contrib.swarm_agent.AfterWorkOption \| Callable \| None = AfterWork(agent`<br/><br/>**Default:** &lt;AfterWorkOption.TERMINATE |
+| `after_work` | Method to handle conversation continuation when an agent doesn't select the next agent.<br/><br/>If no agent is selected and no tool calls are output, we will use this method to determine the next agent.<br/><br/>Must be a AfterWork instance (which is a dataclass accepting a ConversableAgent, AfterWorkOption, A str (of the AfterWorkOption)) or a callable.<br/><br/>AfterWorkOption: - TERMINATE (Default): Terminate the conversation.<br/><br/>- REVERT_TO_USER : Revert to the user agent if a user agent is provided.<br/><br/>If not provided, terminate the conversation.<br/><br/>- STAY : Stay with the last speaker.<br/><br/>Callable: A custom function that takes the current agent, messages, and groupchat as arguments and returns an AfterWorkOption or a ConversableAgent (by reference or string name).<br/><br/>```def custom_afterwork_func(last_speaker: ConversableAgent, messages: List[Dict[str, Any]], groupchat: GroupChat) -> Union[AfterWorkOption, ConversableAgent, str]: ```<br/><br/>**Type:** `autogen.agentchat.contrib.swarm_agent.AfterWorkOption \| Callable \| None = AfterWork(agent`<br/><br/>**Default:** AfterWorkOption.TERMINATE |
 
 <b>Returns:</b>
 | Type | Description |

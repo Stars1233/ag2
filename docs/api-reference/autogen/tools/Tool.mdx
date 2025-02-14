@@ -16,24 +16,14 @@ Tool(
 )
 ```
 
-    A class representing a Tool that can be used by an agent for various tasks.
-    
-    This class encapsulates a tool with a name, description, and an executable function.
-    The tool can be registered with a ConversableAgent for use either with an LLM or for direct execution.
-    
-    Attributes:
-        name (str): The name of the tool.
-        description (str): The description of the tool.
-        func_or_tool (Union[Tool, Callable[..., Any]]): The function or Tool instance to create a Tool from.
-    
-    Create a new Tool object.
+    A class representing a Tool that can be used by an agent for various tasks.<br/>This class encapsulates a tool with a name, description, and an executable function.<br/>The tool can be registered with a ConversableAgent for use either with an LLM or for direct execution.<br/>Attributes: <br/>    name (str): The name of the tool.<br/>    description (str): The description of the tool.<br/>    func_or_tool (Union[Tool, Callable[..., Any]]): The function or Tool instance to create a Tool from.<br/>Create a new Tool object.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `name` | The name of the tool.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
-| `description` | The description of the tool.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
-| `func_or_tool` | The function or Tool instance to create a Tool from.<br/><br/>**Type:** `ForwardRef('Tool') \| Callable[..., Any]` |
+| `name` | **Type:** `str \| None`<br/><br/>**Default:** None |
+| `description` | **Type:** `str \| None`<br/><br/>**Default:** None |
+| `func_or_tool` | **Type:** `ForwardRef('Tool') \| Callable[..., Any]` |
 
 ### Instance Attributes
 
@@ -53,10 +43,7 @@ Tool(
 #### function_schema
 <br />
 
-    Get the schema for the function.
-    
-    This is the old way of handling function calls with OpenAI and compatible frameworks.
-    It is provided for backward compatibility.
+    Get the schema for the function.<br/>This is the old way of handling function calls with OpenAI and compatible frameworks.<br/>It is provided for backward compatibility.
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### name
@@ -68,17 +55,13 @@ Tool(
 #### realtime_tool_schema
 <br />
 
-    Get the schema for the tool.
-    
-    This is the preferred way of handling function calls with OpeaAI and compatible frameworks.
+    Get the schema for the tool.<br/>This is the preferred way of handling function calls with OpeaAI and compatible frameworks.
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### tool_schema
 <br />
 
-    Get the schema for the tool.
-    
-    This is the preferred way of handling function calls with OpeaAI and compatible frameworks.
+    Get the schema for the tool.<br/>This is the preferred way of handling function calls with OpeaAI and compatible frameworks.
 
 ### Instance Methods
 
@@ -89,10 +72,8 @@ Tool(
 register_for_execution(self, agent: ConversableAgent) -> 
 ```
 
-    Registers the tool for direct execution by a ConversableAgent.
-    
-    This method registers the tool so that it can be executed by the agent,
-    typically outside of the context of an LLM interaction.
+    Registers the tool for direct execution by a ConversableAgent.<br/>This method registers the tool so that it can be executed by the agent,
+    typically outside of the context of an LLM interaction.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -108,10 +89,8 @@ register_for_execution(self, agent: ConversableAgent) ->
 register_for_llm(self, agent: ConversableAgent) -> 
 ```
 
-    Registers the tool for use with a ConversableAgent's language model (LLM).
-    
-    This method registers the tool so that it can be invoked by the agent during
-    interactions with the language model.
+    Registers the tool for use with a ConversableAgent's language model (LLM).<br/>This method registers the tool so that it can be invoked by the agent during
+    interactions with the language model.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -127,12 +106,8 @@ register_for_llm(self, agent: ConversableAgent) ->
 register_tool(self, agent: ConversableAgent) -> 
 ```
 
-    Register a tool to be both proposed and executed by an agent.
-    
-    Equivalent to calling both `register_for_llm` and `register_for_execution` with the same agent.
-    
-    Note: This will not make the agent recommend and execute the call in the one step. If the agent
-    recommends the tool, it will need to be the next agent to speak in order to execute the tool.
+    Register a tool to be both proposed and executed by an agent.<br/>Equivalent to calling both `register_for_llm` and `register_for_execution` with the same agent.<br/>Note: This will not make the agent recommend and execute the call in the one step. If the agent
+    recommends the tool, it will need to be the next agent to speak in order to execute the tool.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

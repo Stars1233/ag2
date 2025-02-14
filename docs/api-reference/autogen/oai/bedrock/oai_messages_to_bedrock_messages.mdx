@@ -14,11 +14,8 @@ oai_messages_to_bedrock_messages(
 ) -> list[dict]
 ```
 
-    Convert messages from OAI format to Bedrock format.
-    We correct for any specific role orders and types, etc.
-    AWS Bedrock requires messages to alternate between user and assistant roles. This function ensures that the messages
-    are in the correct order and format for Bedrock by inserting "Please continue" messages as needed.
-    This is the same method as the one in the Autogen Anthropic client
+    Convert messages from OAI format to Bedrock format.<br/>We correct for any specific role orders and types, etc.<br/>AWS Bedrock requires messages to alternate between user and assistant roles. This function ensures that the messages
+    are in the correct order and format for Bedrock by inserting "Please continue" messages as needed.<br/>This is the same method as the one in the Autogen Anthropic client
 
 <b>Parameters:</b>
 | Name | Description |
