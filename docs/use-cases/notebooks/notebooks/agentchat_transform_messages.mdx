@@ -97,7 +97,7 @@ transformations, `MessageHistoryLimiter` and `MessageTokenLimiter`.
 
 ```python
 # Limit the message history to the 3 most recent messages
-max_msg_transfrom = transforms.MessageHistoryLimiter(max_messages=3)
+max_msg_transform = transforms.MessageHistoryLimiter(max_messages=3)
 
 # Limit the token limit per message to 10 tokens
 token_limit_transform = transforms.MessageTokenLimiter(max_tokens_per_message=3, min_tokens=10)
@@ -118,7 +118,7 @@ messages = [
     {"role": "user", "content": "very very very very very very long string"},
 ]
 
-processed_messages = max_msg_transfrom.apply_transform(copy.deepcopy(messages))
+processed_messages = max_msg_transform.apply_transform(copy.deepcopy(messages))
 pprint.pprint(processed_messages)
 ```
 
