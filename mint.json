@@ -232,6 +232,7 @@
             "docs/use-cases/notebooks/notebooks/agentchat_memory_using_mem0",
             "docs/use-cases/notebooks/notebooks/agentchat_transform_messages",
             "docs/use-cases/notebooks/notebooks/agentchat_agentoptimizer",
+            "docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat_couchbase",
             "docs/use-cases/notebooks/notebooks/agentchat_openlit",
             "docs/use-cases/notebooks/notebooks/agentchat_teachability",
             "docs/use-cases/notebooks/notebooks/agentchat_realtime_swarm_websocket",
@@ -1020,6 +1021,13 @@
                           "pages": [
                             "docs/api-reference/autogen/agentchat/contrib/vectordb/chromadb/overview",
                             "docs/api-reference/autogen/agentchat/contrib/vectordb/chromadb/ChromaVectorDB"
+                          ]
+                        },
+                        {
+                          "group": "couchbase",
+                          "pages": [
+                            "docs/api-reference/autogen/agentchat/contrib/vectordb/couchbase/overview",
+                            "docs/api-reference/autogen/agentchat/contrib/vectordb/couchbase/CouchbaseVectorDB"
                           ]
                         },
                         {
