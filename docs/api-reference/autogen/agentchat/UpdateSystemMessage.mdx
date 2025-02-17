@@ -8,7 +8,7 @@ title: autogen.agentchat.UpdateSystemMessage
 </h2>
 
 ```python
-UpdateSystemMessage(content_updater: str | Callable)
+UpdateSystemMessage(content_updater: Callable | str)
 ```
 
     Update the agent's system message before they reply
@@ -16,7 +16,7 @@ UpdateSystemMessage(content_updater: str | Callable)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `content_updater` | **Type:** `str \| Callable` |
+| `content_updater` | **Type:** `Callable \| str` |
 
 ### Class Attributes
 

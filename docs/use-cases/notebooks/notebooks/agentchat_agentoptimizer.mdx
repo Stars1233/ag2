@@ -138,7 +138,7 @@ Problem:
         human_input_mode: Literal["ALWAYS", "NEVER", "TERMINATE"] = "NEVER",
         default_auto_reply: Optional[Union[str, Dict, None]] = DEFAULT_REPLY,
         max_invalid_q_per_step=3,
-        **kwargs,
+        **kwargs: Any,
     ):
         super().__init__(
             name=name,

@@ -148,8 +148,8 @@ get_docs_by_ids(
     self,
     ids: list[str | int] = None,
     collection_name: str = None,
-    include=None,
-    **kwargs
+    include: list[str] | None = None,
+    **kwargs: Any
 ) -> list[autogen.agentchat.contrib.vectordb.base.Document]
 ```
 
@@ -160,8 +160,8 @@ get_docs_by_ids(
 |--|--|
 | `ids` | List[ItemID] | A list of document ids.<br/><br/>If None, will return all the documents.<br/><br/>Default is None.<br/><br/>**Type:** `list[str \| int]`<br/><br/>**Default:** None |
 | `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** `str`<br/><br/>**Default:** None |
-| `include=None` |  |
-| `**kwargs` |  |
+| `include` | List[str] | The fields to include.<br/><br/>Default is None.<br/><br/>If None, will include ["metadatas", "documents"], ids will always be included.<br/><br/>This may differ depending on the implementation.<br/><br/>**Type:** `list[str] \| None`<br/><br/>**Default:** None |
+| `**kwargs` | **Type:** `Any` |
 
 <b>Returns:</b>
 | Type | Description |
@@ -210,7 +210,7 @@ retrieve_docs(
     collection_name: str = None,
     n_results: int = 10,
     distance_threshold: float = -1,
-    **kwargs
+    **kwargs: Any
 ) -> list[list[tuple[autogen.agentchat.contrib.vectordb.base.Document, float]]]
 ```
 
@@ -223,7 +223,7 @@ retrieve_docs(
 | `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** `str`<br/><br/>**Default:** None |
 | `n_results` | int | The number of relevant documents to return.<br/><br/>Default is 10.<br/><br/>**Type:** `int`<br/><br/>**Default:** 10 |
 | `distance_threshold` | float | The threshold for the distance score, only distance smaller than it will be returned.<br/><br/>Don't filter with it if  0. Default is -1.<br/><br/>**Type:** `float`<br/><br/>**Default:** -1 |
-| `**kwargs` |  |
+| `**kwargs` | **Type:** `Any` |
 
 <b>Returns:</b>
 | Type | Description |

@@ -7,7 +7,7 @@ title: autogen.agentchat.realtime.experimental.clients.realtime_client.register_
 #### register_realtime_client
 
 ```python
-register_realtime_client() -> Callable[[Type[~T]], Type[~T]]
+register_realtime_client() -> Callable[[type[~T]], type[~T]]
 ```
 
     Register a Realtime API client.<br/>
@@ -15,6 +15,6 @@ register_realtime_client() -> Callable[[Type[~T]], Type[~T]]
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `Callable[[Type[~T]], Type[~T]]` | Callable[[Type[T]], Type[T]]: The decorator to register the Realtime API client |
+| `Callable[[type[~T]], type[~T]]` | Callable[[type[T]], type[T]]: The decorator to register the Realtime API client |
 
 <br />

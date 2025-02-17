@@ -15,7 +15,7 @@ GroupChatManager(
     human_input_mode: Literal['ALWAYS', 'NEVER', 'TERMINATE'] = 'NEVER',
     system_message: str | list | None = 'Group chat manager.',
     silent: bool = False,
-    **kwargs
+    **kwargs: Any
 )
 ```
 
@@ -30,7 +30,7 @@ GroupChatManager(
 | `human_input_mode` | **Type:** `Literal['ALWAYS', 'NEVER', 'TERMINATE']`<br/><br/>**Default:** 'NEVER' |
 | `system_message` | **Type:** `str \| list \| None`<br/><br/>**Default:** 'Group chat manager.' |
 | `silent` | **Type:** `bool`<br/><br/>**Default:** False |
-| `**kwargs` |  |
+| `**kwargs` | **Type:** `Any` |
 
 ### Instance Attributes
 
@@ -83,10 +83,10 @@ GroupChatManager(
 ```python
 a_resume(
     self,
-    messages: list[dict] | str,
+    messages: list[dict[str, typing.Any]] | str,
     remove_termination_string: str | Callable[[str], str] | None = None,
     silent: bool | None = False
-) -> tuple[autogen.agentchat.conversable_agent.ConversableAgent, dict]
+) -> tuple[autogen.agentchat.conversable_agent.ConversableAgent, dict[str, typing.Any]]
 ```
 
     Resumes a group chat using the previous messages as a starting point, asynchronously. Requires the agents, group chat, and group chat manager to be established
@@ -95,14 +95,14 @@ a_resume(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict] \| str` |
+| `messages` | **Type:** `list[dict[str, typing.Any]] \| str` |
 | `remove_termination_string` | **Type:** `str \| Callable[[str], str] \| None`<br/><br/>**Default:** None |
 | `silent` | **Type:** `bool \| None`<br/><br/>**Default:** False |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `tuple[autogen.agentchat.conversable_agent.ConversableAgent, dict]` | - Tuple[ConversableAgent, Dict]: A tuple containing the last agent who spoke and their message |
+| `tuple[autogen.agentchat.conversable_agent.ConversableAgent, dict[str, typing.Any]]` | - Tuple[ConversableAgent, Dict]: A tuple containing the last agent who spoke and their message |
 
 <br />
 
@@ -112,7 +112,7 @@ a_resume(
 ```python
 a_run_chat(
     self,
-    messages: list[dict] | None = None,
+    messages: list[dict[str, typing.Any]] | None = None,
     sender: autogen.agentchat.agent.Agent | None = None,
     config: autogen.agentchat.groupchat.GroupChat | None = None
 ) -> 
@@ -123,7 +123,7 @@ a_run_chat(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict] \| None`<br/><br/>**Default:** None |
+| `messages` | **Type:** `list[dict[str, typing.Any]] \| None`<br/><br/>**Default:** None |
 | `sender` | **Type:** `autogen.agentchat.agent.Agent \| None`<br/><br/>**Default:** None |
 | `config` | **Type:** `autogen.agentchat.groupchat.GroupChat \| None`<br/><br/>**Default:** None |
 
@@ -133,7 +133,7 @@ a_run_chat(
 #### chat_messages_for_summary
 
 ```python
-chat_messages_for_summary(self, agent: autogen.agentchat.agent.Agent) -> list[dict]
+chat_messages_for_summary(self, agent: autogen.agentchat.agent.Agent) -> list[dict[str, typing.Any]]
 ```
 
     The list of messages in the group chat as a conversation to summarize.<br/>The agent is ignored.
@@ -151,7 +151,7 @@ chat_messages_for_summary(self, agent: autogen.agentchat.agent.Agent) -> list[d
 ```python
 clear_agents_history(
     self,
-    reply: dict,
+    reply: dict[str, typing.Any],
     groupchat: autogen.agentchat.groupchat.GroupChat
 ) -> str
 ```
@@ -163,7 +163,7 @@ clear_agents_history(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `reply` | reply message dict to analyze.<br/><br/>**Type:** `dict` |
+| `reply` | reply message dict to analyze.<br/><br/>**Type:** `dict[str, typing.Any]` |
 | `groupchat` | GroupChat object.<br/><br/>**Type:** `autogen.agentchat.groupchat.GroupChat` |
 
 <br />
@@ -172,7 +172,7 @@ clear_agents_history(
 #### messages_from_string
 
 ```python
-messages_from_string(self, message_string: str) -> list[dict]
+messages_from_string(self, message_string: str) -> list[dict[str, typing.Any]]
 ```
 
     Reads the saved state of messages in Json format for resume and returns as a messages list
@@ -185,7 +185,7 @@ messages_from_string(self, message_string: str) -> list[dict]
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `list[dict]` | - List[Dict]: List of messages |
+| `list[dict[str, typing.Any]]` | - List[Dict]: List of messages |
 
 <br />
 
@@ -193,7 +193,7 @@ messages_from_string(self, message_string: str) -> list[dict]
 #### messages_to_string
 
 ```python
-messages_to_string(self, messages: list[dict]) -> str
+messages_to_string(self, messages: list[dict[str, typing.Any]]) -> str
 ```
 
     Converts the provided messages into a Json string that can be used for resuming the chat.<br/>The state is made up of a list of messages
@@ -201,7 +201,7 @@ messages_to_string(self, messages: list[dict]) -> str
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict]` |
+| `messages` | **Type:** `list[dict[str, typing.Any]]` |
 
 <b>Returns:</b>
 | Type | Description |
@@ -216,10 +216,10 @@ messages_to_string(self, messages: list[dict]) -> str
 ```python
 resume(
     self,
-    messages: list[dict] | str,
+    messages: list[dict[str, typing.Any]] | str,
     remove_termination_string: str | Callable[[str], str] | None = None,
     silent: bool | None = False
-) -> tuple[autogen.agentchat.conversable_agent.ConversableAgent, dict]
+) -> tuple[autogen.agentchat.conversable_agent.ConversableAgent, dict[str, typing.Any]]
 ```
 
     Resumes a group chat using the previous messages as a starting point. Requires the agents, group chat, and group chat manager to be established
@@ -228,14 +228,14 @@ resume(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict] \| str` |
+| `messages` | **Type:** `list[dict[str, typing.Any]] \| str` |
 | `remove_termination_string` | **Type:** `str \| Callable[[str], str] \| None`<br/><br/>**Default:** None |
 | `silent` | **Type:** `bool \| None`<br/><br/>**Default:** False |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `tuple[autogen.agentchat.conversable_agent.ConversableAgent, dict]` | - Tuple[ConversableAgent, Dict]: A tuple containing the last agent who spoke and their message |
+| `tuple[autogen.agentchat.conversable_agent.ConversableAgent, dict[str, typing.Any]]` | - Tuple[ConversableAgent, Dict]: A tuple containing the last agent who spoke and their message |
 
 <br />
 
@@ -245,7 +245,7 @@ resume(
 ```python
 run_chat(
     self,
-    messages: list[dict] | None = None,
+    messages: list[dict[str, typing.Any]] | None = None,
     sender: autogen.agentchat.agent.Agent | None = None,
     config: autogen.agentchat.groupchat.GroupChat | None = None
 ) -> tuple[bool, str | None]
@@ -256,7 +256,7 @@ run_chat(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict] \| None`<br/><br/>**Default:** None |
+| `messages` | **Type:** `list[dict[str, typing.Any]] \| None`<br/><br/>**Default:** None |
 | `sender` | **Type:** `autogen.agentchat.agent.Agent \| None`<br/><br/>**Default:** None |
 | `config` | **Type:** `autogen.agentchat.groupchat.GroupChat \| None`<br/><br/>**Default:** None |
 

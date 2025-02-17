@@ -109,14 +109,14 @@ AgentBuilder(
 build(
     self,
     building_task: str,
-    default_llm_config: dict,
+    default_llm_config: dict[str, typing.Any],
     coding: bool | None = None,
-    code_execution_config: dict | None = None,
+    code_execution_config: dict[str, typing.Any] | None = None,
     use_oai_assistant: bool | None = False,
     user_proxy: autogen.agentchat.conversable_agent.ConversableAgent | None = None,
     max_agents: int | None = None,
-    **kwargs
-) -> tuple[list[autogen.agentchat.conversable_agent.ConversableAgent], dict]
+    **kwargs: Any
+) -> tuple[list[autogen.agentchat.conversable_agent.ConversableAgent], dict[str, typing.Any]]
 ```
 
     Auto build agents based on the building task.<br/>
@@ -125,18 +125,18 @@ build(
 | Name | Description |
 |--|--|
 | `building_task` | instruction that helps build manager (gpt-4) to decide what agent should be built.<br/><br/>**Type:** `str` |
-| `default_llm_config` | specific configs for LLM (e.g., config_list, seed, temperature, ...).<br/><br/>**Type:** `dict` |
+| `default_llm_config` | specific configs for LLM (e.g., config_list, seed, temperature, ...).<br/><br/>**Type:** `dict[str, typing.Any]` |
 | `coding` | use to identify if the user proxy (a code interpreter) should be added.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** None |
-| `code_execution_config` | specific configs for user proxy (e.g., last_n_messages, work_dir, ...).<br/><br/>**Type:** `dict \| None`<br/><br/>**Default:** None |
+| `code_execution_config` | specific configs for user proxy (e.g., last_n_messages, work_dir, ...).<br/><br/>**Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
 | `use_oai_assistant` | use OpenAI assistant api instead of self-constructed agent.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** False |
 | `user_proxy` | user proxy's class that can be used to replace the default user proxy.<br/><br/>**Type:** `autogen.agentchat.conversable_agent.ConversableAgent \| None`<br/><br/>**Default:** None |
 | `max_agents` | **Type:** `int \| None`<br/><br/>**Default:** None |
-| `**kwargs` |  |
+| `**kwargs` | **Type:** `Any` |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `tuple[list[autogen.agentchat.conversable_agent.ConversableAgent], dict]` | agent_list: a list of agents. cached_configs: cached configs. |
+| `tuple[list[autogen.agentchat.conversable_agent.ConversableAgent], dict[str, typing.Any]]` | agent_list: a list of agents. cached_configs: cached configs. |
 
 <br />
 
@@ -148,15 +148,15 @@ build_from_library(
     self,
     building_task: str,
     library_path_or_json: str,
-    default_llm_config: dict,
+    default_llm_config: dict[str, typing.Any],
     top_k: int = 3,
     coding: bool | None = None,
-    code_execution_config: dict | None = None,
+    code_execution_config: dict[str, typing.Any] | None = None,
     use_oai_assistant: bool | None = False,
     embedding_model: str | None = 'all-mpnet-base-v2',
     user_proxy: autogen.agentchat.conversable_agent.ConversableAgent | None = None,
-    **kwargs
-) -> tuple[list[autogen.agentchat.conversable_agent.ConversableAgent], dict]
+    **kwargs: Any
+) -> tuple[list[autogen.agentchat.conversable_agent.ConversableAgent], dict[str, typing.Any]]
 ```
 
     Build agents from a library.<br/>The library is a list of agent configs, which contains the name and system_message for each agent.<br/>We use a build manager to decide what agent in that library should be involved to the task.<br/>
@@ -166,19 +166,19 @@ build_from_library(
 |--|--|
 | `building_task` | instruction that helps build manager (gpt-4) to decide what agent should be built.<br/><br/>**Type:** `str` |
 | `library_path_or_json` | path or JSON string config of agent library.<br/><br/>**Type:** `str` |
-| `default_llm_config` | specific configs for LLM (e.g., config_list, seed, temperature, ...).<br/><br/>**Type:** `dict` |
+| `default_llm_config` | specific configs for LLM (e.g., config_list, seed, temperature, ...).<br/><br/>**Type:** `dict[str, typing.Any]` |
 | `top_k` | **Type:** `int`<br/><br/>**Default:** 3 |
 | `coding` | use to identify if the user proxy (a code interpreter) should be added.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** None |
-| `code_execution_config` | specific configs for user proxy (e.g., last_n_messages, work_dir, ...).<br/><br/>**Type:** `dict \| None`<br/><br/>**Default:** None |
+| `code_execution_config` | specific configs for user proxy (e.g., last_n_messages, work_dir, ...).<br/><br/>**Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
 | `use_oai_assistant` | use OpenAI assistant api instead of self-constructed agent.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** False |
 | `embedding_model` | a Sentence-Transformers model use for embedding similarity to select agents from library.<br/><br/>As reference, chromadb use "all-mpnet-base-v2" as default.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'all-mpnet-base-v2' |
 | `user_proxy` | user proxy's class that can be used to replace the default user proxy.<br/><br/>**Type:** `autogen.agentchat.conversable_agent.ConversableAgent \| None`<br/><br/>**Default:** None |
-| `**kwargs` |  |
+| `**kwargs` | **Type:** `Any` |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `tuple[list[autogen.agentchat.conversable_agent.ConversableAgent], dict]` | agent_list: a list of agents. cached_configs: cached configs. |
+| `tuple[list[autogen.agentchat.conversable_agent.ConversableAgent], dict[str, typing.Any]]` | agent_list: a list of agents. cached_configs: cached configs. |
 
 <br />
 
@@ -228,8 +228,8 @@ load(
     filepath: str | None = None,
     config_json: str | None = None,
     use_oai_assistant: bool | None = False,
-    **kwargs
-) -> tuple[list[autogen.agentchat.conversable_agent.ConversableAgent], dict]
+    **kwargs: Any
+) -> tuple[list[autogen.agentchat.conversable_agent.ConversableAgent], dict[str, typing.Any]]
 ```
 
     Load building configs and call the build function to complete building without calling online LLMs' api.<br/>
@@ -240,12 +240,12 @@ load(
 | `filepath` | filepath or JSON string for the save config.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
 | `config_json` | JSON string for the save config.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
 | `use_oai_assistant` | use OpenAI assistant api instead of self-constructed agent.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** False |
-| `**kwargs` |  |
+| `**kwargs` | **Type:** `Any` |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `tuple[list[autogen.agentchat.conversable_agent.ConversableAgent], dict]` | agent_list: a list of agents. cached_configs: cached configs. |
+| `tuple[list[autogen.agentchat.conversable_agent.ConversableAgent], dict[str, typing.Any]]` | agent_list: a list of agents. cached_configs: cached configs. |
 
 <br />
 

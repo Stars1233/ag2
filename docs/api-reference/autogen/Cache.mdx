@@ -35,11 +35,11 @@ Cache(config: dict[str, Any])
 
 ```python
 cosmos_db(
-    connection_string: str | None = None,
-    container_id: str | None = None,
-    cache_seed: str | int = 42,
-    client: any | None = None
-) -> Cache
+    connection_string: Optional[str] = None,
+    container_id: Optional[str] = None,
+    cache_seed: Union[str, int] = 42,
+    client: Optional[Any] = None
+) -> autogen.cache.cache.Cache
 ```
 
     Create a Cosmos DB cache instance with 'autogen_cache' as database ID.<br/>
@@ -47,15 +47,15 @@ cosmos_db(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `connection_string` | Connection string to the Cosmos DB account.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
-| `container_id` | The container ID for the Cosmos DB account.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
-| `cache_seed` | A seed for the cache.<br/><br/>**Type:** `str \| int`<br/><br/>**Default:** 42 |
-| `client` | Optional[CosmosClient]: Pass an existing Cosmos DB client.<br/><br/>**Type:** `any \| None`<br/><br/>**Default:** None |
+| `connection_string` | Connection string to the Cosmos DB account.<br/><br/>**Type:** `Optional[str]`<br/><br/>**Default:** None |
+| `container_id` | The container ID for the Cosmos DB account.<br/><br/>**Type:** `Optional[str]`<br/><br/>**Default:** None |
+| `cache_seed` | A seed for the cache.<br/><br/>**Type:** `Union[str, int]`<br/><br/>**Default:** 42 |
+| `client` | Optional[CosmosClient]: Pass an existing Cosmos DB client.<br/><br/>**Type:** `Optional[Any]`<br/><br/>**Default:** None |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `Cache` | Cache: A Cache instance configured for Cosmos DB. |
+| `autogen.cache.cache.Cache` | Cache: A Cache instance configured for Cosmos DB. |
 
 <br />
 
@@ -63,7 +63,7 @@ cosmos_db(
 #### disk
 
 ```python
-disk(cache_seed: str | int = 42, cache_path_root: str = '.cache') -> autogen.cache.cache.Cache
+disk(cache_seed: Union[str, int] = 42, cache_path_root: str = '.cache') -> autogen.cache.cache.Cache
 ```
 
     Create a Disk cache instance.<br/>
@@ -71,7 +71,7 @@ disk(cache_seed: str | int = 42, cache_path_root: str = '.cache') -> aut
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `cache_seed` | A seed for the cache.<br/><br/>Defaults to 42.<br/><br/>**Type:** `str \| int`<br/><br/>**Default:** 42 |
+| `cache_seed` | A seed for the cache.<br/><br/>Defaults to 42.<br/><br/>**Type:** `Union[str, int]`<br/><br/>**Default:** 42 |
 | `cache_path_root` | The root path for the disk cache.<br/><br/>Defaults to ".cache".<br/><br/>**Type:** `str`<br/><br/>**Default:** '.cache' |
 
 <b>Returns:</b>
@@ -85,7 +85,7 @@ disk(cache_seed: str | int = 42, cache_path_root: str = '.cache') -> aut
 #### redis
 
 ```python
-redis(cache_seed: str | int = 42, redis_url: str = 'redis://localhost:6379/0') -> autogen.cache.cache.Cache
+redis(cache_seed: Union[str, int] = 42, redis_url: str = 'redis://localhost:6379/0') -> autogen.cache.cache.Cache
 ```
 
     Create a Redis cache instance.<br/>
@@ -93,7 +93,7 @@ redis(cache_seed: str | int = 42, redis_url: str = 'redis://localhost:63
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `cache_seed` | A seed for the cache.<br/><br/>Defaults to 42.<br/><br/>**Type:** `str \| int`<br/><br/>**Default:** 42 |
+| `cache_seed` | A seed for the cache.<br/><br/>Defaults to 42.<br/><br/>**Type:** `Union[str, int]`<br/><br/>**Default:** 42 |
 | `redis_url` | The URL for the Redis server.<br/><br/>Defaults to "redis://localhost:6379/0".<br/><br/>**Type:** `str`<br/><br/>**Default:** 'redis |
 
 <b>Returns:</b>
@@ -123,7 +123,7 @@ close(self) -> None
 get(
     self,
     key: str,
-    default: Any | None = None
+    default: Optional[Any] = None
 ) -> Any | None
 ```
 
@@ -133,7 +133,7 @@ get(
 | Name | Description |
 |--|--|
 | `key` | The key identifying the item in the cache.<br/><br/>**Type:** `str` |
-| `default` | The default value to return if the key is not found.<br/><br/>Defaults to None.<br/><br/>**Type:** `Any \| None`<br/><br/>**Default:** None |
+| `default` | The default value to return if the key is not found.<br/><br/>Defaults to None.<br/><br/>**Type:** `Optional[Any]`<br/><br/>**Default:** None |
 
 <b>Returns:</b>
 | Type | Description |

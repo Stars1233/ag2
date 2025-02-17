@@ -10,14 +10,14 @@ title: autogen.agentchat.contrib.captainagent.captainagent.CaptainUserProxyAgent
 ```python
 CaptainUserProxyAgent(
     name: str,
-    nested_config: dict,
+    nested_config: dict[str, typing.Any],
     agent_config_save_path: str = None,
-    is_termination_msg: Callable[[dict], bool] | None = None,
+    is_termination_msg: Callable[[dict[str, Any]], bool] | None = None,
     max_consecutive_auto_reply: int | None = None,
     human_input_mode: str | None = 'NEVER',
-    code_execution_config: dict | Literal[False] | None = None,
-    default_auto_reply: dict | str | None = "I'm a proxy and I can only execute your tool or end the conversation. If you think the problem is solved, please reply me only with 'TERMINATE'.",
-    llm_config: dict | Literal[False] | None = False,
+    code_execution_config: dict[str, typing.Any] | Literal[False] | None = None,
+    default_auto_reply: str | dict[str, typing.Any] | None = "I'm a proxy and I can only execute your tool or end the conversation. If you think the problem is solved, please reply me only with 'TERMINATE'.",
+    llm_config: dict[str, typing.Any] | Literal[False] | None = False,
     system_message: str | list | None = '',
     description: str | None = None
 )
@@ -29,14 +29,14 @@ CaptainUserProxyAgent(
 | Name | Description |
 |--|--|
 | `name` | **Type:** `str` |
-| `nested_config` | **Type:** `dict` |
+| `nested_config` | **Type:** `dict[str, typing.Any]` |
 | `agent_config_save_path` | **Type:** `str`<br/><br/>**Default:** None |
-| `is_termination_msg` | **Type:** `Callable[[dict], bool] \| None`<br/><br/>**Default:** None |
+| `is_termination_msg` | **Type:** `Callable[[dict[str, Any]], bool] \| None`<br/><br/>**Default:** None |
 | `max_consecutive_auto_reply` | **Type:** `int \| None`<br/><br/>**Default:** None |
 | `human_input_mode` | **Type:** `str \| None`<br/><br/>**Default:** 'NEVER' |
-| `code_execution_config` | **Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
-| `default_auto_reply` | **Type:** `dict \| str \| None`<br/><br/>**Default:** "I'm a proxy and I can only execute your tool or end the conversation. If you think the problem is solved, please reply me only with 'TERMINATE'." |
-| `llm_config` | **Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** False |
+| `code_execution_config` | **Type:** `dict[str, typing.Any] \| Literal[False] \| None`<br/><br/>**Default:** None |
+| `default_auto_reply` | **Type:** `str \| dict[str, typing.Any] \| None`<br/><br/>**Default:** "I'm a proxy and I can only execute your tool or end the conversation. If you think the problem is solved, please reply me only with 'TERMINATE'." |
+| `llm_config` | **Type:** `dict[str, typing.Any] \| Literal[False] \| None`<br/><br/>**Default:** False |
 | `system_message` | **Type:** `str \| list \| None`<br/><br/>**Default:** '' |
 | `description` | **Type:** `str \| None`<br/><br/>**Default:** None |
 

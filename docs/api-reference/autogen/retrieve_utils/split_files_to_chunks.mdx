@@ -8,12 +8,12 @@ title: autogen.retrieve_utils.split_files_to_chunks
 
 ```python
 split_files_to_chunks(
-    files: list,
+    files: list[tuple[str, str] | str],
     max_tokens: int = 4000,
     chunk_mode: str = 'multi_lines',
     must_break_at_empty_line: bool = True,
-    custom_text_split_function: Callable = None
-) -> tuple[list[str], list[dict]]
+    custom_text_split_function: Callable[[str], list[str]] | None = None
+) -> tuple[list[str], list[dict[str, typing.Any]]]
 ```
 
     Split a list of files into chunks of max_tokens.
@@ -21,10 +21,10 @@ split_files_to_chunks(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `files` | **Type:** `list` |
+| `files` | **Type:** `list[tuple[str, str] \| str]` |
 | `max_tokens` | **Type:** `int`<br/><br/>**Default:** 4000 |
 | `chunk_mode` | **Type:** `str`<br/><br/>**Default:** 'multi_lines' |
 | `must_break_at_empty_line` | **Type:** `bool`<br/><br/>**Default:** True |
-| `custom_text_split_function` | **Type:** `Callable`<br/><br/>**Default:** None |
+| `custom_text_split_function` | **Type:** `Callable[[str], list[str]] \| None`<br/><br/>**Default:** None |
 
 <br />

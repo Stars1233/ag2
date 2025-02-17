@@ -11,15 +11,15 @@ title: autogen.agentchat.contrib.society_of_mind_agent.SocietyOfMindAgent
 SocietyOfMindAgent(
     name: str,
     chat_manager: autogen.agentchat.groupchat.GroupChatManager,
-    response_preparer: str | Callable | None = None,
-    is_termination_msg: Callable[[dict], bool] | None = None,
+    response_preparer: str | Callable[..., Any] | None = None,
+    is_termination_msg: Callable[[dict[str, Any]], bool] | None = None,
     max_consecutive_auto_reply: int | None = None,
     human_input_mode: Literal['ALWAYS', 'NEVER', 'TERMINATE'] = 'TERMINATE',
-    function_map: dict[str, typing.Callable] | None = None,
-    code_execution_config: dict | Literal[False] = False,
-    llm_config: dict | Literal[False] | None = False,
-    default_auto_reply: dict | str | None = '',
-    **kwargs
+    function_map: dict[str, typing.Callable[..., typing.Any]] | None = None,
+    code_execution_config: dict[str, typing.Any] | Literal[False] = False,
+    llm_config: dict[str, typing.Any] | Literal[False] | None = False,
+    default_auto_reply: str | dict[str, typing.Any] | None = '',
+    **kwargs: Any
 )
 ```
 
@@ -39,15 +39,15 @@ SocietyOfMindAgent(
 |--|--|
 | `name` | **Type:** `str` |
 | `chat_manager` | **Type:** `autogen.agentchat.groupchat.GroupChatManager` |
-| `response_preparer` | **Type:** `str \| Callable \| None`<br/><br/>**Default:** None |
-| `is_termination_msg` | **Type:** `Callable[[dict], bool] \| None`<br/><br/>**Default:** None |
+| `response_preparer` | **Type:** `str \| Callable[..., Any] \| None`<br/><br/>**Default:** None |
+| `is_termination_msg` | **Type:** `Callable[[dict[str, Any]], bool] \| None`<br/><br/>**Default:** None |
 | `max_consecutive_auto_reply` | **Type:** `int \| None`<br/><br/>**Default:** None |
 | `human_input_mode` | **Type:** `Literal['ALWAYS', 'NEVER', 'TERMINATE']`<br/><br/>**Default:** 'TERMINATE' |
-| `function_map` | **Type:** `dict[str, typing.Callable] \| None`<br/><br/>**Default:** None |
-| `code_execution_config` | **Type:** `dict \| Literal[False]`<br/><br/>**Default:** False |
-| `llm_config` | **Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** False |
-| `default_auto_reply` | **Type:** `dict \| str \| None`<br/><br/>**Default:** '' |
-| `**kwargs` |  |
+| `function_map` | **Type:** `dict[str, typing.Callable[..., typing.Any]] \| None`<br/><br/>**Default:** None |
+| `code_execution_config` | **Type:** `dict[str, typing.Any] \| Literal[False]`<br/><br/>**Default:** False |
+| `llm_config` | **Type:** `dict[str, typing.Any] \| Literal[False] \| None`<br/><br/>**Default:** False |
+| `default_auto_reply` | **Type:** `str \| dict[str, typing.Any] \| None`<br/><br/>**Default:** '' |
+| `**kwargs` | **Type:** `Any` |
 
 ### Instance Attributes
 
@@ -65,10 +65,10 @@ SocietyOfMindAgent(
 ```python
 generate_inner_monologue_reply(
     self,
-    messages: list[dict] | None = None,
+    messages: list[dict[str, typing.Any]] | None = None,
     sender: autogen.agentchat.agent.Agent | None = None,
     config: autogen.oai.client.OpenAIWrapper | None = None
-) -> tuple[bool, str | dict | None]
+) -> tuple[bool, str | dict[str, typing.Any] | None]
 ```
 
     Generate a reply by running the group chat
@@ -76,7 +76,7 @@ generate_inner_monologue_reply(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict] \| None`<br/><br/>**Default:** None |
+| `messages` | **Type:** `list[dict[str, typing.Any]] \| None`<br/><br/>**Default:** None |
 | `sender` | **Type:** `autogen.agentchat.agent.Agent \| None`<br/><br/>**Default:** None |
 | `config` | **Type:** `autogen.oai.client.OpenAIWrapper \| None`<br/><br/>**Default:** None |
 

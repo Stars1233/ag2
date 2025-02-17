@@ -12,7 +12,7 @@ ChatResult(
     chat_id: int = None,
     chat_history: list[dict[str, typing.Any]] = None,
     summary: str = None,
-    cost: dict[str, dict] = None,
+    cost: dict[str, dict[str, typing.Any]] = None,
     human_input: list[str] = None
 )
 ```
@@ -25,7 +25,7 @@ ChatResult(
 | `chat_id` | **Type:** `int`<br/><br/>**Default:** None |
 | `chat_history` | **Type:** `list[dict[str, typing.Any]]`<br/><br/>**Default:** None |
 | `summary` | **Type:** `str`<br/><br/>**Default:** None |
-| `cost` | **Type:** `dict[str, dict]`<br/><br/>**Default:** None |
+| `cost` | **Type:** `dict[str, dict[str, typing.Any]]`<br/><br/>**Default:** None |
 | `human_input` | **Type:** `list[str]`<br/><br/>**Default:** None |
 
 ### Class Attributes

@@ -11,18 +11,18 @@ title: autogen.ConversableAgent
 ConversableAgent(
     name: str,
     system_message: str | list | None = 'You are a helpful AI Assistant.',
-    is_termination_msg: Callable[[dict], bool] | None = None,
+    is_termination_msg: Callable[[dict[str, Any]], bool] | None = None,
     max_consecutive_auto_reply: int | None = None,
     human_input_mode: Literal['ALWAYS', 'NEVER', 'TERMINATE'] = 'TERMINATE',
-    function_map: dict[str, typing.Callable] | None = None,
-    code_execution_config: dict | Literal[False] = False,
-    llm_config: dict | Literal[False] | None = None,
-    default_auto_reply: str | dict = '',
+    function_map: dict[str, typing.Callable[..., typing.Any]] | None = None,
+    code_execution_config: dict[str, typing.Any] | Literal[False] = False,
+    llm_config: dict[str, typing.Any] | Literal[False] | None = None,
+    default_auto_reply: dict[str, typing.Any] | str = '',
     description: str | None = None,
-    chat_messages: dict[autogen.agentchat.agent.Agent, list[dict]] | None = None,
+    chat_messages: dict[autogen.agentchat.agent.Agent, list[dict[str, typing.Any]]] | None = None,
     silent: bool | None = None,
     context_variables: dict[str, typing.Any] | None = None,
-    functions: list[typing.Callable] | Callable = None,
+    functions: list[typing.Callable[..., typing.Any]] | Callable[..., Any] = None,
     update_agent_state_before_reply: list[Callable | autogen.agentchat.conversable_agent.UpdateSystemMessage] | Callable | autogen.agentchat.conversable_agent.UpdateSystemMessage | None = None
 )
 ```
@@ -36,18 +36,18 @@ ConversableAgent(
 |--|--|
 | `name` | **Type:** `str` |
 | `system_message` | **Type:** `str \| list \| None`<br/><br/>**Default:** 'You are a helpful AI Assistant.' |
-| `is_termination_msg` | **Type:** `Callable[[dict], bool] \| None`<br/><br/>**Default:** None |
+| `is_termination_msg` | **Type:** `Callable[[dict[str, Any]], bool] \| None`<br/><br/>**Default:** None |
 | `max_consecutive_auto_reply` | **Type:** `int \| None`<br/><br/>**Default:** None |
 | `human_input_mode` | **Type:** `Literal['ALWAYS', 'NEVER', 'TERMINATE']`<br/><br/>**Default:** 'TERMINATE' |
-| `function_map` | **Type:** `dict[str, typing.Callable] \| None`<br/><br/>**Default:** None |
-| `code_execution_config` | **Type:** `dict \| Literal[False]`<br/><br/>**Default:** False |
-| `llm_config` | **Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
-| `default_auto_reply` | **Type:** `str \| dict`<br/><br/>**Default:** '' |
+| `function_map` | **Type:** `dict[str, typing.Callable[..., typing.Any]] \| None`<br/><br/>**Default:** None |
+| `code_execution_config` | **Type:** `dict[str, typing.Any] \| Literal[False]`<br/><br/>**Default:** False |
+| `llm_config` | **Type:** `dict[str, typing.Any] \| Literal[False] \| None`<br/><br/>**Default:** None |
+| `default_auto_reply` | **Type:** `dict[str, typing.Any] \| str`<br/><br/>**Default:** '' |
 | `description` | **Type:** `str \| None`<br/><br/>**Default:** None |
-| `chat_messages` | **Type:** `dict[autogen.agentchat.agent.Agent, list[dict]] \| None`<br/><br/>**Default:** None |
+| `chat_messages` | **Type:** `dict[autogen.agentchat.agent.Agent, list[dict[str, typing.Any]]] \| None`<br/><br/>**Default:** None |
 | `silent` | **Type:** `bool \| None`<br/><br/>**Default:** None |
 | `context_variables` | **Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
-| `functions` | A list of functions to register with the agent.br/> These functions will be provided to the LLM, however they won't, by default, be executed by the agent.br/> If the agent is in a swarm, the swarm's tool executor will execute the function.br/> When not in a swarm, you can have another agent execute the tools by adding them to that agent's function_map.br/>update_agent_state_before_reply (List[Callable]): A list of functions, including UpdateSystemMessage's, called to update the agent before it replies.<br/><br/>**Type:** `list[typing.Callable] \| Callable`<br/><br/>**Default:** None |
+| `functions` | A list of functions to register with the agent.br/> These functions will be provided to the LLM, however they won't, by default, be executed by the agent.br/> If the agent is in a swarm, the swarm's tool executor will execute the function.br/> When not in a swarm, you can have another agent execute the tools by adding them to that agent's function_map.br/>update_agent_state_before_reply (List[Callable[..., Any]]): A list of functions, including UpdateSystemMessage's, called to update the agent before it replies.<br/><br/>**Type:** `list[typing.Callable[..., typing.Any]] \| Callable[..., Any]`<br/><br/>**Default:** None |
 | `update_agent_state_before_reply` | **Type:** `list[Callable \| autogen.agentchat.conversable_agent.UpdateSystemMessage] \| Callable \| autogen.agentchat.conversable_agent.UpdateSystemMessage \| None`<br/><br/>**Default:** None |
 
 ### Class Attributes
@@ -135,7 +135,7 @@ ConversableAgent(
 ```python
 a_check_termination_and_human_reply(
     self,
-    messages: list[dict] | None = None,
+    messages: list[dict[str, typing.Any]] | None = None,
     sender: autogen.agentchat.agent.Agent | None = None,
     config: Any | None = None
 ) -> tuple[bool, str | None]
@@ -150,7 +150,7 @@ a_check_termination_and_human_reply(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | A list of message dictionaries, representing the conversation history.<br/><br/>**Type:** `list[dict] \| None`<br/><br/>**Default:** None |
+| `messages` | A list of message dictionaries, representing the conversation history.<br/><br/>**Type:** `list[dict[str, typing.Any]] \| None`<br/><br/>**Default:** None |
 | `sender` | The agent object representing the sender of the message.<br/><br/>**Type:** `autogen.agentchat.agent.Agent \| None`<br/><br/>**Default:** None |
 | `config` | Configuration object, defaults to the current instance if not provided.<br/><br/>**Type:** `Any \| None`<br/><br/>**Default:** None |
 
@@ -195,10 +195,10 @@ a_execute_function(
 ```python
 a_generate_function_call_reply(
     self,
-    messages: list[dict] | None = None,
+    messages: list[dict[str, typing.Any]] | None = None,
     sender: autogen.agentchat.agent.Agent | None = None,
     config: Any | None = None
-) -> tuple[bool, dict | None]
+) -> tuple[bool, dict[str, typing.Any] | None]
 ```
 
     Generate a reply using async function call.<br/>"function_call" replaced by "tool_calls" as of [OpenAI API v1.1.0](https://github.com/openai/openai-python/releases/tag/v1.1.0)
@@ -207,7 +207,7 @@ a_generate_function_call_reply(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict] \| None`<br/><br/>**Default:** None |
+| `messages` | **Type:** `list[dict[str, typing.Any]] \| None`<br/><br/>**Default:** None |
 | `sender` | **Type:** `autogen.agentchat.agent.Agent \| None`<br/><br/>**Default:** None |
 | `config` | **Type:** `Any \| None`<br/><br/>**Default:** None |
 
@@ -219,9 +219,9 @@ a_generate_function_call_reply(
 ```python
 a_generate_init_message(
     self,
-    message: dict | str | None,
-    **kwargs
-) -> str | dict
+    message: str | dict[str, typing.Any] | None,
+    **kwargs: Any
+) -> dict[str, typing.Any] | str
 ```
 
     Generate the initial message for the agent.<br/>If message is None, input() will be called to get the initial message.<br/>
@@ -229,13 +229,13 @@ a_generate_init_message(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `message` | **Type:** `dict \| str \| None` |
-| `**kwargs` |  |
+| `message` | **Type:** `str \| dict[str, typing.Any] \| None` |
+| `**kwargs` | **Type:** `Any` |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `str \| dict` | str or dict: the processed message. |
+| `dict[str, typing.Any] \| str` | str or dict: the processed message. |
 
 <br />
 
@@ -245,10 +245,10 @@ a_generate_init_message(
 ```python
 a_generate_oai_reply(
     self,
-    messages: list[dict] | None = None,
+    messages: list[dict[str, typing.Any]] | None = None,
     sender: autogen.agentchat.agent.Agent | None = None,
     config: Any | None = None
-) -> tuple[bool, str | dict | None]
+) -> tuple[bool, str | dict[str, typing.Any] | None]
 ```
 
     Generate a reply using autogen.oai asynchronously.
@@ -256,7 +256,7 @@ a_generate_oai_reply(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict] \| None`<br/><br/>**Default:** None |
+| `messages` | **Type:** `list[dict[str, typing.Any]] \| None`<br/><br/>**Default:** None |
 | `sender` | **Type:** `autogen.agentchat.agent.Agent \| None`<br/><br/>**Default:** None |
 | `config` | **Type:** `Any \| None`<br/><br/>**Default:** None |
 
@@ -301,10 +301,10 @@ a_generate_reply(
 ```python
 a_generate_tool_calls_reply(
     self,
-    messages: list[dict] | None = None,
+    messages: list[dict[str, typing.Any]] | None = None,
     sender: autogen.agentchat.agent.Agent | None = None,
     config: Any | None = None
-) -> tuple[bool, dict | None]
+) -> tuple[bool, dict[str, typing.Any] | None]
 ```
 
     Generate a reply using async function call.
@@ -312,7 +312,7 @@ a_generate_tool_calls_reply(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict] \| None`<br/><br/>**Default:** None |
+| `messages` | **Type:** `list[dict[str, typing.Any]] \| None`<br/><br/>**Default:** None |
 | `sender` | **Type:** `autogen.agentchat.agent.Agent \| None`<br/><br/>**Default:** None |
 | `config` | **Type:** `Any \| None`<br/><br/>**Default:** None |
 
@@ -350,10 +350,10 @@ a_initiate_chat(
     silent: bool | None = False,
     cache: autogen.cache.abstract_cache_base.AbstractCache | None = None,
     max_turns: int | None = None,
-    summary_method: str | Callable | None = 'last_msg',
-    summary_args: dict | None = {},
-    message: str | Callable | None = None,
-    **kwargs
+    summary_method: str | Callable[..., Any] | None = 'last_msg',
+    summary_args: dict[str, typing.Any] | None = {},
+    message: str | Callable[..., Any] | None = None,
+    **kwargs: Any
 ) -> autogen.agentchat.chat.ChatResult
 ```
 
@@ -367,10 +367,10 @@ a_initiate_chat(
 | `silent` | **Type:** `bool \| None`<br/><br/>**Default:** False |
 | `cache` | **Type:** `autogen.cache.abstract_cache_base.AbstractCache \| None`<br/><br/>**Default:** None |
 | `max_turns` | **Type:** `int \| None`<br/><br/>**Default:** None |
-| `summary_method` | **Type:** `str \| Callable \| None`<br/><br/>**Default:** 'last_msg' |
-| `summary_args` | **Type:** `dict \| None`<br/><br/>**Default:** \{} |
-| `message` | **Type:** `str \| Callable \| None`<br/><br/>**Default:** None |
-| `**kwargs` |  |
+| `summary_method` | **Type:** `str \| Callable[..., Any] \| None`<br/><br/>**Default:** 'last_msg' |
+| `summary_args` | **Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** \{} |
+| `message` | **Type:** `str \| Callable[..., Any] \| None`<br/><br/>**Default:** None |
+| `**kwargs` | **Type:** `Any` |
 
 <b>Returns:</b>
 | Type | Description |
@@ -401,7 +401,7 @@ a_initiate_chats(self, chat_queue: list[dict[str, typing.Any]]) -> dict[int, 
 ```python
 a_receive(
     self,
-    message: str | dict,
+    message: dict[str, typing.Any] | str,
     sender: autogen.agentchat.agent.Agent,
     request_reply: bool | None = None,
     silent: bool | None = False
@@ -413,7 +413,7 @@ a_receive(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `message` | message from the sender.<br/><br/>If the type is dict, it may contain the following reserved fields (either content or function_call need to be provided).<br/><br/>1. "content": content of the message, can be None.<br/><br/>2. "function_call": a dictionary containing the function name and arguments.<br/><br/>(deprecated in favor of "tool_calls") 3. "tool_calls": a list of dictionaries containing the function name and arguments.<br/><br/>4. "role": role of the message, can be "assistant", "user", "function".<br/><br/>This field is only needed to distinguish between "function" or "assistant"/"user".<br/><br/>5. "name": In most cases, this field is not needed.<br/><br/>When the role is "function", this field is needed to indicate the function name.<br/><br/>6. "context" (dict): the context of the message, which will be passed to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create).<br/><br/>**Type:** `str \| dict` |
+| `message` | message from the sender.<br/><br/>If the type is dict, it may contain the following reserved fields (either content or function_call need to be provided).<br/><br/>1. "content": content of the message, can be None.<br/><br/>2. "function_call": a dictionary containing the function name and arguments.<br/><br/>(deprecated in favor of "tool_calls") 3. "tool_calls": a list of dictionaries containing the function name and arguments.<br/><br/>4. "role": role of the message, can be "assistant", "user", "function".<br/><br/>This field is only needed to distinguish between "function" or "assistant"/"user".<br/><br/>5. "name": In most cases, this field is not needed.<br/><br/>When the role is "function", this field is needed to indicate the function name.<br/><br/>6. "context" (dict): the context of the message, which will be passed to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create).<br/><br/>**Type:** `dict[str, typing.Any] \| str` |
 | `sender` | sender of an Agent instance.<br/><br/>**Type:** `autogen.agentchat.agent.Agent` |
 | `request_reply` | whether a reply is requested from the sender.<br/><br/>If None, the value is determined by `self.reply_at_receive[sender]`.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** None |
 | `silent` | (Experimental) whether to print the message received.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** False |
@@ -434,7 +434,7 @@ a_run(
     msg_to: Literal['agent', 'user'] = 'agent',
     clear_history: bool = False,
     user_input: bool = True,
-    summary_method: str | Callable | None = 'last_msg'
+    summary_method: str | Callable[..., Any] | None = 'last_msg'
 ) -> autogen.agentchat.chat.ChatResult
 ```
 
@@ -450,7 +450,7 @@ a_run(
 | `msg_to` | which agent is receiving the message and will be the first to reply, defaults to the agent.<br/><br/>**Type:** `Literal['agent', 'user']`<br/><br/>**Default:** 'agent' |
 | `clear_history` | whether to clear the chat history.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
 | `user_input` | the user will be asked for input at their turn.<br/><br/>**Type:** `bool`<br/><br/>**Default:** True |
-| `summary_method` | **Type:** `str \| Callable \| None`<br/><br/>**Default:** 'last_msg' |
+| `summary_method` | **Type:** `str \| Callable[..., Any] \| None`<br/><br/>**Default:** 'last_msg' |
 
 <br />
 
@@ -460,7 +460,7 @@ a_run(
 ```python
 a_send(
     self,
-    message: str | dict,
+    message: dict[str, typing.Any] | str,
     recipient: autogen.agentchat.agent.Agent,
     request_reply: bool | None = None,
     silent: bool | None = False
@@ -472,7 +472,7 @@ a_send(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `message` | message to be sent.<br/><br/>The message could contain the following fields: - content (str or List): Required, the content of the message.<br/><br/>(Can be None) - function_call (str): the name of the function to be called.<br/><br/>- name (str): the name of the function to be called.<br/><br/>- role (str): the role of the message, any role that is not "function" will be modified to "assistant".<br/><br/>- context (dict): the context of the message, which will be passed to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create).<br/><br/>For example, one agent can send a message A as:<br/><br/>**Type:** `str \| dict` |
+| `message` | message to be sent.<br/><br/>The message could contain the following fields: - content (str or List): Required, the content of the message.<br/><br/>(Can be None) - function_call (str): the name of the function to be called.<br/><br/>- name (str): the name of the function to be called.<br/><br/>- role (str): the role of the message, any role that is not "function" will be modified to "assistant".<br/><br/>- context (dict): the context of the message, which will be passed to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create).<br/><br/>For example, one agent can send a message A as:<br/><br/>**Type:** `dict[str, typing.Any] \| str` |
 | `recipient` | the recipient of the message.<br/><br/>**Type:** `autogen.agentchat.agent.Agent` |
 | `request_reply` | whether to request a reply from the recipient.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** None |
 | `silent` | (Experimental) whether to print the message sent.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** False |
@@ -499,7 +499,7 @@ can_execute_function(self, name: list[str] | str) -> bool
 #### chat_messages_for_summary
 
 ```python
-chat_messages_for_summary(self, agent: autogen.agentchat.agent.Agent) -> list[dict]
+chat_messages_for_summary(self, agent: autogen.agentchat.agent.Agent) -> list[dict[str, typing.Any]]
 ```
 
     A list of messages as a conversation to summarize.
@@ -517,7 +517,7 @@ chat_messages_for_summary(self, agent: autogen.agentchat.agent.Agent) -> list[d
 ```python
 check_termination_and_human_reply(
     self,
-    messages: list[dict] | None = None,
+    messages: list[dict[str, typing.Any]] | None = None,
     sender: autogen.agentchat.agent.Agent | None = None,
     config: Any | None = None
 ) -> tuple[bool, str | None]
@@ -532,7 +532,7 @@ check_termination_and_human_reply(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict] \| None`<br/><br/>**Default:** None |
+| `messages` | **Type:** `list[dict[str, typing.Any]] \| None`<br/><br/>**Default:** None |
 | `sender` | **Type:** `autogen.agentchat.agent.Agent \| None`<br/><br/>**Default:** None |
 | `config` | **Type:** `Any \| None`<br/><br/>**Default:** None |
 
@@ -614,9 +614,9 @@ execute_function(
 ```python
 generate_code_execution_reply(
     self,
-    messages: list[dict] | None = None,
+    messages: list[dict[str, typing.Any]] | None = None,
     sender: autogen.agentchat.agent.Agent | None = None,
-    config: dict | Literal[False] | None = None
+    config: dict[str, typing.Any] | Literal[False] | None = None
 ) -> 
 ```
 
@@ -625,9 +625,9 @@ generate_code_execution_reply(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict] \| None`<br/><br/>**Default:** None |
+| `messages` | **Type:** `list[dict[str, typing.Any]] \| None`<br/><br/>**Default:** None |
 | `sender` | **Type:** `autogen.agentchat.agent.Agent \| None`<br/><br/>**Default:** None |
-| `config` | **Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
+| `config` | **Type:** `dict[str, typing.Any] \| Literal[False] \| None`<br/><br/>**Default:** None |
 
 <br />
 
@@ -637,10 +637,10 @@ generate_code_execution_reply(
 ```python
 generate_function_call_reply(
     self,
-    messages: list[dict] | None = None,
+    messages: list[dict[str, typing.Any]] | None = None,
     sender: autogen.agentchat.agent.Agent | None = None,
     config: Any | None = None
-) -> tuple[bool, dict | None]
+) -> tuple[bool, dict[str, typing.Any] | None]
 ```
 
     Generate a reply using function call.<br/>"function_call" replaced by "tool_calls" as of [OpenAI API v1.1.0](https://github.com/openai/openai-python/releases/tag/v1.1.0)
@@ -649,7 +649,7 @@ generate_function_call_reply(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict] \| None`<br/><br/>**Default:** None |
+| `messages` | **Type:** `list[dict[str, typing.Any]] \| None`<br/><br/>**Default:** None |
 | `sender` | **Type:** `autogen.agentchat.agent.Agent \| None`<br/><br/>**Default:** None |
 | `config` | **Type:** `Any \| None`<br/><br/>**Default:** None |
 
@@ -661,9 +661,9 @@ generate_function_call_reply(
 ```python
 generate_init_message(
     self,
-    message: dict | str | None,
-    **kwargs
-) -> str | dict
+    message: str | dict[str, typing.Any] | None,
+    **kwargs: Any
+) -> dict[str, typing.Any] | str
 ```
 
     Generate the initial message for the agent.<br/>If message is None, input() will be called to get the initial message.<br/>
@@ -671,13 +671,13 @@ generate_init_message(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `message` | the message to be processed.<br/><br/>**Type:** `dict \| str \| None` |
-| `**kwargs` | any additional information.<br/><br/>It has the following reserved fields: "carryover": a string or a list of string to specify the carryover information to be passed to this chat.<br/><br/>It can be a string or a list of string.<br/><br/>If provided, we will combine this carryover with the "message" content when generating the initial chat message.<br/><br/> |
+| `message` | the message to be processed.<br/><br/>**Type:** `str \| dict[str, typing.Any] \| None` |
+| `**kwargs` | any additional information.<br/><br/>It has the following reserved fields: "carryover": a string or a list of string to specify the carryover information to be passed to this chat.<br/><br/>It can be a string or a list of string.<br/><br/>If provided, we will combine this carryover with the "message" content when generating the initial chat message.<br/><br/>**Type:** `Any` |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `str \| dict` | str or dict: the processed message. |
+| `dict[str, typing.Any] \| str` | str or dict: the processed message. |
 
 <br />
 
@@ -687,10 +687,10 @@ generate_init_message(
 ```python
 generate_oai_reply(
     self,
-    messages: list[dict] | None = None,
+    messages: list[dict[str, typing.Any]] | None = None,
     sender: autogen.agentchat.agent.Agent | None = None,
     config: autogen.oai.client.OpenAIWrapper | None = None
-) -> tuple[bool, str | dict | None]
+) -> tuple[bool, str | dict[str, typing.Any] | None]
 ```
 
     Generate a reply using autogen.oai.
@@ -698,7 +698,7 @@ generate_oai_reply(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict] \| None`<br/><br/>**Default:** None |
+| `messages` | **Type:** `list[dict[str, typing.Any]] \| None`<br/><br/>**Default:** None |
 | `sender` | **Type:** `autogen.agentchat.agent.Agent \| None`<br/><br/>**Default:** None |
 | `config` | **Type:** `autogen.oai.client.OpenAIWrapper \| None`<br/><br/>**Default:** None |
 
@@ -713,7 +713,7 @@ generate_reply(
     messages: list[dict[str, typing.Any]] | None = None,
     sender: ForwardRef('Agent') | None = None,
     **kwargs: Any
-) -> dict | str | None
+) -> str | dict[str, typing.Any] | None
 ```
 
     Reply based on the conversation history and the sender.<br/>Either messages or sender must be provided.<br/>Register a reply_func with `None` as one trigger for it to be activated when `messages` is non-empty and `sender` is `None`.<br/>Use registered auto reply functions to generate replies.<br/>By default, the following functions are checked in order: <br/>1. check_termination_and_human_reply
@@ -733,7 +733,7 @@ generate_reply(
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `dict \| str \| None` | str or dict or None: reply. None if no reply is generated. |
+| `str \| dict[str, typing.Any] \| None` | str or dict or None: reply. None if no reply is generated. |
 
 <br />
 
@@ -743,10 +743,10 @@ generate_reply(
 ```python
 generate_tool_calls_reply(
     self,
-    messages: list[dict] | None = None,
+    messages: list[dict[str, typing.Any]] | None = None,
     sender: autogen.agentchat.agent.Agent | None = None,
     config: Any | None = None
-) -> tuple[bool, dict | None]
+) -> tuple[bool, dict[str, typing.Any] | None]
 ```
 
     Generate a reply using tool call.
@@ -754,7 +754,7 @@ generate_tool_calls_reply(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict] \| None`<br/><br/>**Default:** None |
+| `messages` | **Type:** `list[dict[str, typing.Any]] \| None`<br/><br/>**Default:** None |
 | `sender` | **Type:** `autogen.agentchat.agent.Agent \| None`<br/><br/>**Default:** None |
 | `config` | **Type:** `Any \| None`<br/><br/>**Default:** None |
 
@@ -856,10 +856,10 @@ initiate_chat(
     silent: bool | None = False,
     cache: autogen.cache.abstract_cache_base.AbstractCache | None = None,
     max_turns: int | None = None,
-    summary_method: str | Callable | None = 'last_msg',
-    summary_args: dict | None = {},
-    message: dict | str | Callable | None = None,
-    **kwargs
+    summary_method: str | Callable[..., Any] | None = 'last_msg',
+    summary_args: dict[str, typing.Any] | None = {},
+    message: dict[str, typing.Any] | str | Callable[..., Any] | None = None,
+    **kwargs: Any
 ) -> autogen.agentchat.chat.ChatResult
 ```
 
@@ -873,10 +873,10 @@ initiate_chat(
 | `silent` | (Experimental) whether to print the messages for this conversation.<br/><br/>Default is False.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** False |
 | `cache` | the cache client to be used for this conversation.<br/><br/>Default is None.<br/><br/>**Type:** `autogen.cache.abstract_cache_base.AbstractCache \| None`<br/><br/>**Default:** None |
 | `max_turns` | the maximum number of turns for the chat between the two agents.<br/><br/>One turn means one conversation round trip.<br/><br/>Note that this is different from [max_consecutive_auto_reply](#max-consecutive-auto-reply) which is the maximum number of consecutive auto replies; and it is also different from [max_rounds in GroupChat](./groupchat) which is the maximum number of rounds in a group chat session.<br/><br/>If max_turns is set to None, the chat will continue until a termination condition is met.<br/><br/>Default is None.<br/><br/>**Type:** `int \| None`<br/><br/>**Default:** None |
-| `summary_method` | a method to get a summary from the chat.<br/><br/>Default is DEFAULT_SUMMARY_METHOD, i.e., "last_msg".<br/><br/>**Type:** `str \| Callable \| None`<br/><br/>**Default:** 'last_msg' |
-| `summary_args` | a dictionary of arguments to be passed to the summary_method.<br/><br/>One example key is "summary_prompt", and value is a string of text used to prompt a LLM-based agent (the sender or recipient agent) to reflect on the conversation and extract a summary when summary_method is "reflection_with_llm".<br/><br/>The default summary_prompt is DEFAULT_SUMMARY_PROMPT, i.e., "Summarize takeaway from the conversation.<br/><br/>Do not add any introductory phrases.<br/><br/>If the intended request is NOT properly addressed, please point it out." Another available key is "summary_role", which is the role of the message sent to the agent in charge of summarizing.<br/><br/>Default is "system".<br/><br/>**Type:** `dict \| None`<br/><br/>**Default:** \{} |
-| `message` | the initial message to be sent to the recipient.<br/><br/>Needs to be provided.<br/><br/>Otherwise, input() will be called to get the initial message.<br/><br/>- If a string or a dict is provided, it will be used as the initial message.<br/><br/>`generate_init_message` is called to generate the initial message for the agent based on this string and the context.<br/><br/>If dict, it may contain the following reserved fields (either content or tool_calls need to be provided).<br/><br/>1. "content": content of the message, can be None.<br/><br/>2. "function_call": a dictionary containing the function name and arguments.<br/><br/>(deprecated in favor of "tool_calls") 3. "tool_calls": a list of dictionaries containing the function name and arguments.<br/><br/>4. "role": role of the message, can be "assistant", "user", "function".<br/><br/>This field is only needed to distinguish between "function" or "assistant"/"user".<br/><br/>5. "name": In most cases, this field is not needed.<br/><br/>When the role is "function", this field is needed to indicate the function name.<br/><br/>6. "context" (dict): the context of the message, which will be passed to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create).<br/><br/>- If a callable is provided, it will be called to get the initial message in the form of a string or a dict.<br/><br/>If the returned type is dict, it may contain the reserved fields mentioned above.<br/><br/>Example of a callable message (returning a string): ```python<br/><br/>**Type:** `dict \| str \| Callable \| None`<br/><br/>**Default:** None |
-| `**kwargs` | any additional information.<br/><br/>It has the following reserved fields: - "carryover": a string or a list of string to specify the carryover information to be passed to this chat.<br/><br/>If provided, we will combine this carryover (by attaching a "context: " string and the carryover content after the message content) with the "message" content when generating the initial chat message in `generate_init_message`.<br/><br/>- "verbose": a boolean to specify whether to print the message and carryover in a chat.<br/><br/>Default is False.<br/><br/> |
+| `summary_method` | a method to get a summary from the chat.<br/><br/>Default is DEFAULT_SUMMARY_METHOD, i.e., "last_msg".<br/><br/>**Type:** `str \| Callable[..., Any] \| None`<br/><br/>**Default:** 'last_msg' |
+| `summary_args` | a dictionary of arguments to be passed to the summary_method.<br/><br/>One example key is "summary_prompt", and value is a string of text used to prompt a LLM-based agent (the sender or recipient agent) to reflect on the conversation and extract a summary when summary_method is "reflection_with_llm".<br/><br/>The default summary_prompt is DEFAULT_SUMMARY_PROMPT, i.e., "Summarize takeaway from the conversation.<br/><br/>Do not add any introductory phrases.<br/><br/>If the intended request is NOT properly addressed, please point it out." Another available key is "summary_role", which is the role of the message sent to the agent in charge of summarizing.<br/><br/>Default is "system".<br/><br/>**Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** \{} |
+| `message` | the initial message to be sent to the recipient.<br/><br/>Needs to be provided.<br/><br/>Otherwise, input() will be called to get the initial message.<br/><br/>- If a string or a dict is provided, it will be used as the initial message.<br/><br/>`generate_init_message` is called to generate the initial message for the agent based on this string and the context.<br/><br/>If dict, it may contain the following reserved fields (either content or tool_calls need to be provided).<br/><br/>1. "content": content of the message, can be None.<br/><br/>2. "function_call": a dictionary containing the function name and arguments.<br/><br/>(deprecated in favor of "tool_calls") 3. "tool_calls": a list of dictionaries containing the function name and arguments.<br/><br/>4. "role": role of the message, can be "assistant", "user", "function".<br/><br/>This field is only needed to distinguish between "function" or "assistant"/"user".<br/><br/>5. "name": In most cases, this field is not needed.<br/><br/>When the role is "function", this field is needed to indicate the function name.<br/><br/>6. "context" (dict): the context of the message, which will be passed to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create).<br/><br/>- If a callable is provided, it will be called to get the initial message in the form of a string or a dict.<br/><br/>If the returned type is dict, it may contain the reserved fields mentioned above.<br/><br/>Example of a callable message (returning a string): ```python<br/><br/>**Type:** `dict[str, typing.Any] \| str \| Callable[..., Any] \| None`<br/><br/>**Default:** None |
+| `**kwargs` | any additional information.<br/><br/>It has the following reserved fields: - "carryover": a string or a list of string to specify the carryover information to be passed to this chat.<br/><br/>If provided, we will combine this carryover (by attaching a "context: " string and the carryover content after the message content) with the "message" content when generating the initial chat message in `generate_init_message`.<br/><br/>- "verbose": a boolean to specify whether to print the message and carryover in a chat.<br/><br/>Default is False.<br/><br/>**Type:** `Any` |
 
 <b>Returns:</b>
 | Type | Description |
@@ -910,7 +910,7 @@ initiate_chats(self, chat_queue: list[dict[str, typing.Any]]) -> list[autogen.
 #### last_message
 
 ```python
-last_message(self, agent: autogen.agentchat.agent.Agent | None = None) -> dict | None
+last_message(self, agent: autogen.agentchat.agent.Agent | None = None) -> dict[str, typing.Any] | None
 ```
 
     The last message exchanged with the agent.<br/>
@@ -923,7 +923,7 @@ last_message(self, agent: autogen.agentchat.agent.Agent | None = None) -> d
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `dict \| None` | The last message exchanged with the agent. |
+| `dict[str, typing.Any] \| None` | The last message exchanged with the agent. |
 
 <br />
 
@@ -989,7 +989,7 @@ print_usage_summary(self, mode: list[str] | str = ['actual', 'total']) -> N
 #### process_all_messages_before_reply
 
 ```python
-process_all_messages_before_reply(self, messages: list[dict]) -> list[dict]
+process_all_messages_before_reply(self, messages: list[dict[str, typing.Any]]) -> list[dict[str, typing.Any]]
 ```
 
     Calls any registered capability hooks to process all messages, potentially modifying the messages.
@@ -997,7 +997,7 @@ process_all_messages_before_reply(self, messages: list[dict]) -> list[dict]
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict]` |
+| `messages` | **Type:** `list[dict[str, typing.Any]]` |
 
 <br />
 
@@ -1005,7 +1005,7 @@ process_all_messages_before_reply(self, messages: list[dict]) -> list[dict]
 #### process_last_received_message
 
 ```python
-process_last_received_message(self, messages: list[dict]) -> list[dict]
+process_last_received_message(self, messages: list[dict[str, typing.Any]]) -> list[dict[str, typing.Any]]
 ```
 
     Calls any registered capability hooks to use and potentially modify the text of the last message,
@@ -1014,7 +1014,7 @@ process_last_received_message(self, messages: list[dict]) -> list[dict]
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict]` |
+| `messages` | **Type:** `list[dict[str, typing.Any]]` |
 
 <br />
 
@@ -1024,7 +1024,7 @@ process_last_received_message(self, messages: list[dict]) -> list[dict]
 ```python
 receive(
     self,
-    message: str | dict,
+    message: dict[str, typing.Any] | str,
     sender: autogen.agentchat.agent.Agent,
     request_reply: bool | None = None,
     silent: bool | None = False
@@ -1036,7 +1036,7 @@ receive(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `message` | message from the sender.<br/><br/>If the type is dict, it may contain the following reserved fields (either content or function_call need to be provided).<br/><br/>1. "content": content of the message, can be None.<br/><br/>2. "function_call": a dictionary containing the function name and arguments.<br/><br/>(deprecated in favor of "tool_calls") 3. "tool_calls": a list of dictionaries containing the function name and arguments.<br/><br/>4. "role": role of the message, can be "assistant", "user", "function", "tool".<br/><br/>This field is only needed to distinguish between "function" or "assistant"/"user".<br/><br/>5. "name": In most cases, this field is not needed.<br/><br/>When the role is "function", this field is needed to indicate the function name.<br/><br/>6. "context" (dict): the context of the message, which will be passed to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create).<br/><br/>**Type:** `str \| dict` |
+| `message` | message from the sender.<br/><br/>If the type is dict, it may contain the following reserved fields (either content or function_call need to be provided).<br/><br/>1. "content": content of the message, can be None.<br/><br/>2. "function_call": a dictionary containing the function name and arguments.<br/><br/>(deprecated in favor of "tool_calls") 3. "tool_calls": a list of dictionaries containing the function name and arguments.<br/><br/>4. "role": role of the message, can be "assistant", "user", "function", "tool".<br/><br/>This field is only needed to distinguish between "function" or "assistant"/"user".<br/><br/>5. "name": In most cases, this field is not needed.<br/><br/>When the role is "function", this field is needed to indicate the function name.<br/><br/>6. "context" (dict): the context of the message, which will be passed to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create).<br/><br/>**Type:** `dict[str, typing.Any] \| str` |
 | `sender` | sender of an Agent instance.<br/><br/>**Type:** `autogen.agentchat.agent.Agent` |
 | `request_reply` | whether a reply is requested from the sender.<br/><br/>If None, the value is determined by `self.reply_at_receive[sender]`.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** None |
 | `silent` | (Experimental) whether to print the message received.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** False |
@@ -1100,7 +1100,7 @@ register_for_llm(
 #### register_function
 
 ```python
-register_function(self, function_map: dict[str, Callable | None]) -> 
+register_function(self, function_map: dict[str, typing.Callable[..., typing.Any]]) -> 
 ```
 
     Register functions to the agent.<br/>
@@ -1108,7 +1108,7 @@ register_function(self, function_map: dict[str, Callable | None]) ->
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `function_map` | a dictionary mapping function names to functions.<br/><br/>if function_map[name] is None, the function will be removed from the function_map.<br/><br/>**Type:** `dict[str, Callable \| None]` |
+| `function_map` | a dictionary mapping function names to functions.<br/><br/>if function_map[name] is None, the function will be removed from the function_map.<br/><br/>**Type:** `dict[str, typing.Callable[..., typing.Any]]` |
 
 <br />
 
@@ -1140,7 +1140,7 @@ register_hook(
 register_model_client(
     self,
     model_client_cls: autogen.oai.client.ModelClient,
-    **kwargs
+    **kwargs: Any
 ) -> 
 ```
 
@@ -1150,7 +1150,7 @@ register_model_client(
 | Name | Description |
 |--|--|
 | `model_client_cls` | A custom client class that follows the Client interface<br/><br/>**Type:** `autogen.oai.client.ModelClient` |
-| `**kwargs` | The kwargs for the custom client class to be initialized with<br/><br/> |
+| `**kwargs` | The kwargs for the custom client class to be initialized with<br/><br/>**Type:** `Any` |
 
 <br />
 
@@ -1162,7 +1162,7 @@ register_nested_chats(
     self,
     chat_queue: list[dict[str, typing.Any]],
     trigger: type[autogen.agentchat.agent.Agent] | str | autogen.agentchat.agent.Agent | Callable[[autogen.agentchat.agent.Agent], bool] | list,
-    reply_func_from_nested_chats: str | Callable = 'summary_from_nested_chats',
+    reply_func_from_nested_chats: str | Callable[..., Any] = 'summary_from_nested_chats',
     position: int = 2,
     use_async: bool | None = None,
     **kwargs
@@ -1176,7 +1176,7 @@ register_nested_chats(
 |--|--|
 | `chat_queue` | a list of chat objects to be initiated.<br/><br/>If use_async is used, then all messages in chat_queue must have a chat-id associated with them.<br/><br/>**Type:** `list[dict[str, typing.Any]]` |
 | `trigger` | refer to `register_reply` for details.<br/><br/>**Type:** `type[autogen.agentchat.agent.Agent] \| str \| autogen.agentchat.agent.Agent \| Callable[[autogen.agentchat.agent.Agent], bool] \| list` |
-| `reply_func_from_nested_chats` | the reply function for the nested chat.<br/><br/>The function takes a chat_queue for nested chat, recipient agent, a list of messages, a sender agent and a config as input and returns a reply message.<br/><br/>Default to "summary_from_nested_chats", which corresponds to a built-in reply function that get summary from the nested chat_queue.<br/><br/>```def reply_func_from_nested_chats( chat_queue: List[Dict], recipient: ConversableAgent, messages: Optional[List[Dict]] = None, sender: Optional[Agent] = None, config: Optional[Any] = None,<br/><br/>**Type:** `str \| Callable`<br/><br/>**Default:** 'summary_from_nested_chats' |
+| `reply_func_from_nested_chats` | the reply function for the nested chat.<br/><br/>The function takes a chat_queue for nested chat, recipient agent, a list of messages, a sender agent and a config as input and returns a reply message.<br/><br/>Default to "summary_from_nested_chats", which corresponds to a built-in reply function that get summary from the nested chat_queue.<br/><br/>```def reply_func_from_nested_chats( chat_queue: List[Dict], recipient: ConversableAgent, messages: Optional[List[Dict]] = None, sender: Optional[Agent] = None, config: Optional[Any] = None,<br/><br/>**Type:** `str \| Callable[..., Any]`<br/><br/>**Default:** 'summary_from_nested_chats' |
 | `position` | Ref to `register_reply` for details.<br/><br/>Default to 2. It means we first check the termination and human reply, then check the registered nested chat reply.<br/><br/>**Type:** `int`<br/><br/>**Default:** 2 |
 | `use_async` | Uses a_initiate_chats internally to start nested chats.<br/><br/>If the original chat is initiated with a_initiate_chats, you may set this to true so nested chats do not run in sync.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** None |
 | `**kwargs` |  |
@@ -1193,7 +1193,7 @@ register_reply(
     reply_func: Callable,
     position: int = 0,
     config: Any | None = None,
-    reset_config: Callable | None = None,
+    reset_config: Callable[..., Any] | None = None,
     *,
     ignore_async_in_sync_chat: bool = False,
     remove_other_reply_funcs: bool = False
@@ -1213,7 +1213,7 @@ register_reply(
 | `reply_func` | the reply function.<br/><br/>The function takes a recipient agent, a list of messages, a sender agent and a config as input and returns a reply message.<br/><br/>```def reply_func( recipient: ConversableAgent, messages: Optional[List[Dict]] = None, sender: Optional[Agent] = None, config: Optional[Any] = None, ) -> Tuple[bool, Union[str, Dict, None]]: ```<br/><br/>**Type:** `Callable` |
 | `position` | the position of the reply function in the reply function list.<br/><br/>The function registered later will be checked earlier by default.<br/><br/>To change the order, set the position to a positive integer.<br/><br/>**Type:** `int`<br/><br/>**Default:** 0 |
 | `config` | the config to be passed to the reply function.<br/><br/>When an agent is reset, the config will be reset to the original value.<br/><br/>**Type:** `Any \| None`<br/><br/>**Default:** None |
-| `reset_config` | the function to reset the config.<br/><br/>The function returns None.<br/><br/>Signature: ```def reset_config(config: Any)```<br/><br/>**Type:** `Callable \| None`<br/><br/>**Default:** None |
+| `reset_config` | the function to reset the config.<br/><br/>The function returns None.<br/><br/>Signature: ```def reset_config(config: Any)```<br/><br/>**Type:** `Callable[..., Any] \| None`<br/><br/>**Default:** None |
 | `ignore_async_in_sync_chat` | whether to ignore the async reply function in sync chats.<br/><br/>If `False`, an exception will be raised if an async reply function is registered and a chat is initialized with a sync function.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
 | `remove_other_reply_funcs` | whether to remove other reply functions when registering this reply function.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
 
@@ -1281,7 +1281,7 @@ run(
     msg_to: Literal['agent', 'user'] = 'agent',
     clear_history: bool = False,
     user_input: bool = True,
-    summary_method: str | Callable | None = 'last_msg'
+    summary_method: str | Callable[..., Any] | None = 'last_msg'
 ) -> autogen.agentchat.chat.ChatResult
 ```
 
@@ -1297,7 +1297,7 @@ run(
 | `msg_to` | which agent is receiving the message and will be the first to reply, defaults to the agent.<br/><br/>**Type:** `Literal['agent', 'user']`<br/><br/>**Default:** 'agent' |
 | `clear_history` | whether to clear the chat history.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
 | `user_input` | the user will be asked for input at their turn.<br/><br/>**Type:** `bool`<br/><br/>**Default:** True |
-| `summary_method` | **Type:** `str \| Callable \| None`<br/><br/>**Default:** 'last_msg' |
+| `summary_method` | **Type:** `str \| Callable[..., Any] \| None`<br/><br/>**Default:** 'last_msg' |
 
 <br />
 
@@ -1308,7 +1308,7 @@ run(
 run_code(
     self,
     code,
-    **kwargs
+    **kwargs: Any
 ) -> 
 ```
 
@@ -1318,7 +1318,7 @@ run_code(
 | Name | Description |
 |--|--|
 | `code` | the code to be executed.<br/><br/> |
-| `**kwargs` | other keyword arguments.<br/><br/> |
+| `**kwargs` | other keyword arguments.<br/><br/>**Type:** `Any` |
 
 <br />
 
@@ -1328,7 +1328,7 @@ run_code(
 ```python
 send(
     self,
-    message: str | dict,
+    message: dict[str, typing.Any] | str,
     recipient: autogen.agentchat.agent.Agent,
     request_reply: bool | None = None,
     silent: bool | None = False
@@ -1340,7 +1340,7 @@ send(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `message` | message to be sent.<br/><br/>The message could contain the following fields: - content (str or List): Required, the content of the message.<br/><br/>(Can be None) - function_call (str): the name of the function to be called.<br/><br/>- name (str): the name of the function to be called.<br/><br/>- role (str): the role of the message, any role that is not "function" will be modified to "assistant".<br/><br/>- context (dict): the context of the message, which will be passed to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create).<br/><br/>For example, one agent can send a message A as:<br/><br/>**Type:** `str \| dict` |
+| `message` | message to be sent.<br/><br/>The message could contain the following fields: - content (str or List): Required, the content of the message.<br/><br/>(Can be None) - function_call (str): the name of the function to be called.<br/><br/>- name (str): the name of the function to be called.<br/><br/>- role (str): the role of the message, any role that is not "function" will be modified to "assistant".<br/><br/>- context (dict): the context of the message, which will be passed to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create).<br/><br/>For example, one agent can send a message A as:<br/><br/>**Type:** `dict[str, typing.Any] \| str` |
 | `recipient` | the recipient of the message.<br/><br/>**Type:** `autogen.agentchat.agent.Agent` |
 | `request_reply` | whether to request a reply from the recipient.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** None |
 | `silent` | (Experimental) whether to print the message sent.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** False |
@@ -1388,7 +1388,7 @@ stop_reply_at_receive(self, sender: autogen.agentchat.agent.Agent | None = 
 #### update_agent_state_before_reply
 
 ```python
-update_agent_state_before_reply(self, messages: list[dict]) -> None
+update_agent_state_before_reply(self, messages: list[dict[str, typing.Any]]) -> None
 ```
 
     Calls any registered capability hooks to update the agent's state.<br/>Primarily used to update context variables.<br/>Will, potentially, modify the messages.
@@ -1396,7 +1396,7 @@ update_agent_state_before_reply(self, messages: list[dict]) -> None
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict]` |
+| `messages` | **Type:** `list[dict[str, typing.Any]]` |
 
 <br />
 
@@ -1422,7 +1422,7 @@ update_context(self, context_variables: dict[str, typing.Any]) -> None
 ```python
 update_function_signature(
     self,
-    func_sig: str | dict,
+    func_sig: dict[str, typing.Any] | str,
     is_remove: None
 ) -> 
 ```
@@ -1432,7 +1432,7 @@ update_function_signature(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `func_sig` | description/name of the function to update/remove to the model.<br/><br/>See: https://platform.openai.com/docs/api-reference/chat/create#chat/create-functions<br/><br/>**Type:** `str \| dict` |
+| `func_sig` | description/name of the function to update/remove to the model.<br/><br/>See: https://platform.openai.com/docs/api-reference/chat/create#chat/create-functions<br/><br/>**Type:** `dict[str, typing.Any] \| str` |
 | `is_remove` | whether removing the function from llm_config with name 'func_sig'<br/><br/>**Type:** `None` |
 
 <br />
@@ -1480,7 +1480,7 @@ update_system_message(self, system_message: str) -> None
 ```python
 update_tool_signature(
     self,
-    tool_sig: str | dict,
+    tool_sig: dict[str, typing.Any] | str,
     is_remove: bool
 ) -> 
 ```
@@ -1490,7 +1490,7 @@ update_tool_signature(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `tool_sig` | description/name of the tool to update/remove to the model.<br/><br/>See: https://platform.openai.com/docs/api-reference/chat/create#chat-create-tools<br/><br/>**Type:** `str \| dict` |
+| `tool_sig` | description/name of the tool to update/remove to the model.<br/><br/>See: https://platform.openai.com/docs/api-reference/chat/create#chat-create-tools<br/><br/>**Type:** `dict[str, typing.Any] \| str` |
 | `is_remove` | whether removing the tool from llm_config with name 'tool_sig'<br/><br/>**Type:** `bool` |
 
 <br />

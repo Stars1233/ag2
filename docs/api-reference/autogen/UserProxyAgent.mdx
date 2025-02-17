@@ -10,16 +10,16 @@ title: autogen.UserProxyAgent
 ```python
 UserProxyAgent(
     name: str,
-    is_termination_msg: Callable[[dict], bool] | None = None,
+    is_termination_msg: Callable[[dict[str, Any]], bool] | None = None,
     max_consecutive_auto_reply: int | None = None,
     human_input_mode: Literal['ALWAYS', 'NEVER', 'TERMINATE'] = 'ALWAYS',
-    function_map: dict[str, typing.Callable] | None = None,
-    code_execution_config: dict | Literal[False] = {},
-    default_auto_reply: dict | str | None = '',
-    llm_config: dict | Literal[False] | None = False,
-    system_message: str | list | None = '',
+    function_map: dict[str, typing.Callable[..., typing.Any]] | None = None,
+    code_execution_config: dict[str, typing.Any] | Literal[False] = {},
+    default_auto_reply: str | dict[str, typing.Any] | None = '',
+    llm_config: dict[str, typing.Any] | Literal[False] | None = False,
+    system_message: str | list[str] | None = '',
     description: str | None = None,
-    **kwargs
+    **kwargs: Any
 )
 ```
 
@@ -31,16 +31,16 @@ UserProxyAgent(
 | Name | Description |
 |--|--|
 | `name` | **Type:** `str` |
-| `is_termination_msg` | **Type:** `Callable[[dict], bool] \| None`<br/><br/>**Default:** None |
+| `is_termination_msg` | **Type:** `Callable[[dict[str, Any]], bool] \| None`<br/><br/>**Default:** None |
 | `max_consecutive_auto_reply` | **Type:** `int \| None`<br/><br/>**Default:** None |
 | `human_input_mode` | **Type:** `Literal['ALWAYS', 'NEVER', 'TERMINATE']`<br/><br/>**Default:** 'ALWAYS' |
-| `function_map` | **Type:** `dict[str, typing.Callable] \| None`<br/><br/>**Default:** None |
-| `code_execution_config` | **Type:** `dict \| Literal[False]`<br/><br/>**Default:** \{} |
-| `default_auto_reply` | **Type:** `dict \| str \| None`<br/><br/>**Default:** '' |
-| `llm_config` | **Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** False |
-| `system_message` | **Type:** `str \| list \| None`<br/><br/>**Default:** '' |
+| `function_map` | **Type:** `dict[str, typing.Callable[..., typing.Any]] \| None`<br/><br/>**Default:** None |
+| `code_execution_config` | **Type:** `dict[str, typing.Any] \| Literal[False]`<br/><br/>**Default:** \{} |
+| `default_auto_reply` | **Type:** `str \| dict[str, typing.Any] \| None`<br/><br/>**Default:** '' |
+| `llm_config` | **Type:** `dict[str, typing.Any] \| Literal[False] \| None`<br/><br/>**Default:** False |
+| `system_message` | **Type:** `str \| list[str] \| None`<br/><br/>**Default:** '' |
 | `description` | **Type:** `str \| None`<br/><br/>**Default:** None |
-| `**kwargs` | Please refer to other kwargs in [ConversableAgent](/docs/api-reference/autogen/ConversableAgent#conversableagent).<br/><br/> |
+| `**kwargs` | Please refer to other kwargs in [ConversableAgent](/docs/api-reference/autogen/ConversableAgent#conversableagent).<br/><br/>**Type:** `Any` |
 
 ### Class Attributes
 

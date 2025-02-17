@@ -12,8 +12,8 @@ TextAnalyzerAgent(
     name='analyzer',
     system_message: str | None = 'You are an expert in text analysis.\nThe user will give you TEXT to analyze.\nThe user will give you analysis INSTRUCTIONS copied twice, at both the beginning and the end.\nYou will follow these INSTRUCTIONS in analyzing the TEXT, then give the results of your expert analysis in the format requested.',
     human_input_mode: Literal['ALWAYS', 'NEVER', 'TERMINATE'] = 'NEVER',
-    llm_config: dict | bool | None = None,
-    **kwargs
+    llm_config: dict[str, typing.Any] | bool | None = None,
+    **kwargs: Any
 )
 ```
 
@@ -25,8 +25,8 @@ TextAnalyzerAgent(
 | `name='analyzer'` |  |
 | `system_message` | **Type:** `str \| None`<br/><br/>**Default:** 'You are an expert in text analysis.\nThe user will give you TEXT to analyze.\nThe user will give you analysis INSTRUCTIONS copied twice, at both the beginning and the end.\nYou will follow these INSTRUCTIONS in analyzing the TEXT, then give the results of your expert analysis in the format requested.' |
 | `human_input_mode` | **Type:** `Literal['ALWAYS', 'NEVER', 'TERMINATE']`<br/><br/>**Default:** 'NEVER' |
-| `llm_config` | **Type:** `dict \| bool \| None`<br/><br/>**Default:** None |
-| `**kwargs` |  |
+| `llm_config` | **Type:** `dict[str, typing.Any] \| bool \| None`<br/><br/>**Default:** None |
+| `**kwargs` | **Type:** `Any` |
 
 ### Instance Methods
 

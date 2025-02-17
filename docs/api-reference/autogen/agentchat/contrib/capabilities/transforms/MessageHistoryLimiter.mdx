@@ -25,7 +25,7 @@ MessageHistoryLimiter(max_messages: int | None = None, keep_first_message:�
 #### apply_transform
 
 ```python
-apply_transform(self, messages: list[dict]) -> list[dict]
+apply_transform(self, messages: list[dict[str, typing.Any]]) -> list[dict[str, typing.Any]]
 ```
 
     Truncates the conversation history to the specified maximum number of messages.<br/>This method returns a new list containing the most recent messages up to the specified
@@ -35,12 +35,12 @@ apply_transform(self, messages: list[dict]) -> list[dict]
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | The list of messages representing the conversation history.<br/><br/>**Type:** `list[dict]` |
+| `messages` | The list of messages representing the conversation history.<br/><br/>**Type:** `list[dict[str, typing.Any]]` |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `list[dict]` | List[Dict]: A new list containing the most recent messages up to the specified maximum. |
+| `list[dict[str, typing.Any]]` | List[Dict]: A new list containing the most recent messages up to the specified maximum. |
 
 <br />
 
@@ -50,8 +50,8 @@ apply_transform(self, messages: list[dict]) -> list[dict]
 ```python
 get_logs(
     self,
-    pre_transform_messages: list[dict],
-    post_transform_messages: list[dict]
+    pre_transform_messages: list[dict[str, typing.Any]],
+    post_transform_messages: list[dict[str, typing.Any]]
 ) -> tuple[str, bool]
 ```
 
@@ -60,7 +60,7 @@ get_logs(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `pre_transform_messages` | **Type:** `list[dict]` |
-| `post_transform_messages` | **Type:** `list[dict]` |
+| `pre_transform_messages` | **Type:** `list[dict[str, typing.Any]]` |
+| `post_transform_messages` | **Type:** `list[dict[str, typing.Any]]` |
 
 <br />

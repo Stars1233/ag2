@@ -27,7 +27,7 @@ ThinkNode(content: str, parent: ForwardRef('ThinkNode') | None = None)
 #### from_dict
 
 ```python
-from_dict(data: dict, parent: ForwardRef('ThinkNode') | None = None) -> autogen.agentchat.contrib.reasoning_agent.ThinkNode
+from_dict(data: dict[str, typing.Any], parent: ForwardRef('ThinkNode') | None = None) -> autogen.agentchat.contrib.reasoning_agent.ThinkNode
 ```
 
     Create ThinkNode from dictionary representation.<br/>
@@ -35,7 +35,7 @@ from_dict(data: dict, parent: ForwardRef('ThinkNode') | None = None) -> au
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `data` | Dictionary containing node data<br/><br/>**Type:** `dict` |
+| `data` | Dictionary containing node data<br/><br/>**Type:** `dict[str, typing.Any]` |
 | `parent` | Parent node to attach to<br/><br/>**Type:** `ForwardRef('ThinkNode') \| None`<br/><br/>**Default:** None |
 
 <b>Returns:</b>

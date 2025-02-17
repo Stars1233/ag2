@@ -26,7 +26,7 @@ MessageTransform(*args, **kwargs)
 #### apply_transform
 
 ```python
-apply_transform(self, messages: list[dict]) -> list[dict]
+apply_transform(self, messages: list[dict[str, typing.Any]]) -> list[dict[str, typing.Any]]
 ```
 
     Applies a transformation to a list of messages.<br/>
@@ -34,12 +34,12 @@ apply_transform(self, messages: list[dict]) -> list[dict]
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | A list of dictionaries representing messages.<br/><br/>**Type:** `list[dict]` |
+| `messages` | A list of dictionaries representing messages.<br/><br/>**Type:** `list[dict[str, typing.Any]]` |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `list[dict]` | A new list of dictionaries containing the transformed messages. |
+| `list[dict[str, typing.Any]]` | A new list of dictionaries containing the transformed messages. |
 
 <br />
 
@@ -49,8 +49,8 @@ apply_transform(self, messages: list[dict]) -> list[dict]
 ```python
 get_logs(
     self,
-    pre_transform_messages: list[dict],
-    post_transform_messages: list[dict]
+    pre_transform_messages: list[dict[str, typing.Any]],
+    post_transform_messages: list[dict[str, typing.Any]]
 ) -> tuple[str, bool]
 ```
 
@@ -61,8 +61,8 @@ get_logs(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `pre_transform_messages` | A list of dictionaries representing messages before the transformation.<br/><br/>**Type:** `list[dict]` |
-| `post_transform_messages` | A list of dictionaries representig messages after the transformation.<br/><br/>**Type:** `list[dict]` |
+| `pre_transform_messages` | A list of dictionaries representing messages before the transformation.<br/><br/>**Type:** `list[dict[str, typing.Any]]` |
+| `post_transform_messages` | A list of dictionaries representig messages after the transformation.<br/><br/>**Type:** `list[dict[str, typing.Any]]` |
 
 <b>Returns:</b>
 | Type | Description |

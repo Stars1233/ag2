@@ -13,7 +13,7 @@ MultimodalConversableAgent(
     system_message: str | list | None = 'You are a helpful AI assistant.',
     is_termination_msg: str = None,
     *args,
-    **kwargs
+    **kwargs: Any
 )
 ```
 
@@ -28,7 +28,7 @@ MultimodalConversableAgent(
 | `system_message` | **Type:** `str \| list \| None`<br/><br/>**Default:** 'You are a helpful AI assistant.' |
 | `is_termination_msg` | **Type:** `str`<br/><br/>**Default:** None |
 | `*args` |  |
-| `**kwargs` |  |
+| `**kwargs` | **Type:** `Any` |
 
 ### Class Attributes
 
@@ -44,7 +44,7 @@ MultimodalConversableAgent(
 #### update_system_message
 
 ```python
-update_system_message(self, system_message: dict | list | str) -> 
+update_system_message(self, system_message: dict[str, typing.Any] | list[str] | str) -> 
 ```
 
     Update the system message.<br/>
@@ -52,6 +52,6 @@ update_system_message(self, system_message: dict | list | str) ->
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `system_message` | system message for the OpenAIWrapper inference.<br/><br/>**Type:** `dict \| list \| str` |
+| `system_message` | system message for the OpenAIWrapper inference.<br/><br/>**Type:** `dict[str, typing.Any] \| list[str] \| str` |
 
 <br />

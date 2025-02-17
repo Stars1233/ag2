@@ -10,13 +10,13 @@ title: autogen.coding.DockerCommandLineCodeExecutor
 ```python
 DockerCommandLineCodeExecutor(
     image: str = 'python:3-slim',
-    container_name: str | None = None,
+    container_name: Optional[str] = None,
     timeout: int = 60,
-    work_dir: Path | str = PosixPath('.'),
-    bind_dir: Path | str | None = None,
+    work_dir: Optional[Union[Path, str]] = None,
+    bind_dir: Optional[Union[Path, str]] = None,
     auto_remove: bool = True,
     stop_container: bool = True,
-    execution_policies: dict[str, bool] | None = None
+    execution_policies: Optional[dict[str, bool]] = None
 )
 ```
 
@@ -29,13 +29,13 @@ DockerCommandLineCodeExecutor(
 | Name | Description |
 |--|--|
 | `image` | **Type:** `str`<br/><br/>**Default:** 'python |
-| `container_name` | **Type:** `str \| None`<br/><br/>**Default:** None |
+| `container_name` | **Type:** `Optional[str]`<br/><br/>**Default:** None |
 | `timeout` | **Type:** `int`<br/><br/>**Default:** 60 |
-| `work_dir` | **Type:** `Path \| str`<br/><br/>**Default:** PosixPath('.') |
-| `bind_dir` | **Type:** `Path \| str \| None`<br/><br/>**Default:** None |
+| `work_dir` | **Type:** `Optional[Union[Path, str]]`<br/><br/>**Default:** None |
+| `bind_dir` | **Type:** `Optional[Union[Path, str]]`<br/><br/>**Default:** None |
 | `auto_remove` | **Type:** `bool`<br/><br/>**Default:** True |
 | `stop_container` | **Type:** `bool`<br/><br/>**Default:** True |
-| `execution_policies` | **Type:** `dict[str, bool] \| None`<br/><br/>**Default:** None |
+| `execution_policies` | **Type:** `Optional[dict[str, bool]]`<br/><br/>**Default:** None |
 
 ### Class Attributes
 

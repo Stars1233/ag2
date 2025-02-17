@@ -13,7 +13,7 @@ TextMessageCompressor(
     min_tokens: int | None = None,
     compression_params: dict = {},
     cache: autogen.cache.abstract_cache_base.AbstractCache | None = None,
-    filter_dict: dict | None = None,
+    filter_dict: dict[str, typing.Any] | None = None,
     exclude_filter: bool = True
 )
 ```
@@ -28,7 +28,7 @@ TextMessageCompressor(
 | `min_tokens` | **Type:** `int \| None`<br/><br/>**Default:** None |
 | `compression_params` | **Type:** `dict`<br/><br/>**Default:** \{} |
 | `cache` | **Type:** `autogen.cache.abstract_cache_base.AbstractCache \| None`<br/><br/>**Default:** None |
-| `filter_dict` | **Type:** `dict \| None`<br/><br/>**Default:** None |
+| `filter_dict` | **Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
 | `exclude_filter` | **Type:** `bool`<br/><br/>**Default:** True |
 
 ### Instance Methods
@@ -37,7 +37,7 @@ TextMessageCompressor(
 #### apply_transform
 
 ```python
-apply_transform(self, messages: list[dict]) -> list[dict]
+apply_transform(self, messages: list[dict[str, typing.Any]]) -> list[dict[str, typing.Any]]
 ```
 
     Applies compression to messages in a conversation history based on the specified configuration.<br/>The function processes each message according to the `compression_args` and `min_tokens` settings, applying
@@ -47,12 +47,12 @@ apply_transform(self, messages: list[dict]) -> list[dict]
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | A list of message dictionaries to be compressed.<br/><br/>**Type:** `list[dict]` |
+| `messages` | A list of message dictionaries to be compressed.<br/><br/>**Type:** `list[dict[str, typing.Any]]` |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `list[dict]` | List[Dict]: A list of dictionaries with the message content compressed according to the configured method and scope. |
+| `list[dict[str, typing.Any]]` | List[Dict]: A list of dictionaries with the message content compressed according to the configured method and scope. |
 
 <br />
 
@@ -62,8 +62,8 @@ apply_transform(self, messages: list[dict]) -> list[dict]
 ```python
 get_logs(
     self,
-    pre_transform_messages: list[dict],
-    post_transform_messages: list[dict]
+    pre_transform_messages: list[dict[str, typing.Any]],
+    post_transform_messages: list[dict[str, typing.Any]]
 ) -> tuple[str, bool]
 ```
 
@@ -72,7 +72,7 @@ get_logs(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `pre_transform_messages` | **Type:** `list[dict]` |
-| `post_transform_messages` | **Type:** `list[dict]` |
+| `pre_transform_messages` | **Type:** `list[dict[str, typing.Any]]` |
+| `post_transform_messages` | **Type:** `list[dict[str, typing.Any]]` |
 
 <br />

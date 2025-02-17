@@ -10,14 +10,14 @@ title: autogen.GroupChat
 ```python
 GroupChat(
     agents: list[autogen.agentchat.agent.Agent],
-    messages: list[dict],
+    messages: list[dict[str, typing.Any]],
     max_round: int = 10,
     admin_name: str = 'Admin',
     func_call_filter: bool = True,
-    speaker_selection_method: Literal['auto', 'manual', 'random', 'round_robin'] | Callable = 'auto',
+    speaker_selection_method: Literal['auto', 'manual', 'random', 'round_robin'] | Callable[..., Any] = 'auto',
     max_retries_for_selecting_speaker: int = 2,
     allow_repeat_speaker: bool | list[autogen.agentchat.agent.Agent] | None = None,
-    allowed_or_disallowed_speaker_transitions: dict | None = None,
+    allowed_or_disallowed_speaker_transitions: dict[str, typing.Any] | None = None,
     speaker_transitions_type: Literal['allowed', 'disallowed', None] = None,
     enable_clear_history: bool = False,
     send_introductions: bool = False,
@@ -28,7 +28,7 @@ GroupChat(
     select_speaker_transform_messages: autogen.agentchat.contrib.capabilities.transform_messages.TransformMessages | None = None,
     select_speaker_auto_verbose: bool | None = False,
     select_speaker_auto_model_client_cls: autogen.oai.client.ModelClient | list[autogen.oai.client.ModelClient] | None = None,
-    select_speaker_auto_llm_config: dict | Literal[False] | None = None,
+    select_speaker_auto_llm_config: dict[str, typing.Any] | Literal[False] | None = None,
     role_for_select_speaker_messages: str | None = 'system'
 )
 ```
@@ -64,14 +64,14 @@ GroupChat(
 | Name | Description |
 |--|--|
 | `agents` | **Type:** `list[autogen.agentchat.agent.Agent]` |
-| `messages` | **Type:** `list[dict]` |
+| `messages` | **Type:** `list[dict[str, typing.Any]]` |
 | `max_round` | **Type:** `int`<br/><br/>**Default:** 10 |
 | `admin_name` | **Type:** `str`<br/><br/>**Default:** 'Admin' |
 | `func_call_filter` | **Type:** `bool`<br/><br/>**Default:** True |
-| `speaker_selection_method` | **Type:** `Literal['auto', 'manual', 'random', 'round_robin'] \| Callable`<br/><br/>**Default:** 'auto' |
+| `speaker_selection_method` | **Type:** `Literal['auto', 'manual', 'random', 'round_robin'] \| Callable[..., Any]`<br/><br/>**Default:** 'auto' |
 | `max_retries_for_selecting_speaker` | **Type:** `int`<br/><br/>**Default:** 2 |
 | `allow_repeat_speaker` | **Type:** `bool \| list[autogen.agentchat.agent.Agent] \| None`<br/><br/>**Default:** None |
-| `allowed_or_disallowed_speaker_transitions` | **Type:** `dict \| None`<br/><br/>**Default:** None |
+| `allowed_or_disallowed_speaker_transitions` | **Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
 | `speaker_transitions_type` | **Type:** `Literal['allowed', 'disallowed', None]`<br/><br/>**Default:** None |
 | `enable_clear_history` | **Type:** `bool`<br/><br/>**Default:** False |
 | `send_introductions` | **Type:** `bool`<br/><br/>**Default:** False |
@@ -82,7 +82,7 @@ GroupChat(
 | `select_speaker_transform_messages` | **Type:** `autogen.agentchat.contrib.capabilities.transform_messages.TransformMessages \| None`<br/><br/>**Default:** None |
 | `select_speaker_auto_verbose` | **Type:** `bool \| None`<br/><br/>**Default:** False |
 | `select_speaker_auto_model_client_cls` | **Type:** `autogen.oai.client.ModelClient \| list[autogen.oai.client.ModelClient] \| None`<br/><br/>**Default:** None |
-| `select_speaker_auto_llm_config` | **Type:** `dict \| Literal[False] \| None`<br/><br/>**Default:** None |
+| `select_speaker_auto_llm_config` | **Type:** `dict[str, typing.Any] \| Literal[False] \| None`<br/><br/>**Default:** None |
 | `role_for_select_speaker_messages` | **Type:** `str \| None`<br/><br/>**Default:** 'system' |
 
 ### Class Attributes
@@ -243,7 +243,7 @@ a_auto_select_speaker(
     self,
     last_speaker: autogen.agentchat.agent.Agent,
     selector: autogen.agentchat.conversable_agent.ConversableAgent,
-    messages: list[dict] | None,
+    messages: list[dict[str, typing.Any]] | None,
     agents: list[autogen.agentchat.agent.Agent] | None
 ) -> autogen.agentchat.agent.Agent
 ```
@@ -259,7 +259,7 @@ a_auto_select_speaker(
 |--|--|
 | `last_speaker` | **Type:** `autogen.agentchat.agent.Agent` |
 | `selector` | **Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
-| `messages` | **Type:** `list[dict] \| None` |
+| `messages` | **Type:** `list[dict[str, typing.Any]] \| None` |
 | `agents` | **Type:** `list[autogen.agentchat.agent.Agent] \| None` |
 
 <b>Returns:</b>
@@ -319,7 +319,7 @@ agent_by_name(
 ```python
 append(
     self,
-    message: dict,
+    message: dict[str, typing.Any],
     speaker: autogen.agentchat.agent.Agent
 ) -> 
 ```
@@ -330,7 +330,7 @@ append(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `message` | **Type:** `dict` |
+| `message` | **Type:** `dict[str, typing.Any]` |
 | `speaker` | **Type:** `autogen.agentchat.agent.Agent` |
 
 <br />

@@ -26,7 +26,7 @@ pip install "pyautogen[lmm]>=0.2.3"
 ```python
 import os
 import re
-from typing import Dict, List, Optional, Union
+from typing import Any, Optional, Union
 
 import PIL
 import matplotlib.pyplot as plt
@@ -167,7 +167,7 @@ def extract_img(agent: Agent) -> PIL.Image:
 
 ```python
 class DALLEAgent(ConversableAgent):
-    def __init__(self, name, llm_config: dict, **kwargs):
+    def __init__(self, name, llm_config: dict[str, Any], **kwargs: Any):
         super().__init__(name, llm_config=llm_config, **kwargs)
 
         try:
@@ -181,7 +181,7 @@ class DALLEAgent(ConversableAgent):
 
     def send(
         self,
-        message: Union[Dict, str],
+        message: Union[dict[str, Any], str],
         recipient: Agent,
         request_reply: Optional[bool] = None,
         silent: Optional[bool] = False,
@@ -190,7 +190,7 @@ class DALLEAgent(ConversableAgent):
         # otherwise, the print log would be super long!
         super().send(message, recipient, request_reply, silent=True)
 
-    def generate_dalle_reply(self, messages: Optional[List[Dict]], sender: "Agent", config):
+    def generate_dalle_reply(self, messages: Optional[list[dict[str, Any]]], sender: "Agent", config):
         """Generate a reply using OpenAI DALLE call."""
         client = self._dalle_client if config is None else config
         if client is None:

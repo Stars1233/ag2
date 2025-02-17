@@ -12,7 +12,7 @@ CriticAgent(
     name='critic',
     system_message: str | None = 'You are a helpful assistant. You suggest criteria for evaluating different tasks. They should be distinguishable, quantifiable and not redundant.\n    Convert the evaluation criteria into a list where each item is a criteria which consists of the following dictionary as follows\n    {"name": name of the criterion, "description": criteria description , "accepted_values": possible accepted inputs for this key}\n    Make sure "accepted_values" include the acceptable inputs for each key that are fine-grained and preferably multi-graded levels and "description" includes the criterion description.\n    Output just the criteria string you have created, no code.\n    ',
     description: str | None = 'An AI agent for creating list criteria for evaluating the utility of a given task.',
-    **kwargs
+    **kwargs: Any
 )
 ```
 
@@ -24,7 +24,7 @@ CriticAgent(
 | `name='critic'` |  |
 | `system_message` | **Type:** `str \| None`<br/><br/>**Default:** 'You are a helpful assistant. You suggest criteria for evaluating different tasks. They should be distinguishable, quantifiable and not redundant.\n    Convert the evaluation criteria into a list where each item is a criteria which consists of the following dictionary as follows\n    \{"name" |
 | `description` | **Type:** `str \| None`<br/><br/>**Default:** 'An AI agent for creating list criteria for evaluating the utility of a given task.' |
-| `**kwargs` |  |
+| `**kwargs` | **Type:** `Any` |
 
 ### Class Attributes
 

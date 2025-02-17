@@ -10,7 +10,7 @@ title: autogen.agentchat.contrib.agent_optimizer.AgentOptimizer
 ```python
 AgentOptimizer(
     max_actions_per_step: int,
-    llm_config: dict,
+    llm_config: dict[str, typing.Any],
     optimizer_model: str | None = 'gpt-4-1106-preview'
 )
 ```
@@ -21,7 +21,7 @@ AgentOptimizer(
 | Name | Description |
 |--|--|
 | `max_actions_per_step` | **Type:** `int` |
-| `llm_config` | **Type:** `dict` |
+| `llm_config` | **Type:** `dict[str, typing.Any]` |
 | `optimizer_model` | **Type:** `str \| None`<br/><br/>**Default:** 'gpt-4-1106-preview' |
 
 ### Instance Methods
@@ -32,7 +32,7 @@ AgentOptimizer(
 ```python
 record_one_conversation(
     self,
-    conversation_history: list[dict],
+    conversation_history: list[dict[str, typing.Any]],
     is_satisfied: bool = None
 ) -> 
 ```
@@ -42,7 +42,7 @@ record_one_conversation(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `conversation_history` | the chat messages of the conversation.<br/><br/>**Type:** `list[dict]` |
+| `conversation_history` | the chat messages of the conversation.<br/><br/>**Type:** `list[dict[str, typing.Any]]` |
 | `is_satisfied` | whether the user is satisfied with the solution.<br/><br/>If it is none, the user will be asked to input the satisfaction.<br/><br/>**Type:** `bool`<br/><br/>**Default:** None |
 
 <br />

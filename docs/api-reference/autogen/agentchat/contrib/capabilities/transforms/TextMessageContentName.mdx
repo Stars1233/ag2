@@ -12,7 +12,7 @@ TextMessageContentName(
     position: str = 'start',
     format_string: str = '{name}:\n',
     deduplicate: bool = True,
-    filter_dict: dict | None = None,
+    filter_dict: dict[str, typing.Any] | None = None,
     exclude_filter: bool = True
 )
 ```
@@ -39,7 +39,7 @@ TextMessageContentName(
 | `position` | **Type:** `str`<br/><br/>**Default:** 'start' |
 | `format_string` | **Type:** `str`<br/><br/>**Default:** '\{name} |
 | `deduplicate` | **Type:** `bool`<br/><br/>**Default:** True |
-| `filter_dict` | **Type:** `dict \| None`<br/><br/>**Default:** None |
+| `filter_dict` | **Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
 | `exclude_filter` | **Type:** `bool`<br/><br/>**Default:** True |
 
 ### Instance Methods
@@ -48,7 +48,7 @@ TextMessageContentName(
 #### apply_transform
 
 ```python
-apply_transform(self, messages: list[dict]) -> list[dict]
+apply_transform(self, messages: list[dict[str, typing.Any]]) -> list[dict[str, typing.Any]]
 ```
 
     Applies the name change to the message based on the position and format string.<br/>
@@ -56,12 +56,12 @@ apply_transform(self, messages: list[dict]) -> list[dict]
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | A list of message dictionaries.<br/><br/>**Type:** `list[dict]` |
+| `messages` | A list of message dictionaries.<br/><br/>**Type:** `list[dict[str, typing.Any]]` |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `list[dict]` | List[Dict]: A list of dictionaries with the message content updated with names. |
+| `list[dict[str, typing.Any]]` | List[Dict]: A list of dictionaries with the message content updated with names. |
 
 <br />
 
@@ -71,8 +71,8 @@ apply_transform(self, messages: list[dict]) -> list[dict]
 ```python
 get_logs(
     self,
-    pre_transform_messages: list[dict],
-    post_transform_messages: list[dict]
+    pre_transform_messages: list[dict[str, typing.Any]],
+    post_transform_messages: list[dict[str, typing.Any]]
 ) -> tuple[str, bool]
 ```
 
@@ -81,7 +81,7 @@ get_logs(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `pre_transform_messages` | **Type:** `list[dict]` |
-| `post_transform_messages` | **Type:** `list[dict]` |
+| `pre_transform_messages` | **Type:** `list[dict[str, typing.Any]]` |
+| `post_transform_messages` | **Type:** `list[dict[str, typing.Any]]` |
 
 <br />

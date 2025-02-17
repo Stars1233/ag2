@@ -9,7 +9,7 @@ title: autogen.code_utils.implement
 ```python
 implement(
     definition: str,
-    configs: list[dict] | None = None,
+    configs: list[dict[str, typing.Any]] | None = None,
     assertions: str | Callable[[str], tuple[str, float]] | None = <function generate_assertions>
 ) -> tuple[str, float]
 ```
@@ -20,7 +20,7 @@ implement(
 | Name | Description |
 |--|--|
 | `definition` | The function definition, including the signature and docstr.<br/><br/>**Type:** `str` |
-| `configs` | The list of configurations for completion.<br/><br/>**Type:** `list[dict] \| None`<br/><br/>**Default:** None |
+| `configs` | The list of configurations for completion.<br/><br/>**Type:** `list[dict[str, typing.Any]] \| None`<br/><br/>**Default:** None |
 | `assertions` | The assertion code which serves as a filter of the responses, or an assertion generator.<br/><br/>**Type:** `str \| Callable[[str], tuple[str, float]] \| None`<br/><br/>**Default:** function generate_assertions> |
 
 <b>Returns:</b>

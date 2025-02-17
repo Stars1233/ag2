@@ -11,11 +11,11 @@ title: autogen.agentchat.contrib.gpt_assistant_agent.GPTAssistantAgent
 GPTAssistantAgent(
     name='GPT Assistant',
     instructions: str | None = None,
-    llm_config: dict | bool | None = None,
-    assistant_config: dict | None = None,
+    llm_config: dict[str, typing.Any] | bool | None = None,
+    assistant_config: dict[str, typing.Any] | None = None,
     overwrite_instructions: bool = False,
     overwrite_tools: bool = False,
-    **kwargs
+    **kwargs: Any
 )
 ```
 
@@ -26,11 +26,11 @@ GPTAssistantAgent(
 |--|--|
 | `name='GPT Assistant'` |  |
 | `instructions` | **Type:** `str \| None`<br/><br/>**Default:** None |
-| `llm_config` | **Type:** `dict \| bool \| None`<br/><br/>**Default:** None |
-| `assistant_config` | **Type:** `dict \| None`<br/><br/>**Default:** None |
+| `llm_config` | **Type:** `dict[str, typing.Any] \| bool \| None`<br/><br/>**Default:** None |
+| `assistant_config` | **Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
 | `overwrite_instructions` | **Type:** `bool`<br/><br/>**Default:** False |
 | `overwrite_tools` | **Type:** `bool`<br/><br/>**Default:** False |
-| `**kwargs` |  |
+| `**kwargs` | **Type:** `Any` |
 
 ### Class Attributes
 

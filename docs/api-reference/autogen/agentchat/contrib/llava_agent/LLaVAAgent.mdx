@@ -12,7 +12,7 @@ LLaVAAgent(
     name: str,
     system_message: tuple[str, list] | None = 'You are an AI agent and you can view images.',
     *args,
-    **kwargs
+    **kwargs: Any
 )
 ```
 
@@ -26,4 +26,4 @@ LLaVAAgent(
 | `name` | **Type:** `str` |
 | `system_message` | **Type:** `tuple[str, list] \| None`<br/><br/>**Default:** 'You are an AI agent and you can view images.' |
 | `*args` |  |
-| `**kwargs` |  |
+| `**kwargs` | **Type:** `Any` |

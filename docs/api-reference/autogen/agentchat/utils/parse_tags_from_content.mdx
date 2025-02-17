@@ -7,7 +7,7 @@ title: autogen.agentchat.utils.parse_tags_from_content
 #### parse_tags_from_content
 
 ```python
-parse_tags_from_content(tag: str, content: str | list[dict[str, typing.Any]]) -> list[dict[str, dict[str, str]]]
+parse_tags_from_content(tag: str, content: list[dict[str, typing.Any]] | str) -> list[dict[str, dict[str, str]]]
 ```
 
     Parses HTML style tags from message contents.<br/>The parsing is done by looking for patterns in the text that match the format of HTML tags. The tag to be parsed is
@@ -21,7 +21,7 @@ parse_tags_from_content(tag: str, content: str | list[dict[str, typing.Any]
 | Name | Description |
 |--|--|
 | `tag` | The HTML style tag to be parsed.<br/><br/>**Type:** `str` |
-| `content` | The message content to parse.<br/><br/>Can be a string or a list of content items.<br/><br/>**Type:** `str \| list[dict[str, typing.Any]]` |
+| `content` | The message content to parse.<br/><br/>Can be a string or a list of content items.<br/><br/>**Type:** `list[dict[str, typing.Any]] \| str` |
 
 <b>Returns:</b>
 | Type | Description |

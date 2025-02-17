@@ -7,7 +7,7 @@ title: autogen.oai.bedrock.extract_system_messages
 #### extract_system_messages
 
 ```python
-extract_system_messages(messages: list[dict]) -> list
+extract_system_messages(messages: list[dict[str, Any]]) -> list
 ```
 
     Extract the system messages from the list of messages.<br/>
@@ -15,7 +15,7 @@ extract_system_messages(messages: list[dict]) -> list
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | List of messages.<br/><br/>**Type:** `list[dict]` |
+| `messages` | List of messages.<br/><br/>**Type:** `list[dict[str, Any]]` |
 
 <b>Returns:</b>
 | Type | Description |

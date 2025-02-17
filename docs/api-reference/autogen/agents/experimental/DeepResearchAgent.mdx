@@ -13,7 +13,7 @@ DeepResearchAgent(
     llm_config: dict[str, typing.Any],
     system_message: str | list[str] | None = 'You are a deep research agent. You have the ability to get information from the web and perform research tasks.',
     max_web_steps: int = 30,
-    **kwargs
+    **kwargs: Any
 )
 ```
 
@@ -26,7 +26,7 @@ DeepResearchAgent(
 | `llm_config` | **Type:** `dict[str, typing.Any]` |
 | `system_message` | **Type:** `str \| list[str] \| None`<br/><br/>**Default:** 'You are a deep research agent. You have the ability to get information from the web and perform research tasks.' |
 | `max_web_steps` | **Type:** `int`<br/><br/>**Default:** 30 |
-| `**kwargs` |  |
+| `**kwargs` | **Type:** `Any` |
 
 ### Class Attributes
 

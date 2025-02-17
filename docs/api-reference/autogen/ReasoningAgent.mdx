@@ -10,14 +10,14 @@ title: autogen.ReasoningAgent
 ```python
 ReasoningAgent(
     name: str,
-    llm_config: dict,
-    grader_llm_config: dict | None = None,
+    llm_config: dict[str, typing.Any],
+    grader_llm_config: dict[str, typing.Any] | None = None,
     max_depth: int = 4,
     beam_size: int = 3,
     answer_approach: str = 'pool',
     verbose: bool = True,
-    reason_config: dict = {},
-    **kwargs
+    reason_config: dict[str, typing.Any] | None = None,
+    **kwargs: Any
 )
 ```
 
@@ -29,14 +29,14 @@ ReasoningAgent(
 | Name | Description |
 |--|--|
 | `name` | **Type:** `str` |
-| `llm_config` | **Type:** `dict` |
-| `grader_llm_config` | **Type:** `dict \| None`<br/><br/>**Default:** None |
+| `llm_config` | **Type:** `dict[str, typing.Any]` |
+| `grader_llm_config` | **Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
 | `max_depth` | **Type:** `int`<br/><br/>**Default:** 4 |
 | `beam_size` | **Type:** `int`<br/><br/>**Default:** 3 |
 | `answer_approach` | **Type:** `str`<br/><br/>**Default:** 'pool' |
 | `verbose` | **Type:** `bool`<br/><br/>**Default:** True |
-| `reason_config` | **Type:** `dict`<br/><br/>**Default:** \{} |
-| `**kwargs` |  |
+| `reason_config` | **Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
+| `**kwargs` | **Type:** `Any` |
 
 ### Instance Attributes
 
@@ -54,9 +54,9 @@ ReasoningAgent(
 ```python
 generate_forest_response(
     self,
-    messages: list[dict],
+    messages: list[dict[str, typing.Any]],
     sender: autogen.agentchat.agent.Agent,
-    config: dict | None = None
+    config: dict[str, typing.Any] | None = None
 ) -> tuple[bool, str]
 ```
 
@@ -65,9 +65,9 @@ generate_forest_response(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | Input messages to respond to<br/><br/>**Type:** `list[dict]` |
+| `messages` | Input messages to respond to<br/><br/>**Type:** `list[dict[str, typing.Any]]` |
 | `sender` | Agent sending the messages<br/><br/>**Type:** `autogen.agentchat.agent.Agent` |
-| `config` | Optional configuration<br/><br/>**Type:** `dict \| None`<br/><br/>**Default:** None |
+| `config` | Optional configuration<br/><br/>**Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
 
 <b>Returns:</b>
 | Type | Description |

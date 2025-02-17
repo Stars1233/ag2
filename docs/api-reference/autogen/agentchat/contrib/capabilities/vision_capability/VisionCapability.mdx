@@ -9,7 +9,7 @@ title: autogen.agentchat.contrib.capabilities.vision_capability.VisionCapability
 
 ```python
 VisionCapability(
-    lmm_config: dict,
+    lmm_config: dict[str, typing.Any],
     description_prompt: str | None = 'Write a detailed caption for this image. Pay special attention to any details that might be useful or relevant to the ongoing conversation.',
     custom_caption_func: Callable = None
 )
@@ -30,7 +30,7 @@ VisionCapability(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `lmm_config` | **Type:** `dict` |
+| `lmm_config` | **Type:** `dict[str, typing.Any]` |
 | `description_prompt` | **Type:** `str \| None`<br/><br/>**Default:** 'Write a detailed caption for this image. Pay special attention to any details that might be useful or relevant to the ongoing conversation.' |
 | `custom_caption_func` | **Type:** `Callable`<br/><br/>**Default:** None |
 
@@ -40,7 +40,7 @@ VisionCapability(
 #### process_last_received_message
 
 ```python
-process_last_received_message(self, content: list[dict] | str) -> str
+process_last_received_message(self, content: list[dict[str, typing.Any]] | str) -> str
 ```
 
     Processes the last received message content by normalizing and augmenting it
@@ -57,7 +57,7 @@ process_last_received_message(self, content: list[dict] | str) -> str
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `content` | The last received message content, which can be a plain text string or a list of dictionaries representing different types of content items (e.g., text, image_url).<br/><br/>**Type:** `list[dict] \| str` |
+| `content` | The last received message content, which can be a plain text string or a list of dictionaries representing different types of content items (e.g., text, image_url).<br/><br/>**Type:** `list[dict[str, typing.Any]] \| str` |
 
 <b>Returns:</b>
 | Type | Description |

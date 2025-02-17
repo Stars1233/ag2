@@ -72,7 +72,7 @@ download the example video locally. You can change `your_file_path` to
 your local video file path.
 
 ```python
-from typing import Annotated, List
+from typing import Annotated, Any, List
 
 import whisper
 from openai import OpenAI
@@ -149,7 +149,7 @@ def translate_transcript(
 
 @user_proxy.register_for_execution()
 @assistant.register_for_llm(description="recognize the speech from video and transfer into a txt file")
-def recognize_transcript_from_video(filepath: Annotated[str, "path of the video file"]) -> List[dict]:
+def recognize_transcript_from_video(filepath: Annotated[str, "path of the video file"]) -> List[dict[str, Any]]:
     try:
         # Load model
         model = whisper.load_model("small")
