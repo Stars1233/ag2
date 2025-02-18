@@ -101,8 +101,8 @@ clear_cache(seed: int | None = None, cache_path_root: str | None = '.c
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `seed` | The integer identifier for the pseudo seed.<br/><br/>If omitted, all caches under cache_path_root will be cleared.<br/><br/>**Type:** `int \| None`<br/><br/>**Default:** None |
-| `cache_path_root` | **Type:** `str \| None`<br/><br/>**Default:** '.cache' |
+| `seed` | The integer identifier for the pseudo seed.<br/><br/>If omitted, all caches under cache_path_root will be cleared.<br/><br/>**Type:** int \| None<br/><br/>**Default:** None |
+| `cache_path_root` | **Type:** str \| None<br/><br/>**Default:** '.cache' |
 
 <br />
 
@@ -118,7 +118,7 @@ cost(response: dict) ->
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `response` | The response from OpenAI API.<br/><br/>**Type:** `dict` |
+| `response` | The response from OpenAI API.<br/><br/>**Type:** dict |
 
 <br />
 
@@ -127,9 +127,9 @@ cost(response: dict) ->
 
 ```python
 create(
-    context: dict[str, typing.Any] | None = None,
+    context: dict[str, Any] | None = None,
     use_cache: bool | None = True,
-    config_list: list[dict[str, typing.Any]] | None = None,
+    config_list: list[dict[str, Any]] | None = None,
     filter_func: Callable[[dict[str, Any], dict[str, Any]], bool] | None = None,
     raise_on_ratelimit_or_timeout: bool | None = True,
     allow_format_str_template: bool | None = False,
@@ -142,12 +142,12 @@ create(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `context` | The context to instantiate the prompt.<br/><br/>It needs to contain keys that are used by the prompt template or the filter function.<br/><br/>E.g., `prompt="Complete the following sentence: \{prefix}, context=\{"prefix": "Today I feel"}`.<br/><br/>The actual prompt will be: "Complete the following sentence: Today I feel".<br/><br/>**Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
-| `use_cache` | Whether to use cached responses.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** True |
-| `config_list` | List of configurations for the completion to try.<br/><br/>The first one that does not raise an error will be used.<br/><br/>Only the differences from the default config need to be provided.<br/><br/>E.g., ```response = oai.Completion.create( config_list = [ \{ "model": "gpt-4", "api_key": os.environ.get("AZURE_OPENAI_API_KEY"), "api_type": "azure", "base_url": os.environ.get("AZURE_OPENAI_API_BASE"), "api_version": "2024-02-01", }, \{ "model": "gpt-3.5-turbo", "api_key": os.environ.get("OPENAI_API_KEY"), "api_type": "openai", "base_url": "https://api.openai.com/v1", }, \{ "model": "llama-7B", "base_url": "http://127.0.0.1:8080", "api_type": "openai", }, ], prompt="Hi", ) ```<br/><br/>**Type:** `list[dict[str, typing.Any]] \| None`<br/><br/>**Default:** None |
-| `filter_func` | A function that takes in the context and the response and returns a boolean to indicate whether the response is valid.<br/><br/>E.g., ```def yes_or_no_filter(context, config, response): return context.get("yes_or_no_choice", False) is False or any( text in ["Yes.", "No."] for text in oai.Completion.extract_text(response) ) ```<br/><br/>**Type:** `Callable[[dict[str, Any], dict[str, Any]], bool] \| None`<br/><br/>**Default:** None |
-| `raise_on_ratelimit_or_timeout` | Whether to raise RateLimitError or Timeout when all configs fail.<br/><br/>When set to False, -1 will be returned when all configs fail.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** True |
-| `allow_format_str_template` | Whether to allow format string template in the config.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** False |
+| `context` | The context to instantiate the prompt.<br/><br/>It needs to contain keys that are used by the prompt template or the filter function.<br/><br/>E.g., `prompt="Complete the following sentence: \{prefix}, context=\{"prefix": "Today I feel"}`.<br/><br/>The actual prompt will be: "Complete the following sentence: Today I feel".<br/><br/>**Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
+| `use_cache` | Whether to use cached responses.<br/><br/>**Type:** bool \| None<br/><br/>**Default:** True |
+| `config_list` | List of configurations for the completion to try.<br/><br/>The first one that does not raise an error will be used.<br/><br/>Only the differences from the default config need to be provided.<br/><br/>E.g., ```response = oai.Completion.create( config_list = [ \{ "model": "gpt-4", "api_key": os.environ.get("AZURE_OPENAI_API_KEY"), "api_type": "azure", "base_url": os.environ.get("AZURE_OPENAI_API_BASE"), "api_version": "2024-02-01", }, \{ "model": "gpt-3.5-turbo", "api_key": os.environ.get("OPENAI_API_KEY"), "api_type": "openai", "base_url": "https://api.openai.com/v1", }, \{ "model": "llama-7B", "base_url": "http://127.0.0.1:8080", "api_type": "openai", }, ], prompt="Hi", ) ```<br/><br/>**Type:** list[dict[str, typing.Any]] \| None<br/><br/>**Default:** None |
+| `filter_func` | A function that takes in the context and the response and returns a boolean to indicate whether the response is valid.<br/><br/>E.g., ```def yes_or_no_filter(context, config, response): return context.get("yes_or_no_choice", False) is False or any( text in ["Yes.", "No."] for text in oai.Completion.extract_text(response) ) ```<br/><br/>**Type:** Callable[[dict[str, Any], dict[str, Any]], bool] \| None<br/><br/>**Default:** None |
+| `raise_on_ratelimit_or_timeout` | Whether to raise RateLimitError or Timeout when all configs fail.<br/><br/>When set to False, -1 will be returned when all configs fail.<br/><br/>**Type:** bool \| None<br/><br/>**Default:** True |
+| `allow_format_str_template` | Whether to allow format string template in the config.<br/><br/>**Type:** bool \| None<br/><br/>**Default:** False |
 | `**config` | Configuration for the openai API call.<br/><br/>This is used as parameters for calling openai API.<br/><br/>The "prompt" or "messages" parameter can contain a template (str or Callable) which will be instantiated with the context.<br/><br/>Besides the parameters for the openai API call, it can also contain: - `max_retry_period` (int): the total time (in seconds) allowed for retrying failed requests.<br/><br/>- `retry_wait_time` (int): the time interval to wait (in seconds) before retrying a failed request.<br/><br/>- `cache_seed` (int) for the cache.<br/><br/>This is useful when implementing "controlled randomness" for the completion.<br/><br/> |
 
 <br />
@@ -164,12 +164,12 @@ extract_text(response: dict) -> list[str]
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `response` | The response from OpenAI API.<br/><br/>**Type:** `dict` |
+| `response` | The response from OpenAI API.<br/><br/>**Type:** dict |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `list[str]` | A list of text in the responses. |
+| list[str] | A list of text in the responses. |
 
 <br />
 
@@ -185,12 +185,12 @@ extract_text_or_function_call(response: dict) -> list[str]
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `response` | The response from OpenAI API.<br/><br/>**Type:** `dict` |
+| `response` | The response from OpenAI API.<br/><br/>**Type:** dict |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `list[str]` | A list of text or function calls in the responses. |
+| list[str] | A list of text or function calls in the responses. |
 
 <br />
 
@@ -200,7 +200,7 @@ extract_text_or_function_call(response: dict) -> list[str]
 ```python
 instantiate(
     template: str | None,
-    context: dict[str, typing.Any] | None = None,
+    context: dict[str, Any] | None = None,
     allow_format_str_template: bool | None = False
 ) -> 
 ```
@@ -210,9 +210,9 @@ instantiate(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `template` | **Type:** `str \| None` |
-| `context` | **Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
-| `allow_format_str_template` | **Type:** `bool \| None`<br/><br/>**Default:** False |
+| `template` | **Type:** str \| None |
+| `context` | **Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
+| `allow_format_str_template` | **Type:** bool \| None<br/><br/>**Default:** False |
 
 <br />
 
@@ -239,8 +239,8 @@ set_cache(seed: int | None = 41, cache_path_root: str | None = '.cache
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `seed` | The integer identifier for the pseudo seed.<br/><br/>Results corresponding to different seeds will be cached in different places.<br/><br/>**Type:** `int \| None`<br/><br/>**Default:** 41 |
-| `cache_path_root` | **Type:** `str \| None`<br/><br/>**Default:** '.cache' |
+| `seed` | The integer identifier for the pseudo seed.<br/><br/>Results corresponding to different seeds will be cached in different places.<br/><br/>**Type:** int \| None<br/><br/>**Default:** 41 |
+| `cache_path_root` | **Type:** str \| None<br/><br/>**Default:** '.cache' |
 
 <br />
 
@@ -249,7 +249,7 @@ set_cache(seed: int | None = 41, cache_path_root: str | None = '.cache
 
 ```python
 start_logging(
-    history_dict: dict[str, typing.Any] | None = None,
+    history_dict: dict[str, Any] | None = None,
     compact: bool | None = True,
     reset_counter: bool | None = True
 ) -> 
@@ -260,9 +260,9 @@ start_logging(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `history_dict` | A dictionary for book keeping.<br/><br/>If no provided, a new one will be created.<br/><br/>**Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
-| `compact` | Whether to keep the history dictionary compact.<br/><br/>Compact history contains one key per conversation, and the value is a dictionary like:<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** True |
-| `reset_counter` | whether to reset the counter of the number of API calls.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** True |
+| `history_dict` | A dictionary for book keeping.<br/><br/>If no provided, a new one will be created.<br/><br/>**Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
+| `compact` | Whether to keep the history dictionary compact.<br/><br/>Compact history contains one key per conversation, and the value is a dictionary like:<br/><br/>**Type:** bool \| None<br/><br/>**Default:** True |
+| `reset_counter` | whether to reset the counter of the number of API calls.<br/><br/>**Type:** bool \| None<br/><br/>**Default:** True |
 
 <br />
 

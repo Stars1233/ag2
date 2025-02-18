@@ -13,7 +13,7 @@ MessageTokenLimiter(
     max_tokens: int | None = None,
     min_tokens: int | None = None,
     model: str = 'gpt-3.5-turbo-0613',
-    filter_dict: dict[str, typing.Any] | None = None,
+    filter_dict: dict[str, Any] | None = None,
     exclude_filter: bool = True
 )
 ```
@@ -30,12 +30,12 @@ MessageTokenLimiter(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `max_tokens_per_message` | **Type:** `int \| None`<br/><br/>**Default:** None |
-| `max_tokens` | **Type:** `int \| None`<br/><br/>**Default:** None |
-| `min_tokens` | **Type:** `int \| None`<br/><br/>**Default:** None |
-| `model` | **Type:** `str`<br/><br/>**Default:** 'gpt-3.5-turbo-0613' |
-| `filter_dict` | **Type:** `dict[str, typing.Any] \| None`<br/><br/>**Default:** None |
-| `exclude_filter` | **Type:** `bool`<br/><br/>**Default:** True |
+| `max_tokens_per_message` | **Type:** int \| None<br/><br/>**Default:** None |
+| `max_tokens` | **Type:** int \| None<br/><br/>**Default:** None |
+| `min_tokens` | **Type:** int \| None<br/><br/>**Default:** None |
+| `model` | **Type:** str<br/><br/>**Default:** 'gpt-3.5-turbo-0613' |
+| `filter_dict` | **Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
+| `exclude_filter` | **Type:** bool<br/><br/>**Default:** True |
 
 ### Instance Methods
 
@@ -43,7 +43,7 @@ MessageTokenLimiter(
 #### apply_transform
 
 ```python
-apply_transform(self, messages: list[dict[str, typing.Any]]) -> list[dict[str, typing.Any]]
+apply_transform(self, messages: list[dict[str, Any]]) -> list[dict[str, Any]]
 ```
 
     Applies token truncation to the conversation history.<br/>
@@ -51,12 +51,12 @@ apply_transform(self, messages: list[dict[str, typing.Any]]) -> list[dict[str,
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | The list of messages representing the conversation history.<br/><br/>**Type:** `list[dict[str, typing.Any]]` |
+| `messages` | The list of messages representing the conversation history.<br/><br/>**Type:** list[dict[str, typing.Any]] |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `list[dict[str, typing.Any]]` | List[Dict]: A new list containing the truncated messages up to the specified token limits. |
+| list[dict[str, typing.Any]] | List[Dict]: A new list containing the truncated messages up to the specified token limits. |
 
 <br />
 
@@ -66,8 +66,8 @@ apply_transform(self, messages: list[dict[str, typing.Any]]) -> list[dict[str,
 ```python
 get_logs(
     self,
-    pre_transform_messages: list[dict[str, typing.Any]],
-    post_transform_messages: list[dict[str, typing.Any]]
+    pre_transform_messages: list[dict[str, Any]],
+    post_transform_messages: list[dict[str, Any]]
 ) -> tuple[str, bool]
 ```
 
@@ -76,7 +76,7 @@ get_logs(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `pre_transform_messages` | **Type:** `list[dict[str, typing.Any]]` |
-| `post_transform_messages` | **Type:** `list[dict[str, typing.Any]]` |
+| `pre_transform_messages` | **Type:** list[dict[str, typing.Any]] |
+| `post_transform_messages` | **Type:** list[dict[str, typing.Any]] |
 
 <br />

@@ -16,8 +16,8 @@ OpenAIClient(client: Union[OpenAI, AzureOpenAI], response_format: Optional[Ba
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `client` | **Type:** `Union[OpenAI, AzureOpenAI]` |
-| `response_format` | **Type:** `Optional[BaseModel]`<br/><br/>**Default:** None |
+| `client` | **Type:** Union[OpenAI, AzureOpenAI] |
+| `response_format` | **Type:** Optional[BaseModel]<br/><br/>**Default:** None |
 
 ### Static Methods
 
@@ -33,7 +33,7 @@ get_usage(response: Union[ChatCompletion, Completion]) -> dict
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `response` | **Type:** `Union[ChatCompletion, Completion]` |
+| `response` | **Type:** Union[ChatCompletion, Completion] |
 
 <br />
 
@@ -51,7 +51,7 @@ cost(self, response: Union[ChatCompletion, Completion]) -> float
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `response` | **Type:** `Union[ChatCompletion, Completion]` |
+| `response` | **Type:** Union[ChatCompletion, Completion] |
 
 <br />
 
@@ -59,7 +59,7 @@ cost(self, response: Union[ChatCompletion, Completion]) -> float
 #### create
 
 ```python
-create(self, params: dict[str, Any]) -> openai.types.chat.chat_completion.ChatCompletion
+create(self, params: dict[str, Any]) -> ChatCompletion
 ```
 
     Create a completion for a given config using openai's client.<br/>
@@ -67,12 +67,12 @@ create(self, params: dict[str, Any]) -> openai.types.chat.chat_completion.Chat
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `params` | The params for the completion.<br/><br/>**Type:** `dict[str, Any]` |
+| `params` | The params for the completion.<br/><br/>**Type:** dict[str, Any] |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `openai.types.chat.chat_completion.ChatCompletion` | The completion. |
+| openai.types.chat.chat_completion.ChatCompletion | The completion. |
 
 <br />
 
@@ -80,7 +80,7 @@ create(self, params: dict[str, Any]) -> openai.types.chat.chat_completion.Chat
 #### message_retrieval
 
 ```python
-message_retrieval(self, response: Union[ChatCompletion, Completion]) -> list[str] | list[openai.types.chat.chat_completion_message.ChatCompletionMessage]
+message_retrieval(self, response: Union[ChatCompletion, Completion]) -> list[str] | list[ChatCompletionMessage]
 ```
 
     Retrieve the messages from the response.
@@ -88,6 +88,6 @@ message_retrieval(self, response: Union[ChatCompletion, Completion]) -> list[s
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `response` | **Type:** `Union[ChatCompletion, Completion]` |
+| `response` | **Type:** Union[ChatCompletion, Completion] |
 
 <br />

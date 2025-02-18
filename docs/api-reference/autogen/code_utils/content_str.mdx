@@ -7,7 +7,7 @@ title: autogen.code_utils.content_str
 #### content_str
 
 ```python
-content_str(content: str | list[autogen.types.UserMessageTextContentPart | autogen.types.UserMessageImageContentPart] | None) -> str
+content_str(content: str | list[UserMessageTextContentPart | UserMessageImageContentPart] | None) -> str
 ```
 
     Converts the `content` field of an OpenAI message into a string format.<br/>This function processes content that may be a string, a list of mixed text and image URLs, or None,
@@ -17,11 +17,11 @@ content_str(content: str | list[autogen.types.UserMessageTextContentPart | 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `content` | **Type:** `str \| list[autogen.types.UserMessageTextContentPart \| autogen.types.UserMessageImageContentPart] \| None` |
+| `content` | **Type:** str \| list[[UserMessageTextContentPart](/docs/api-reference/autogen/types/UserMessageTextContentPart) \| [UserMessageImageContentPart](/docs/api-reference/autogen/types/UserMessageImageContentPart)] \| None |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `str` | str: A string representation of the input content. Image URLs are replaced with an image token. |
+| str | str: A string representation of the input content. Image URLs are replaced with an image token. |
 
 <br />

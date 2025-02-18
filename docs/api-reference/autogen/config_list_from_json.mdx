@@ -11,7 +11,7 @@ config_list_from_json(
     env_or_file: str,
     file_location: str | None = '',
     filter_dict: dict[str, list[str | None] | set[str | None]] | None = None
-) -> list[dict[str, typing.Any]]
+) -> list[dict[str, Any]]
 ```
 
     Retrieves a list of API configurations from a JSON stored in an environment variable or a file.<br/>This function attempts to parse JSON data from the given `env_or_file` parameter. If `env_or_file` is an
@@ -24,13 +24,13 @@ config_list_from_json(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `env_or_file` | The name of the environment variable, the filename, or the environment variable of the filename that containing the JSON data.<br/><br/>**Type:** `str` |
-| `file_location` | The directory path where the file is located, if `env_or_file` is a filename.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** '' |
-| `filter_dict` | A dictionary specifying the filtering criteria for the configurations, with keys representing field names and values being lists or sets of acceptable values for those fields.<br/><br/>**Type:** `dict[str, list[str \| None] \| set[str \| None]] \| None`<br/><br/>**Default:** None |
+| `env_or_file` | The name of the environment variable, the filename, or the environment variable of the filename that containing the JSON data.<br/><br/>**Type:** str |
+| `file_location` | The directory path where the file is located, if `env_or_file` is a filename.<br/><br/>**Type:** str \| None<br/><br/>**Default:** '' |
+| `filter_dict` | A dictionary specifying the filtering criteria for the configurations, with keys representing field names and values being lists or sets of acceptable values for those fields.<br/><br/>**Type:** dict[str, list[str \| None] \| set[str \| None]] \| None<br/><br/>**Default:** None |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `list[dict[str, typing.Any]]` | List[Dict]: A list of configuration dictionaries that match the filtering criteria specified in `filter_dict`. |
+| list[dict[str, typing.Any]] | List[Dict]: A list of configuration dictionaries that match the filtering criteria specified in `filter_dict`. |
 
 <br />

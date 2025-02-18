@@ -7,7 +7,7 @@ title: autogen.messages.wrap_message
 #### wrap_message
 
 ```python
-wrap_message(message_cls: type[autogen.messages.base_message.BaseMessage]) -> type[pydantic.main.BaseModel]
+wrap_message(message_cls: type[BaseMessage]) -> type[BaseModel]
 ```
 
     Wrap a message class with a type field to be used in a union type
@@ -17,6 +17,6 @@ wrap_message(message_cls: type[autogen.messages.base_message.BaseMessage]) -> t
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `message_cls` | Message class to wrap<br/><br/>**Type:** `type[autogen.messages.base_message.BaseMessage]` |
+| `message_cls` | Message class to wrap<br/><br/>**Type:** type[[BaseMessage](/docs/api-reference/autogen/messages/BaseMessage)] |
 
 <br />

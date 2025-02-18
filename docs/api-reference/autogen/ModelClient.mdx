@@ -64,7 +64,7 @@ get_usage(response: ModelClientResponseProtocol) -> dict
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `response` | **Type:** `ModelClientResponseProtocol` |
+| `response` | **Type:** ModelClientResponseProtocol |
 
 <br />
 
@@ -82,7 +82,7 @@ cost(self, response: ModelClientResponseProtocol) -> float
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `response` | **Type:** `ModelClientResponseProtocol` |
+| `response` | **Type:** ModelClientResponseProtocol |
 
 <br />
 
@@ -98,7 +98,7 @@ create(self, params: dict[str, Any]) -> ModelClientResponseProtocol
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `params` | **Type:** `dict[str, Any]` |
+| `params` | **Type:** dict[str, Any] |
 
 <br />
 
@@ -106,7 +106,7 @@ create(self, params: dict[str, Any]) -> ModelClientResponseProtocol
 #### message_retrieval
 
 ```python
-message_retrieval(self, response: ModelClientResponseProtocol) -> Union[list[str], list[ModelClient.ModelClientResponseProtocol.Choice.Message]]
+message_retrieval(self, response: ModelClientResponseProtocol) -> Union[list[str], list[Message]]
 ```
 
     Retrieve and return a list of strings or a list of Choice.Message from the response.<br/>NOTE: if a list of Choice.Message is returned, it currently needs to contain the fields of OpenAI's ChatCompletion Message object,
@@ -115,6 +115,6 @@ message_retrieval(self, response: ModelClientResponseProtocol) -> Union[list[st
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `response` | **Type:** `ModelClientResponseProtocol` |
+| `response` | **Type:** ModelClientResponseProtocol |
 
 <br />

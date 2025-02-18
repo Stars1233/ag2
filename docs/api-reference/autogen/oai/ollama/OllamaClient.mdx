@@ -105,7 +105,7 @@ oai_messages_to_ollama_messages(
     self,
     messages: list[dict[str, Any]],
     tools: list
-) -> list[dict[str, typing.Any]]
+) -> list[dict[str, Any]]
 ```
 
     Convert messages from OAI format to Ollama's format.<br/>We correct for any specific role orders and types, and convert tools to messages (as Ollama can't use tool messages)
@@ -113,8 +113,8 @@ oai_messages_to_ollama_messages(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | **Type:** `list[dict[str, Any]]` |
-| `tools` | **Type:** `list` |
+| `messages` | **Type:** list[dict[str, Any]] |
+| `tools` | **Type:** list |
 
 <br />
 
@@ -122,7 +122,7 @@ oai_messages_to_ollama_messages(
 #### parse_params
 
 ```python
-parse_params(self, params: dict[str, Any]) -> dict[str, typing.Any]
+parse_params(self, params: dict[str, Any]) -> dict[str, Any]
 ```
 
     Loads the parameters for Ollama API from the passed in parameters and returns a validated set. Checks types, ranges, and sets defaults
@@ -130,6 +130,6 @@ parse_params(self, params: dict[str, Any]) -> dict[str, typing.Any]
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `params` | **Type:** `dict[str, Any]` |
+| `params` | **Type:** dict[str, Any] |
 
 <br />

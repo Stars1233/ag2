@@ -164,7 +164,7 @@ Start the conversation
 dalle = image_generator_agent()
 critic = critic_agent()
 
-img_prompt = "A happy dog wearing a shirt saying 'I Love AutoGen'. Make sure the text is clear."
+img_prompt = "A happy dog wearing a shirt saying 'I Love AG2'. Make sure the text is clear."
 # img_prompt = "Ask me how I'm doing"
 
 result = dalle.initiate_chat(critic, message=img_prompt)
@@ -173,7 +173,7 @@ result = dalle.initiate_chat(critic, message=img_prompt)
 ``` text
 dalle (to critic):
 
-A happy dog wearing a shirt saying 'I Love AutoGen'. Make sure the text is clear.
+A happy dog wearing a shirt saying 'I Love AG2'. Make sure the text is clear.
 
 --------------------------------------------------------------------------------
 critic (to dalle):
@@ -181,17 +181,17 @@ critic (to dalle):
 CRITICS: the image needs to improve the contrast and size of the text to enhance its clarity, and the shirt's color should not clash with the dog's fur color to maintain a harmonious color scheme.
 
 PROMPT: here is the updated prompt!
-Create an image of a joyful dog with a coat of a contrasting color to its fur, wearing a shirt with bold, large text saying 'I Love AutoGen' for clear readability.
+Create an image of a joyful dog with a coat of a contrasting color to its fur, wearing a shirt with bold, large text saying 'I Love AG2' for clear readability.
 
 --------------------------------------------------------------------------------
 dalle (to critic):
 
-I generated an image with the prompt: Joyful dog, contrasting coat color to its fur, shirt with bold, large text "I Love AutoGen" for clear readability.<image>
+I generated an image with the prompt: Joyful dog, contrasting coat color to its fur, shirt with bold, large text "I Love AG2" for clear readability.<image>
 
 --------------------------------------------------------------------------------
 critic (to dalle):
 
-CRITICS: the image effectively showcases a joyful dog with a contrasting shirt color, and the text 'I Love AutoGen' is large and bold, ensuring clear readability.
+CRITICS: the image effectively showcases a joyful dog with a contrasting shirt color, and the text 'I Love AG2' is large and bold, ensuring clear readability.
 
 PROMPT: TERMINATE
 

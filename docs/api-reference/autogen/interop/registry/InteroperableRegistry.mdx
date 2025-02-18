@@ -19,7 +19,7 @@ InteroperableRegistry()
 #### get_instance
 
 ```python
-get_instance() -> autogen.interop.registry.InteroperableRegistry
+get_instance() -> InteroperableRegistry
 ```
 
     
@@ -32,7 +32,7 @@ get_instance() -> autogen.interop.registry.InteroperableRegistry
 #### get_class
 
 ```python
-get_class(self, short_name: str) -> type[autogen.interop.interoperable.Interoperable]
+get_class(self, short_name: str) -> type[Interoperable]
 ```
 
     
@@ -40,7 +40,7 @@ get_class(self, short_name: str) -> type[autogen.interop.interoperable.Interope
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `short_name` | **Type:** `str` |
+| `short_name` | **Type:** str |
 
 <br />
 
@@ -82,7 +82,7 @@ register(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `short_name` | **Type:** `str` |
-| `cls` | **Type:** `~InteroperableClass` |
+| `short_name` | **Type:** str |
+| `cls` | **Type:** ~InteroperableClass |
 
 <br />

@@ -48,10 +48,10 @@ print(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*objects` | **Type:** `Any` |
-| `sep` | The separator between objects.<br/><br/>Defaults to " ".<br/><br/>**Type:** `str`<br/><br/>**Default:** ' ' |
-| `end` | The end of the output.<br/><br/>Defaults to "<br/><br/>**Type:** `str`<br/><br/>**Default:** '\n' |
-| `flush` | Whether to flush the output.<br/><br/>Defaults to False.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
+| `*objects` | **Type:** Any |
+| `sep` | The separator between objects.<br/><br/>Defaults to " ".<br/><br/>**Type:** str<br/><br/>**Default:** ' ' |
+| `end` | The end of the output.<br/><br/>Defaults to "<br/><br/>**Type:** str<br/><br/>**Default:** '\n' |
+| `flush` | Whether to flush the output.<br/><br/>Defaults to False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
 
 <br />
 
@@ -59,7 +59,7 @@ print(
 #### send
 
 ```python
-send(self, message: autogen.messages.base_message.BaseMessage) -> None
+send(self, message: BaseMessage) -> None
 ```
 
     Send data to the output stream.<br/>
@@ -67,6 +67,6 @@ send(self, message: autogen.messages.base_message.BaseMessage) -> None
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `message` | BaseMessage from autogen.messages.base_message<br/><br/>**Type:** `autogen.messages.base_message.BaseMessage` |
+| `message` | BaseMessage from autogen.messages.base_message<br/><br/>**Type:** [BaseMessage](/docs/api-reference/autogen/messages/BaseMessage) |
 
 <br />

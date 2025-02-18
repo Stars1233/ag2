@@ -4,7 +4,7 @@ description: cost calculation
 source_notebook: /notebook/agentchat_cost_token_tracking.ipynb
 tags:
 - cost
-title: Usage tracking with AutoGen
+title: Usage tracking with AG2
 ---
 
 <a href="https://colab.research.google.com/github/ag2ai/ag2/blob/main/notebook/agentchat_cost_token_tracking.ipynb" class="colab-badge" target="_blank"><img noZoom src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a>
@@ -13,7 +13,7 @@ title: Usage tracking with AutoGen
 
 
 
-## 1. Use AutoGen’s OpenAIWrapper for cost estimation 
+## 1. Use AG2’s OpenAIWrapper for cost estimation 
 
 The `OpenAIWrapper` from `autogen` tracks token counts and costs of your
 API calls. Use the `create()` method to initiate requests and
@@ -42,8 +42,8 @@ of agents and gather the usage summary.
 
 ## 3. Custom token price for up-to-date cost estimation 
 
-AutoGen tries to keep the token prices up-to-date. However, you can pass
-in a `price` field in `config_list` if the token price is not listed or
+AG2 tries to keep the token prices up-to-date. However, you can pass in
+a `price` field in `config_list` if the token price is not listed or
 up-to-date. Please creating an issue or pull request to help us keep the
 token prices up-to-date!
 
@@ -73,7 +73,7 @@ accurate. You can use the token count to calculate the cost yourself.
 
 ## Requirements
 
-AutoGen requires `Python>=3.9`:
+AG2 requires `Python>=3.9`:
 
 ```bash
 pip install "pyautogen"

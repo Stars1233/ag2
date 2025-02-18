@@ -26,7 +26,7 @@ Interoperable(*args, **kwargs)
 #### convert_tool
 
 ```python
-convert_tool(tool: Any, **kwargs: Any) -> autogen.tools.tool.Tool
+convert_tool(tool: Any, **kwargs: Any) -> Tool
 ```
 
     Converts a given tool to a desired format or type.<br/>This method should be implemented by any class adhering to the `Interoperable` protocol.<br/>
@@ -34,13 +34,13 @@ convert_tool(tool: Any, **kwargs: Any) -> autogen.tools.tool.Tool
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `tool` | The tool object to be converted.<br/><br/>**Type:** `Any` |
-| `**kwargs` | Additional parameters to pass during the conversion process.<br/><br/>**Type:** `Any` |
+| `tool` | The tool object to be converted.<br/><br/>**Type:** Any |
+| `**kwargs` | Additional parameters to pass during the conversion process.<br/><br/>**Type:** Any |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.tools.tool.Tool` | Tool: The converted tool in the desired format or type. |
+| [Tool](/docs/api-reference/autogen/tools/Tool) | Tool: The converted tool in the desired format or type. |
 
 <br />
 
@@ -56,6 +56,6 @@ get_unsupported_reason() -> str | None
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `str \| None` | str: The reason for the interoperability class being unsupported. |
+| str \| None | str: The reason for the interoperability class being unsupported. |
 
 <br />

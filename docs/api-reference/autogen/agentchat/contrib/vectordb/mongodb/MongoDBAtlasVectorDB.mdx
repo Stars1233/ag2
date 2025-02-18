@@ -27,6 +27,13 @@ MongoDBAtlasVectorDB(**kwargs)
     <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### create_collection
+<br />
+
+    Create a collection in the vector database.<br/>Case 1. if the collection does not exist, create the collection.<br/>Case 2. the collection exists, if overwrite is True, it will overwrite the collection.<br/>Case 3. the collection exists and overwrite is False, if get_or_create is True, it will get the collection,
+        otherwise it raise a ValueError.<br/>
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### create_index_if_not_exists
 <br />
 
@@ -39,10 +46,40 @@ MongoDBAtlasVectorDB(**kwargs)
     <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### delete_collection
+<br />
+
+    Delete the collection from the vector database.<br/>
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### delete_docs
+<br />
+
+    Delete documents from the collection of the vector database.<br/>
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### embedding_function
 <br />
 
     <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### get_collection
+<br />
+
+    Get the collection from the vector database.<br/>
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### get_docs_by_ids
+<br />
+
+    Retrieve documents from the collection of the vector database based on the ids.<br/>
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### insert_docs
+<br />
+
+    Insert documents into the collection of the vector database.<br/>
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### list_collections
@@ -51,7 +88,19 @@ MongoDBAtlasVectorDB(**kwargs)
     <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### retrieve_docs
+<br />
+
+    Retrieve documents from the collection of the vector database based on the queries.<br/>
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### type
 <br />
 
     <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### update_docs
+<br />
+
+    Update documents in the collection of the vector database.<br/>

@@ -10,8 +10,8 @@ title: autogen.agentchat.realtime.experimental.register_swarm
 register_swarm(
     *,
     realtime_agent: RealtimeAgent,
-    initial_agent: autogen.agentchat.conversable_agent.ConversableAgent,
-    agents: list[autogen.agentchat.conversable_agent.ConversableAgent],
+    initial_agent: ConversableAgent,
+    agents: list[ConversableAgent],
     system_message: str | None = None,
     question_message: str | None = None
 ) -> 
@@ -22,10 +22,10 @@ register_swarm(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `realtime_agent` | The RealtimeAgent to create the SwarmableRealtimeAgent from.<br/><br/>**Type:** `RealtimeAgent` |
-| `initial_agent` | The initial agent.<br/><br/>**Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
-| `agents` | The agents in the swarm.<br/><br/>**Type:** `list[autogen.agentchat.conversable_agent.ConversableAgent]` |
-| `system_message` | The system message to set for the agent.<br/><br/>If None, the default system message is used.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
-| `question_message` | The question message to set for the agent.<br/><br/>If None, the default QUESTION_MESSAGE is used.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+| `realtime_agent` | The RealtimeAgent to create the SwarmableRealtimeAgent from.<br/><br/>**Type:** [RealtimeAgent](/docs/api-reference/autogen/agentchat/realtime/experimental/RealtimeAgent) |
+| `initial_agent` | The initial agent.<br/><br/>**Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) |
+| `agents` | The agents in the swarm.<br/><br/>**Type:** list[[ConversableAgent](/docs/api-reference/autogen/ConversableAgent)] |
+| `system_message` | The system message to set for the agent.<br/><br/>If None, the default system message is used.<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
+| `question_message` | The question message to set for the agent.<br/><br/>If None, the default QUESTION_MESSAGE is used.<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
 
 <br />

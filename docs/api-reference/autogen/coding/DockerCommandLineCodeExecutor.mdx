@@ -28,14 +28,14 @@ DockerCommandLineCodeExecutor(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `image` | **Type:** `str`<br/><br/>**Default:** 'python |
-| `container_name` | **Type:** `Optional[str]`<br/><br/>**Default:** None |
-| `timeout` | **Type:** `int`<br/><br/>**Default:** 60 |
-| `work_dir` | **Type:** `Optional[Union[Path, str]]`<br/><br/>**Default:** None |
-| `bind_dir` | **Type:** `Optional[Union[Path, str]]`<br/><br/>**Default:** None |
-| `auto_remove` | **Type:** `bool`<br/><br/>**Default:** True |
-| `stop_container` | **Type:** `bool`<br/><br/>**Default:** True |
-| `execution_policies` | **Type:** `Optional[dict[str, bool]]`<br/><br/>**Default:** None |
+| `image` | **Type:** str<br/><br/>**Default:** 'python |
+| `container_name` | **Type:** Optional[str]<br/><br/>**Default:** None |
+| `timeout` | **Type:** int<br/><br/>**Default:** 60 |
+| `work_dir` | **Type:** Optional[Union[Path, str]]<br/><br/>**Default:** None |
+| `bind_dir` | **Type:** Optional[Union[Path, str]]<br/><br/>**Default:** None |
+| `auto_remove` | **Type:** bool<br/><br/>**Default:** True |
+| `stop_container` | **Type:** bool<br/><br/>**Default:** True |
+| `execution_policies` | **Type:** Optional[dict[str, bool]]<br/><br/>**Default:** None |
 
 ### Class Attributes
 
@@ -83,7 +83,7 @@ DockerCommandLineCodeExecutor(
 #### execute_code_blocks
 
 ```python
-execute_code_blocks(self, code_blocks: list[CodeBlock]) -> autogen.coding.base.CommandLineCodeResult
+execute_code_blocks(self, code_blocks: list[CodeBlock]) -> CommandLineCodeResult
 ```
 
     (Experimental) Execute the code blocks and return the result.<br/>
@@ -91,12 +91,12 @@ execute_code_blocks(self, code_blocks: list[CodeBlock]) -> autogen.coding.base.
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `code_blocks` | The code blocks to execute.<br/><br/>**Type:** `list[CodeBlock]` |
+| `code_blocks` | The code blocks to execute.<br/><br/>**Type:** list[[CodeBlock](/docs/api-reference/autogen/coding/CodeBlock)] |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.coding.base.CommandLineCodeResult` | CommandlineCodeResult: The result of the code execution. |
+| autogen.coding.base.CommandLineCodeResult | CommandlineCodeResult: The result of the code execution. |
 
 <br />
 

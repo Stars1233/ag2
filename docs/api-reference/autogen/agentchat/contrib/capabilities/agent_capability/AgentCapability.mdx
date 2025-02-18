@@ -19,7 +19,7 @@ AgentCapability()
 #### add_to_agent
 
 ```python
-add_to_agent(self, agent: autogen.agentchat.conversable_agent.ConversableAgent) -> 
+add_to_agent(self, agent: ConversableAgent) -> 
 ```
 
     Adds a particular capability to the given agent. Must be implemented by the capability subclass.<br/>An implementation will typically call agent.register_hook() one or more times. See teachability.py as an example.
@@ -27,6 +27,6 @@ add_to_agent(self, agent: autogen.agentchat.conversable_agent.ConversableAgent)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | **Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
+| `agent` | **Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) |
 
 <br />

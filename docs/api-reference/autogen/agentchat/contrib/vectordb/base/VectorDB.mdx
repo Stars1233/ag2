@@ -59,14 +59,14 @@ create_collection(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `collection_name` | str | The name of the collection.<br/><br/>**Type:** `str` |
-| `overwrite` | bool | Whether to overwrite the collection if it exists.<br/><br/>Default is False.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
-| `get_or_create` | bool | Whether to get the collection if it exists.<br/><br/>Default is True.<br/><br/>**Type:** `bool`<br/><br/>**Default:** True |
+| `collection_name` | str | The name of the collection.<br/><br/>**Type:** str |
+| `overwrite` | bool | Whether to overwrite the collection if it exists.<br/><br/>Default is False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+| `get_or_create` | bool | Whether to get the collection if it exists.<br/><br/>Default is True.<br/><br/>**Type:** bool<br/><br/>**Default:** True |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `Any` | Any \| The collection object. |
+| Any | Any \| The collection object. |
 
 <br />
 
@@ -82,12 +82,12 @@ delete_collection(self, collection_name: str) -> Any
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `collection_name` | str | The name of the collection.<br/><br/>**Type:** `str` |
+| `collection_name` | str | The name of the collection.<br/><br/>**Type:** str |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `Any` | Any |
+| Any | Any |
 
 <br />
 
@@ -108,14 +108,14 @@ delete_docs(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `ids` | List[ItemID] | A list of document ids.<br/><br/>Each id is a typed `ItemID`.<br/><br/>**Type:** `list[str \| int]` |
-| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** `str`<br/><br/>**Default:** None |
+| `ids` | List[ItemID] | A list of document ids.<br/><br/>Each id is a typed `ItemID`.<br/><br/>**Type:** list[str \| int] |
+| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** str<br/><br/>**Default:** None |
 | `**kwargs` |  |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `None` | None |
+| None | None |
 
 <br />
 
@@ -131,12 +131,12 @@ get_collection(self, collection_name: str = None) -> Any
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>If None, return the current active collection.<br/><br/>**Type:** `str`<br/><br/>**Default:** None |
+| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>If None, return the current active collection.<br/><br/>**Type:** str<br/><br/>**Default:** None |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `Any` | Any \| The collection object. |
+| Any | Any \| The collection object. |
 
 <br />
 
@@ -150,7 +150,7 @@ get_docs_by_ids(
     collection_name: str = None,
     include: list[str] | None = None,
     **kwargs: Any
-) -> list[autogen.agentchat.contrib.vectordb.base.Document]
+) -> list[Document]
 ```
 
     Retrieve documents from the collection of the vector database based on the ids.<br/>
@@ -158,15 +158,15 @@ get_docs_by_ids(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `ids` | List[ItemID] | A list of document ids.<br/><br/>If None, will return all the documents.<br/><br/>Default is None.<br/><br/>**Type:** `list[str \| int]`<br/><br/>**Default:** None |
-| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** `str`<br/><br/>**Default:** None |
-| `include` | List[str] | The fields to include.<br/><br/>Default is None.<br/><br/>If None, will include ["metadatas", "documents"], ids will always be included.<br/><br/>This may differ depending on the implementation.<br/><br/>**Type:** `list[str] \| None`<br/><br/>**Default:** None |
-| `**kwargs` | **Type:** `Any` |
+| `ids` | List[ItemID] | A list of document ids.<br/><br/>If None, will return all the documents.<br/><br/>Default is None.<br/><br/>**Type:** list[str \| int]<br/><br/>**Default:** None |
+| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** str<br/><br/>**Default:** None |
+| `include` | List[str] | The fields to include.<br/><br/>Default is None.<br/><br/>If None, will include ["metadatas", "documents"], ids will always be included.<br/><br/>This may differ depending on the implementation.<br/><br/>**Type:** list[str] \| None<br/><br/>**Default:** None |
+| `**kwargs` | **Type:** Any |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `list[autogen.agentchat.contrib.vectordb.base.Document]` | List[Document] \| The results. |
+| list[[Document](/docs/api-reference/autogen/agentchat/contrib/vectordb/base/Document)] | List[Document] \| The results. |
 
 <br />
 
@@ -176,7 +176,7 @@ get_docs_by_ids(
 ```python
 insert_docs(
     self,
-    docs: list[autogen.agentchat.contrib.vectordb.base.Document],
+    docs: list[Document],
     collection_name: str = None,
     upsert: bool = False,
     **kwargs
@@ -188,15 +188,15 @@ insert_docs(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `docs` | List[Document] | A list of documents.<br/><br/>Each document is a TypedDict `Document`.<br/><br/>**Type:** `list[autogen.agentchat.contrib.vectordb.base.Document]` |
-| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** `str`<br/><br/>**Default:** None |
-| `upsert` | bool | Whether to update the document if it exists.<br/><br/>Default is False.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
+| `docs` | List[Document] | A list of documents.<br/><br/>Each document is a TypedDict `Document`.<br/><br/>**Type:** list[[Document](/docs/api-reference/autogen/agentchat/contrib/vectordb/base/Document)] |
+| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** str<br/><br/>**Default:** None |
+| `upsert` | bool | Whether to update the document if it exists.<br/><br/>Default is False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
 | `**kwargs` |  |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `None` | None |
+| None | None |
 
 <br />
 
@@ -211,7 +211,7 @@ retrieve_docs(
     n_results: int = 10,
     distance_threshold: float = -1,
     **kwargs: Any
-) -> list[list[tuple[autogen.agentchat.contrib.vectordb.base.Document, float]]]
+) -> list[list[tuple[Document, float]]]
 ```
 
     Retrieve documents from the collection of the vector database based on the queries.<br/>
@@ -219,16 +219,16 @@ retrieve_docs(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `queries` | List[str] | A list of queries.<br/><br/>Each query is a string.<br/><br/>**Type:** `list[str]` |
-| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** `str`<br/><br/>**Default:** None |
-| `n_results` | int | The number of relevant documents to return.<br/><br/>Default is 10.<br/><br/>**Type:** `int`<br/><br/>**Default:** 10 |
-| `distance_threshold` | float | The threshold for the distance score, only distance smaller than it will be returned.<br/><br/>Don't filter with it if  0. Default is -1.<br/><br/>**Type:** `float`<br/><br/>**Default:** -1 |
-| `**kwargs` | **Type:** `Any` |
+| `queries` | List[str] | A list of queries.<br/><br/>Each query is a string.<br/><br/>**Type:** list[str] |
+| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** str<br/><br/>**Default:** None |
+| `n_results` | int | The number of relevant documents to return.<br/><br/>Default is 10.<br/><br/>**Type:** int<br/><br/>**Default:** 10 |
+| `distance_threshold` | float | The threshold for the distance score, only distance smaller than it will be returned.<br/><br/>Don't filter with it if  0. Default is -1.<br/><br/>**Type:** float<br/><br/>**Default:** -1 |
+| `**kwargs` | **Type:** Any |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `list[list[tuple[autogen.agentchat.contrib.vectordb.base.Document, float]]]` | QueryResults \| The query results. Each query result is a list of list of tuples containing the document and the distance. |
+| list[list[tuple[[Document](/docs/api-reference/autogen/agentchat/contrib/vectordb/base/Document), float]]] | QueryResults \| The query results. Each query result is a list of list of tuples containing the document and the distance. |
 
 <br />
 
@@ -238,7 +238,7 @@ retrieve_docs(
 ```python
 update_docs(
     self,
-    docs: list[autogen.agentchat.contrib.vectordb.base.Document],
+    docs: list[Document],
     collection_name: str = None,
     **kwargs
 ) -> None
@@ -249,13 +249,13 @@ update_docs(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `docs` | List[Document] | A list of documents.<br/><br/>**Type:** `list[autogen.agentchat.contrib.vectordb.base.Document]` |
-| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** `str`<br/><br/>**Default:** None |
+| `docs` | List[Document] | A list of documents.<br/><br/>**Type:** list[[Document](/docs/api-reference/autogen/agentchat/contrib/vectordb/base/Document)] |
+| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** str<br/><br/>**Default:** None |
 | `**kwargs` |  |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `None` | None |
+| None | None |
 
 <br />

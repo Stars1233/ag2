@@ -10,8 +10,8 @@ title: autogen.coding.func_with_reqs.FunctionWithRequirements
 ```python
 FunctionWithRequirements(
     func: Callable[~P, ~T],
-    python_packages: list[str] = <factory>,
-    global_imports: list[str | autogen.coding.func_with_reqs.ImportFromModule | autogen.coding.func_with_reqs.Alias] = <factory>
+    python_packages: list[str] = &lt;factory&gt;,
+    global_imports: list[str | ImportFromModule | Alias] = &lt;factory&gt;
 )
 ```
 
@@ -20,9 +20,9 @@ FunctionWithRequirements(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `func` | **Type:** `Callable[~P, ~T]` |
-| `python_packages` | **Type:** `list[str]`<br/><br/>**Default:** factory> |
-| `global_imports` | **Type:** `list[str \| autogen.coding.func_with_reqs.ImportFromModule \| autogen.coding.func_with_reqs.Alias]`<br/><br/>**Default:** factory> |
+| `func` | **Type:** Callable[~P, ~T] |
+| `python_packages` | **Type:** list[str]<br/><br/>**Default:** &lt;factory&gt; |
+| `global_imports` | **Type:** list[str \| [ImportFromModule](/docs/api-reference/autogen/coding/func_with_reqs/ImportFromModule) \| [Alias](/docs/api-reference/autogen/coding/func_with_reqs/Alias)]<br/><br/>**Default:** &lt;factory&gt; |
 
 ### Class Attributes
 
@@ -53,8 +53,8 @@ FunctionWithRequirements(
 from_callable(
     func: Callable[~P, ~T],
     python_packages: list[str] = [],
-    global_imports: list[str | autogen.coding.func_with_reqs.ImportFromModule | autogen.coding.func_with_reqs.Alias] = []
-) -> autogen.coding.func_with_reqs.FunctionWithRequirements[~T, ~P]
+    global_imports: list[str | ImportFromModule | Alias] = []
+) -> FunctionWithRequirements[~T, ~P]
 ```
 
     
@@ -62,9 +62,9 @@ from_callable(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `func` | **Type:** `Callable[~P, ~T]` |
-| `python_packages` | **Type:** `list[str]`<br/><br/>**Default:** [] |
-| `global_imports` | **Type:** `list[str \| autogen.coding.func_with_reqs.ImportFromModule \| autogen.coding.func_with_reqs.Alias]`<br/><br/>**Default:** [] |
+| `func` | **Type:** Callable[~P, ~T] |
+| `python_packages` | **Type:** list[str]<br/><br/>**Default:** [] |
+| `global_imports` | **Type:** list[str \| [ImportFromModule](/docs/api-reference/autogen/coding/func_with_reqs/ImportFromModule) \| [Alias](/docs/api-reference/autogen/coding/func_with_reqs/Alias)]<br/><br/>**Default:** [] |
 
 <br />
 
@@ -75,8 +75,8 @@ from_callable(
 from_str(
     func: str,
     python_packages: list[str] = [],
-    global_imports: list[str | autogen.coding.func_with_reqs.ImportFromModule | autogen.coding.func_with_reqs.Alias] = []
-) -> autogen.coding.func_with_reqs.FunctionWithRequirementsStr
+    global_imports: list[str | ImportFromModule | Alias] = []
+) -> FunctionWithRequirementsStr
 ```
 
     
@@ -84,8 +84,8 @@ from_str(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `func` | **Type:** `str` |
-| `python_packages` | **Type:** `list[str]`<br/><br/>**Default:** [] |
-| `global_imports` | **Type:** `list[str \| autogen.coding.func_with_reqs.ImportFromModule \| autogen.coding.func_with_reqs.Alias]`<br/><br/>**Default:** [] |
+| `func` | **Type:** str |
+| `python_packages` | **Type:** list[str]<br/><br/>**Default:** [] |
+| `global_imports` | **Type:** list[str \| [ImportFromModule](/docs/api-reference/autogen/coding/func_with_reqs/ImportFromModule) \| [Alias](/docs/api-reference/autogen/coding/func_with_reqs/Alias)]<br/><br/>**Default:** [] |
 
 <br />

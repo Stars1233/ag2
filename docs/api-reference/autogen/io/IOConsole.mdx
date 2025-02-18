@@ -13,13 +13,131 @@ IOConsole()
 
     A console input/output stream.
 
+### Static Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_default
+
+```python
+get_default() -> IOStream
+```
+
+    Get the default input/output stream.<br/>Returns: <br/>    IOStream: The default input/output stream.
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| [IOStream](/docs/api-reference/autogen/io/IOStream) | IOStream: The default input/output stream. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_global_default
+
+```python
+get_global_default() -> IOStream
+```
+
+    Get the default input/output stream.<br/>Returns: <br/>    IOStream: The default input/output stream.
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| [IOStream](/docs/api-reference/autogen/io/IOStream) | IOStream: The default input/output stream. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### set_default
+
+```python
+set_default(stream: ForwardRef('IOStream') | None) -> Iterator[None]
+```
+
+    Set the default input/output stream.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `stream` | The input/output stream to set as the default.<br/><br/>**Type:** ForwardRef('IOStream') \| None |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### set_global_default
+
+```python
+set_global_default(stream: IOStream) -> None
+```
+
+    Set the default input/output stream.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `stream` | The input/output stream to set as the default.<br/><br/>**Type:** IOStream |
+
+<br />
+
 ### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### input
+
+```python
+input(
+    self,
+    prompt: str = '',
+    *,
+    password: bool = False
+) -> str
+```
+
+    Read a line from the input stream.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `prompt` | The prompt to display.<br/><br/>Defaults to "".<br/><br/>**Type:** str<br/><br/>**Default:** '' |
+| `password` | Whether to read a password.<br/><br/>Defaults to False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| str | str: The line read from the input stream. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### print
+
+```python
+print(
+    self,
+    *objects: Any,
+    sep: str = ' ',
+    end: str = '\n',
+    flush: bool = False
+) -> None
+```
+
+    Print data to the output stream.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*objects` | **Type:** Any |
+| `sep` | The separator between objects.<br/><br/>Defaults to " ".<br/><br/>**Type:** str<br/><br/>**Default:** ' ' |
+| `end` | The end of the output.<br/><br/>Defaults to "<br/><br/>**Type:** str<br/><br/>**Default:** '\n' |
+| `flush` | Whether to flush the output.<br/><br/>Defaults to False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+
+<br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### send
 
 ```python
-send(self, message: autogen.messages.base_message.BaseMessage) -> None
+send(self, message: BaseMessage) -> None
 ```
 
     Send a message to the output stream.<br/>
@@ -27,6 +145,6 @@ send(self, message: autogen.messages.base_message.BaseMessage) -> None
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `message` | The message to send.<br/><br/>**Type:** `autogen.messages.base_message.BaseMessage` |
+| `message` | The message to send.<br/><br/>**Type:** [BaseMessage](/docs/api-reference/autogen/messages/BaseMessage) |
 
 <br />

@@ -8,8 +8,8 @@ title: autogen.agentchat.contrib.capabilities.transforms_util.should_transform_m
 
 ```python
 should_transform_message(
-    message: dict[str, typing.Any],
-    filter_dict: dict[str, typing.Any] | None,
+    message: dict[str, Any],
+    filter_dict: dict[str, Any] | None,
     exclude: bool
 ) -> bool
 ```
@@ -19,8 +19,8 @@ should_transform_message(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `message` | The message to validate.<br/><br/>**Type:** `dict[str, typing.Any]` |
-| `filter_dict` | The filter dictionary to validate against.<br/><br/>If None, the transform is always applied.<br/><br/>**Type:** `dict[str, typing.Any] \| None` |
-| `exclude` | Whether to exclude messages that match the filter dictionary.<br/><br/>**Type:** `bool` |
+| `message` | The message to validate.<br/><br/>**Type:** dict[str, typing.Any] |
+| `filter_dict` | The filter dictionary to validate against.<br/><br/>If None, the transform is always applied.<br/><br/>**Type:** dict[str, typing.Any] \| None |
+| `exclude` | Whether to exclude messages that match the filter dictionary.<br/><br/>**Type:** bool |
 
 <br />

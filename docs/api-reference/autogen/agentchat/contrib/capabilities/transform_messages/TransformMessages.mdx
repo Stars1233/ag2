@@ -10,7 +10,7 @@ title: autogen.agentchat.contrib.capabilities.transform_messages.TransformMessag
 ```python
 TransformMessages(
     *,
-    transforms: list[autogen.agentchat.contrib.capabilities.transforms.MessageTransform] = [],
+    transforms: list[MessageTransform] = [],
     verbose: bool = True
 )
 ```
@@ -33,8 +33,8 @@ TransformMessages(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `transforms` | **Type:** `list[autogen.agentchat.contrib.capabilities.transforms.MessageTransform]`<br/><br/>**Default:** [] |
-| `verbose` | **Type:** `bool`<br/><br/>**Default:** True |
+| `transforms` | **Type:** list[[MessageTransform](/docs/api-reference/autogen/agentchat/contrib/capabilities/transforms/MessageTransform)]<br/><br/>**Default:** [] |
+| `verbose` | **Type:** bool<br/><br/>**Default:** True |
 
 ### Instance Methods
 
@@ -42,7 +42,7 @@ TransformMessages(
 #### add_to_agent
 
 ```python
-add_to_agent(self, agent: autogen.agentchat.conversable_agent.ConversableAgent) -> 
+add_to_agent(self, agent: ConversableAgent) -> 
 ```
 
     Adds the message transformations capability to the specified ConversableAgent.<br/>This function performs the following modifications to the agent: <br/>1. Registers a hook that automatically transforms all messages before they are processed for
@@ -51,6 +51,6 @@ add_to_agent(self, agent: autogen.agentchat.conversable_agent.ConversableAgent)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | **Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
+| `agent` | **Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) |
 
 <br />

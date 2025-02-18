@@ -41,7 +41,7 @@ get_usage(response: ChatCompletion) -> dict
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `response` | **Type:** `ChatCompletion` |
+| `response` | **Type:** ChatCompletion |
 
 <br />
 
@@ -59,7 +59,7 @@ cost(self, response: ChatCompletion) -> float
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `response` | **Type:** `ChatCompletion` |
+| `response` | **Type:** ChatCompletion |
 
 <br />
 
@@ -76,7 +76,7 @@ message_retrieval(self, response: ChatCompletion) -> list
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `response` | **Type:** `ChatCompletion` |
+| `response` | **Type:** ChatCompletion |
 
 <br />
 
@@ -84,7 +84,7 @@ message_retrieval(self, response: ChatCompletion) -> list
 #### parse_params
 
 ```python
-parse_params(self, params: dict[str, Any]) -> dict[str, typing.Any]
+parse_params(self, params: dict[str, Any]) -> dict[str, Any]
 ```
 
     Loads the parameters for Cerebras API from the passed in parameters and returns a validated set. Checks types, ranges, and sets defaults
@@ -92,6 +92,6 @@ parse_params(self, params: dict[str, Any]) -> dict[str, typing.Any]
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `params` | **Type:** `dict[str, Any]` |
+| `params` | **Type:** dict[str, Any] |
 
 <br />

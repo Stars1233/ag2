@@ -227,7 +227,7 @@ user_proxy = UserProxyAgent(
 # Ask the question with an image
 user_proxy.initiate_chat(
     dalle,
-    message="""Create an image with black background, a happy robot is showing a sign with "I Love AutoGen".""",
+    message="""Create an image with black background, a happy robot is showing a sign with "I Love AG2".""",
 )
 ```
 
@@ -334,7 +334,7 @@ creator = DalleCreator(
 user_proxy = UserProxyAgent(name="User", human_input_mode="NEVER", max_consecutive_auto_reply=0)
 
 user_proxy.initiate_chat(
-    creator, message="""Create an image with black background, a happy robot is showing a sign with "I Love AutoGen"."""
+    creator, message="""Create an image with black background, a happy robot is showing a sign with "I Love AG2"."""
 )
 ```
 

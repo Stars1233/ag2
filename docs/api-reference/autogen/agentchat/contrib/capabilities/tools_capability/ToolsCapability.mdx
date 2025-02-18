@@ -8,7 +8,7 @@ title: autogen.agentchat.contrib.capabilities.tools_capability.ToolsCapability
 </h2>
 
 ```python
-ToolsCapability(tool_list: list[autogen.tools.tool.Tool])
+ToolsCapability(tool_list: list[Tool])
 ```
 
     Adding a list of tools as composable capabilities to a single agent.<br/>This class can be inherited from to allow code to run at the point of creating or adding the capability.<br/>Note: both caller and executor of the tools are the same agent.
@@ -16,7 +16,7 @@ ToolsCapability(tool_list: list[autogen.tools.tool.Tool])
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `tool_list` | **Type:** `list[autogen.tools.tool.Tool]` |
+| `tool_list` | **Type:** list[[Tool](/docs/api-reference/autogen/tools/Tool)] |
 
 ### Instance Methods
 
@@ -24,7 +24,7 @@ ToolsCapability(tool_list: list[autogen.tools.tool.Tool])
 #### add_to_agent
 
 ```python
-add_to_agent(self, agent: autogen.agentchat.conversable_agent.ConversableAgent) -> 
+add_to_agent(self, agent: ConversableAgent) -> 
 ```
 
     Add tools to the given agent.
@@ -32,6 +32,6 @@ add_to_agent(self, agent: autogen.agentchat.conversable_agent.ConversableAgent)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | **Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
+| `agent` | **Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) |
 
 <br />

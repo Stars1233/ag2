@@ -25,7 +25,7 @@ IOStream(*args, **kwargs)
 #### get_default
 
 ```python
-get_default() -> autogen.io.base.IOStream
+get_default() -> IOStream
 ```
 
     Get the default input/output stream.<br/>Returns: <br/>    IOStream: The default input/output stream.
@@ -33,7 +33,7 @@ get_default() -> autogen.io.base.IOStream
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.io.base.IOStream` | IOStream: The default input/output stream. |
+| [IOStream](/docs/api-reference/autogen/io/IOStream) | IOStream: The default input/output stream. |
 
 <br />
 
@@ -41,7 +41,7 @@ get_default() -> autogen.io.base.IOStream
 #### get_global_default
 
 ```python
-get_global_default() -> autogen.io.base.IOStream
+get_global_default() -> IOStream
 ```
 
     Get the default input/output stream.<br/>Returns: <br/>    IOStream: The default input/output stream.
@@ -49,7 +49,7 @@ get_global_default() -> autogen.io.base.IOStream
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.io.base.IOStream` | IOStream: The default input/output stream. |
+| [IOStream](/docs/api-reference/autogen/io/IOStream) | IOStream: The default input/output stream. |
 
 <br />
 
@@ -65,7 +65,7 @@ set_default(stream: ForwardRef('IOStream') | None) -> Iterator[None]
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `stream` | The input/output stream to set as the default.<br/><br/>**Type:** `ForwardRef('IOStream') \| None` |
+| `stream` | The input/output stream to set as the default.<br/><br/>**Type:** ForwardRef('[IOStream](/docs/api-reference/autogen/io/IOStream)') \| None |
 
 <br />
 
@@ -81,6 +81,76 @@ set_global_default(stream: IOStream) -> None
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `stream` | The input/output stream to set as the default.<br/><br/>**Type:** `IOStream` |
+| `stream` | The input/output stream to set as the default.<br/><br/>**Type:** [IOStream](/docs/api-reference/autogen/io/IOStream) |
+
+<br />
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### input
+
+```python
+input(
+    self,
+    prompt: str = '',
+    *,
+    password: bool = False
+) -> str
+```
+
+    Read a line from the input stream.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `prompt` | The prompt to display.<br/><br/>Defaults to "".<br/><br/>**Type:** str<br/><br/>**Default:** '' |
+| `password` | Whether to read a password.<br/><br/>Defaults to False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| str | str: The line read from the input stream. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### print
+
+```python
+print(
+    self,
+    *objects: Any,
+    sep: str = ' ',
+    end: str = '\n',
+    flush: bool = False
+) -> None
+```
+
+    Print data to the output stream.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*objects` | **Type:** Any |
+| `sep` | The separator between objects.<br/><br/>Defaults to " ".<br/><br/>**Type:** str<br/><br/>**Default:** ' ' |
+| `end` | The end of the output.<br/><br/>Defaults to "<br/><br/>**Type:** str<br/><br/>**Default:** '\n' |
+| `flush` | Whether to flush the output.<br/><br/>Defaults to False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### send
+
+```python
+send(self, message: BaseMessage) -> None
+```
+
+    Send data to the output stream.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `message` | BaseMessage from autogen.messages.base_message<br/><br/>**Type:** [BaseMessage](/docs/api-reference/autogen/messages/BaseMessage) |
 
 <br />

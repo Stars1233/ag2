@@ -8,7 +8,7 @@ title: autogen.AfterWork
 </h2>
 
 ```python
-AfterWork(agent: autogen.agentchat.contrib.swarm_agent.AfterWorkOption | autogen.agentchat.conversable_agent.ConversableAgent | str | Callable[..., Any], next_agent_selection_msg: str | autogen.agentchat.contrib.swarm_agent.ContextStr | Callable[..., Any] | None = None)
+AfterWork(agent: AfterWorkOption | ConversableAgent | str | Callable[..., Any], next_agent_selection_msg: str | ContextStr | Callable[..., Any] | None = None)
 ```
 
     Handles the next step in the conversation when an agent doesn't suggest a tool call or a handoff
@@ -16,8 +16,8 @@ AfterWork(agent: autogen.agentchat.contrib.swarm_agent.AfterWorkOption | auto
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | **Type:** `autogen.agentchat.contrib.swarm_agent.AfterWorkOption \| autogen.agentchat.conversable_agent.ConversableAgent \| str \| Callable[..., Any]` |
-| `next_agent_selection_msg` | **Type:** `str \| autogen.agentchat.contrib.swarm_agent.ContextStr \| Callable[..., Any] \| None`<br/><br/>**Default:** None |
+| `agent` | **Type:** [AfterWorkOption](/docs/api-reference/autogen/AfterWorkOption) \| [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) \| str \| Callable[..., Any] |
+| `next_agent_selection_msg` | **Type:** str \| [ContextStr](/docs/api-reference/autogen/agentchat/contrib/swarm_agent/ContextStr) \| Callable[..., Any] \| None<br/><br/>**Default:** None |
 
 ### Class Attributes
 

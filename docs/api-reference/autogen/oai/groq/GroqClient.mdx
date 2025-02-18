@@ -83,7 +83,7 @@ message_retrieval(self, response) -> list
 #### parse_params
 
 ```python
-parse_params(self, params: dict[str, Any]) -> dict[str, typing.Any]
+parse_params(self, params: dict[str, Any]) -> dict[str, Any]
 ```
 
     Loads the parameters for Groq API from the passed in parameters and returns a validated set. Checks types, ranges, and sets defaults
@@ -91,6 +91,6 @@ parse_params(self, params: dict[str, Any]) -> dict[str, typing.Any]
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `params` | **Type:** `dict[str, Any]` |
+| `params` | **Type:** dict[str, Any] |
 
 <br />

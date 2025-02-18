@@ -18,8 +18,8 @@ ThinkNode(content: str, parent: ForwardRef('ThinkNode') | None = None)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `content` | **Type:** `str` |
-| `parent` | **Type:** `ForwardRef('ThinkNode') \| None`<br/><br/>**Default:** None |
+| `content` | **Type:** str |
+| `parent` | **Type:** ForwardRef('[ThinkNode](/docs/api-reference/autogen/ThinkNode)') \| None<br/><br/>**Default:** None |
 
 ### Static Methods
 
@@ -27,7 +27,7 @@ ThinkNode(content: str, parent: ForwardRef('ThinkNode') | None = None)
 #### from_dict
 
 ```python
-from_dict(data: dict[str, typing.Any], parent: ForwardRef('ThinkNode') | None = None) -> autogen.agentchat.contrib.reasoning_agent.ThinkNode
+from_dict(data: dict[str, Any], parent: ForwardRef('ThinkNode') | None = None) -> ThinkNode
 ```
 
     Create ThinkNode from dictionary representation.<br/>
@@ -35,13 +35,13 @@ from_dict(data: dict[str, typing.Any], parent: ForwardRef('ThinkNode') | No
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `data` | Dictionary containing node data<br/><br/>**Type:** `dict[str, typing.Any]` |
-| `parent` | Parent node to attach to<br/><br/>**Type:** `ForwardRef('ThinkNode') \| None`<br/><br/>**Default:** None |
+| `data` | Dictionary containing node data<br/><br/>**Type:** dict[str, typing.Any] |
+| `parent` | Parent node to attach to<br/><br/>**Type:** ForwardRef('[ThinkNode](/docs/api-reference/autogen/ThinkNode)') \| None<br/><br/>**Default:** None |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.agentchat.contrib.reasoning_agent.ThinkNode` | ThinkNode: Reconstructed node with all children |
+| [ThinkNode](/docs/api-reference/autogen/ThinkNode) | ThinkNode: Reconstructed node with all children |
 
 <br />
 
@@ -67,7 +67,7 @@ backpropagate(self, reward: float) -> None
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `reward` | The reward to backpropagate up the tree.<br/><br/>**Type:** `float` |
+| `reward` | The reward to backpropagate up the tree.<br/><br/>**Type:** float |
 
 <br />
 
@@ -83,6 +83,6 @@ to_dict(self) -> dict
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `dict` | Dict: Dictionary containing all node attributes and recursive children |
+| dict | Dict: Dictionary containing all node attributes and recursive children |
 
 <br />

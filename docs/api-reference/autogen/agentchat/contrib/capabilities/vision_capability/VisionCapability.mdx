@@ -9,7 +9,7 @@ title: autogen.agentchat.contrib.capabilities.vision_capability.VisionCapability
 
 ```python
 VisionCapability(
-    lmm_config: dict[str, typing.Any],
+    lmm_config: dict[str, Any],
     description_prompt: str | None = 'Write a detailed caption for this image. Pay special attention to any details that might be useful or relevant to the ongoing conversation.',
     custom_caption_func: Callable = None
 )
@@ -30,17 +30,33 @@ VisionCapability(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `lmm_config` | **Type:** `dict[str, typing.Any]` |
-| `description_prompt` | **Type:** `str \| None`<br/><br/>**Default:** 'Write a detailed caption for this image. Pay special attention to any details that might be useful or relevant to the ongoing conversation.' |
-| `custom_caption_func` | **Type:** `Callable`<br/><br/>**Default:** None |
+| `lmm_config` | **Type:** dict[str, typing.Any] |
+| `description_prompt` | **Type:** str \| None<br/><br/>**Default:** 'Write a detailed caption for this image. Pay special attention to any details that might be useful or relevant to the ongoing conversation.' |
+| `custom_caption_func` | **Type:** Callable<br/><br/>**Default:** None |
 
 ### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### add_to_agent
+
+```python
+add_to_agent(self, agent: ConversableAgent) -> None
+```
+
+    Adds a particular capability to the given agent. Must be implemented by the capability subclass.<br/>An implementation will typically call agent.register_hook() one or more times. See teachability.py as an example.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `agent` | **Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) |
+
+<br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### process_last_received_message
 
 ```python
-process_last_received_message(self, content: list[dict[str, typing.Any]] | str) -> str
+process_last_received_message(self, content: list[dict[str, Any]] | str) -> str
 ```
 
     Processes the last received message content by normalizing and augmenting it
@@ -57,11 +73,11 @@ process_last_received_message(self, content: list[dict[str, typing.Any]] | s
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `content` | The last received message content, which can be a plain text string or a list of dictionaries representing different types of content items (e.g., text, image_url).<br/><br/>**Type:** `list[dict[str, typing.Any]] \| str` |
+| `content` | The last received message content, which can be a plain text string or a list of dictionaries representing different types of content items (e.g., text, image_url).<br/><br/>**Type:** list[dict[str, typing.Any]] \| str |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `str` | str: The augmented message content Raises: AssertionError: If an item in the content list is not a dictionary. Examples: Assuming `self._get_image_caption(img_data)` returns "A beautiful sunset over the mountains" for the image. - Input as String: content = "Check out this cool photo!" Output: "Check out this cool photo!" (Content is a string without an image, remains unchanged.) - Input as String, with image location: content = "What's weather in this cool photo: `&lt;img http://example.com/photo.jpg>`" Output: "What's weather in this cool photo: `&lt;img http://example.com/photo.jpg>` in case you can not see, the caption of this image is: A beautiful sunset over the mountains " (Caption added after the image) - Input as List with Text Only: content = `[\{"type": "text", "text": "Here's an interesting fact."}]` Output: "Here's an interesting fact." (No images in the content, it remains unchanged.) - Input as List with Image URL: ```python content = [ \{"type": "text", "text": "What's weather in this cool photo:"}, \{"type": "image_url", "image_url": \{"url": "http://example.com/photo.jpg"}}, ] ``` Output: "What's weather in this cool photo: `&lt;img http://example.com/photo.jpg>` in case you can not see, the caption of this image is: A beautiful sunset over the mountains " (Caption added after the image) |
+| str | str: The augmented message content Raises: AssertionError: If an item in the content list is not a dictionary. Examples: Assuming `self._get_image_caption(img_data)` returns "A beautiful sunset over the mountains" for the image. - Input as String: content = "Check out this cool photo!" Output: "Check out this cool photo!" (Content is a string without an image, remains unchanged.) - Input as String, with image location: content = "What's weather in this cool photo: `&lt;img http://example.com/photo.jpg>`" Output: "What's weather in this cool photo: `&lt;img http://example.com/photo.jpg>` in case you can not see, the caption of this image is: A beautiful sunset over the mountains " (Caption added after the image) - Input as List with Text Only: content = `[\{"type": "text", "text": "Here's an interesting fact."}]` Output: "Here's an interesting fact." (No images in the content, it remains unchanged.) - Input as List with Image URL: ```python content = [ \{"type": "text", "text": "What's weather in this cool photo:"}, \{"type": "image_url", "image_url": \{"url": "http://example.com/photo.jpg"}}, ] ``` Output: "What's weather in this cool photo: `&lt;img http://example.com/photo.jpg>` in case you can not see, the caption of this image is: A beautiful sunset over the mountains " (Caption added after the image) |
 
 <br />

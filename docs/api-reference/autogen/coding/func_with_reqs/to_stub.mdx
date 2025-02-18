@@ -7,7 +7,7 @@ title: autogen.coding.func_with_reqs.to_stub
 #### to_stub
 
 ```python
-to_stub(func: Callable[..., Any] | autogen.coding.func_with_reqs.FunctionWithRequirementsStr) -> str
+to_stub(func: Callable[..., Any] | FunctionWithRequirementsStr) -> str
 ```
 
     Generate a stub for a function as a string
@@ -15,11 +15,11 @@ to_stub(func: Callable[..., Any] | autogen.coding.func_with_reqs.FunctionWit
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `func` | The function to generate a stub for<br/><br/>**Type:** `Callable[..., Any] \| autogen.coding.func_with_reqs.FunctionWithRequirementsStr` |
+| `func` | The function to generate a stub for<br/><br/>**Type:** Callable[..., Any] \| [FunctionWithRequirementsStr](/docs/api-reference/autogen/coding/func_with_reqs/FunctionWithRequirementsStr) |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `str` | str: The stub for the function |
+| str | str: The stub for the function |
 
 <br />

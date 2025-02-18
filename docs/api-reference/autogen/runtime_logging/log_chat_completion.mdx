@@ -8,7 +8,7 @@ title: autogen.runtime_logging.log_chat_completion
 
 ```python
 log_chat_completion(
-    invocation_id: uuid.UUID,
+    invocation_id: UUID,
     client_id: int,
     wrapper_id: int,
     agent: str | Agent,
@@ -25,14 +25,14 @@ log_chat_completion(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `invocation_id` | **Type:** `uuid.UUID` |
-| `client_id` | **Type:** `int` |
-| `wrapper_id` | **Type:** `int` |
-| `agent` | **Type:** `str \| Agent` |
-| `request` | **Type:** `dict[str, float \| str \| list[dict[str, str]]]` |
-| `response` | **Type:** `str \| ChatCompletion` |
-| `is_cached` | **Type:** `int` |
-| `cost` | **Type:** `float` |
-| `start_time` | **Type:** `str` |
+| `invocation_id` | **Type:** uuid.UUID |
+| `client_id` | **Type:** int |
+| `wrapper_id` | **Type:** int |
+| `agent` | **Type:** str \| Agent |
+| `request` | **Type:** dict[str, float \| str \| list[dict[str, str]]] |
+| `response` | **Type:** str \| ChatCompletion |
+| `is_cached` | **Type:** int |
+| `cost` | **Type:** float |
+| `start_time` | **Type:** str |
 
 <br />

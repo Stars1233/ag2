@@ -7,7 +7,7 @@ title: autogen.agentchat.contrib.reasoning_agent.extract_sft_dataset
 #### extract_sft_dataset
 
 ```python
-extract_sft_dataset(root: autogen.agentchat.contrib.reasoning_agent.ThinkNode) -> list[dict[str, typing.Any]]
+extract_sft_dataset(root: ThinkNode) -> list[dict[str, Any]]
 ```
 
     Extract the best trajectory or multiple equally good trajectories for SFT training.<br/>
@@ -15,11 +15,11 @@ extract_sft_dataset(root: autogen.agentchat.contrib.reasoning_agent.ThinkNode) 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `root` | The root node of the tree.<br/><br/>**Type:** `autogen.agentchat.contrib.reasoning_agent.ThinkNode` |
+| `root` | The root node of the tree.<br/><br/>**Type:** [ThinkNode](/docs/api-reference/autogen/ThinkNode) |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `list[dict[str, typing.Any]]` | List[Dict]: List of best trajectories, each one is a pair of instruction and response. |
+| list[dict[str, typing.Any]] | List[Dict]: List of best trajectories, each one is a pair of instruction and response. |
 
 <br />

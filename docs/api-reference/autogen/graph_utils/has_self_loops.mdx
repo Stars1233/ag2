@@ -7,7 +7,7 @@ title: autogen.graph_utils.has_self_loops
 #### has_self_loops
 
 ```python
-has_self_loops(allowed_speaker_transitions: dict[str, list[autogen.agentchat.agent.Agent]]) -> bool
+has_self_loops(allowed_speaker_transitions: dict[str, list[Agent]]) -> bool
 ```
 
     Check if there are self loops in the allowed_speaker_transitions.<br/>
@@ -15,11 +15,11 @@ has_self_loops(allowed_speaker_transitions: dict[str, list[autogen.agentchat.a
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `allowed_speaker_transitions` | A dictionary of keys and list as values.<br/><br/>The keys are the names of the agents, and the values are the names of the agents that the key agent can transition<br/><br/>**Type:** `dict[str, list[autogen.agentchat.agent.Agent]]` |
+| `allowed_speaker_transitions` | A dictionary of keys and list as values.<br/><br/>The keys are the names of the agents, and the values are the names of the agents that the key agent can transition<br/><br/>**Type:** dict[str, list[[Agent](/docs/api-reference/autogen/Agent)]] |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `bool` | True if there are self loops in the allowed_speaker_transitions_Dict. |
+| bool | True if there are self loops in the allowed_speaker_transitions_Dict. |
 
 <br />

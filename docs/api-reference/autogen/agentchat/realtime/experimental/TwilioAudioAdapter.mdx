@@ -11,7 +11,7 @@ title: autogen.agentchat.realtime.experimental.TwilioAudioAdapter
 TwilioAudioAdapter(
     websocket: WebSocket,
     *,
-    logger: logging.Logger | None = None
+    logger: Logger | None = None
 )
 ```
 
@@ -20,8 +20,8 @@ TwilioAudioAdapter(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `websocket` | **Type:** `WebSocket` |
-| `logger` | **Type:** `logging.Logger \| None`<br/><br/>**Default:** None |
+| `websocket` | **Type:** WebSocket |
+| `logger` | **Type:** logging.Logger \| None<br/><br/>**Default:** None |
 
 ### Instance Methods
 
@@ -51,7 +51,7 @@ initialize_session(self) -> None
 #### on_event
 
 ```python
-on_event(self, event: autogen.agentchat.realtime.experimental.realtime_events.RealtimeEvent) -> None
+on_event(self, event: RealtimeEvent) -> None
 ```
 
     Receive events from the OpenAI Realtime API, send audio back to Twilio.
@@ -59,7 +59,23 @@ on_event(self, event: autogen.agentchat.realtime.experimental.realtime_events.R
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `event` | **Type:** `autogen.agentchat.realtime.experimental.realtime_events.RealtimeEvent` |
+| `event` | **Type:** [RealtimeEvent](/docs/api-reference/autogen/agentchat/realtime/experimental/realtime_events/RealtimeEvent) |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### run
+
+```python
+run(self, agent: RealtimeAgent) -> 
+```
+
+    Run the observer with the agent.<br/>When implementing, be sure to call `self._ready_event.set()` when the observer is ready to process events.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `agent` | The realtime agent attached to the observer.<br/><br/>**Type:** RealtimeAgent |
 
 <br />
 
@@ -82,5 +98,16 @@ send_mark(self) -> None
 ```
 
     Send a mark of audio interruption to the Twilio websocket.
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### wait_for_ready
+
+```python
+wait_for_ready(self) -> None
+```
+
+    Get the event that is set when the observer is ready.
 
 <br />

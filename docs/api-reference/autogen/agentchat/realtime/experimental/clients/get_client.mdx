@@ -8,10 +8,10 @@ title: autogen.agentchat.realtime.experimental.clients.get_client
 
 ```python
 get_client(
-    llm_config: dict[str, typing.Any],
-    logger: logging.Logger,
+    llm_config: dict[str, Any],
+    logger: Logger,
     **kwargs: Any
-) -> autogen.agentchat.realtime.experimental.clients.realtime_client.RealtimeClientProtocol
+) -> RealtimeClientProtocol
 ```
 
     Get a registered Realtime API client.<br/>
@@ -19,13 +19,13 @@ get_client(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `llm_config` | The config for the client.<br/><br/>**Type:** `dict[str, typing.Any]` |
-| `logger` | **Type:** `logging.Logger` |
-| `**kwargs` | **Type:** `Any` |
+| `llm_config` | The config for the client.<br/><br/>**Type:** dict[str, typing.Any] |
+| `logger` | **Type:** logging.Logger |
+| `**kwargs` | **Type:** Any |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.agentchat.realtime.experimental.clients.realtime_client.RealtimeClientProtocol` | RealtimeClientProtocol: The Realtime API client. |
+| [RealtimeClientProtocol](/docs/api-reference/autogen/agentchat/realtime/experimental/clients/RealtimeClientProtocol) | RealtimeClientProtocol: The Realtime API client. |
 
 <br />

@@ -42,10 +42,10 @@ Agent(*args, **kwargs)
 ```python
 a_generate_reply(
     self,
-    messages: list[dict[str, typing.Any]] | None = None,
+    messages: list[dict[str, Any]] | None = None,
     sender: ForwardRef('Agent') | None = None,
     **kwargs: Any
-) -> str | dict[str, typing.Any] | None
+) -> str | dict[str, Any] | None
 ```
 
     (Async) Generate a reply based on the received messages.<br/>
@@ -53,14 +53,14 @@ a_generate_reply(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | a list of messages received from other agents.<br/><br/>The messages are dictionaries that are JSON-serializable and follows the OpenAI's ChatCompletion schema.<br/><br/>**Type:** `list[dict[str, typing.Any]] \| None`<br/><br/>**Default:** None |
-| `sender` | sender of an Agent instance.<br/><br/>**Type:** `ForwardRef('Agent') \| None`<br/><br/>**Default:** None |
-| `**kwargs` | **Type:** `Any` |
+| `messages` | a list of messages received from other agents.<br/><br/>The messages are dictionaries that are JSON-serializable and follows the OpenAI's ChatCompletion schema.<br/><br/>**Type:** list[dict[str, typing.Any]] \| None<br/><br/>**Default:** None |
+| `sender` | sender of an Agent instance.<br/><br/>**Type:** ForwardRef('[Agent](/docs/api-reference/autogen/Agent)') \| None<br/><br/>**Default:** None |
+| `**kwargs` | **Type:** Any |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `str \| dict[str, typing.Any] \| None` | str or dict or None: the generated reply. If None, no reply is generated. |
+| str \| dict[str, typing.Any] \| None | str or dict or None: the generated reply. If None, no reply is generated. |
 
 <br />
 
@@ -70,7 +70,7 @@ a_generate_reply(
 ```python
 a_receive(
     self,
-    message: dict[str, typing.Any] | str,
+    message: dict[str, Any] | str,
     sender: Agent,
     request_reply: bool | None = None
 ) -> None
@@ -81,9 +81,9 @@ a_receive(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `message` | the message received.<br/><br/>If a dict, it should be a JSON-serializable and follows the OpenAI's ChatCompletion schema.<br/><br/>**Type:** `dict[str, typing.Any] \| str` |
-| `sender` | the sender of the message.<br/><br/>**Type:** `Agent` |
-| `request_reply` | whether the sender requests a reply.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** None |
+| `message` | the message received.<br/><br/>If a dict, it should be a JSON-serializable and follows the OpenAI's ChatCompletion schema.<br/><br/>**Type:** dict[str, typing.Any] \| str |
+| `sender` | the sender of the message.<br/><br/>**Type:** [Agent](/docs/api-reference/autogen/Agent) |
+| `request_reply` | whether the sender requests a reply.<br/><br/>**Type:** bool \| None<br/><br/>**Default:** None |
 
 <br />
 
@@ -93,7 +93,7 @@ a_receive(
 ```python
 a_send(
     self,
-    message: dict[str, typing.Any] | str,
+    message: dict[str, Any] | str,
     recipient: Agent,
     request_reply: bool | None = None
 ) -> None
@@ -104,9 +104,9 @@ a_send(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `message` | the message to send.<br/><br/>If a dict, it should be a JSON-serializable and follows the OpenAI's ChatCompletion schema.<br/><br/>**Type:** `dict[str, typing.Any] \| str` |
-| `recipient` | the recipient of the message.<br/><br/>**Type:** `Agent` |
-| `request_reply` | whether to request a reply from the recipient.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** None |
+| `message` | the message to send.<br/><br/>If a dict, it should be a JSON-serializable and follows the OpenAI's ChatCompletion schema.<br/><br/>**Type:** dict[str, typing.Any] \| str |
+| `recipient` | the recipient of the message.<br/><br/>**Type:** [Agent](/docs/api-reference/autogen/Agent) |
+| `request_reply` | whether to request a reply from the recipient.<br/><br/>**Type:** bool \| None<br/><br/>**Default:** None |
 
 <br />
 
@@ -116,10 +116,10 @@ a_send(
 ```python
 generate_reply(
     self,
-    messages: list[dict[str, typing.Any]] | None = None,
+    messages: list[dict[str, Any]] | None = None,
     sender: ForwardRef('Agent') | None = None,
     **kwargs: Any
-) -> str | dict[str, typing.Any] | None
+) -> str | dict[str, Any] | None
 ```
 
     Generate a reply based on the received messages.<br/>
@@ -127,14 +127,14 @@ generate_reply(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | a list of messages received from other agents.<br/><br/>The messages are dictionaries that are JSON-serializable and follows the OpenAI's ChatCompletion schema.<br/><br/>**Type:** `list[dict[str, typing.Any]] \| None`<br/><br/>**Default:** None |
-| `sender` | sender of an Agent instance.<br/><br/>**Type:** `ForwardRef('Agent') \| None`<br/><br/>**Default:** None |
-| `**kwargs` | **Type:** `Any` |
+| `messages` | a list of messages received from other agents.<br/><br/>The messages are dictionaries that are JSON-serializable and follows the OpenAI's ChatCompletion schema.<br/><br/>**Type:** list[dict[str, typing.Any]] \| None<br/><br/>**Default:** None |
+| `sender` | sender of an Agent instance.<br/><br/>**Type:** ForwardRef('[Agent](/docs/api-reference/autogen/Agent)') \| None<br/><br/>**Default:** None |
+| `**kwargs` | **Type:** Any |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `str \| dict[str, typing.Any] \| None` | str or dict or None: the generated reply. If None, no reply is generated. |
+| str \| dict[str, typing.Any] \| None | str or dict or None: the generated reply. If None, no reply is generated. |
 
 <br />
 
@@ -144,7 +144,7 @@ generate_reply(
 ```python
 receive(
     self,
-    message: dict[str, typing.Any] | str,
+    message: dict[str, Any] | str,
     sender: Agent,
     request_reply: bool | None = None
 ) -> None
@@ -155,9 +155,9 @@ receive(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `message` | the message received.<br/><br/>If a dict, it should be a JSON-serializable and follows the OpenAI's ChatCompletion schema.<br/><br/>**Type:** `dict[str, typing.Any] \| str` |
-| `sender` | the sender of the message.<br/><br/>**Type:** `Agent` |
-| `request_reply` | whether the sender requests a reply.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** None |
+| `message` | the message received.<br/><br/>If a dict, it should be a JSON-serializable and follows the OpenAI's ChatCompletion schema.<br/><br/>**Type:** dict[str, typing.Any] \| str |
+| `sender` | the sender of the message.<br/><br/>**Type:** [Agent](/docs/api-reference/autogen/Agent) |
+| `request_reply` | whether the sender requests a reply.<br/><br/>**Type:** bool \| None<br/><br/>**Default:** None |
 
 <br />
 
@@ -167,7 +167,7 @@ receive(
 ```python
 send(
     self,
-    message: dict[str, typing.Any] | str,
+    message: dict[str, Any] | str,
     recipient: Agent,
     request_reply: bool | None = None
 ) -> None
@@ -178,8 +178,8 @@ send(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `message` | the message to send.<br/><br/>If a dict, it should be a JSON-serializable and follows the OpenAI's ChatCompletion schema.<br/><br/>**Type:** `dict[str, typing.Any] \| str` |
-| `recipient` | the recipient of the message.<br/><br/>**Type:** `Agent` |
-| `request_reply` | whether to request a reply from the recipient.<br/><br/>**Type:** `bool \| None`<br/><br/>**Default:** None |
+| `message` | the message to send.<br/><br/>If a dict, it should be a JSON-serializable and follows the OpenAI's ChatCompletion schema.<br/><br/>**Type:** dict[str, typing.Any] \| str |
+| `recipient` | the recipient of the message.<br/><br/>**Type:** [Agent](/docs/api-reference/autogen/Agent) |
+| `request_reply` | whether to request a reply from the recipient.<br/><br/>**Type:** bool \| None<br/><br/>**Default:** None |
 
 <br />

@@ -16,7 +16,7 @@ SqliteLogger(config: dict[str, Any])
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `config` | **Type:** `dict[str, Any]` |
+| `config` | **Type:** dict[str, Any] |
 
 ### Class Attributes
 
@@ -32,7 +32,7 @@ SqliteLogger(config: dict[str, Any])
 #### get_connection
 
 ```python
-get_connection(self) -> None | sqlite3.Connection
+get_connection(self) -> None | Connection
 ```
 
     Get connection.
@@ -45,7 +45,7 @@ get_connection(self) -> None | sqlite3.Connection
 ```python
 log_chat_completion(
     self,
-    invocation_id: uuid.UUID,
+    invocation_id: UUID,
     client_id: int,
     wrapper_id: int,
     source: str | Agent,
@@ -62,15 +62,15 @@ log_chat_completion(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `invocation_id` | Invocation ID.<br/><br/>**Type:** `uuid.UUID` |
-| `client_id` | Client ID.<br/><br/>**Type:** `int` |
-| `wrapper_id` | Wrapper ID.<br/><br/>**Type:** `int` |
-| `source` | Source of the chat completion.<br/><br/>**Type:** `str \| Agent` |
-| `request` | Request for the chat completion.<br/><br/>**Type:** `dict[str, float \| str \| list[dict[str, str]]]` |
-| `response` | Response for the chat completion.<br/><br/>**Type:** `str \| ChatCompletion` |
-| `is_cached` | Whether the response is cached.<br/><br/>**Type:** `int` |
-| `cost` | Cost of the chat completion.<br/><br/>**Type:** `float` |
-| `start_time` | Start time of the chat completion.<br/><br/>**Type:** `str` |
+| `invocation_id` | Invocation ID.<br/><br/>**Type:** uuid.UUID |
+| `client_id` | Client ID.<br/><br/>**Type:** int |
+| `wrapper_id` | Wrapper ID.<br/><br/>**Type:** int |
+| `source` | Source of the chat completion.<br/><br/>**Type:** str \| Agent |
+| `request` | Request for the chat completion.<br/><br/>**Type:** dict[str, float \| str \| list[dict[str, str]]] |
+| `response` | Response for the chat completion.<br/><br/>**Type:** str \| ChatCompletion |
+| `is_cached` | Whether the response is cached.<br/><br/>**Type:** int |
+| `cost` | Cost of the chat completion.<br/><br/>**Type:** float |
+| `start_time` | Start time of the chat completion.<br/><br/>**Type:** str |
 
 <br />
 
@@ -91,9 +91,9 @@ log_event(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `source` | Source of the event.<br/><br/>**Type:** `str \| Agent` |
-| `name` | Name of the event.<br/><br/>**Type:** `str` |
-| `**kwargs` | Additional arguments for the event.<br/><br/>**Type:** `dict[str, Any]` |
+| `source` | Source of the event.<br/><br/>**Type:** str \| Agent |
+| `name` | Name of the event.<br/><br/>**Type:** str |
+| `**kwargs` | Additional arguments for the event.<br/><br/>**Type:** dict[str, Any] |
 
 <br />
 
@@ -115,10 +115,10 @@ log_function_use(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `source` | Source of the function use.<br/><br/>**Type:** `str \| Agent` |
-| `function` | Function to log.<br/><br/>**Type:** `F` |
-| `args` | Arguments of the function.<br/><br/>**Type:** `dict[str, Any]` |
-| `returns` | Returns of the function.<br/><br/>**Type:** `Any` |
+| `source` | Source of the function use.<br/><br/>**Type:** str \| Agent |
+| `function` | Function to log.<br/><br/>**Type:** F |
+| `args` | Arguments of the function.<br/><br/>**Type:** dict[str, Any] |
+| `returns` | Returns of the function.<br/><br/>**Type:** Any |
 
 <br />
 
@@ -138,8 +138,8 @@ log_new_agent(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | Agent to log.<br/><br/>**Type:** `ConversableAgent` |
-| `init_args` | Initialization arguments of the agent<br/><br/>**Type:** `dict[str, Any]` |
+| `agent` | Agent to log.<br/><br/>**Type:** ConversableAgent |
+| `init_args` | Initialization arguments of the agent<br/><br/>**Type:** dict[str, Any] |
 
 <br />
 
@@ -160,9 +160,9 @@ log_new_client(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `client` | Client to log.<br/><br/>**Type:** `AzureOpenAI \| OpenAI \| CerebrasClient \| GeminiClient \| AnthropicClient \| MistralAIClient \| TogetherClient \| GroqClient \| CohereClient \| OllamaClient \| BedrockClient` |
-| `wrapper` | Wrapper of the client.<br/><br/>**Type:** `OpenAIWrapper` |
-| `init_args` | Initialization arguments of the client.<br/><br/>**Type:** `dict[str, Any]` |
+| `client` | Client to log.<br/><br/>**Type:** AzureOpenAI \| OpenAI \| CerebrasClient \| GeminiClient \| AnthropicClient \| MistralAIClient \| TogetherClient \| GroqClient \| CohereClient \| OllamaClient \| BedrockClient |
+| `wrapper` | Wrapper of the client.<br/><br/>**Type:** OpenAIWrapper |
+| `init_args` | Initialization arguments of the client.<br/><br/>**Type:** dict[str, Any] |
 
 <br />
 
@@ -182,8 +182,24 @@ log_new_wrapper(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `wrapper` | Wrapper to log.<br/><br/>**Type:** `OpenAIWrapper` |
-| `init_args` | Initialization arguments of the wrapper<br/><br/>**Type:** `dict[str, LLMConfig \| list[LLMConfig]]` |
+| `wrapper` | Wrapper to log.<br/><br/>**Type:** OpenAIWrapper |
+| `init_args` | Initialization arguments of the wrapper<br/><br/>**Type:** dict[str, LLMConfig \| list[LLMConfig]] |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### start
+
+```python
+start(self) -> str
+```
+
+    Open a connection to the logging database, and start recording.<br/>Returns: <br/>    session_id (str):     a unique id for the logging session
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| str | session_id (str): a unique id for the logging session |
 
 <br />
 

@@ -1,6 +1,6 @@
 ---
 custom_edit_url: https://github.com/ag2ai/ag2/edit/main/notebook/agentchat_databricks_dbrx.ipynb
-description: Use Databricks DBRX and Foundation Model APIs to build AutoGen applications
+description: Use Databricks DBRX and Foundation Model APIs to build AG2 applications
   backed by open-source LLMs.
 source_notebook: /notebook/agentchat_databricks_dbrx.ipynb
 tags:
@@ -12,7 +12,7 @@ tags:
 - lakehouse
 - custom model
 - data intelligence
-title: Use AutoGen in Databricks with DBRX
+title: Use AG2 in Databricks with DBRX
 ---
 
 <a href="https://colab.research.google.com/github/ag2ai/ag2/blob/main/notebook/agentchat_databricks_dbrx.ipynb" class="colab-badge" target="_blank"><img noZoom src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab" /></a>
@@ -51,7 +51,7 @@ free to use them as a base to build upon!
 
 ## Requirements
 
-AutoGen must be installed on your Databricks cluster, and requires
+AG2 must be installed on your Databricks cluster, and requires
 `Python>=3.9`. This example includes the `%pip` magic command to
 install: `%pip install pyautogen`, as well as other necessary libraries.
 
@@ -429,7 +429,7 @@ So, in summary, deep learning is a specific approach to building AI systems that
 
 It can be useful to display chat logs to the notebook for debugging, and
 then persist those logs to a Delta table. The following section
-demonstrates how to extend the default AutoGen logging libraries.
+demonstrates how to extend the default AG2 logging libraries.
 
 First, we will implement a Python `class` that extends the capabilities
 of `autogen.runtime_logging`

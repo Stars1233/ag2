@@ -21,9 +21,9 @@ Tool(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `name` | **Type:** `str \| None`<br/><br/>**Default:** None |
-| `description` | **Type:** `str \| None`<br/><br/>**Default:** None |
-| `func_or_tool` | **Type:** `ForwardRef('Tool') \| Callable[..., Any]` |
+| `name` | **Type:** str \| None<br/><br/>**Default:** None |
+| `description` | **Type:** str \| None<br/><br/>**Default:** None |
+| `func_or_tool` | **Type:** ForwardRef('[Tool](/docs/api-reference/autogen/tools/Tool)') \| Callable[..., Any] |
 
 ### Instance Attributes
 
@@ -78,7 +78,7 @@ register_for_execution(self, agent: ConversableAgent) ->
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | The agent to which the tool will be registered.<br/><br/>**Type:** `ConversableAgent` |
+| `agent` | The agent to which the tool will be registered.<br/><br/>**Type:** ConversableAgent |
 
 <br />
 
@@ -95,7 +95,7 @@ register_for_llm(self, agent: ConversableAgent) ->
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | The agent to which the tool will be registered.<br/><br/>**Type:** `ConversableAgent` |
+| `agent` | The agent to which the tool will be registered.<br/><br/>**Type:** ConversableAgent |
 
 <br />
 
@@ -112,6 +112,6 @@ register_tool(self, agent: ConversableAgent) ->
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | The agent to which the tool will be registered.<br/><br/>**Type:** `ConversableAgent` |
+| `agent` | The agent to which the tool will be registered.<br/><br/>**Type:** ConversableAgent |
 
 <br />

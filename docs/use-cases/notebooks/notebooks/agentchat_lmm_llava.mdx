@@ -26,7 +26,7 @@ This notebook contains the following information and examples:
 2.  Application 1: [Image Chat](#app-1)
 3.  Application 2: [Figure Creator](#app-2)
 
-### Before everything starts, install AutoGen with the `lmm` option
+### Before everything starts, install AG2 with the `lmm` option
 
 ```bash
 pip install "autogen[lmm]>=0.3.0"
@@ -142,12 +142,12 @@ if LLAVA_MODE == "local":
 
 # Multimodal Functions
 
-We cal test the `llava_call` function with the following AutoGen image.
+We cal test the `llava_call` function with the following AG2 image.
 ![](https://raw.githubusercontent.com/microsoft/autogen/main/website/static/img/autogen_agentchat.png)
 
 ```python
 rst = llava_call(
-    "Describe this AutoGen framework <img https://raw.githubusercontent.com/microsoft/autogen/main/website/static/img/autogen_agentchat.png> with bullet points.",
+    "Describe this AG2 framework <img https://raw.githubusercontent.com/microsoft/autogen/main/website/static/img/autogen_agentchat.png> with bullet points.",
     llm_config={"config_list": llava_config_list, "temperature": 0},
 )
 

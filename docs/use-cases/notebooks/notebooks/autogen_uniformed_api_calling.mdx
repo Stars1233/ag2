@@ -20,8 +20,8 @@ file, you can easily switch between different LLMs by just changing the
 model name, while enjoying all the enhanced features such as caching and
 cost calculation!
 
-In this notebook, we will show you how to use AutoGen to call different
-LLMs and create LLM agents from them.
+In this notebook, we will show you how to use AG2 to call different LLMs
+and create LLM agents from them.
 
 Currently, we support the following model families: -
 [OpenAI](https://platform.openai.com/docs/overview) - [Azure
@@ -36,14 +36,14 @@ models)
 … and more to come!
 
 You can also [plug in your local deployed
-LLM](https://docs.ag2.ai/blog/2024-01-26-Custom-Models) into AutoGen if
+LLM](https://docs.ag2.ai/blog/2024-01-26-Custom-Models) into AG2 if
 needed.
 
 ## Install required packages
 
-You may want to install AutoGen with options to different LLMs. Here we
-install AutoGen with all the supported LLMs. By default, AutoGen is
-installed with OpenAI support.
+You may want to install AG2 with options to different LLMs. Here we
+install AG2 with all the supported LLMs. By default, AG2 is installed
+with OpenAI support.
 
 ```bash
 pip install autogen[gemini,anthropic,mistral,together]
@@ -107,8 +107,8 @@ LLMs you want to use. Generally, you just need to specify the `model`,
 
 ## Uniform Interface to call different LLMs
 
-We first demonstrate how to use AutoGen to call different LLMs with the
-same wrapper class.
+We first demonstrate how to use AG2 to call different LLMs with the same
+wrapper class.
 
 After you install relevant packages and setup your config list, you only
 need three steps to call different LLMs: 1. Extract the config with the

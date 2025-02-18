@@ -33,7 +33,7 @@ CodeExecutor(*args, **kwargs)
 #### execute_code_blocks
 
 ```python
-execute_code_blocks(self, code_blocks: list[CodeBlock]) -> autogen.coding.base.CodeResult
+execute_code_blocks(self, code_blocks: list[CodeBlock]) -> CodeResult
 ```
 
     (Experimental) Execute code blocks and return the result.<br/>This method should be implemented by the code executor.<br/>
@@ -41,12 +41,12 @@ execute_code_blocks(self, code_blocks: list[CodeBlock]) -> autogen.coding.base.
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `code_blocks` | The code blocks to execute.<br/><br/>**Type:** `list[CodeBlock]` |
+| `code_blocks` | The code blocks to execute.<br/><br/>**Type:** list[[CodeBlock](/docs/api-reference/autogen/coding/CodeBlock)] |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.coding.base.CodeResult` | CodeResult: The result of the code execution. |
+| [CodeResult](/docs/api-reference/autogen/coding/CodeResult) | CodeResult: The result of the code execution. |
 
 <br />
 

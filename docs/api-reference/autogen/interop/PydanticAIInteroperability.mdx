@@ -27,7 +27,7 @@ convert_tool(
     tool: Any,
     deps: Any = None,
     **kwargs: Any
-) -> autogen.interop.pydantic_ai.pydantic_ai_tool.PydanticAITool
+) -> PydanticAITool
 ```
 
     Converts a given Pydantic AI tool into a general `Tool` format.<br/>This method verifies that the provided tool is a valid `PydanticAITool`,
@@ -36,14 +36,14 @@ convert_tool(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `tool` | The tool to convert, expected to be an instance of `PydanticAITool`.<br/><br/>**Type:** `Any` |
-| `deps` | The dependencies to inject into the context, required if the tool takes a context.<br/><br/>Defaults to None.<br/><br/>**Type:** `Any`<br/><br/>**Default:** None |
-| `**kwargs` | Additional arguments that are not used in this method.<br/><br/>**Type:** `Any` |
+| `tool` | The tool to convert, expected to be an instance of `PydanticAITool`.<br/><br/>**Type:** Any |
+| `deps` | The dependencies to inject into the context, required if the tool takes a context.<br/><br/>Defaults to None.<br/><br/>**Type:** Any<br/><br/>**Default:** None |
+| `**kwargs` | Additional arguments that are not used in this method.<br/><br/>**Type:** Any |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.interop.pydantic_ai.pydantic_ai_tool.PydanticAITool` | AG2PydanticAITool: A standardized `Tool` object converted from the Pydantic AI tool. |
+| [PydanticAITool](/docs/api-reference/autogen/interop/pydantic_ai/pydantic_ai_tool/PydanticAITool) | AG2PydanticAITool: A standardized `Tool` object converted from the Pydantic AI tool. |
 
 <br />
 
@@ -71,12 +71,12 @@ inject_params(ctx: Any, tool: Any) -> Callable[..., Any]
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `ctx` | The run context, which may include dependencies and retry information.<br/><br/>**Type:** `Any` |
-| `tool` | The Pydantic AI tool whose function is to be wrapped.<br/><br/>**Type:** `Any` |
+| `ctx` | The run context, which may include dependencies and retry information.<br/><br/>**Type:** Any |
+| `tool` | The Pydantic AI tool whose function is to be wrapped.<br/><br/>**Type:** Any |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `Callable[..., Any]` | Callable[..., Any]: A wrapped function that includes context injection and retry handling. |
+| Callable[..., Any] | Callable[..., Any]: A wrapped function that includes context injection and retry handling. |
 
 <br />

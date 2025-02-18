@@ -10,8 +10,8 @@ title: autogen.register_function
 register_function(
     f: Callable[..., Any],
     *,
-    caller: autogen.agentchat.conversable_agent.ConversableAgent,
-    executor: autogen.agentchat.conversable_agent.ConversableAgent,
+    caller: ConversableAgent,
+    executor: ConversableAgent,
     name: str | None = None,
     description: str
 ) -> None
@@ -23,10 +23,10 @@ register_function(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `f` | the function to be registered.<br/><br/>**Type:** `Callable[..., Any]` |
-| `caller` | the agent calling the function, typically an instance of ConversableAgent.<br/><br/>**Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
-| `executor` | the agent executing the function, typically an instance of UserProxy.<br/><br/>**Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
-| `name` | name of the function.<br/><br/>If None, the function name will be used (default: None).<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
-| `description` | description of the function.<br/><br/>The description is used by LLM to decode whether the function is called.<br/><br/>Make sure the description is properly describing what the function does or it might not be called by LLM when needed.<br/><br/>**Type:** `str` |
+| `f` | the function to be registered.<br/><br/>**Type:** Callable[..., Any] |
+| `caller` | the agent calling the function, typically an instance of ConversableAgent.<br/><br/>**Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) |
+| `executor` | the agent executing the function, typically an instance of UserProxy.<br/><br/>**Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) |
+| `name` | name of the function.<br/><br/>If None, the function name will be used (default: None).<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
+| `description` | description of the function.<br/><br/>The description is used by LLM to decode whether the function is called.<br/><br/>Make sure the description is properly describing what the function does or it might not be called by LLM when needed.<br/><br/>**Type:** str |
 
 <br />

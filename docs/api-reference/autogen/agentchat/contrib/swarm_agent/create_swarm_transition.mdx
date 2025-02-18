@@ -8,12 +8,12 @@ title: autogen.agentchat.contrib.swarm_agent.create_swarm_transition
 
 ```python
 create_swarm_transition(
-    initial_agent: autogen.agentchat.conversable_agent.ConversableAgent,
-    tool_execution: autogen.agentchat.conversable_agent.ConversableAgent,
+    initial_agent: ConversableAgent,
+    tool_execution: ConversableAgent,
     swarm_agent_names: list[str],
-    user_agent: autogen.agentchat.user_proxy_agent.UserProxyAgent | None,
-    swarm_after_work: autogen.agentchat.contrib.swarm_agent.AfterWorkOption | Callable[..., Any] | None
-) -> Callable[[autogen.agentchat.conversable_agent.ConversableAgent, autogen.agentchat.groupchat.GroupChat], autogen.agentchat.agent.Agent | None]
+    user_agent: UserProxyAgent | None,
+    swarm_after_work: AfterWorkOption | Callable[..., Any] | None
+) -> Callable[[ConversableAgent, GroupChat], Agent | None]
 ```
 
     Creates a transition function for swarm chat with enclosed state for the use_initial_agent.<br/>
@@ -21,15 +21,15 @@ create_swarm_transition(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `initial_agent` | The first agent to speak<br/><br/>**Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
-| `tool_execution` | The tool execution agent<br/><br/>**Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
-| `swarm_agent_names` | List of all agent names<br/><br/>**Type:** `list[str]` |
-| `user_agent` | Optional user proxy agent<br/><br/>**Type:** `autogen.agentchat.user_proxy_agent.UserProxyAgent \| None` |
-| `swarm_after_work` | Swarm-level after work<br/><br/>**Type:** `autogen.agentchat.contrib.swarm_agent.AfterWorkOption \| Callable[..., Any] \| None` |
+| `initial_agent` | The first agent to speak<br/><br/>**Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) |
+| `tool_execution` | The tool execution agent<br/><br/>**Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) |
+| `swarm_agent_names` | List of all agent names<br/><br/>**Type:** list[str] |
+| `user_agent` | Optional user proxy agent<br/><br/>**Type:** [UserProxyAgent](/docs/api-reference/autogen/UserProxyAgent) \| None |
+| `swarm_after_work` | Swarm-level after work<br/><br/>**Type:** [AfterWorkOption](/docs/api-reference/autogen/AfterWorkOption) \| Callable[..., Any] \| None |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `Callable[[autogen.agentchat.conversable_agent.ConversableAgent, autogen.agentchat.groupchat.GroupChat], autogen.agentchat.agent.Agent \| None]` | Callable transition function (for sync and async swarm chats) |
+| Callable[[[ConversableAgent](/docs/api-reference/autogen/ConversableAgent), [GroupChat](/docs/api-reference/autogen/GroupChat)], [Agent](/docs/api-reference/autogen/Agent) \| None] | Callable transition function (for sync and async swarm chats) |
 
 <br />

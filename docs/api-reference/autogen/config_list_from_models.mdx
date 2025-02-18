@@ -14,7 +14,7 @@ config_list_from_models(
     aoai_api_base_file: str | None = 'base_aoai.txt',
     exclude: str | None = None,
     model_list: list[str] | None = None
-) -> list[dict[str, typing.Any]]
+) -> list[dict[str, Any]]
 ```
 
     Get a list of configs for API calls with models specified in the model list.<br/>This function extends `config_list_openai_aoai` by allowing to clone its' out for each of the models provided.<br/>Each configuration will have a 'model' key with the model name as its value. This is particularly useful when
@@ -23,16 +23,16 @@ config_list_from_models(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `key_file_path` | The path to the key files.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** '.' |
-| `openai_api_key_file` | The file name of the OpenAI API key.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'key_openai.txt' |
-| `aoai_api_key_file` | The file name of the Azure OpenAI API key.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'key_aoai.txt' |
-| `aoai_api_base_file` | The file name of the Azure OpenAI API base.<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** 'base_aoai.txt' |
-| `exclude` | The API type to exclude, "openai" or "aoai".<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
-| `model_list` | The list of model names to include in the configs.<br/><br/>**Type:** `list[str] \| None`<br/><br/>**Default:** None |
+| `key_file_path` | The path to the key files.<br/><br/>**Type:** str \| None<br/><br/>**Default:** '.' |
+| `openai_api_key_file` | The file name of the OpenAI API key.<br/><br/>**Type:** str \| None<br/><br/>**Default:** 'key_openai.txt' |
+| `aoai_api_key_file` | The file name of the Azure OpenAI API key.<br/><br/>**Type:** str \| None<br/><br/>**Default:** 'key_aoai.txt' |
+| `aoai_api_base_file` | The file name of the Azure OpenAI API base.<br/><br/>**Type:** str \| None<br/><br/>**Default:** 'base_aoai.txt' |
+| `exclude` | The API type to exclude, "openai" or "aoai".<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
+| `model_list` | The list of model names to include in the configs.<br/><br/>**Type:** list[str] \| None<br/><br/>**Default:** None |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `list[dict[str, typing.Any]]` | list: A list of configs for OpenAI API calls, each including model information. |
+| list[dict[str, typing.Any]] | list: A list of configs for OpenAI API calls, each including model information. |
 
 <br />

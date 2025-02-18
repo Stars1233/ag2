@@ -8,7 +8,7 @@ title: autogen.agentchat.realtime.experimental.RealtimeObserver
 </h2>
 
 ```python
-RealtimeObserver(*, logger: logging.Logger | None = None)
+RealtimeObserver(*, logger: Logger | None = None)
 ```
 
     Observer for the OpenAI Realtime API.<br/>Observer for the OpenAI Realtime API.<br/>
@@ -16,7 +16,7 @@ RealtimeObserver(*, logger: logging.Logger | None = None)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `logger` | **Type:** `logging.Logger \| None`<br/><br/>**Default:** None |
+| `logger` | **Type:** logging.Logger \| None<br/><br/>**Default:** None |
 
 ### Instance Attributes
 
@@ -55,7 +55,7 @@ initialize_session(self) -> None
 #### on_event
 
 ```python
-on_event(self, event: autogen.agentchat.realtime.experimental.realtime_events.RealtimeEvent) -> None
+on_event(self, event: RealtimeEvent) -> None
 ```
 
     Handle an event from the OpenAI Realtime API.<br/>
@@ -63,7 +63,7 @@ on_event(self, event: autogen.agentchat.realtime.experimental.realtime_events.R
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `event` | The event from the OpenAI Realtime API.<br/><br/>**Type:** `autogen.agentchat.realtime.experimental.realtime_events.RealtimeEvent` |
+| `event` | The event from the OpenAI Realtime API.<br/><br/>**Type:** [RealtimeEvent](/docs/api-reference/autogen/agentchat/realtime/experimental/realtime_events/RealtimeEvent) |
 
 <br />
 
@@ -79,7 +79,7 @@ run(self, agent: RealtimeAgent) ->
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | The realtime agent attached to the observer.<br/><br/>**Type:** `RealtimeAgent` |
+| `agent` | The realtime agent attached to the observer.<br/><br/>**Type:** [RealtimeAgent](/docs/api-reference/autogen/agentchat/realtime/experimental/RealtimeAgent) |
 
 <br />
 

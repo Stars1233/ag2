@@ -100,9 +100,9 @@ FOREIGN KEY ("Volume") REFERENCES "volume"("Volume_ID")
 
 ## Agent Implementation
 
-Using AutoGen, a SQL agent can be implemented with a ConversableAgent.
-The gym environment executes the generated SQL query and the agent can
-take execution results as feedback to improve its generation in multiple
+Using AG2, a SQL agent can be implemented with a ConversableAgent. The
+gym environment executes the generated SQL query and the agent can take
+execution results as feedback to improve its generation in multiple
 rounds of conversations.
 
 ```python

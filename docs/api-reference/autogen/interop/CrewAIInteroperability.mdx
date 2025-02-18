@@ -20,7 +20,7 @@ CrewAIInteroperability()
 #### convert_tool
 
 ```python
-convert_tool(tool: Any, **kwargs: Any) -> autogen.tools.tool.Tool
+convert_tool(tool: Any, **kwargs: Any) -> Tool
 ```
 
     Converts a given CrewAI tool into a general `Tool` format.<br/>This method ensures that the provided tool is a valid `CrewAITool`, sanitizes
@@ -30,13 +30,13 @@ convert_tool(tool: Any, **kwargs: Any) -> autogen.tools.tool.Tool
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `tool` | The tool to convert, expected to be an instance of `CrewAITool`.<br/><br/>**Type:** `Any` |
-| `**kwargs` | Additional arguments, which are not supported by this method.<br/><br/>**Type:** `Any` |
+| `tool` | The tool to convert, expected to be an instance of `CrewAITool`.<br/><br/>**Type:** Any |
+| `**kwargs` | Additional arguments, which are not supported by this method.<br/><br/>**Type:** Any |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.tools.tool.Tool` | Tool: A standardized `Tool` object converted from the CrewAI tool. |
+| [Tool](/docs/api-reference/autogen/tools/Tool) | Tool: A standardized `Tool` object converted from the CrewAI tool. |
 
 <br />
 

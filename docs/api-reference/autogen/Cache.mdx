@@ -18,7 +18,7 @@ Cache(config: dict[str, Any])
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `config` | **Type:** `dict[str, Any]` |
+| `config` | **Type:** dict[str, Any] |
 
 ### Class Attributes
 
@@ -39,7 +39,7 @@ cosmos_db(
     container_id: Optional[str] = None,
     cache_seed: Union[str, int] = 42,
     client: Optional[Any] = None
-) -> autogen.cache.cache.Cache
+) -> Cache
 ```
 
     Create a Cosmos DB cache instance with 'autogen_cache' as database ID.<br/>
@@ -47,15 +47,15 @@ cosmos_db(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `connection_string` | Connection string to the Cosmos DB account.<br/><br/>**Type:** `Optional[str]`<br/><br/>**Default:** None |
-| `container_id` | The container ID for the Cosmos DB account.<br/><br/>**Type:** `Optional[str]`<br/><br/>**Default:** None |
-| `cache_seed` | A seed for the cache.<br/><br/>**Type:** `Union[str, int]`<br/><br/>**Default:** 42 |
-| `client` | Optional[CosmosClient]: Pass an existing Cosmos DB client.<br/><br/>**Type:** `Optional[Any]`<br/><br/>**Default:** None |
+| `connection_string` | Connection string to the Cosmos DB account.<br/><br/>**Type:** Optional[str]<br/><br/>**Default:** None |
+| `container_id` | The container ID for the Cosmos DB account.<br/><br/>**Type:** Optional[str]<br/><br/>**Default:** None |
+| `cache_seed` | A seed for the cache.<br/><br/>**Type:** Union[str, int]<br/><br/>**Default:** 42 |
+| `client` | Optional[CosmosClient]: Pass an existing Cosmos DB client.<br/><br/>**Type:** Optional[Any]<br/><br/>**Default:** None |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.cache.cache.Cache` | Cache: A Cache instance configured for Cosmos DB. |
+| [Cache](/docs/api-reference/autogen/Cache) | Cache: A Cache instance configured for Cosmos DB. |
 
 <br />
 
@@ -63,7 +63,7 @@ cosmos_db(
 #### disk
 
 ```python
-disk(cache_seed: Union[str, int] = 42, cache_path_root: str = '.cache') -> autogen.cache.cache.Cache
+disk(cache_seed: Union[str, int] = 42, cache_path_root: str = '.cache') -> Cache
 ```
 
     Create a Disk cache instance.<br/>
@@ -71,13 +71,13 @@ disk(cache_seed: Union[str, int] = 42, cache_path_root: str = '.cache') -
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `cache_seed` | A seed for the cache.<br/><br/>Defaults to 42.<br/><br/>**Type:** `Union[str, int]`<br/><br/>**Default:** 42 |
-| `cache_path_root` | The root path for the disk cache.<br/><br/>Defaults to ".cache".<br/><br/>**Type:** `str`<br/><br/>**Default:** '.cache' |
+| `cache_seed` | A seed for the cache.<br/><br/>Defaults to 42.<br/><br/>**Type:** Union[str, int]<br/><br/>**Default:** 42 |
+| `cache_path_root` | The root path for the disk cache.<br/><br/>Defaults to ".cache".<br/><br/>**Type:** str<br/><br/>**Default:** '.cache' |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.cache.cache.Cache` | Cache: A Cache instance configured for Disk caching. |
+| [Cache](/docs/api-reference/autogen/Cache) | Cache: A Cache instance configured for Disk caching. |
 
 <br />
 
@@ -85,7 +85,7 @@ disk(cache_seed: Union[str, int] = 42, cache_path_root: str = '.cache') -
 #### redis
 
 ```python
-redis(cache_seed: Union[str, int] = 42, redis_url: str = 'redis://localhost:6379/0') -> autogen.cache.cache.Cache
+redis(cache_seed: Union[str, int] = 42, redis_url: str = 'redis://localhost:6379/0') -> Cache
 ```
 
     Create a Redis cache instance.<br/>
@@ -93,13 +93,13 @@ redis(cache_seed: Union[str, int] = 42, redis_url: str = 'redis://localho
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `cache_seed` | A seed for the cache.<br/><br/>Defaults to 42.<br/><br/>**Type:** `Union[str, int]`<br/><br/>**Default:** 42 |
-| `redis_url` | The URL for the Redis server.<br/><br/>Defaults to "redis://localhost:6379/0".<br/><br/>**Type:** `str`<br/><br/>**Default:** 'redis |
+| `cache_seed` | A seed for the cache.<br/><br/>Defaults to 42.<br/><br/>**Type:** Union[str, int]<br/><br/>**Default:** 42 |
+| `redis_url` | The URL for the Redis server.<br/><br/>Defaults to "redis://localhost:6379/0".<br/><br/>**Type:** str<br/><br/>**Default:** 'redis |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.cache.cache.Cache` | Cache: A Cache instance configured for Redis. |
+| [Cache](/docs/api-reference/autogen/Cache) | Cache: A Cache instance configured for Redis. |
 
 <br />
 
@@ -132,13 +132,13 @@ get(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `key` | The key identifying the item in the cache.<br/><br/>**Type:** `str` |
-| `default` | The default value to return if the key is not found.<br/><br/>Defaults to None.<br/><br/>**Type:** `Optional[Any]`<br/><br/>**Default:** None |
+| `key` | The key identifying the item in the cache.<br/><br/>**Type:** str |
+| `default` | The default value to return if the key is not found.<br/><br/>Defaults to None.<br/><br/>**Type:** Optional[Any]<br/><br/>**Default:** None |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `Any \| None` | The value associated with the key if found, else the default value. |
+| Any \| None | The value associated with the key if found, else the default value. |
 
 <br />
 
@@ -158,7 +158,7 @@ set(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `key` | The key under which the item is to be stored.<br/><br/>**Type:** `str` |
-| `value` | The value to be stored in the cache.<br/><br/>**Type:** `Any` |
+| `key` | The key under which the item is to be stored.<br/><br/>**Type:** str |
+| `value` | The value to be stored in the cache.<br/><br/>**Type:** Any |
 
 <br />

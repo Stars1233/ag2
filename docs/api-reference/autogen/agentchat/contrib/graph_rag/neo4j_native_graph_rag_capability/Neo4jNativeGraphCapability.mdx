@@ -8,7 +8,7 @@ title: autogen.agentchat.contrib.graph_rag.neo4j_native_graph_rag_capability.Neo
 </h2>
 
 ```python
-Neo4jNativeGraphCapability(query_engine: autogen.agentchat.contrib.graph_rag.neo4j_native_graph_query_engine.Neo4jNativeGraphQueryEngine)
+Neo4jNativeGraphCapability(query_engine: Neo4jNativeGraphQueryEngine)
 ```
 
     The Neo4j native graph capability integrates Neo4j native query engine into a graph rag agent.<br/>For usage, please refer to example notebook/agentchat_graph_rag_neo4j_native.ipynb
@@ -18,7 +18,7 @@ Neo4jNativeGraphCapability(query_engine: autogen.agentchat.contrib.graph_rag.ne
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `query_engine` | **Type:** `autogen.agentchat.contrib.graph_rag.neo4j_native_graph_query_engine.Neo4jNativeGraphQueryEngine` |
+| `query_engine` | **Type:** [Neo4jNativeGraphQueryEngine](/docs/api-reference/autogen/agentchat/contrib/graph_rag/neo4j_native_graph_query_engine/Neo4jNativeGraphQueryEngine) |
 
 ### Instance Methods
 
@@ -26,7 +26,7 @@ Neo4jNativeGraphCapability(query_engine: autogen.agentchat.contrib.graph_rag.ne
 #### add_to_agent
 
 ```python
-add_to_agent(self, agent: autogen.agentchat.conversable_agent.ConversableAgent) -> 
+add_to_agent(self, agent: ConversableAgent) -> 
 ```
 
     Add native Neo4j GraphRAG capability to a ConversableAgent.<br/>llm_config of the agent must be None/False (default) to make sure the returned message only contains information retrieved from the graph DB instead of any LLMs.
@@ -34,6 +34,6 @@ add_to_agent(self, agent: autogen.agentchat.conversable_agent.ConversableAgent)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | **Type:** `autogen.agentchat.conversable_agent.ConversableAgent` |
+| `agent` | **Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) |
 
 <br />

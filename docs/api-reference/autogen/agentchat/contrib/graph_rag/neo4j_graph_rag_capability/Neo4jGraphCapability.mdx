@@ -8,7 +8,7 @@ title: autogen.agentchat.contrib.graph_rag.neo4j_graph_rag_capability.Neo4jGraph
 </h2>
 
 ```python
-Neo4jGraphCapability(query_engine: autogen.agentchat.contrib.graph_rag.neo4j_graph_query_engine.Neo4jGraphQueryEngine)
+Neo4jGraphCapability(query_engine: Neo4jGraphQueryEngine)
 ```
 
     The Neo4j graph capability integrates Neo4j Property graph into a graph rag agent.<br/>Ref: https://neo4j.com/labs/genai-ecosystem/llamaindex/#_property_graph_constructing_modules
@@ -21,7 +21,7 @@ Neo4jGraphCapability(query_engine: autogen.agentchat.contrib.graph_rag.neo4j_gr
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `query_engine` | **Type:** `autogen.agentchat.contrib.graph_rag.neo4j_graph_query_engine.Neo4jGraphQueryEngine` |
+| `query_engine` | **Type:** [Neo4jGraphQueryEngine](/docs/api-reference/autogen/agentchat/contrib/graph_rag/neo4j_graph_query_engine/Neo4jGraphQueryEngine) |
 
 ### Instance Methods
 
@@ -29,7 +29,7 @@ Neo4jGraphCapability(query_engine: autogen.agentchat.contrib.graph_rag.neo4j_gr
 #### add_to_agent
 
 ```python
-add_to_agent(self, agent: autogen.agentchat.user_proxy_agent.UserProxyAgent) -> 
+add_to_agent(self, agent: UserProxyAgent) -> 
 ```
 
     Add Neo4j GraphRAG capability to a UserProxyAgent.<br/>The restriction to a UserProxyAgent to make sure the returned message only contains information retrieved from the graph DB instead of any LLMs.
@@ -37,6 +37,6 @@ add_to_agent(self, agent: autogen.agentchat.user_proxy_agent.UserProxyAgent) ->
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | **Type:** `autogen.agentchat.user_proxy_agent.UserProxyAgent` |
+| `agent` | **Type:** [UserProxyAgent](/docs/api-reference/autogen/UserProxyAgent) |
 
 <br />

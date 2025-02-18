@@ -7,7 +7,7 @@ title: autogen.code_utils.create_virtual_env
 #### create_virtual_env
 
 ```python
-create_virtual_env(dir_path: str, **env_args) -> types.SimpleNamespace
+create_virtual_env(dir_path: str, **env_args) -> SimpleNamespace
 ```
 
     Creates a python virtual environment and returns the context.<br/>
@@ -15,12 +15,12 @@ create_virtual_env(dir_path: str, **env_args) -> types.SimpleNamespace
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `dir_path` | Directory path where the env will be created.<br/><br/>**Type:** `str` |
+| `dir_path` | Directory path where the env will be created.<br/><br/>**Type:** str |
 | `**env_args` | Any extra args to pass to the `EnvBuilder`<br/><br/> |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `types.SimpleNamespace` | SimpleNamespace: the virtual env context object. |
+| types.SimpleNamespace | SimpleNamespace: the virtual env context object. |
 
 <br />

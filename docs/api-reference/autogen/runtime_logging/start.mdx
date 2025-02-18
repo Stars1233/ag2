@@ -19,13 +19,13 @@ start(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `logger` | A logger instance<br/><br/>**Type:** `Optional[BaseLogger]`<br/><br/>**Default:** None |
-| `logger_type` | The type of logger to use (default: sqlite)<br/><br/>**Type:** `"Literal['sqlite', 'file']"`<br/><br/>**Default:** 'sqlite' |
-| `config` | Configuration for the logger<br/><br/>**Type:** `Optional[dict[str, Any]]`<br/><br/>**Default:** None |
+| `logger` | A logger instance<br/><br/>**Type:** Optional[BaseLogger]<br/><br/>**Default:** None |
+| `logger_type` | The type of logger to use (default: sqlite)<br/><br/>**Type:** "Literal['sqlite', 'file']"<br/><br/>**Default:** 'sqlite' |
+| `config` | Configuration for the logger<br/><br/>**Type:** Optional[dict[str, Any]]<br/><br/>**Default:** None |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `str` | session_id (str(uuid.uuid4)): a unique id for the logging session |
+| str | session_id (str(uuid.uuid4)): a unique id for the logging session |
 
 <br />

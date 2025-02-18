@@ -8,9 +8,9 @@ title: autogen.agentchat.contrib.capabilities.transforms_util.cache_content_set
 
 ```python
 cache_content_set(
-    cache: autogen.cache.abstract_cache_base.AbstractCache | None,
+    cache: AbstractCache | None,
     key: str,
-    content: str | list[dict[str, typing.Any] | str] | None,
+    content: str | list[dict[str, Any] | str] | None,
     *extra_values
 ) -> 
 ```
@@ -20,9 +20,9 @@ cache_content_set(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `cache` | The cache to set the content into.<br/><br/>If None, the cache is ignored.<br/><br/>**Type:** `autogen.cache.abstract_cache_base.AbstractCache \| None` |
-| `key` | The key to set the content into.<br/><br/>**Type:** `str` |
-| `content` | The message content to set into the cache.<br/><br/>**Type:** `str \| list[dict[str, typing.Any] \| str] \| None` |
+| `cache` | The cache to set the content into.<br/><br/>If None, the cache is ignored.<br/><br/>**Type:** [AbstractCache](/docs/api-reference/autogen/cache/AbstractCache) \| None |
+| `key` | The key to set the content into.<br/><br/>**Type:** str |
+| `content` | The message content to set into the cache.<br/><br/>**Type:** str \| list[dict[str, typing.Any] \| str] \| None |
 | `*extra_values` | Additional values to be passed to the cache.<br/><br/> |
 
 <br />

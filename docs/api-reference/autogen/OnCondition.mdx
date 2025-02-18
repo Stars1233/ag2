@@ -9,8 +9,8 @@ title: autogen.OnCondition
 
 ```python
 OnCondition(
-    target: autogen.agentchat.conversable_agent.ConversableAgent | dict[str, typing.Any] = None,
-    condition: str | autogen.agentchat.contrib.swarm_agent.ContextStr | Callable[..., Any] = '',
+    target: ConversableAgent | dict[str, Any] = None,
+    condition: str | ContextStr | Callable[..., Any] = '',
     available: Callable | str | None = None
 )
 ```
@@ -20,9 +20,9 @@ OnCondition(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `target` | **Type:** `autogen.agentchat.conversable_agent.ConversableAgent \| dict[str, typing.Any]`<br/><br/>**Default:** None |
-| `condition` | **Type:** `str \| autogen.agentchat.contrib.swarm_agent.ContextStr \| Callable[..., Any]`<br/><br/>**Default:** '' |
-| `available` | **Type:** `Callable \| str \| None`<br/><br/>**Default:** None |
+| `target` | **Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) \| dict[str, typing.Any]<br/><br/>**Default:** None |
+| `condition` | **Type:** str \| [ContextStr](/docs/api-reference/autogen/agentchat/contrib/swarm_agent/ContextStr) \| Callable[..., Any]<br/><br/>**Default:** '' |
+| `available` | **Type:** Callable \| str \| None<br/><br/>**Default:** None |
 
 ### Class Attributes
 

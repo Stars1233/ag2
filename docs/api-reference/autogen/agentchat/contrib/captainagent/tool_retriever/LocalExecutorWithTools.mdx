@@ -8,7 +8,7 @@ title: autogen.agentchat.contrib.captainagent.tool_retriever.LocalExecutorWithTo
 </h2>
 
 ```python
-LocalExecutorWithTools(tools: list[autogen.tools.tool.Tool] | None = None, work_dir: pathlib.Path | str = PosixPath('.'))
+LocalExecutorWithTools(tools: list[Tool] | None = None, work_dir: Path | str = PosixPath('.'))
 ```
 
     An executor that executes code blocks with injected tools. In this executor, the func within the tools can be called directly without declaring in the code block.<br/>For example, for a tool converted from langchain, the relevant functions can be called directly.
@@ -42,8 +42,8 @@ LocalExecutorWithTools(tools: list[autogen.tools.tool.Tool] | None = None, 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `tools` | **Type:** `list[autogen.tools.tool.Tool] \| None`<br/><br/>**Default:** None |
-| `work_dir` | **Type:** `pathlib.Path \| str`<br/><br/>**Default:** PosixPath('.') |
+| `tools` | **Type:** list[[Tool](/docs/api-reference/autogen/tools/Tool)] \| None<br/><br/>**Default:** None |
+| `work_dir` | **Type:** pathlib.Path \| str<br/><br/>**Default:** PosixPath('.') |
 
 ### Instance Attributes
 
@@ -59,7 +59,7 @@ LocalExecutorWithTools(tools: list[autogen.tools.tool.Tool] | None = None, 
 #### execute_code_blocks
 
 ```python
-execute_code_blocks(self, code_blocks: list[autogen.coding.base.CodeBlock]) -> autogen.coding.base.CodeResult
+execute_code_blocks(self, code_blocks: list[CodeBlock]) -> CodeResult
 ```
 
     Execute code blocks and return the result.<br/>
@@ -67,12 +67,12 @@ execute_code_blocks(self, code_blocks: list[autogen.coding.base.CodeBlock]) -> 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `code_blocks` | The code blocks to execute.<br/><br/>**Type:** `list[autogen.coding.base.CodeBlock]` |
+| `code_blocks` | The code blocks to execute.<br/><br/>**Type:** list[[CodeBlock](/docs/api-reference/autogen/coding/CodeBlock)] |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `autogen.coding.base.CodeResult` | CodeResult: The result of the code execution. |
+| [CodeResult](/docs/api-reference/autogen/coding/CodeResult) | CodeResult: The result of the code execution. |
 
 <br />
 

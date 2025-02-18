@@ -7,7 +7,7 @@ title: autogen.agentchat.contrib.capabilities.transforms_util.cache_key
 #### cache_key
 
 ```python
-cache_key(content: str | list[dict[str, typing.Any] | str] | None, *args: <class 'collections.abc.Hashable'>) -> str
+cache_key(content: str | list[dict[str, Any] | str] | None, *args: <class 'Hashable'>) -> str
 ```
 
     Calculates the cache key for the given message content and any other hashable args.<br/>
@@ -15,7 +15,7 @@ cache_key(content: str | list[dict[str, typing.Any] | str] | None, *args
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `content` | The message content to calculate the cache key for.<br/><br/>**Type:** `str \| list[dict[str, typing.Any] \| str] \| None` |
-| `*args` | Any additional hashable args to include in the cache key.<br/><br/>**Type:** `<class 'collections.abc.Hashable'>` |
+| `content` | The message content to calculate the cache key for.<br/><br/>**Type:** str \| list[dict[str, typing.Any] \| str] \| None |
+| `*args` | Any additional hashable args to include in the cache key.<br/><br/>**Type:** 'collections.abc.Hashable' |
 
 <br />

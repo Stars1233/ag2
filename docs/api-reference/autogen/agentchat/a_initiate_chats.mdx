@@ -7,7 +7,7 @@ title: autogen.agentchat.a_initiate_chats
 #### a_initiate_chats
 
 ```python
-a_initiate_chats(chat_queue: list[dict[str, typing.Any]]) -> dict[int, autogen.agentchat.chat.ChatResult]
+a_initiate_chats(chat_queue: list[dict[str, Any]]) -> dict[int, ChatResult]
 ```
 
     (async) Initiate a list of chats.<br/>
@@ -15,11 +15,11 @@ a_initiate_chats(chat_queue: list[dict[str, typing.Any]]) -> dict[int, autoge
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `chat_queue` | **Type:** `list[dict[str, typing.Any]]` |
+| `chat_queue` | **Type:** list[dict[str, typing.Any]] |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| `dict[int, autogen.agentchat.chat.ChatResult]` | - (Dict): a dict of ChatId: ChatResult corresponding to the finished chats in the chat_queue. |
+| dict[int, [ChatResult](/docs/api-reference/autogen/ChatResult)] | - (Dict): a dict of ChatId: ChatResult corresponding to the finished chats in the chat_queue. |
 
 <br />
