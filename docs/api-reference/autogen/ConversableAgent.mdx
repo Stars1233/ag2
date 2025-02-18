@@ -121,6 +121,14 @@ ConversableAgent(
     Return the system message.
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### tools
+<br />
+
+    Get the agent's tools (registered for LLM)
+    
+    Note this is a copy of the tools list, use add_tool and remove_tool to modify the tools list.
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### use_docker
 <br />
 
@@ -1047,7 +1055,11 @@ receive(
 #### register_for_execution
 
 ```python
-register_for_execution(self, name: str | None = None) -> Callable[[~F | autogen.tools.tool.Tool], autogen.tools.tool.Tool]
+register_for_execution(
+    self,
+    name: str | None = None,
+    description: str | None = None
+) -> Callable[[~F | autogen.tools.tool.Tool], autogen.tools.tool.Tool]
 ```
 
     Decorator factory for registering a function to be executed by an agent.<br/>It's return value is used to decorate a function to be registered to the agent.<br/>
@@ -1056,6 +1068,7 @@ register_for_execution(self, name: str | None = None) -> Callable[[~F | a
 | Name | Description |
 |--|--|
 | `name` | name of the function.<br/><br/>If None, the function name will be used (default: None).<br/><br/>**Type:** `str \| None`<br/><br/>**Default:** None |
+| `description` | **Type:** `str \| None`<br/><br/>**Default:** None |
 
 <b>Returns:</b>
 | Type | Description |
@@ -1216,6 +1229,22 @@ register_reply(
 | `reset_config` | the function to reset the config.<br/><br/>The function returns None.<br/><br/>Signature: ```def reset_config(config: Any)```<br/><br/>**Type:** `Callable[..., Any] \| None`<br/><br/>**Default:** None |
 | `ignore_async_in_sync_chat` | whether to ignore the async reply function in sync chats.<br/><br/>If `False`, an exception will be raised if an async reply function is registered and a chat is initialized with a sync function.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
 | `remove_other_reply_funcs` | whether to remove other reply functions when registering this reply function.<br/><br/>**Type:** `bool`<br/><br/>**Default:** False |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### remove_tool_for_llm
+
+```python
+remove_tool_for_llm(self, tool: autogen.tools.tool.Tool) -> None
+```
+
+    Remove a tool (register for LLM tool)
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `tool` | **Type:** `autogen.tools.tool.Tool` |
 
 <br />
 
