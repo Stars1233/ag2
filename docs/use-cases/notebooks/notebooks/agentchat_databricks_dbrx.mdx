@@ -21,9 +21,6 @@ title: Use AG2 in Databricks with DBRX
 
 
 
-export const quartoRawHtml =
-[``,``];
-
 <img
 src="https://www.databricks.com/en-blog-assets/static/2fe1a0af1ee0f6605024a810b604079c/dbrx-blog-header-optimized.png"
 alt="DBRX launch" />
@@ -87,9 +84,6 @@ tj@databricks.com (Github: tj-cycyota)
 %pip install pyautogen==0.2.25 openai==1.21.2 typing_extensions==4.11.0 --upgrade
 ```
 
-``` text
-```
-
 It is recommended to restart the Python kernel after installs -
 uncomment and run the below:
 
@@ -149,60 +143,6 @@ user_proxy = autogen.UserProxyAgent(name="user", code_execution_config=False)
 chat_result = user_proxy.initiate_chat(assistant, message="What is MLflow?")
 ```
 
-```` text
-user (to assistant):
-
-What is MLflow?
-
---------------------------------------------------------------------------------
-assistant (to user):
-
-Sure, I'd be happy to explain MLflow to you. MLflow is an open-source platform for managing machine learning workflows. It was developed by Databricks and was open-sourced in 2018. MLflow provides a number of features to help data scientists and machine learning engineers manage the end-to-end machine learning lifecycle, including:
-
-1. **MLflow Tracking**: This is a logging API that allows you to record and query experiments, including code, data, config, and results.
-2. **MLflow Projects**: This is a format for packaging reusable and reproducible data science code, which can be run on different platforms.
-3. **MLflow Models**: This is a convention for packaging machine learning models in multiple formats, making it easy to deploy in different environments.
-4. **MLflow Model Registry**: This is a central repository to store, manage, and serve machine learning models.
-
-Here is a Python code example of how you might use MLflow Tracking to log a simple experiment:
-```python
-# filename: mlflow_example.py
-
-import mlflow
-import numpy as np
-
-# Log a parameter (e.g., number of trees in a random forest)
-mlflow.log_param("num_trees", 100)
-
-# Log a metric (e.g., accuracy of a model)
-accuracy = np.random.rand()
-mlflow.log_metric("accuracy", accuracy)
-
-# Log the model
-mlflow.sklearn.log_model(model, "model")
-
-# End the run
-mlflow.end_run()
-```
-To run this code, you would need to have MLflow installed and running on your machine. You can install MLflow using pip:
-```
-pip install mlflow
-```
-Then, you can run the code using the following command:
-```
-python mlflow_example.py
-```
-This will create a new experiment in MLflow and log the parameters, metrics, and model. You can then view the experiment in the MLflow UI.
-
-I hope this helps! Let me know if you have any other questions.
-
---------------------------------------------------------------------------------
-````
-
-``` text
-Provide feedback to assistant. Press enter to skip and use auto-reply, or type 'exit' to end the conversation:  exit
-```
-
 ## Simple Coding Agent
 
 In this example, we will implement a “coding agent” that can execute
@@ -223,10 +163,6 @@ workdir.mkdir(exist_ok=True)
 from autogen.coding import LocalCommandLineCodeExecutor
 
 code_executor = LocalCommandLineCodeExecutor(work_dir=workdir)
-```
-
-``` text
-coding
 ```
 
 Next, setup our agents and initiate a coding problem. Notice how the
@@ -259,116 +195,15 @@ chat_result = user_proxy_agent.initiate_chat(
 )
 ```
 
-```` text
-User (to DBRX Assistant):
-
-Count how many prime numbers from 1 to 10000.
-
---------------------------------------------------------------------------------
-DBRX Assistant (to User):
-
-Sure, I can help you with that. We can write a Python script to count the number of prime numbers from 1 to 10000. Here's the script:
-
-```python
-# filename: count_primes.py
-
-def is_prime(n):
-    if n <= 1:
-        return False
-    if n <= 3:
-        return True
-    if n % 2 == 0 or n % 3 == 0:
-        return False
-    i = 5
-    while i * i <= n:
-        if n % i == 0 or n % (i + 2) == 0:
-            return False
-        i += 6
-    return True
-
-def count_primes(end):
-    count = 0
-    for num in range(1, end + 1):
-        if is_prime(num):
-            count += 1
-    return count
-
-print(count_primes(10000))
-```
-
-This script first defines a helper function `is_prime(n)` to check if a number `n` is prime. Then, it defines the main function `count_primes(end)` to count the number of prime numbers up to `end`. Finally, it prints the number of prime numbers from 1 to 10000.
-
-To run the script, save it to a file named `count_primes.py`, and then execute it using the command `python count_primes.py` in a terminal or command prompt. The script will print the number of prime numbers from 1 to 10000.
-
-Let me know if you encounter any issues or errors when running the script.
-
---------------------------------------------------------------------------------
-````
-
-``` text
-Provide feedback to DBRX Assistant. Press enter to skip and use auto-reply, or type 'exit' to end the conversation:  
-```
-
-``` text
-
->>>>>>>> NO HUMAN INPUT RECEIVED.
-
->>>>>>>> USING AUTO REPLY...
-
->>>>>>>> EXECUTING CODE BLOCK (inferred language is python)...
-User (to DBRX Assistant):
-
-exitcode: 0 (execution succeeded)
-Code output: 1229
-
-
---------------------------------------------------------------------------------
-DBRX Assistant (to User):
-
-Great! The execution succeeded and the output is 1229, which is the number of prime numbers from 1 to 10000. This means that there are 1229 prime numbers in the range of 1 to 10000.
-
-To verify the result, we can manually check the prime numbers in the range of 1 to 10000. Here are the first few prime numbers:
-
-2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 169, 173, 179, 181, 191, 193, 197, 199,...
-
-We can see that there are indeed 1229 prime numbers in the range of 1 to 10000.
-
-Therefore, the output of the script is correct and the task is solved.
-
-TERMINATE
-
---------------------------------------------------------------------------------
-```
-
-``` text
-Provide feedback to DBRX Assistant. Press enter to skip and use auto-reply, or type 'exit' to end the conversation:  exit
-```
-
 We can see the python file that was created in our working directory:
 
 ```python
 %sh ls coding
 ```
 
-``` text
-count_primes.py
-```
 
 ```python
 %sh head coding/count_primes.py
-```
-
-``` text
-# filename: count_primes.py
-
-def is_prime(n):
-    if n <= 1:
-        return False
-    if n <= 3:
-        return True
-    if n % 2 == 0 or n % 3 == 0:
-        return False
-    i = 5
 ```
 
 ## Conversable Bots
@@ -400,29 +235,6 @@ chat_result = student_agent.initiate_chat(
     summary_method="last_msg",
     max_turns=1,  # Set to higher number to control back and forth
 )
-```
-
-``` text
-Student_Agent (to Teacher_Agent):
-
-How does deep learning relate to artificial intelligence?
-
---------------------------------------------------------------------------------
-
->>>>>>>> USING AUTO REPLY...
-Teacher_Agent (to Student_Agent):
-
-Hello there! I'm glad you asked about the relationship between deep learning and artificial intelligence (AI).
-
-Deep learning is actually a subset of AI, which is a broader field dedicated to creating algorithms and systems that can perform tasks that would normally require human intelligence. Other subsets of AI include rule-based systems, machine learning, natural language processing, and computer vision, among others.
-
-Deep learning, on the other hand, is a specific approach to building AI systems that is inspired by the structure and function of the human brain. In deep learning, we use artificial neural networks, which are composed of interconnected nodes or "neurons," to learn patterns in data and make predictions or decisions without being explicitly programmed to do so.
-
-Deep learning has been particularly successful in recent years due to several factors, including the availability of large amounts of data, powerful computational resources, and advances in neural network architectures and training algorithms. As a result, deep learning has achieved state-of-the-art performance in a wide range of tasks, such as image and speech recognition, natural language processing, and game playing.
-
-So, in summary, deep learning is a specific approach to building AI systems that has gained a lot of attention in recent years due to its impressive performance on a variety of tasks. However, it is just one of many approaches to building AI systems, and it is important to understand the broader context of AI in order to fully appreciate the potential and limitations of deep learning.
-
---------------------------------------------------------------------------------
 ```
 
 ## Implement Logging Display
@@ -504,59 +316,6 @@ logs.stop()
 display(logs.display_session())
 ```
 
-```` text
-Logging session ID: 6c389f5f-3619-4762-8118-bc98dd414f90
-user (to assistant):
-
-What is MLflow?
-
---------------------------------------------------------------------------------
-assistant (to user):
-
-Sure, I'd be happy to explain MLflow to you. MLflow is an open-source platform for managing machine learning workflows. It was developed by Databricks and was open-sourced in 2018. MLflow provides a number of features to help data scientists and machine learning engineers manage the end-to-end machine learning lifecycle, including:
-
-1. **MLflow Tracking**: This is a logging API that allows you to record and query experiments, including code, data, config, and results.
-2. **MLflow Projects**: This is a format for packaging reusable and reproducible data science code, which can be run on different platforms.
-3. **MLflow Models**: This is a convention for packaging machine learning models in multiple formats, making it easy to deploy in different environments.
-4. **MLflow Model Registry**: This is a central repository to store, manage, and serve machine learning models.
-
-Here is a Python code example of how you might use MLflow Tracking to log a simple experiment:
-```python
-# filename: mlflow_example.py
-
-import mlflow
-import numpy as np
-
-# Log a parameter (e.g., number of trees in a random forest)
-mlflow.log_param("num_trees", 100)
-
-# Log a metric (e.g., accuracy of a model)
-accuracy = np.random.rand()
-mlflow.log_metric("accuracy", accuracy)
-
-# Log the model
-mlflow.sklearn.log_model(model, "model")
-
-# End the run
-mlflow.end_run()
-```
-To run this code, you would need to have MLflow installed and running on your machine. You can install MLflow using pip:
-```
-pip install mlflow
-```
-Then, you can run the code using the following command:
-```
-python mlflow_example.py
-```
-This will create a new experiment in MLflow and log the parameters, metrics, and model. You can then view the experiment in the MLflow UI.
-
-I hope this helps! Let me know if you have any other questions.
-
---------------------------------------------------------------------------------
-````
-
-<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[0] }} />
-
 With this, we have a simple framework to review and persist logs from
 our chats! Notice that in the `request` field above, we can also see the
 system prompt for the LLM - this can be useful for prompt engineering as
@@ -583,12 +342,6 @@ logs.persist_results(target_delta_table=target_delta_table, mode="append")
 # Display current rows in table
 display(spark.table(target_delta_table))
 ```
-
-``` text
-Logs successfully written to table shared.tjc.autogent_logs in append mode
-```
-
-<div dangerouslySetInnerHTML={{ __html: quartoRawHtml[1] }} />
 
 ## Closing Thoughts
 

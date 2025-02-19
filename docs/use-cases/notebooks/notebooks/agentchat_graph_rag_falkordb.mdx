@@ -142,33 +142,6 @@ user_proxy = UserProxyAgent(
 user_proxy.initiate_chat(graph_rag_agent, message="Name a few actors who've played in 'The Matrix'")
 ```
 
-``` text
-user_proxy (to matrix_agent):
-
-Name a few actors who've played in 'The Matrix'
-
---------------------------------------------------------------------------------
-matrix_agent (to user_proxy):
-
-Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, and Hugo Weaving are a few actors who've played in 'The Matrix'.
-
---------------------------------------------------------------------------------
-user_proxy (to matrix_agent):
-
-Any additional actors?
-
---------------------------------------------------------------------------------
-matrix_agent (to user_proxy):
-
-I'm sorry, but I don't have information about any additional actors from 'The Matrix' beyond Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, and Hugo Weaving.
-
---------------------------------------------------------------------------------
-```
-
-``` text
-ChatResult(chat_id=None, chat_history=[{'content': "Name a few actors who've played in 'The Matrix'", 'role': 'assistant', 'name': 'user_proxy'}, {'content': "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, and Hugo Weaving are a few actors who've played in 'The Matrix'.", 'role': 'user', 'name': 'matrix_agent'}, {'content': 'Any additional actors?', 'role': 'assistant', 'name': 'user_proxy'}, {'content': "I'm sorry, but I don't have information about any additional actors from 'The Matrix' beyond Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, and Hugo Weaving.", 'role': 'user', 'name': 'matrix_agent'}], summary="I'm sorry, but I don't have information about any additional actors from 'The Matrix' beyond Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, and Hugo Weaving.", cost={'usage_including_cached_inference': {'total_cost': 0}, 'usage_excluding_cached_inference': {'total_cost': 0}}, human_input=['Any additional actors?', 'exit'])
-```
-
 ### Revisit the example with self defined graph ontology
 
 If you want to be more specific on the entities and attributes in the
@@ -238,43 +211,6 @@ user_proxy.initiate_chat(graph_rag_agent, message="Name a few actors who've play
 # You will be prompted, as a human in the loop, after the response - feel free to ask more questions.
 ```
 
-``` text
-user_proxy (to matrix_agent):
-
-Name a few actors who've played in 'The Matrix'
-
---------------------------------------------------------------------------------
-matrix_agent (to user_proxy):
-
-Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, and Hugo Weaving have played in 'The Matrix'.
-
---------------------------------------------------------------------------------
-user_proxy (to matrix_agent):
-
-Who else acted in The Matrix?
-
---------------------------------------------------------------------------------
-matrix_agent (to user_proxy):
-
-Based on the provided information, Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, and Hugo Weaving are the actors listed for 'The Matrix'. No additional actors are mentioned in the data.
-
---------------------------------------------------------------------------------
-user_proxy (to matrix_agent):
-
-Where was The Matrix filmed?
-
---------------------------------------------------------------------------------
-matrix_agent (to user_proxy):
-
-I am sorry, I could not find the answer to your question
-
---------------------------------------------------------------------------------
-```
-
-``` text
-ChatResult(chat_id=None, chat_history=[{'content': "Name a few actors who've played in 'The Matrix'", 'role': 'assistant', 'name': 'user_proxy'}, {'content': "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, and Hugo Weaving have played in 'The Matrix'.", 'role': 'user', 'name': 'matrix_agent'}, {'content': 'Who else acted in The Matrix?', 'role': 'assistant', 'name': 'user_proxy'}, {'content': "Based on the provided information, Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, and Hugo Weaving are the actors listed for 'The Matrix'. No additional actors are mentioned in the data.", 'role': 'user', 'name': 'matrix_agent'}, {'content': 'Where was The Matrix filmed?', 'role': 'assistant', 'name': 'user_proxy'}, {'content': 'I am sorry, I could not find the answer to your question', 'role': 'user', 'name': 'matrix_agent'}], summary='I am sorry, I could not find the answer to your question', cost={'usage_including_cached_inference': {'total_cost': 0}, 'usage_excluding_cached_inference': {'total_cost': 0}}, human_input=['Who else acted in The Matrix?', 'Where was The Matrix filmed?', 'exit'])
-```
-
 From the output we can see that: - We can ask about actors and movies
 because we defined the ontology (and they were also automatically
 created in the prior example) - There is inbuilt awareness of answers it
@@ -285,10 +221,6 @@ ontology
 ```python
 # Remove graph from database:
 query_engine.delete()
-```
-
-``` text
-True
 ```
 
 <div className="edit-url-container">

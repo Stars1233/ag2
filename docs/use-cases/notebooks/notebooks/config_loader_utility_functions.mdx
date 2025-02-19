@@ -78,10 +78,6 @@ config_list = autogen.get_config_list(api_keys, base_urls=base_urls, api_type=ap
 print(config_list)
 ```
 
-``` text
-[{'api_key': 'YOUR_OPENAI_API_KEY', 'api_type': 'openai'}]
-```
-
 ### config_list_openai_aoai
 
 This method creates a list of configurations using Azure OpenAI
@@ -223,10 +219,6 @@ config_list = autogen.config_list_from_dotenv(
 config_list
 ```
 
-``` text
-[{'api_key': 'sk-*********************', 'model': 'gpt-4'},
- {'api_key': 'sk-*********************', 'model': 'gpt-3.5-turbo'}]
-```
 
 ```python
 # gpt-3.5-turbo will default to OPENAI_API_KEY
@@ -246,10 +238,6 @@ config_list = autogen.config_list_from_dotenv(
 config_list
 ```
 
-``` text
-[{'api_key': '1234567890234567890', 'model': 'gpt-4'},
- {'api_key': 'sk-*********************', 'model': 'gpt-3.5-turbo'}]
-```
 
 ```python
 # example using different environment variable names
@@ -268,11 +256,6 @@ config_list = autogen.config_list_from_dotenv(
 )
 
 config_list
-```
-
-``` text
-[{'api_key': 'sk-*********************', 'model': 'gpt-4'},
- {'api_key': '**************************', 'model': 'vicuna'}]
 ```
 
 You can also provide additional configurations for APIs, simply by
@@ -302,15 +285,6 @@ config_list = autogen.config_list_from_dotenv(
 )
 
 config_list
-```
-
-``` text
-[{'api_key': 'sk-*********************', 'model': 'gpt-4'},
- {'api_key': '1234567890234567890',
-  'base_url': 'https://api.someotherapi.com',
-  'api_type': 'aoai',
-  'api_version': 'v2',
-  'model': 'gpt-3.5-turbo'}]
 ```
 
 <div className="edit-url-container">

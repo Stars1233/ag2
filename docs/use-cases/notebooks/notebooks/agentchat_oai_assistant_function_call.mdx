@@ -145,12 +145,6 @@ oss_analyst.register_function(
 )
 ```
 
-``` text
-OpenAI client config of GPTAssistantAgent(OSS Analyst) - model: gpt-4-turbo-preview
-GPT Assistant only supports one OpenAI client. Using the first client in the list.
-No matching assistant found, creating a new assistant
-```
-
 
 <div class="tip">
 <Tip>
@@ -179,68 +173,6 @@ user_proxy = UserProxyAgent(
 
 user_proxy.initiate_chat(oss_analyst, message="Top 10 developers with the most followers")
 oss_analyst.delete_assistant()
-```
-
-``` text
-user_proxy (to OSS Analyst):
-
-Top 10 developers with the most followers
-
---------------------------------------------------------------------------------
-
->>>>>>>> EXECUTING FUNCTION ossinsight_data_api...
-
-Input arguments: {'question': 'Top 10 developers with the most followers'}
-Output:
-
-Question: Top 10 developers with the most followers
-
-SQL: SELECT `login` AS `user_login`, `followers` AS `followers` FROM `github_users` ORDER BY `followers` DESC LIMIT 10
-
-Results:
-  {'followers': 166730, 'user_login': 'torvalds'}
-  {'followers': 86239, 'user_login': 'yyx990803'}
-  {'followers': 77611, 'user_login': 'gaearon'}
-  {'followers': 72668, 'user_login': 'ruanyf'}
-  {'followers': 65415, 'user_login': 'JakeWharton'}
-  {'followers': 60972, 'user_login': 'peng-zhihui'}
-  {'followers': 58172, 'user_login': 'bradtraversy'}
-  {'followers': 52143, 'user_login': 'gustavoguanabara'}
-  {'followers': 51542, 'user_login': 'sindresorhus'}
-  {'followers': 49621, 'user_login': 'tj'}
-
-OSS Analyst (to user_proxy):
-
-The top 10 developers with the most followers on GitHub are:
-
-1. **Linus Torvalds** (`torvalds`) with 166,730 followers
-2. **Evan You** (`yyx990803`) with 86,239 followers
-3. **Dan Abramov** (`gaearon`) with 77,611 followers
-4. **Ruan YiFeng** (`ruanyf`) with 72,668 followers
-5. **Jake Wharton** (`JakeWharton`) with 65,415 followers
-6. **Peng Zhihui** (`peng-zhihui`) with 60,972 followers
-7. **Brad Traversy** (`bradtraversy`) with 58,172 followers
-8. **Gustavo Guanabara** (`gustavoguanabara`) with 52,143 followers
-9. **Sindre Sorhus** (`sindresorhus`) with 51,542 followers
-10. **TJ Holowaychuk** (`tj`) with 49,621 followers
-
-
---------------------------------------------------------------------------------
-user_proxy (to OSS Analyst):
-
-
-
---------------------------------------------------------------------------------
-OSS Analyst (to user_proxy):
-
-It looks like there is no question or prompt for me to respond to. Could you please provide more details or ask a question that you would like assistance with?
-
-
---------------------------------------------------------------------------------
-```
-
-``` text
-Permanently deleting assistant...
 ```
 
 <div className="edit-url-container">

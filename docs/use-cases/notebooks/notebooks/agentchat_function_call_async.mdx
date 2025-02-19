@@ -140,57 +140,6 @@ with Cache.disk() as cache:
     )
 ```
 
-``` text
-user_proxy (to chatbot):
-
-Create a timer for 5 seconds and then a stopwatch for 5 seconds.
-
---------------------------------------------------------------------------------
-chatbot (to user_proxy):
-
-***** Suggested tool Call (call_h6324df0CdGPDNjPO8GrnAQJ): timer *****
-Arguments: 
-{"num_seconds":"5"}
-**********************************************************************
-
---------------------------------------------------------------------------------
-
->>>>>>>> EXECUTING ASYNC FUNCTION timer...
-user_proxy (to chatbot):
-
-user_proxy (to chatbot):
-
-***** Response from calling tool "call_h6324df0CdGPDNjPO8GrnAQJ" *****
-Timer is done!
-**********************************************************************
-
---------------------------------------------------------------------------------
-chatbot (to user_proxy):
-
-***** Suggested tool Call (call_7SzbQxI8Nsl6dPQtScoSGPAu): stopwatch *****
-Arguments: 
-{"num_seconds":"5"}
-**************************************************************************
-
---------------------------------------------------------------------------------
-
->>>>>>>> EXECUTING ASYNC FUNCTION stopwatch...
-user_proxy (to chatbot):
-
-user_proxy (to chatbot):
-
-***** Response from calling tool "call_7SzbQxI8Nsl6dPQtScoSGPAu" *****
-Stopwatch is done!
-**********************************************************************
-
---------------------------------------------------------------------------------
-chatbot (to user_proxy):
-
-TERMINATE
-
---------------------------------------------------------------------------------
-```
-
 # Async Function Call with Group Chat
 
 Sync and async can be used in topologies beyond two agents. Below, we
@@ -242,69 +191,6 @@ with Cache.disk() as cache:
         message=message,
         cache=cache,
     )
-```
-
-``` text
-user_proxy (to chat_manager):
-
-
-1) Create a timer and a stopwatch for 5 seconds each in parallel.
-2) Pretty print the result as md.
-3) when 1 and 2 are done, terminate the group chat
-
-
---------------------------------------------------------------------------------
-chatbot (to chat_manager):
-
-***** Suggested tool Call (call_qlS3QkcY1NkfgpKtCoR6oGo7): timer *****
-Arguments: 
-{"num_seconds": "5"}
-**********************************************************************
-***** Suggested tool Call (call_TEHlvMgCp0S3RzBbVsVPXWeL): stopwatch *****
-Arguments: 
-{"num_seconds": "5"}
-**************************************************************************
-
---------------------------------------------------------------------------------
-
->>>>>>>> EXECUTING ASYNC FUNCTION timer...
-
->>>>>>>> EXECUTING ASYNC FUNCTION stopwatch...
-user_proxy (to chat_manager):
-
-user_proxy (to chat_manager):
-
-***** Response from calling tool "call_qlS3QkcY1NkfgpKtCoR6oGo7" *****
-Timer is done!
-**********************************************************************
-
---------------------------------------------------------------------------------
-user_proxy (to chat_manager):
-
-***** Response from calling tool "call_TEHlvMgCp0S3RzBbVsVPXWeL" *****
-Stopwatch is done!
-**********************************************************************
-
---------------------------------------------------------------------------------
-Markdown_agent (to chat_manager):
-
-***** Suggested tool Call (call_JuQwvj4FigfvGyBeTMglY2ee): terminate_group_chat *****
-Arguments: 
-{"message":"Both timer and stopwatch have completed their countdowns. The group chat is now being terminated."}
-*************************************************************************************
-
---------------------------------------------------------------------------------
-
->>>>>>>> EXECUTING ASYNC FUNCTION terminate_group_chat...
-user_proxy (to chat_manager):
-
-user_proxy (to chat_manager):
-
-***** Response from calling tool "call_JuQwvj4FigfvGyBeTMglY2ee" *****
-[GROUPCHAT_TERMINATE] Both timer and stopwatch have completed their countdowns. The group chat is now being terminated.
-**********************************************************************
-
---------------------------------------------------------------------------------
 ```
 
 <div className="edit-url-container">

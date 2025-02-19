@@ -139,10 +139,6 @@ response = client.create(messages=messages, cache_seed=None)
 print(response.cost)
 ```
 
-``` text
-0.0011125
-```
-
 ## OpenAIWrapper with custom token price
 
 ```python
@@ -161,10 +157,6 @@ response = client.create(messages=messages, cache_seed=None)
 print("Price:", response.cost)
 ```
 
-``` text
-Price: 0.144
-```
-
 ## Usage Summary for OpenAIWrapper
 
 When creating a instance of OpenAIWrapper, cost of all completions from
@@ -179,9 +171,6 @@ messages = [
 client.print_usage_summary()  # print usage summary
 ```
 
-``` text
-No usage summary. Please call "create" first.
-```
 
 ```python
 # The first creation
@@ -192,25 +181,6 @@ client.print_usage_summary(mode="actual")  # print actual usage summary
 client.print_usage_summary(mode="total")  # print total usage summary
 ```
 
-``` text
-----------------------------------------------------------------------------------------------------
-Usage summary excluding cached usage: 
-Total cost: 0.154
-* Model 'gpt-4o-2024-08-06': cost: 0.154, prompt_tokens: 25, completion_tokens: 129, total_tokens: 154
-
-All completions are non-cached: the total cost with cached completions is the same as actual cost.
-----------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------
-Usage summary excluding cached usage: 
-Total cost: 0.154
-* Model 'gpt-4o-2024-08-06': cost: 0.154, prompt_tokens: 25, completion_tokens: 129, total_tokens: 154
-----------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------
-Usage summary including cached usage: 
-Total cost: 0.154
-* Model 'gpt-4o-2024-08-06': cost: 0.154, prompt_tokens: 25, completion_tokens: 129, total_tokens: 154
-----------------------------------------------------------------------------------------------------
-```
 
 ```python
 # take out cost
@@ -218,10 +188,6 @@ print(client.actual_usage_summary)
 print(client.total_usage_summary)
 ```
 
-``` text
-{'total_cost': 0.154, 'gpt-4o-2024-08-06': {'cost': 0.154, 'prompt_tokens': 25, 'completion_tokens': 129, 'total_tokens': 154}}
-{'total_cost': 0.154, 'gpt-4o-2024-08-06': {'cost': 0.154, 'prompt_tokens': 25, 'completion_tokens': 129, 'total_tokens': 154}}
-```
 
 ```python
 # Since cache is enabled, the same completion will be returned from cache, which will not incur any actual cost.
@@ -230,17 +196,6 @@ response = client.create(messages=messages, cache_seed=41)
 client.print_usage_summary()
 ```
 
-``` text
-----------------------------------------------------------------------------------------------------
-Usage summary excluding cached usage: 
-Total cost: 0.154
-* Model 'gpt-4o-2024-08-06': cost: 0.154, prompt_tokens: 25, completion_tokens: 129, total_tokens: 154
-
-Usage summary including cached usage: 
-Total cost: 0.308
-* Model 'gpt-4o-2024-08-06': cost: 0.308, prompt_tokens: 50, completion_tokens: 258, total_tokens: 308
-----------------------------------------------------------------------------------------------------
-```
 
 ```python
 # clear usage summary
@@ -248,24 +203,11 @@ client.clear_usage_summary()
 client.print_usage_summary()
 ```
 
-``` text
-No usage summary. Please call "create" first.
-```
 
 ```python
 # all completions are returned from cache, so no actual cost incurred.
 response = client.create(messages=messages, cache_seed=41)
 client.print_usage_summary()
-```
-
-``` text
-----------------------------------------------------------------------------------------------------
-No actual cost incurred (all completions are using cache).
-
-Usage summary including cached usage: 
-Total cost: 0.154
-* Model 'gpt-4o-2024-08-06': cost: 0.154, prompt_tokens: 25, completion_tokens: 129, total_tokens: 154
-----------------------------------------------------------------------------------------------------
 ```
 
 ## Usage Summary for Agents
@@ -310,72 +252,6 @@ ai_user_proxy.initiate_chat(
 )
 ```
 
-``` text
-ai_user (to assistant):
-
-$x^3=125$. What is x?
-
---------------------------------------------------------------------------------
-assistant (to ai_user):
-
-To solve the equation \(x^3 = 125\), you need to find the value of \(x\) that makes this equation true. 
-
-You can solve for \(x\) by taking the cube root of both sides of the equation:
-
-\[
-x = \sqrt[3]{125}
-\]
-
-Since \(125\) is \(5^3\), the cube root of \(125\) is \(5\). Thus,
-
-\[
-x = 5
-\]
-
-Therefore, the solution to the equation \(x^3 = 125\) is \(x = 5\).
-
---------------------------------------------------------------------------------
-ai_user (to assistant):
-
-Can you help me solve the equation \(2x^2 - 8x = 0\)?
-
---------------------------------------------------------------------------------
-assistant (to ai_user):
-
-Certainly! To solve the equation \(2x^2 - 8x = 0\), you can start by factoring the expression on the left-hand side.
-
-First, factor out the greatest common factor, which is \(2x\):
-
-\[
-2x(x - 4) = 0
-\]
-
-Now, you have a product of two factors equal to zero. According to the zero product property, if the product of two factors is zero, at least one of the factors must be zero. So, you set each factor equal to zero and solve for \(x\):
-
-1. \(2x = 0\)
-
-   Divide both sides by 2 to solve for \(x\):
-
-   \[
-   x = 0
-   \]
-
-2. \(x - 4 = 0\)
-
-   Add 4 to both sides to solve for \(x\):
-
-   \[
-   x = 4
-   \]
-
-So, the solutions to the equation \(2x^2 - 8x = 0\) are \(x = 0\) and \(x = 4\).
-
---------------------------------------------------------------------------------
-```
-
-``` text
-ChatResult(chat_id=None, chat_history=[{'content': '$x^3=125$. What is x?', 'role': 'assistant', 'name': 'ai_user'}, {'content': 'To solve the equation \\(x^3 = 125\\), you need to find the value of \\(x\\) that makes this equation true. \n\nYou can solve for \\(x\\) by taking the cube root of both sides of the equation:\n\n\\[\nx = \\sqrt[3]{125}\n\\]\n\nSince \\(125\\) is \\(5^3\\), the cube root of \\(125\\) is \\(5\\). Thus,\n\n\\[\nx = 5\n\\]\n\nTherefore, the solution to the equation \\(x^3 = 125\\) is \\(x = 5\\).', 'role': 'user', 'name': 'assistant'}, {'content': 'Can you help me solve the equation \\(2x^2 - 8x = 0\\)?', 'role': 'assistant', 'name': 'ai_user'}, {'content': 'Certainly! To solve the equation \\(2x^2 - 8x = 0\\), you can start by factoring the expression on the left-hand side.\n\nFirst, factor out the greatest common factor, which is \\(2x\\):\n\n\\[\n2x(x - 4) = 0\n\\]\n\nNow, you have a product of two factors equal to zero. According to the zero product property, if the product of two factors is zero, at least one of the factors must be zero. So, you set each factor equal to zero and solve for \\(x\\):\n\n1. \\(2x = 0\\)\n\n   Divide both sides by 2 to solve for \\(x\\):\n\n   \\[\n   x = 0\n   \\]\n\n2. \\(x - 4 = 0\\)\n\n   Add 4 to both sides to solve for \\(x\\):\n\n   \\[\n   x = 4\n   \\]\n\nSo, the solutions to the equation \\(2x^2 - 8x = 0\\) are \\(x = 0\\) and \\(x = 4\\).', 'role': 'user', 'name': 'assistant'}], summary='Certainly! To solve the equation \\(2x^2 - 8x = 0\\), you can start by factoring the expression on the left-hand side.\n\nFirst, factor out the greatest common factor, which is \\(2x\\):\n\n\\[\n2x(x - 4) = 0\n\\]\n\nNow, you have a product of two factors equal to zero. According to the zero product property, if the product of two factors is zero, at least one of the factors must be zero. So, you set each factor equal to zero and solve for \\(x\\):\n\n1. \\(2x = 0\\)\n\n   Divide both sides by 2 to solve for \\(x\\):\n\n   \\[\n   x = 0\n   \\]\n\n2. \\(x - 4 = 0\\)\n\n   Add 4 to both sides to solve for \\(x\\):\n\n   \\[\n   x = 4\n   \\]\n\nSo, the solutions to the equation \\(2x^2 - 8x = 0\\) are \\(x = 0\\) and \\(x = 4\\).', cost={'usage_including_cached_inference': {'total_cost': 0.7649999999999999, 'gpt-4o-2024-08-06': {'cost': 0.7649999999999999, 'prompt_tokens': 390, 'completion_tokens': 375, 'total_tokens': 765}}, 'usage_excluding_cached_inference': {'total_cost': 0.7649999999999999, 'gpt-4o-2024-08-06': {'cost': 0.7649999999999999, 'prompt_tokens': 390, 'completion_tokens': 375, 'total_tokens': 765}}}, human_input=[])
-```
 
 ```python
 ai_user_proxy.print_usage_summary()
@@ -383,25 +259,6 @@ print()
 assistant.print_usage_summary()
 ```
 
-``` text
-Agent 'ai_user':
-----------------------------------------------------------------------------------------------------
-Usage summary excluding cached usage: 
-Total cost: 0.193
-* Model 'gpt-4o-2024-08-06': cost: 0.193, prompt_tokens: 172, completion_tokens: 21, total_tokens: 193
-
-All completions are non-cached: the total cost with cached completions is the same as actual cost.
-----------------------------------------------------------------------------------------------------
-
-Agent 'assistant':
-----------------------------------------------------------------------------------------------------
-Usage summary excluding cached usage: 
-Total cost: 0.572
-* Model 'gpt-4o-2024-08-06': cost: 0.572, prompt_tokens: 218, completion_tokens: 354, total_tokens: 572
-
-All completions are non-cached: the total cost with cached completions is the same as actual cost.
-----------------------------------------------------------------------------------------------------
-```
 
 ```python
 user_proxy = UserProxyAgent(
@@ -414,9 +271,6 @@ user_proxy = UserProxyAgent(
 user_proxy.print_usage_summary()
 ```
 
-``` text
-No cost incurred from agent 'user'.
-```
 
 ```python
 print("Actual usage summary for assistant (excluding completion from cache):", assistant.get_actual_usage())
@@ -429,26 +283,10 @@ print("Actual usage summary for user_proxy:", user_proxy.get_actual_usage())
 print("Total usage summary for user_proxy:", user_proxy.get_total_usage())
 ```
 
-``` text
-Actual usage summary for assistant (excluding completion from cache): {'total_cost': 0.572, 'gpt-4o-2024-08-06': {'cost': 0.572, 'prompt_tokens': 218, 'completion_tokens': 354, 'total_tokens': 572}}
-Total usage summary for assistant (including completion from cache): {'total_cost': 0.572, 'gpt-4o-2024-08-06': {'cost': 0.572, 'prompt_tokens': 218, 'completion_tokens': 354, 'total_tokens': 572}}
-Actual usage summary for ai_user_proxy: {'total_cost': 0.193, 'gpt-4o-2024-08-06': {'cost': 0.193, 'prompt_tokens': 172, 'completion_tokens': 21, 'total_tokens': 193}}
-Total usage summary for ai_user_proxy: {'total_cost': 0.193, 'gpt-4o-2024-08-06': {'cost': 0.193, 'prompt_tokens': 172, 'completion_tokens': 21, 'total_tokens': 193}}
-Actual usage summary for user_proxy: None
-Total usage summary for user_proxy: None
-```
 
 ```python
 usage_summary = gather_usage_summary([assistant, ai_user_proxy, user_proxy])
 usage_summary["usage_including_cached_inference"]
-```
-
-``` text
-{'total_cost': 0.7649999999999999,
- 'gpt-4o-2024-08-06': {'cost': 0.7649999999999999,
-  'prompt_tokens': 390,
-  'completion_tokens': 375,
-  'total_tokens': 765}}
 ```
 
 <div className="edit-url-container">

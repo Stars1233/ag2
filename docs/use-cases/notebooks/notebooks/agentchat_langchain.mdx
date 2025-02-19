@@ -248,77 +248,12 @@ user_proxy.initiate_chat(
 )
 ```
 
-``` text
-user_proxy (to chatbot):
-
-Read the file with the path 'Test.txt', then calculate the circumference of a circle that has a radius of that files contents.
-
---------------------------------------------------------------------------------
-chatbot (to user_proxy):
-
-***** Suggested function Call: read_file *****
-Arguments: 
-{
-  "file_path": "Test.txt"
-}
-**********************************************
-
---------------------------------------------------------------------------------
-
->>>>>>>> EXECUTING FUNCTION read_file...
-user_proxy (to chatbot):
-
-***** Response from calling function "read_file" *****
-7.81mm
-******************************************************
-
---------------------------------------------------------------------------------
-chatbot (to user_proxy):
-
-***** Suggested function Call: circumference_calculator *****
-Arguments: 
-{
-  "radius": 7.81
-}
-*************************************************************
-
---------------------------------------------------------------------------------
-
->>>>>>>> EXECUTING FUNCTION circumference_calculator...
-user_proxy (to chatbot):
-
-***** Response from calling function "circumference_calculator" *****
-49.071677249072565
-*********************************************************************
-
---------------------------------------------------------------------------------
-chatbot (to user_proxy):
-
-The circumference of a circle with a radius of 7.81mm is approximately 49.071mm.
-
---------------------------------------------------------------------------------
-user_proxy (to chatbot):
-
-
-
---------------------------------------------------------------------------------
-chatbot (to user_proxy):
-
-TERMINATE
-
---------------------------------------------------------------------------------
-```
-
 # A PySpark Example
 
 ```python
 %pip install pyspark
 ```
 
-``` text
-Requirement already satisfied: pyspark in /usr/local/lib/python3.10/dist-packages (3.5.0)
-Requirement already satisfied: py4j==0.10.9.7 in /usr/local/lib/python3.10/dist-packages (from pyspark) (0.10.9.7)
-```
 
 ```python
 spark = SparkSession.builder.getOrCreate()
@@ -333,33 +268,6 @@ spark.read.csv(csv_file_path, header=True, inferSchema=True).write.option(
 spark.table(table).show()
 ```
 
-``` text
-+---------+--------+------------------+-----------+--------------+----------+----------+-------------+------------------+
-|longitude|latitude|housing_median_age|total_rooms|total_bedrooms|population|households|median_income|median_house_value|
-+---------+--------+------------------+-----------+--------------+----------+----------+-------------+------------------+
-|  -114.31|   34.19|              15.0|     5612.0|        1283.0|    1015.0|     472.0|       1.4936|           66900.0|
-|  -114.47|    34.4|              19.0|     7650.0|        1901.0|    1129.0|     463.0|         1.82|           80100.0|
-|  -114.56|   33.69|              17.0|      720.0|         174.0|     333.0|     117.0|       1.6509|           85700.0|
-|  -114.57|   33.64|              14.0|     1501.0|         337.0|     515.0|     226.0|       3.1917|           73400.0|
-|  -114.57|   33.57|              20.0|     1454.0|         326.0|     624.0|     262.0|        1.925|           65500.0|
-|  -114.58|   33.63|              29.0|     1387.0|         236.0|     671.0|     239.0|       3.3438|           74000.0|
-|  -114.58|   33.61|              25.0|     2907.0|         680.0|    1841.0|     633.0|       2.6768|           82400.0|
-|  -114.59|   34.83|              41.0|      812.0|         168.0|     375.0|     158.0|       1.7083|           48500.0|
-|  -114.59|   33.61|              34.0|     4789.0|        1175.0|    3134.0|    1056.0|       2.1782|           58400.0|
-|   -114.6|   34.83|              46.0|     1497.0|         309.0|     787.0|     271.0|       2.1908|           48100.0|
-|   -114.6|   33.62|              16.0|     3741.0|         801.0|    2434.0|     824.0|       2.6797|           86500.0|
-|   -114.6|    33.6|              21.0|     1988.0|         483.0|    1182.0|     437.0|        1.625|           62000.0|
-|  -114.61|   34.84|              48.0|     1291.0|         248.0|     580.0|     211.0|       2.1571|           48600.0|
-|  -114.61|   34.83|              31.0|     2478.0|         464.0|    1346.0|     479.0|        3.212|           70400.0|
-|  -114.63|   32.76|              15.0|     1448.0|         378.0|     949.0|     300.0|       0.8585|           45000.0|
-|  -114.65|   34.89|              17.0|     2556.0|         587.0|    1005.0|     401.0|       1.6991|           69100.0|
-|  -114.65|    33.6|              28.0|     1678.0|         322.0|     666.0|     256.0|       2.9653|           94900.0|
-|  -114.65|   32.79|              21.0|       44.0|          33.0|      64.0|      27.0|       0.8571|           25000.0|
-|  -114.66|   32.74|              17.0|     1388.0|         386.0|     775.0|     320.0|       1.2049|           44000.0|
-|  -114.67|   33.92|              17.0|       97.0|          24.0|      29.0|      15.0|       1.2656|           27500.0|
-+---------+--------+------------------+-----------+--------------+----------+----------+-------------+------------------+
-only showing top 20 rows
-```
 
 ```python
 # Note, you can also connect to Spark via Spark connect. For example:
@@ -376,45 +284,6 @@ agent_executor = create_spark_sql_agent(llm=llm, toolkit=toolkit, verbose=True)
 agent_executor.run("Describe the california_housing_train table")
 ```
 
-``` text
-
-
-> Entering new AgentExecutor chain...
-Action: list_tables_sql_db
-Action Input: ""
-Observation: california_housing_train
-Thought:I see that there is a table called "california_housing_train" in the database. I can use the "schema_sql_db" tool to get more information about this table.
-Action: schema_sql_db
-Action Input: "california_housing_train"
-Observation: CREATE TABLE spark_catalog.langchain_example.california_housing_train (
-  longitude DOUBLE,
-  latitude DOUBLE,
-  housing_median_age DOUBLE,
-  total_rooms DOUBLE,
-  total_bedrooms DOUBLE,
-  population DOUBLE,
-  households DOUBLE,
-  median_income DOUBLE,
-  median_house_value DOUBLE)
-;
-
-/*
-3 rows from california_housing_train table:
-longitude   latitude    housing_median_age  total_rooms total_bedrooms  population  households  median_income   median_house_value
--114.31 34.19   15.0    5612.0  1283.0  1015.0  472.0   1.4936  66900.0
--114.47 34.4    19.0    7650.0  1901.0  1129.0  463.0   1.82    80100.0
--114.56 33.69   17.0    720.0   174.0   333.0   117.0   1.6509  85700.0
-*/
-Thought:The "california_housing_train" table has the following columns: longitude, latitude, housing_median_age, total_rooms, total_bedrooms, population, households, median_income, and median_house_value. It contains information about housing in California. I can now answer the question.
-Action: None
-Final Answer: The "california_housing_train" table has the following columns: longitude, latitude, housing_median_age, total_rooms, total_bedrooms, population, households, median_income, and median_house_value.
-
-> Finished chain.
-```
-
-``` text
-'The "california_housing_train" table has the following columns: longitude, latitude, housing_median_age, total_rooms, total_bedrooms, population, households, median_income, and median_house_value.'
-```
 
 ```python
 # LangChain direct tool usage instead of toolkit example
@@ -478,88 +347,6 @@ user_proxy.initiate_chat(
     message="Describe the table names california_housing_train",
     llm_config=llm_config,
 )
-```
-
-``` text
-{'name': 'query_sql_db', 'description': '\n    Input to this tool is a detailed and correct SQL query, output is a result from the Spark SQL.\n    If the query is not correct, an error message will be returned.\n    If an error is returned, rewrite the query, check the query, and try again.\n    ', 'parameters': {'type': 'object', 'properties': {'query': {'title': 'Query', 'type': 'string'}}, 'required': []}}
-{'name': 'schema_sql_db', 'description': '\n    Input to this tool is a comma-separated list of tables, output is the schema and sample rows for those tables.\n    Be sure that the tables actually exist by calling list_tables_sql_db first!\n\n    Example Input: "table1, table2, table3"\n    ', 'parameters': {'type': 'object', 'properties': {'table_names': {'title': 'Table Names', 'type': 'string'}}, 'required': []}}
-{'name': 'list_tables_sql_db', 'description': 'Input is an empty string, output is a comma separated list of tables in the Spark SQL.', 'parameters': {'type': 'object', 'properties': {'tool_input': {'title': 'Tool Input', 'default': '', 'type': 'string'}}, 'required': []}}
-{'name': 'query_checker_sql_db', 'description': '\n    Use this tool to double check if your query is correct before executing it.\n    Always use this tool before executing a query with query_sql_db!\n    ', 'parameters': {'type': 'object', 'properties': {'query': {'title': 'Query', 'type': 'string'}}, 'required': []}}
-user_proxy (to chatbot):
-
-Describe the table names california_housing_train
-
---------------------------------------------------------------------------------
-chatbot (to user_proxy):
-
-***** Suggested function Call: schema_sql_db *****
-Arguments: 
-{
-  "table_names": "california_housing_train"
-}
-**************************************************
-
---------------------------------------------------------------------------------
-
->>>>>>>> EXECUTING FUNCTION schema_sql_db...
-user_proxy (to chatbot):
-
-***** Response from calling function "schema_sql_db" *****
-CREATE TABLE spark_catalog.langchain_example.california_housing_train (
-  longitude DOUBLE,
-  latitude DOUBLE,
-  housing_median_age DOUBLE,
-  total_rooms DOUBLE,
-  total_bedrooms DOUBLE,
-  population DOUBLE,
-  households DOUBLE,
-  median_income DOUBLE,
-  median_house_value DOUBLE)
-;
-
-/*
-3 rows from california_housing_train table:
-longitude   latitude    housing_median_age  total_rooms total_bedrooms  population  households  median_income   median_house_value
--114.31 34.19   15.0    5612.0  1283.0  1015.0  472.0   1.4936  66900.0
--114.47 34.4    19.0    7650.0  1901.0  1129.0  463.0   1.82    80100.0
--114.56 33.69   17.0    720.0   174.0   333.0   117.0   1.6509  85700.0
-*/
-**********************************************************
-
---------------------------------------------------------------------------------
-chatbot (to user_proxy):
-
-The california_housing_train table has the following schema:
-
-- longitude: DOUBLE
-- latitude: DOUBLE
-- housing_median_age: DOUBLE
-- total_rooms: DOUBLE
-- total_bedrooms: DOUBLE
-- population: DOUBLE
-- households: DOUBLE
-- median_income: DOUBLE
-- median_house_value: DOUBLE
-
-Here are sample rows from the table:
-
-| longitude | latitude | housing_median_age | total_rooms | total_bedrooms | population | households | median_income | median_house_value |
-|-----------|----------|--------------------|-------------|----------------|------------|------------|---------------|--------------------|
-| -114.31   | 34.19    | 15.0               | 5612.0      | 1283.0         | 1015.0     | 472.0      | 1.4936        | 66900.0            |
-| -114.47   | 34.4     | 19.0               | 7650.0      | 1901.0         | 1129.0     | 463.0      | 1.82          | 80100.0            |
-| -114.56   | 33.69    | 17.0               | 720.0       | 174.0          | 333.0      | 117.0      | 1.6509        | 85700.0            |
-
---------------------------------------------------------------------------------
-user_proxy (to chatbot):
-
-
-
---------------------------------------------------------------------------------
-chatbot (to user_proxy):
-
-TERMINATE
-
---------------------------------------------------------------------------------
 ```
 
 <div className="edit-url-container">

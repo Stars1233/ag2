@@ -189,17 +189,6 @@ query_engine = Neo4jGraphQueryEngine(
 query_engine.init_db(input_doc=input_documents)
 ```
 
-``` text
-Parsing nodes:   0%|          | 0/1 [00:00<?, ?it/s]
-```
-
-``` text
-Extracting paths from text with schema: 100%|██████████| 1/1 [00:06<00:00,  6.96s/it]
-Extracting and inferring knowledge graph from text: 100%|██████████| 1/1 [00:06<00:00,  6.77s/it]
-Generating embeddings: 100%|██████████| 1/1 [00:00<00:00,  3.30it/s]
-Generating embeddings: 100%|██████████| 1/1 [00:03<00:00,  3.54s/it]
-```
-
 ### Connect to knowledge graph if it is built
 
 ```python
@@ -239,36 +228,6 @@ user_proxy = UserProxyAgent(
 )
 
 user_proxy.initiate_chat(rag_agent, message="Could you list all tables from the document and its image_path?")
-```
-
-``` text
-user_proxy (to nvidia_rag):
-
-Could you list all tables from the document and its image_path?
-
---------------------------------------------------------------------------------
-nvidia_rag (to user_proxy):
-
-Certainly! Here is the table from the document along with its image path:
-
-1. Table: NVIDIA Corporation and Subsidiaries Consolidated Balance Sheets (In millions, except value)
-   - Image Path: ./parsed_pdf_info/table-52-17.jpg
-
---------------------------------------------------------------------------------
-user_proxy (to nvidia_rag):
-
-what is goodwill asset (in millions) for 2024?
-
---------------------------------------------------------------------------------
-nvidia_rag (to user_proxy):
-
-The goodwill asset for NVIDIA Corporation in 2024 is $5,282 million.
-
---------------------------------------------------------------------------------
-```
-
-``` text
-ChatResult(chat_id=None, chat_history=[{'content': 'Could you list all tables from the document and its image_path?', 'role': 'assistant', 'name': 'user_proxy'}, {'content': 'Certainly! Here is the table from the document along with its image path:\n\n1. Table: NVIDIA Corporation and Subsidiaries Consolidated Balance Sheets (In millions, except value)\n   - Image Path: ./parsed_pdf_info/table-52-17.jpg', 'role': 'user', 'name': 'nvidia_rag'}, {'content': 'what is goodwill asset (in millions) for 2024?', 'role': 'assistant', 'name': 'user_proxy'}, {'content': 'The goodwill asset for NVIDIA Corporation in 2024 is $5,282 million.', 'role': 'user', 'name': 'nvidia_rag'}], summary='The goodwill asset for NVIDIA Corporation in 2024 is $5,282 million.', cost={'usage_including_cached_inference': {'total_cost': 0}, 'usage_excluding_cached_inference': {'total_cost': 0}}, human_input=['what is goodwill asset (in millions) for 2024?', 'exit'])
 ```
 
 ### Agentic RAG workflow for tabular data
@@ -379,105 +338,6 @@ chat_result = user_proxy.initiate_chat(
     manager,
     message="What is goodwill asset (in millions) for 2024 in table NVIDIA Corporation and Subsidiaries Consolidated Balance Sheets?",
 )
-```
-
-``` text
-User_proxy (to chat_manager):
-
-What is goodwill asset (in millions) for 2024 in table NVIDIA Corporation and Subsidiaries Consolidated Balance Sheets?
-
---------------------------------------------------------------------------------
-
-Next speaker: table_assistant
-
-table_assistant (to chat_manager):
-
-Find image_path for Table: NVIDIA Corporation and Subsidiaries Consolidated Balance Sheets
-
---------------------------------------------------------------------------------
-
-Next speaker: nvidia_rag
-
-nvidia_rag (to chat_manager):
-
-The image path for the table titled "NVIDIA Corporation and Subsidiaries Consolidated Balance Sheets" is "./parsed_pdf_info/table-52-17.jpg".
-
---------------------------------------------------------------------------------
-
-Next speaker: img_request_format
-
-img_request_format (to chat_manager):
-
-Please extract table from the following image and convert it to Markdown.
-<img /workspaces/ag2/notebook/agentchat_pdf_rag/parsed_pdf_info/table-52-17.jpg>.
-
---------------------------------------------------------------------------------
-
-Next speaker: image2table_convertor
-
-image2table_convertor (to chat_manager):
-
-Here is the extracted table from the image in Markdown format:
-
-```markdown
-|                                          | Jan 28, 2024 | Jan 29, 2023 |
-|------------------------------------------|--------------|--------------|
-| **Assets**                               |              |              |
-| Current assets:                          |              |              |
-| &nbsp;&nbsp;&nbsp; Cash and cash equivalents | $7,280       | $3,389       |
-| &nbsp;&nbsp;&nbsp; Marketable securities  | $18,704      | $9,907       |
-| &nbsp;&nbsp;&nbsp; Accounts receivable, net | $9,999       | $3,827       |
-| &nbsp;&nbsp;&nbsp; Inventories            | $5,282       | $5,159       |
-| &nbsp;&nbsp;&nbsp; Prepaid expenses and other current assets | $3,080       | $791         |
-| Total current assets                     | $44,345      | $23,073      |
-| Property and equipment, net              | $3,914       | $3,807       |
-| Operating lease assets                   | $1,346       | $1,038       |
-| Goodwill                                 | $4,430       | $4,372       |
-| Intangible assets, net                   | $1,112       | $1,676       |
-| Deferred income tax assets               | $6,081       | $3,396       |
-
-
---------------------------------------------------------------------------------
-
-Next speaker: conclusion
-
-conclusion (to chat_manager):
-
-The goodwill asset for NVIDIA Corporation as of January 28, 2024, is $4,430 million.
-
---------------------------------------------------------------------------------
-
-Next speaker: User_proxy
-
-User_proxy (to chat_manager):
-
-What is the total current assets from the table NVIDIA Corporation and Subsidiaries Consolidated Balance Sheets?
-
---------------------------------------------------------------------------------
-
-Next speaker: table_assistant
-
-table_assistant (to chat_manager):
-
-The total current assets from the table "NVIDIA Corporation and Subsidiaries Consolidated Balance Sheets" are $44,345 million as of January 28, 2024.
-
---------------------------------------------------------------------------------
-
-Next speaker: nvidia_rag
-
-nvidia_rag (to chat_manager):
-
-Yes, that's correct! The total current assets for NVIDIA Corporation and Subsidiaries as of January 28, 2024, are $44,345 million, according to the table "NVIDIA Corporation and Subsidiaries Consolidated Balance Sheets." If you have any more questions or need further details, feel free to ask!
-
---------------------------------------------------------------------------------
-
-Next speaker: img_request_format
-
-img_request_format (to chat_manager):
-
-Great, if you have any more questions or need further clarification, feel free to ask!
-
---------------------------------------------------------------------------------
 ```
 
 <div className="edit-url-container">

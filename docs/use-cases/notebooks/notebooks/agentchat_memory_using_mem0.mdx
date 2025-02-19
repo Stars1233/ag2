@@ -140,10 +140,6 @@ conversation = [
 memory.add(messages=conversation, user_id="customer_service_bot")
 ```
 
-``` text
-{'message': 'ok'}
-```
-
 ## Agent Inference
 
 We ask a question to the agent, utilizing mem0 to retrieve relevant
@@ -165,10 +161,6 @@ Question: {data}
 
 reply = agent.generate_reply(messages=[{"content": prompt, "role": "user"}])
 print(reply)
-```
-
-``` text
-Sure, your order number is 112217629.
 ```
 
 ## Multi Agent Conversation
@@ -214,29 +206,6 @@ Question: {data}
 
 ```python
 result = manager.send(prompt, customer_bot, request_reply=True)
-```
-
-``` text
-manager (to customer_bot):
-
-
-Context:
-Scheduled an appointment for a home repair for tomorrow
-Order number is 112217629
-TV model is Sony - 77" Class BRAVIA XR A80K OLED 4K UHD Smart Google TV
-User's email address is dd@gmail.com
-
-
-
-Question: When is the appointment?
-
-
---------------------------------------------------------------------------------
-customer_bot (to manager):
-
-The appointment is scheduled for tomorrow.
-
---------------------------------------------------------------------------------
 ```
 
 <div className="edit-url-container">

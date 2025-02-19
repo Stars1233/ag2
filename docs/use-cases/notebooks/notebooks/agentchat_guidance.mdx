@@ -98,79 +98,6 @@ user_proxy = UserProxyAgent(
 user_proxy.initiate_chat(guidance_agent, message="Plot and save a chart of nvidia and tsla stock price change YTD.")
 ````
 
-```` text
-user (to guidance_coder):
-
-Plot and save a chart of nvidia and tsla stock price change YTD.
-
---------------------------------------------------------------------------------
-guidance_coder (to user):
-
-```python
-# filename: stock_price_change.py
-
-import pandas as pd
-import yfinance as yf
-import matplotlib.pyplot as plt
-from datetime import datetime
-
-# Get today's date
-today = datetime.today().strftime('%Y-%m-%d')
-
-# Download stock data
-nvda = yf.download('NVDA', start='2022-01-01', end=today)
-tsla = yf.download('TSLA', start='2022-01-01', end=today)
-
-# Calculate percentage change in closing price
-nvda['Pct Change'] = nvda['Close'].pct_change()
-tsla['Pct Change'] = tsla['Close'].pct_change()
-
-# Plot percentage change
-plt.figure(figsize=(14,7))
-plt.plot(nvda['Pct Change'], label='NVDA')
-plt.plot(tsla['Pct Change'], label='TSLA')
-plt.title('Nvidia and Tesla Stock Price Change YTD')
-plt.xlabel('Date')
-plt.ylabel('Percentage Change')
-plt.legend()
-plt.grid(True)
-
-# Save the plot as a PNG file
-plt.savefig('stock_price_change.png')
-```
-
---------------------------------------------------------------------------------
-
->>>>>>>> USING AUTO REPLY...
-
->>>>>>>> EXECUTING CODE BLOCK 0 (inferred language is python)...
-````
-
-``` text
-execute_code was called without specifying a value for use_docker. Since the python docker package is not available, code will be run natively. Note: this fallback behavior is subject to change
-```
-
-``` text
-user (to guidance_coder):
-
-exitcode: 0 (execution succeeded)
-Code output: 
-
-[*********************100%%**********************]  1 of 1 completed
-
-[*********************100%%**********************]  1 of 1 completed
-
-
---------------------------------------------------------------------------------
-guidance_coder (to user):
-
-Great! The code executed successfully and the chart of Nvidia and Tesla stock price change Year-To-Date (YTD) has been saved as 'stock_price_change.png' in the current directory. You can open this file to view the chart.
-
-TERMINATE
-
---------------------------------------------------------------------------------
-```
-
 The example below uses Guidance to enable a `guidance_labeler` agent
 that only responds with a valid JSON that labels a given comment/joke.
 
@@ -246,30 +173,6 @@ TEXT: what did the fish say when it bumped into a wall? Dam!
 
 """,
 )
-```
-
-``` text
-user (to guidance_labeler):
-
-
-Label the TEXT via the following instructions:
-                         
-The label must be a JSON of the format:
-{
-    "label": str,
-    "explanation": str
-}
-                         
-TEXT: what did the fish say when it bumped into a wall? Dam!
-
-
-
---------------------------------------------------------------------------------
-guidance_labeler (to user):
-
-{"label":"Joke","explanation":"The text is a joke, using a play on words where the fish says 'Dam!' after bumping into a wall, which is a pun on the word 'damn' and a 'dam' which is a barrier that stops or restricts the flow of water, often creating a reservoir, and is something a fish might encounter."}
-
---------------------------------------------------------------------------------
 ```
 
 <div className="edit-url-container">
