@@ -1551,7 +1551,8 @@
                   "pages": [
                     "docs/api-reference/autogen/oai/client/overview",
                     "docs/api-reference/autogen/oai/client/OpenAIClient",
-                    "docs/api-reference/autogen/oai/client/PlaceHolderClient"
+                    "docs/api-reference/autogen/oai/client/PlaceHolderClient",
+                    "docs/api-reference/autogen/oai/client/log_cache_seed_value"
                   ]
                 },
                 {
