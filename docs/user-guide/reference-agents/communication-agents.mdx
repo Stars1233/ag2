@@ -80,7 +80,8 @@ from autogen import ConversableAgent
 from autogen.agents.experimental import DiscordAgent
 
 # LLM configuration for our agent to select the tools and craft the message
-llm_config = {"model": "gpt-4o-mini"}
+# Put your key in the OPENAI_API_KEY environment variable
+llm_config = {"api_type": "openai", "model": "gpt-4o-mini"}
 
 # Tokens and Ids (CHANGE THESE)
 my_discord_bot_token = "ABC..."
@@ -140,7 +141,8 @@ from autogen import ConversableAgent, register_function
 from autogen.tools.experimental import SlackRetrieveTool, SlackSendTool
 
 # LLM configuration for our agent to select the tools and craft the message
-llm_config = {"model": "gpt-4o-mini"}
+# Put your key in the OPENAI_API_KEY environment variable
+llm_config = {"api_type": "openai", "model": "gpt-4o-mini"}
 
 # Our tool executor agent, which will run the tools once recommended by the slack_agent, no LLM required
 executor_agent = ConversableAgent(
@@ -210,5 +212,5 @@ In AG2 the tool execution is typically handled by a separate agent that will fol
 You will see an example of this is the examples above and linked blog/notebook.
 
 <div className="edit-url-container">
-    <a className="edit-url" href="https://github.com/ag2ai/ag2/edit/main/website/docs/use-cases/reference-agents/communication-agents.mdx" target='_blank'><Icon icon="pen" iconType="solid" size="13px"/> Edit this page</a>
+    <a className="edit-url" href="https://github.com/ag2ai/ag2/edit/main/website/docs/user-guide/reference-agents/communication-agents.mdx" target='_blank'><Icon icon="pen" iconType="solid" size="13px"/> Edit this page</a>
 </div>
