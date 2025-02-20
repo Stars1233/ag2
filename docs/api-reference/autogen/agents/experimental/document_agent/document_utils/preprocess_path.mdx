@@ -1,0 +1,33 @@
+---
+sidebarTitle: preprocess_path
+title: autogen.agents.experimental.document_agent.document_utils.preprocess_path
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### preprocess_path
+
+```python
+preprocess_path(
+    str_or_path: Path | str,
+    mk_path: bool = False,
+    is_file: bool = False,
+    is_dir: bool = True
+) -> Path
+```
+
+    Preprocess the path for file operations.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `str_or_path` | The path to be processed.<br/><br/>**Type:** pathlib.Path \| str |
+| `mk_path` | Whether to create the path if it doesn't exist.<br/><br/>Default is True.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+| `is_file` | Whether the path is a file.<br/><br/>Default is False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+| `is_dir` | Whether the path is a directory.<br/><br/>Default is True.<br/><br/>**Type:** bool<br/><br/>**Default:** True |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| pathlib.Path | Path: The preprocessed path. |
+
+<br />

@@ -1,13 +1,13 @@
 ---
 sidebarTitle: handle_input
-title: autogen.agentchat.contrib.rag.handle_input
+title: autogen.agents.experimental.document_agent.handle_input
 ---
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
 #### handle_input
 
 ```python
-handle_input(input_path: Path | str, output_dir: str | Path | None = None) -> list[Path]
+handle_input(input_path: Path | str, output_dir: Path | str = './output') -> list[Path]
 ```
 
     Process the input string and return the appropriate file paths
@@ -16,6 +16,6 @@ handle_input(input_path: Path | str, output_dir: str | Path | None = N
 | Name | Description |
 |--|--|
 | `input_path` | **Type:** pathlib.Path \| str |
-| `output_dir` | **Type:** str \| pathlib.Path \| None<br/><br/>**Default:** None |
+| `output_dir` | **Type:** pathlib.Path \| str<br/><br/>**Default:** './output' |
 
 <br />

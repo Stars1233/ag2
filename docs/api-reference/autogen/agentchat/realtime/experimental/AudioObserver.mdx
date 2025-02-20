@@ -1,42 +1,24 @@
 ---
-sidebarTitle: RealtimeObserver
-title: autogen.agentchat.realtime.experimental.RealtimeObserver
+sidebarTitle: AudioObserver
+title: autogen.agentchat.realtime.experimental.AudioObserver
 ---
-<h2 id="autogen.agentchat.realtime.experimental.RealtimeObserver" class="doc doc-heading">
+<h2 id="autogen.agentchat.realtime.experimental.AudioObserver" class="doc doc-heading">
     <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
-    <span class="doc doc-object-name doc-class-name">RealtimeObserver</span>
+    <span class="doc doc-object-name doc-class-name">AudioObserver</span>
 </h2>
 
 ```python
-RealtimeObserver(*, logger: Logger | None = None)
+AudioObserver(*, logger: ForwardRef('Logger') | None = None)
 ```
 
-    Observer for the OpenAI Realtime API.<br/>Observer for the OpenAI Realtime API.<br/>
+    Observer for user voice input
+    
+    Observer for user voice input
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `logger` | **Type:** logging.Logger \| None<br/><br/>**Default:** None |
-
-### Instance Attributes
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### agent
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### logger
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### realtime_client
-<br />
-
-    <br />
+| `logger` | **Type:** ForwardRef('Logger') \| None<br/><br/>**Default:** None |
 
 ### Instance Methods
 
@@ -47,7 +29,7 @@ RealtimeObserver(*, logger: Logger | None = None)
 initialize_session(self) -> None
 ```
 
-    Initialize the session for the observer.
+    No need to initialize session from this observer
 
 <br />
 
@@ -69,7 +51,7 @@ on_close(self) -> None
 on_event(self, event: RealtimeEvent) -> None
 ```
 
-    Handle an event from the OpenAI Realtime API.<br/>
+    Observe voice input events from the Realtime.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -90,7 +72,7 @@ run(self, agent: RealtimeAgent) ->
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | The realtime agent attached to the observer.<br/><br/>**Type:** [RealtimeAgent](/docs/api-reference/autogen/agentchat/realtime/experimental/RealtimeAgent) |
+| `agent` | The realtime agent attached to the observer.<br/><br/>**Type:** RealtimeAgent |
 
 <br />
 
@@ -101,7 +83,7 @@ run(self, agent: RealtimeAgent) ->
 run_loop(self) -> None
 ```
 
-    Run the loop if needed.<br/>This method is called after the observer is ready to process events.<br/>Events will be processed by the on_event method, this is just a hook for additional processing.<br/>Use initialize_session to set up the session.
+    Run the observer loop.
 
 <br />
 

@@ -15,6 +15,7 @@ RealtimeAgent(
     system_message: str = 'You are a helpful AI Assistant.',
     llm_config: dict[str, Any],
     logger: Logger | None = None,
+    observers: list[RealtimeObserver] | None = None,
     **client_kwargs: Any
 )
 ```
@@ -29,6 +30,7 @@ RealtimeAgent(
 | `system_message` | **Type:** str<br/><br/>**Default:** 'You are a helpful AI Assistant.' |
 | `llm_config` | **Type:** dict[str, typing.Any] |
 | `logger` | **Type:** logging.Logger \| None<br/><br/>**Default:** None |
+| `observers` | **Type:** list[[RealtimeObserver](/docs/api-reference/autogen/agentchat/realtime/experimental/RealtimeObserver)] \| None<br/><br/>**Default:** None |
 | `**client_kwargs` | **Type:** Any |
 
 ### Instance Attributes

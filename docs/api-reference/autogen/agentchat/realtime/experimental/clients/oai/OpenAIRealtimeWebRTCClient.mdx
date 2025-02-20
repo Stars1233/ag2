@@ -84,9 +84,7 @@ connect(self) -> AsyncGenerator[None, None]
 read_events(self) -> AsyncGenerator[RealtimeEvent, None]
 ```
 
-    Read messages from the OpenAI Realtime API.<br/>Again, in case of WebRTC, we do not read OpenAI messages directly since we
-    do not hold connection to OpenAI. Instead we read messages from the websocket, and javascript
-    client on the other side of the websocket that is connected to OpenAI is relaying events to us.
+    Read events from the OpenAI Realtime API.
 
 <br />
 
@@ -97,7 +95,7 @@ read_events(self) -> AsyncGenerator[RealtimeEvent, None]
 send_audio(self, audio: str) -> None
 ```
 
-    Send audio to the OpenAI Realtime API.<br/>
+    Send audio to the OpenAI Realtime API.<br/>in case of WebRTC, audio is already sent by js client, so we just queue it in order to be logged.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
