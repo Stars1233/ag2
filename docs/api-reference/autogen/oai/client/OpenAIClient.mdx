@@ -8,7 +8,7 @@ title: autogen.oai.client.OpenAIClient
 </h2>
 
 ```python
-OpenAIClient(client: Union[OpenAI, AzureOpenAI], response_format: Optional[BaseModel] = None)
+OpenAIClient(client: Union[OpenAI, AzureOpenAI], response_format: Union[BaseModel, dict[str, Any], None] = None)
 ```
 
     Follows the Client protocol and wraps the OpenAI client.
@@ -17,7 +17,7 @@ OpenAIClient(client: Union[OpenAI, AzureOpenAI], response_format: Optional[Ba
 | Name | Description |
 |--|--|
 | `client` | **Type:** Union[OpenAI, AzureOpenAI] |
-| `response_format` | **Type:** Optional[BaseModel]<br/><br/>**Default:** None |
+| `response_format` | **Type:** Union[BaseModel, dict[str, Any], None]<br/><br/>**Default:** None |
 
 ### Static Methods
 

@@ -12,7 +12,7 @@ DocumentAgent(
     name: str | None = None,
     llm_config: dict[str, Any] | None = None,
     system_message: str | None = None,
-    parsed_docs_path: str | Path | None = None,
+    parsed_docs_path: Path | str | None = None,
     collection_name: str | None = None
 )
 ```
@@ -25,7 +25,7 @@ DocumentAgent(
 | `name` | **Type:** str \| None<br/><br/>**Default:** None |
 | `llm_config` | **Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
 | `system_message` | **Type:** str \| None<br/><br/>**Default:** None |
-| `parsed_docs_path` | **Type:** str \| pathlib.Path \| None<br/><br/>**Default:** None |
+| `parsed_docs_path` | **Type:** pathlib.Path \| str \| None<br/><br/>**Default:** None |
 | `collection_name` | **Type:** str \| None<br/><br/>**Default:** None |
 
 ### Instance Attributes

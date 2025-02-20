@@ -12,7 +12,8 @@ patch_object(
     *,
     missing_modules: Iterable[str],
     dep_target: str,
-    fail_if_not_patchable: bool = True
+    fail_if_not_patchable: bool = True,
+    except_for: str | Iterable[str] | None = None
 ) -> ~T
 ```
 
@@ -25,5 +26,6 @@ patch_object(
 | `missing_modules` | **Type:** Iterable[str] |
 | `dep_target` | **Type:** str |
 | `fail_if_not_patchable` | **Type:** bool<br/><br/>**Default:** True |
+| `except_for` | **Type:** str \| Iterable[str] \| None<br/><br/>**Default:** None |
 
 <br />

@@ -1,0 +1,87 @@
+---
+sidebarTitle: LiteLLmConfigFactory
+title: autogen.interop.LiteLLmConfigFactory
+---
+<h2 id="autogen.interop.LiteLLmConfigFactory" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">LiteLLmConfigFactory</span>
+</h2>
+
+```python
+LiteLLmConfigFactory()
+```
+
+    Helper class that provides a standard way to create an ABC using
+    inheritance.
+
+### Static Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### accepts
+
+```python
+accepts(first_llm_config: dict[str, Any]) -> bool
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `first_llm_config` | **Type:** dict[str, typing.Any] |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### create
+
+```python
+create(first_llm_config: dict[str, Any]) -> dict[str, Any]
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `first_llm_config` | **Type:** dict[str, typing.Any] |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### create_lite_llm_config
+
+```python
+create_lite_llm_config(llm_config: dict[str, Any]) -> dict[str, Any]
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `llm_config` | **Type:** dict[str, typing.Any] |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_api_type
+
+```python
+get_api_type() -> str
+```
+
+    
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### register_factory
+
+```python
+register_factory() -> Callable[[type[~T]], type[~T]]
+```
+
+    
+
+<br />

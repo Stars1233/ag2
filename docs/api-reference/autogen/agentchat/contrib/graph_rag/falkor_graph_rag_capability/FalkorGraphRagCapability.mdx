@@ -28,14 +28,14 @@ FalkorGraphRagCapability(query_engine: FalkorGraphQueryEngine)
 #### add_to_agent
 
 ```python
-add_to_agent(self, agent: UserProxyAgent) -> 
+add_to_agent(self, agent: ConversableAgent) -> None
 ```
 
-    Add FalkorDB GraphRAG capability to a UserProxyAgent.<br/>The restriction to a UserProxyAgent to make sure the returned message does not contain information retrieved from the graph DB instead of any LLMs.
+    Add FalkorDB GraphRAG capability to a UserProxyAgent.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | **Type:** [UserProxyAgent](/docs/api-reference/autogen/UserProxyAgent) |
+| `agent` | The UserProxyAgent instance to add the capability to.<br/><br/>**Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) |
 
 <br />

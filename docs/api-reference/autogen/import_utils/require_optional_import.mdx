@@ -7,7 +7,12 @@ title: autogen.import_utils.require_optional_import
 #### require_optional_import
 
 ```python
-require_optional_import(modules: str | Iterable[str], dep_target: str) -> Callable[[~T], ~T]
+require_optional_import(
+    modules: str | Iterable[str],
+    dep_target: str,
+    *,
+    except_for: str | Iterable[str] | None = None
+) -> Callable[[~T], ~T]
 ```
 
     Decorator to handle optional module dependencies
@@ -17,5 +22,6 @@ require_optional_import(modules: str | Iterable[str], dep_target: str) -> Ca
 |--|--|
 | `modules` | Module name or list of module names required<br/><br/>**Type:** str \| Iterable[str] |
 | `dep_target` | Target name for pip installation (e.g.<br/><br/>'test' in pip install ag2[test])<br/><br/>**Type:** str |
+| `except_for` | **Type:** str \| Iterable[str] \| None<br/><br/>**Default:** None |
 
 <br />

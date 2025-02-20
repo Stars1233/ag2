@@ -29,7 +29,7 @@ Neo4jGraphCapability(query_engine: Neo4jGraphQueryEngine)
 #### add_to_agent
 
 ```python
-add_to_agent(self, agent: UserProxyAgent) -> 
+add_to_agent(self, agent: ConversableAgent) -> None
 ```
 
     Add Neo4j GraphRAG capability to a UserProxyAgent.<br/>The restriction to a UserProxyAgent to make sure the returned message only contains information retrieved from the graph DB instead of any LLMs.
@@ -37,6 +37,6 @@ add_to_agent(self, agent: UserProxyAgent) ->
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `agent` | **Type:** [UserProxyAgent](/docs/api-reference/autogen/UserProxyAgent) |
+| `agent` | **Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) |
 
 <br />
