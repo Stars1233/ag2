@@ -81,12 +81,6 @@ Completion()
 
     <br />
 
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### tune
-<br />
-
-    <br />
-
 ### Static Methods
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
@@ -281,28 +275,32 @@ stop_logging() ->
 #### test
 
 ```python
-test(
-    data,
-    eval_func=None,
-    use_cache=True,
-    agg_method='avg',
-    return_responses_and_per_instance_result=False,
-    logging_level=30,
-    **config
-) -> 
+test(*args, **kwargs) -> 
 ```
 
-    Evaluate the responses created with the config for the OpenAI API call.<br/>
+    Call self as a function.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `data` | The list of test data points.<br/><br/> |
-| `eval_func=None` |  |
-| `use_cache=True` |  |
-| `agg_method='avg'` |  |
-| `return_responses_and_per_instance_result=False` |  |
-| `logging_level=30` |  |
-| `**config` |  |
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### tune
+
+```python
+tune(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
 
 <br />

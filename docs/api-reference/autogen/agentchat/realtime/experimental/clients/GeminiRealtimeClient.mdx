@@ -8,11 +8,7 @@ title: autogen.agentchat.realtime.experimental.clients.GeminiRealtimeClient
 </h2>
 
 ```python
-GeminiRealtimeClient(
-    *,
-    llm_config: dict[str, Any],
-    logger: Logger | None = None
-)
+GeminiRealtimeClient(**kwargs)
 ```
 
     (Experimental) Client for Gemini Realtime API.<br/>(Experimental) Client for Gemini Realtime API.<br/>
@@ -20,32 +16,7 @@ GeminiRealtimeClient(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `llm_config` | **Type:** dict[str, typing.Any] |
-| `logger` | **Type:** logging.Logger \| None<br/><br/>**Default:** None |
-
-### Static Methods
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
-#### get_factory
-
-```python
-get_factory(
-    llm_config: dict[str, Any],
-    logger: Logger,
-    **kwargs: Any
-) -> 
-```
-
-    Create a Realtime API client.<br/>
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `llm_config` | **Type:** dict[str, typing.Any] |
-| `logger` | The logger for the client.<br/><br/>**Type:** logging.Logger |
-| `**kwargs` | **Type:** Any |
-
-<br />
+| `**kwargs` |  |
 
 ### Instance Attributes
 
@@ -64,13 +35,87 @@ get_factory(
 ### Instance Methods
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### add_event
+
+```python
+add_event(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### connect
 
 ```python
-connect(self) -> AsyncGenerator[None, None]
+connect(*args, **kwargs) -> 
 ```
 
-    Connect to the Gemini Realtime API.
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_event
+
+```python
+get_event(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_factory
+
+```python
+get_factory(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### queue_input_audio_buffer_delta
+
+```python
+queue_input_audio_buffer_delta(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
 
 <br />
 
@@ -78,10 +123,16 @@ connect(self) -> AsyncGenerator[None, None]
 #### read_events
 
 ```python
-read_events(self) -> AsyncGenerator[RealtimeEvent, None]
+read_events(*args, **kwargs) -> 
 ```
 
-    Read Events from the Gemini Realtime Client
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
 
 <br />
 
@@ -89,15 +140,16 @@ read_events(self) -> AsyncGenerator[RealtimeEvent, None]
 #### send_audio
 
 ```python
-send_audio(self, audio: str) -> None
+send_audio(*args, **kwargs) -> 
 ```
 
-    Send audio to the Gemini Realtime API.<br/>
+    Call self as a function.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `audio` | The audio to send.<br/><br/>**Type:** str |
+| `*args` |  |
+| `**kwargs` |  |
 
 <br />
 
@@ -105,20 +157,16 @@ send_audio(self, audio: str) -> None
 #### send_function_result
 
 ```python
-send_function_result(
-    self,
-    call_id: str,
-    result: str
-) -> None
+send_function_result(*args, **kwargs) -> 
 ```
 
-    Send the result of a function call to the Gemini Realtime API.<br/>
+    Call self as a function.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `call_id` | The ID of the function call.<br/><br/>**Type:** str |
-| `result` | The result of the function call.<br/><br/>**Type:** str |
+| `*args` |  |
+| `**kwargs` |  |
 
 <br />
 
@@ -126,23 +174,16 @@ send_function_result(
 #### send_text
 
 ```python
-send_text(
-    self,
-    *,
-    role: Literal['user', 'assistant', 'system'],
-    text: str,
-    turn_complete: bool = True
-) -> None
+send_text(*args, **kwargs) -> 
 ```
 
-    Send a text message to the Gemini Realtime API.<br/>
+    Call self as a function.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `role` | The role of the message.<br/><br/>**Type:** Literal['user', 'assistant', 'system'] |
-| `text` | The text of the message.<br/><br/>**Type:** str |
-| `turn_complete` | **Type:** bool<br/><br/>**Default:** True |
+| `*args` |  |
+| `**kwargs` |  |
 
 <br />
 
@@ -150,15 +191,16 @@ send_text(
 #### session_update
 
 ```python
-session_update(self, session_options: dict[str, Any]) -> None
+session_update(*args, **kwargs) -> 
 ```
 
-    Record session updates to be applied when the connection is established.<br/>
+    Call self as a function.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `session_options` | The session options to update.<br/><br/>**Type:** dict[str, typing.Any] |
+| `*args` |  |
+| `**kwargs` |  |
 
 <br />
 
@@ -166,21 +208,15 @@ session_update(self, session_options: dict[str, Any]) -> None
 #### truncate_audio
 
 ```python
-truncate_audio(
-    self,
-    audio_end_ms: int,
-    content_index: int,
-    item_id: str
-) -> None
+truncate_audio(*args, **kwargs) -> 
 ```
 
-    
+    Call self as a function.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `audio_end_ms` | **Type:** int |
-| `content_index` | **Type:** int |
-| `item_id` | **Type:** str |
+| `*args` |  |
+| `**kwargs` |  |
 
 <br />

@@ -555,7 +555,10 @@
                           "group": "vision_capability",
                           "pages": [
                             "docs/api-reference/autogen/agentchat/contrib/capabilities/vision_capability/overview",
-                            "docs/api-reference/autogen/agentchat/contrib/capabilities/vision_capability/VisionCapability"
+                            "docs/api-reference/autogen/agentchat/contrib/capabilities/vision_capability/VisionCapability",
+                            "docs/api-reference/autogen/agentchat/contrib/capabilities/vision_capability/get_image_data",
+                            "docs/api-reference/autogen/agentchat/contrib/capabilities/vision_capability/get_pil_image",
+                            "docs/api-reference/autogen/agentchat/contrib/capabilities/vision_capability/gpt4v_formatter"
                           ]
                         }
                       ]
@@ -925,7 +928,14 @@
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/img_utils/overview",
                         "docs/api-reference/autogen/agentchat/contrib/img_utils/convert_base64_to_data_uri",
-                        "docs/api-reference/autogen/agentchat/contrib/img_utils/extract_img_paths"
+                        "docs/api-reference/autogen/agentchat/contrib/img_utils/extract_img_paths",
+                        "docs/api-reference/autogen/agentchat/contrib/img_utils/get_image_data",
+                        "docs/api-reference/autogen/agentchat/contrib/img_utils/get_pil_image",
+                        "docs/api-reference/autogen/agentchat/contrib/img_utils/gpt4v_formatter",
+                        "docs/api-reference/autogen/agentchat/contrib/img_utils/llava_formatter",
+                        "docs/api-reference/autogen/agentchat/contrib/img_utils/message_formatter_pil_to_b64",
+                        "docs/api-reference/autogen/agentchat/contrib/img_utils/num_tokens_from_gpt_image",
+                        "docs/api-reference/autogen/agentchat/contrib/img_utils/pil_to_data_uri"
                       ]
                     },
                     {
@@ -940,7 +950,10 @@
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/llava_agent/overview",
                         "docs/api-reference/autogen/agentchat/contrib/llava_agent/LLaVAAgent",
-                        "docs/api-reference/autogen/agentchat/contrib/llava_agent/llava_call"
+                        "docs/api-reference/autogen/agentchat/contrib/llava_agent/get_image_data",
+                        "docs/api-reference/autogen/agentchat/contrib/llava_agent/llava_call",
+                        "docs/api-reference/autogen/agentchat/contrib/llava_agent/llava_call_binary",
+                        "docs/api-reference/autogen/agentchat/contrib/llava_agent/llava_formatter"
                       ]
                     },
                     {
@@ -956,14 +969,18 @@
                       "group": "multimodal_conversable_agent",
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/multimodal_conversable_agent/overview",
-                        "docs/api-reference/autogen/agentchat/contrib/multimodal_conversable_agent/MultimodalConversableAgent"
+                        "docs/api-reference/autogen/agentchat/contrib/multimodal_conversable_agent/MultimodalConversableAgent",
+                        "docs/api-reference/autogen/agentchat/contrib/multimodal_conversable_agent/gpt4v_formatter",
+                        "docs/api-reference/autogen/agentchat/contrib/multimodal_conversable_agent/message_formatter_pil_to_b64"
                       ]
                     },
                     {
                       "group": "qdrant_retrieve_user_proxy_agent",
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/qdrant_retrieve_user_proxy_agent/overview",
-                        "docs/api-reference/autogen/agentchat/contrib/qdrant_retrieve_user_proxy_agent/QdrantRetrieveUserProxyAgent"
+                        "docs/api-reference/autogen/agentchat/contrib/qdrant_retrieve_user_proxy_agent/QdrantRetrieveUserProxyAgent",
+                        "docs/api-reference/autogen/agentchat/contrib/qdrant_retrieve_user_proxy_agent/create_qdrant_from_dir",
+                        "docs/api-reference/autogen/agentchat/contrib/qdrant_retrieve_user_proxy_agent/query_qdrant"
                       ]
                     },
                     {
@@ -992,7 +1009,9 @@
                       "group": "retrieve_user_proxy_agent",
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/retrieve_user_proxy_agent/overview",
-                        "docs/api-reference/autogen/agentchat/contrib/retrieve_user_proxy_agent/RetrieveUserProxyAgent"
+                        "docs/api-reference/autogen/agentchat/contrib/retrieve_user_proxy_agent/RetrieveUserProxyAgent",
+                        "docs/api-reference/autogen/agentchat/contrib/retrieve_user_proxy_agent/create_vector_db_from_dir",
+                        "docs/api-reference/autogen/agentchat/contrib/retrieve_user_proxy_agent/query_vector_db"
                       ]
                     },
                     {
@@ -1198,6 +1217,7 @@
                       "group": "document_agent",
                       "pages": [
                         "docs/api-reference/autogen/agents/experimental/document_agent/overview",
+                        "docs/api-reference/autogen/agents/experimental/document_agent/docling_parse_docs",
                         "docs/api-reference/autogen/agents/experimental/document_agent/handle_input",
                         {
                           "group": "docling_query_engine",
@@ -1391,7 +1411,8 @@
                 "docs/api-reference/autogen/graph_utils/overview",
                 "docs/api-reference/autogen/graph_utils/check_graph_validity",
                 "docs/api-reference/autogen/graph_utils/has_self_loops",
-                "docs/api-reference/autogen/graph_utils/invert_disallowed_to_allowed"
+                "docs/api-reference/autogen/graph_utils/invert_disallowed_to_allowed",
+                "docs/api-reference/autogen/graph_utils/visualize_speaker_transitions_dict"
               ]
             },
             {
@@ -1542,7 +1563,8 @@
                   "group": "anthropic",
                   "pages": [
                     "docs/api-reference/autogen/oai/anthropic/overview",
-                    "docs/api-reference/autogen/oai/anthropic/AnthropicClient"
+                    "docs/api-reference/autogen/oai/anthropic/AnthropicClient",
+                    "docs/api-reference/autogen/oai/anthropic/oai_messages_to_anthropic_messages"
                   ]
                 },
                 {
@@ -1594,7 +1616,9 @@
                     "docs/api-reference/autogen/oai/cohere/CohereClient",
                     "docs/api-reference/autogen/oai/cohere/CohereError",
                     "docs/api-reference/autogen/oai/cohere/CohereRateLimitError",
-                    "docs/api-reference/autogen/oai/cohere/calculate_cohere_cost"
+                    "docs/api-reference/autogen/oai/cohere/calculate_cohere_cost",
+                    "docs/api-reference/autogen/oai/cohere/extract_to_cohere_tool_results",
+                    "docs/api-reference/autogen/oai/cohere/oai_messages_to_cohere_messages"
                   ]
                 },
                 {
@@ -1602,7 +1626,8 @@
                   "pages": [
                     "docs/api-reference/autogen/oai/gemini/overview",
                     "docs/api-reference/autogen/oai/gemini/GeminiClient",
-                    "docs/api-reference/autogen/oai/gemini/calculate_gemini_cost"
+                    "docs/api-reference/autogen/oai/gemini/calculate_gemini_cost",
+                    "docs/api-reference/autogen/oai/gemini/get_image_data"
                   ]
                 },
                 {
@@ -1619,7 +1644,8 @@
                   "pages": [
                     "docs/api-reference/autogen/oai/mistral/overview",
                     "docs/api-reference/autogen/oai/mistral/MistralAIClient",
-                    "docs/api-reference/autogen/oai/mistral/calculate_mistral_cost"
+                    "docs/api-reference/autogen/oai/mistral/calculate_mistral_cost",
+                    "docs/api-reference/autogen/oai/mistral/tool_def_to_mistral"
                   ]
                 },
                 {
@@ -1627,7 +1653,8 @@
                   "pages": [
                     "docs/api-reference/autogen/oai/ollama/overview",
                     "docs/api-reference/autogen/oai/ollama/OllamaClient",
-                    "docs/api-reference/autogen/oai/ollama/is_valid_tool_call_item"
+                    "docs/api-reference/autogen/oai/ollama/is_valid_tool_call_item",
+                    "docs/api-reference/autogen/oai/ollama/response_to_tool_call"
                   ]
                 },
                 {
@@ -1659,9 +1686,13 @@
               "group": "retrieve_utils",
               "pages": [
                 "docs/api-reference/autogen/retrieve_utils/overview",
+                "docs/api-reference/autogen/retrieve_utils/create_vector_db_from_dir",
+                "docs/api-reference/autogen/retrieve_utils/extract_text_from_pdf",
                 "docs/api-reference/autogen/retrieve_utils/get_file_from_url",
                 "docs/api-reference/autogen/retrieve_utils/get_files_from_dir",
                 "docs/api-reference/autogen/retrieve_utils/is_url",
+                "docs/api-reference/autogen/retrieve_utils/parse_html_to_markdown",
+                "docs/api-reference/autogen/retrieve_utils/query_vector_db",
                 "docs/api-reference/autogen/retrieve_utils/split_files_to_chunks",
                 "docs/api-reference/autogen/retrieve_utils/split_text_to_chunks"
               ]

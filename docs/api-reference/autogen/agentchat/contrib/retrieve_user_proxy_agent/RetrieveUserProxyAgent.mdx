@@ -51,418 +51,6 @@ RetrieveUserProxyAgent(**kwargs)
 
     <br />
 
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### a_check_termination_and_human_reply
-<br />
-
-    (async) Check if the conversation should be terminated, and if human reply is provided.<br/>This method checks for conditions that require the conversation to be terminated, such as reaching
-    a maximum number of consecutive auto-replies or encountering a termination message. Additionally,
-    it prompts for and processes human input based on the configured human input mode, which can be
-    'ALWAYS', 'NEVER', or 'TERMINATE'. The method also manages the consecutive auto-reply counter
-    for the conversation and prints relevant messages based on the human input received.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### a_execute_function
-<br />
-
-    Execute an async function call and return the result.<br/>Override this function to modify the way async functions and tools are executed.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### a_generate_function_call_reply
-<br />
-
-    Generate a reply using async function call.<br/>"function_call" replaced by "tool_calls" as of [OpenAI API v1.1.0](https://github.com/openai/openai-python/releases/tag/v1.1.0)
-    See https://platform.openai.com/docs/api-reference/chat/create#chat-create-functions
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### a_generate_init_message
-<br />
-
-    Generate the initial message for the agent.<br/>If message is None, input() will be called to get the initial message.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### a_generate_oai_reply
-<br />
-
-    Generate a reply using autogen.oai asynchronously.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### a_generate_reply
-<br />
-
-    (async) Reply based on the conversation history and the sender.<br/>Either messages or sender must be provided.<br/>Register a reply_func with `None` as one trigger for it to be activated when `messages` is non-empty and `sender` is `None`.<br/>Use registered auto reply functions to generate replies.<br/>By default, the following functions are checked in order: <br/>1. check_termination_and_human_reply
-    2. generate_function_call_reply
-    3. generate_tool_calls_reply
-    4. generate_code_execution_reply
-    5. generate_oai_reply
-    Every function returns a tuple (final, reply).<br/>When a function returns final=False, the next function will be checked.<br/>So by default, termination and human reply will be checked first.<br/>If not terminating and human reply is skipped, execute function or code and return the result.<br/>AI replies are generated only when no code execution is performed.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### a_generate_tool_calls_reply
-<br />
-
-    Generate a reply using async function call.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### a_get_human_input
-<br />
-
-    (Async) Get human input.<br/>Override this method to customize the way to get human input.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### a_initiate_chat
-<br />
-
-    (async) Initiate a chat with the recipient agent.<br/>Reset the consecutive auto reply counter.<br/>If `clear_history` is True, the chat history with the recipient agent will be cleared.<br/>`a_generate_init_message` is called to generate the initial message for the agent.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### a_initiate_chats
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### a_receive
-<br />
-
-    (async) Receive a message from another agent.<br/>Once a message is received, this function sends a reply to the sender or stop.<br/>The reply can be generated automatically or entered manually by a human.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### a_run
-<br />
-
-    Run a chat asynchronously with the agent using the given message.<br/>A second agent will be created to represent the user, this agent will by known by the name 'user'.<br/>The user can terminate the conversation when prompted or, if agent's reply contains 'TERMINATE', it will terminate.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### a_send
-<br />
-
-    (async) Send a message to another agent.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### can_execute_function
-<br />
-
-    Whether the agent can execute the function.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### chat_messages_for_summary
-<br />
-
-    A list of messages as a conversation to summarize.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### check_termination_and_human_reply
-<br />
-
-    Check if the conversation should be terminated, and if human reply is provided.<br/>This method checks for conditions that require the conversation to be terminated, such as reaching
-    a maximum number of consecutive auto-replies or encountering a termination message. Additionally,
-    it prompts for and processes human input based on the configured human input mode, which can be
-    'ALWAYS', 'NEVER', or 'TERMINATE'. The method also manages the consecutive auto-reply counter
-    for the conversation and prints relevant messages based on the human input received.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### clear_history
-<br />
-
-    Clear the chat history of the agent.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### execute_code_blocks
-<br />
-
-    Execute the code blocks and return the result.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### execute_function
-<br />
-
-    Execute a function call and return the result.<br/>Override this function to modify the way to execute function and tool calls.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### generate_code_execution_reply
-<br />
-
-    Generate a reply using code execution.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### generate_function_call_reply
-<br />
-
-    Generate a reply using function call.<br/>"function_call" replaced by "tool_calls" as of [OpenAI API v1.1.0](https://github.com/openai/openai-python/releases/tag/v1.1.0)
-    See https://platform.openai.com/docs/api-reference/chat/create#chat-create-functions
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### generate_init_message
-<br />
-
-    Generate the initial message for the agent.<br/>If message is None, input() will be called to get the initial message.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### generate_oai_reply
-<br />
-
-    Generate a reply using autogen.oai.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### generate_reply
-<br />
-
-    Reply based on the conversation history and the sender.<br/>Either messages or sender must be provided.<br/>Register a reply_func with `None` as one trigger for it to be activated when `messages` is non-empty and `sender` is `None`.<br/>Use registered auto reply functions to generate replies.<br/>By default, the following functions are checked in order: <br/>1. check_termination_and_human_reply
-    2. generate_function_call_reply (deprecated in favor of tool_calls)
-    3. generate_tool_calls_reply
-    4. generate_code_execution_reply
-    5. generate_oai_reply
-    Every function returns a tuple (final, reply).<br/>When a function returns final=False, the next function will be checked.<br/>So by default, termination and human reply will be checked first.<br/>If not terminating and human reply is skipped, execute function or code and return the result.<br/>AI replies are generated only when no code execution is performed.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### generate_tool_calls_reply
-<br />
-
-    Generate a reply using tool call.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### get_actual_usage
-<br />
-
-    Get the actual usage summary.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### get_chat_results
-<br />
-
-    A summary from the finished chats of particular agents.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### get_context
-<br />
-
-    Get a context variable by key.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### get_human_input
-<br />
-
-    Get human input.<br/>Override this method to customize the way to get human input.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### get_max_tokens
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### get_total_usage
-<br />
-
-    Get the total usage summary.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### initiate_chat
-<br />
-
-    Initiate a chat with the recipient agent.<br/>Reset the consecutive auto reply counter.<br/>If `clear_history` is True, the chat history with the recipient agent will be cleared.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### initiate_chats
-<br />
-
-    (Experimental) Initiate chats with multiple agents.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### last_message
-<br />
-
-    The last message exchanged with the agent.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### max_consecutive_auto_reply
-<br />
-
-    The maximum number of consecutive auto replies.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### message_generator
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### pop_context
-<br />
-
-    Remove and return a context variable.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### print_usage_summary
-<br />
-
-    Print the usage summary.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### process_all_messages_before_reply
-<br />
-
-    Calls any registered capability hooks to process all messages, potentially modifying the messages.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### process_last_received_message
-<br />
-
-    Calls any registered capability hooks to use and potentially modify the text of the last message,
-    as long as the last message is not a function call or exit command.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### receive
-<br />
-
-    Receive a message from another agent.<br/>Once a message is received, this function sends a reply to the sender or stop.<br/>The reply can be generated automatically or entered manually by a human.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### register_for_execution
-<br />
-
-    Decorator factory for registering a function to be executed by an agent.<br/>It's return value is used to decorate a function to be registered to the agent.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### register_for_llm
-<br />
-
-    Decorator factory for registering a function to be used by an agent.<br/>It's return value is used to decorate a function to be registered to the agent. The function uses type hints to
-    specify the arguments and return type. The function name is used as the default name for the function,
-    but a custom name can be provided. The function description is used to describe the function in the
-    agent's configuration.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### register_function
-<br />
-
-    Register functions to the agent.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### register_hook
-<br />
-
-    Registers a hook to be called by a hookable method, in order to add a capability to the agent.<br/>Registered hooks are kept in lists (one per hookable method), and are called in their order of registration.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### register_model_client
-<br />
-
-    Register a model client.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### register_nested_chats
-<br />
-
-    Register a nested chat reply function.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### register_reply
-<br />
-
-    Register a reply function.<br/>The reply function will be called when the trigger matches the sender.<br/>The function registered later will be checked earlier by default.<br/>To change the order, set the position to a positive integer.<br/>Both sync and async reply functions can be registered. The sync reply function will be triggered
-    from both sync and async chats. However, an async reply function will only be triggered from async
-    chats (initiated with `ConversableAgent.a_initiate_chat`). If an `async` reply function is registered
-    and a chat is initialized with a sync function, `ignore_async_in_sync_chat` determines the behaviour as follows: <br/>    if `ignore_async_in_sync_chat` is set to `False` (default value), an exception will be raised, and
-        if `ignore_async_in_sync_chat` is set to `True`, the reply function will be ignored.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### remove_tool_for_llm
-<br />
-
-    Remove a tool (register for LLM tool)
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### replace_reply_func
-<br />
-
-    Replace a registered reply function with a new one.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### reset
-<br />
-
-    Reset the agent.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### reset_consecutive_auto_reply_counter
-<br />
-
-    Reset the consecutive_auto_reply_counter of the sender.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### retrieve_docs
-<br />
-
-    <br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### run
-<br />
-
-    Run a chat with the agent using the given message.<br/>A second agent will be created to represent the user, this agent will by known by the name 'user'. This agent does not have code execution enabled by default, if needed pass the code execution config in with the executor_kwargs parameter.<br/>The user can terminate the conversation when prompted or, if agent's reply contains 'TERMINATE', it will terminate.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### run_code
-<br />
-
-    Run the code and return the result.<br/>Override this function to modify the way to run the code.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### send
-<br />
-
-    Send a message to another agent.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### set_context
-<br />
-
-    Set a context variable.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### stop_reply_at_receive
-<br />
-
-    Reset the reply_at_receive of the sender.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### update_agent_state_before_reply
-<br />
-
-    Calls any registered capability hooks to update the agent's state.<br/>Primarily used to update context variables.<br/>Will, potentially, modify the messages.
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### update_context
-<br />
-
-    Update multiple context variables at once.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### update_function_signature
-<br />
-
-    Update a function_signature in the LLM configuration for function_call.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### update_max_consecutive_auto_reply
-<br />
-
-    Update the maximum number of consecutive auto replies.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### update_system_message
-<br />
-
-    Update the system message.<br/>
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
-#### update_tool_signature
-<br />
-
-    Update a tool_signature in the LLM configuration for tool_call.<br/>
-
 ### Instance Attributes
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
@@ -515,3 +103,1093 @@ RetrieveUserProxyAgent(**kwargs)
 
     Bool value of whether to use docker to execute the code,
     or str value of the docker image name to use, or None when code execution is disabled.
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### a_check_termination_and_human_reply
+
+```python
+a_check_termination_and_human_reply(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### a_execute_function
+
+```python
+a_execute_function(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### a_generate_function_call_reply
+
+```python
+a_generate_function_call_reply(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### a_generate_init_message
+
+```python
+a_generate_init_message(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### a_generate_oai_reply
+
+```python
+a_generate_oai_reply(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### a_generate_reply
+
+```python
+a_generate_reply(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### a_generate_tool_calls_reply
+
+```python
+a_generate_tool_calls_reply(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### a_get_human_input
+
+```python
+a_get_human_input(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### a_initiate_chat
+
+```python
+a_initiate_chat(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### a_initiate_chats
+
+```python
+a_initiate_chats(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### a_receive
+
+```python
+a_receive(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### a_run
+
+```python
+a_run(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### a_send
+
+```python
+a_send(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### can_execute_function
+
+```python
+can_execute_function(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### chat_messages_for_summary
+
+```python
+chat_messages_for_summary(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### check_termination_and_human_reply
+
+```python
+check_termination_and_human_reply(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### clear_history
+
+```python
+clear_history(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### execute_code_blocks
+
+```python
+execute_code_blocks(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### execute_function
+
+```python
+execute_function(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### generate_code_execution_reply
+
+```python
+generate_code_execution_reply(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### generate_function_call_reply
+
+```python
+generate_function_call_reply(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### generate_init_message
+
+```python
+generate_init_message(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### generate_oai_reply
+
+```python
+generate_oai_reply(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### generate_reply
+
+```python
+generate_reply(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### generate_tool_calls_reply
+
+```python
+generate_tool_calls_reply(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_actual_usage
+
+```python
+get_actual_usage(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_chat_results
+
+```python
+get_chat_results(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_context
+
+```python
+get_context(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_human_input
+
+```python
+get_human_input(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_max_tokens
+
+```python
+get_max_tokens(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_total_usage
+
+```python
+get_total_usage(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### initiate_chat
+
+```python
+initiate_chat(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### initiate_chats
+
+```python
+initiate_chats(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### last_message
+
+```python
+last_message(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### max_consecutive_auto_reply
+
+```python
+max_consecutive_auto_reply(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### message_generator
+
+```python
+message_generator(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### pop_context
+
+```python
+pop_context(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### print_usage_summary
+
+```python
+print_usage_summary(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### process_all_messages_before_reply
+
+```python
+process_all_messages_before_reply(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### process_last_received_message
+
+```python
+process_last_received_message(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### receive
+
+```python
+receive(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### register_for_execution
+
+```python
+register_for_execution(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### register_for_llm
+
+```python
+register_for_llm(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### register_function
+
+```python
+register_function(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### register_hook
+
+```python
+register_hook(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### register_model_client
+
+```python
+register_model_client(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### register_nested_chats
+
+```python
+register_nested_chats(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### register_reply
+
+```python
+register_reply(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### remove_tool_for_llm
+
+```python
+remove_tool_for_llm(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### replace_reply_func
+
+```python
+replace_reply_func(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### reset
+
+```python
+reset(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### reset_consecutive_auto_reply_counter
+
+```python
+reset_consecutive_auto_reply_counter(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### retrieve_docs
+
+```python
+retrieve_docs(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### run
+
+```python
+run(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### run_code
+
+```python
+run_code(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### send
+
+```python
+send(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### set_context
+
+```python
+set_context(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### stop_reply_at_receive
+
+```python
+stop_reply_at_receive(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### update_agent_state_before_reply
+
+```python
+update_agent_state_before_reply(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### update_context
+
+```python
+update_context(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### update_function_signature
+
+```python
+update_function_signature(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### update_max_consecutive_auto_reply
+
+```python
+update_max_consecutive_auto_reply(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### update_system_message
+
+```python
+update_system_message(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### update_tool_signature
+
+```python
+update_tool_signature(*args, **kwargs) -> 
+```
+
+    Call self as a function.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+<br />

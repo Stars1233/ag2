@@ -200,11 +200,11 @@ new_builder.clear_all_agents()
 
 We also support using embedding similarity to select agents. You can use
 a [Sentence-Transformers
-model](https://www.sbert.net/docs/pretrained_models.html) as an
-embedding extractor, and AgentBuilder will select agents with profiles
-that are the most similar to the building task from the library by
-comparing their embedding similarity. This will reduce the use of LLMs
-but may have less accuracy.
+model](https://www.sbert.net/docs/sentence_transformer/pretrained_models.html)
+as an embedding extractor, and AgentBuilder will select agents with
+profiles that are the most similar to the building task from the library
+by comparing their embedding similarity. This will reduce the use of
+LLMs but may have less accuracy.
 
 ```python
 new_builder = AgentBuilder(
