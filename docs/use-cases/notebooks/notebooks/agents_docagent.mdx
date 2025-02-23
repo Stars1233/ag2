@@ -180,6 +180,8 @@ analyst = ConversableAgent(
         "CRITICAL - Work with ONLY ONE agent at a time and provide (a) an indication for them to take action by saying '[Next to speak is ...]' together with (b) documents they need to ingest and (c) queries they need to run, if any. "
         "DO NOT provide instructions that include the mention of both agents in the one response. "
         "When all documents have been ingested and all queries have been answered, provide a summary and add 'TERMINATE' to the end of your summary. "
+        "The summary should contain detailed bullet points (multiple per query if needed) and grouped by each query. After the summary provide a one line conclusion. "
+        "Add the term '(This is not financial advice)' at the end of your conclusion. "
         "If there are errors, list them and say 'TERMINATE'. "
         "If there are no errors, do not say 'TERMINATE' until each agent has run their queries and provided their answers."
     ),
@@ -196,8 +198,8 @@ result, _, _ = initiate_swarm_chat(
         "./docagent/AMDQ4-2024.pdf "
         "and use the nvidia_agent to load NVIDIA's 3rd quarter 2025 report from "
         "./docagent/NVIDIAQ3-2025.pdf. "
-        "Then ask both agents what AMD and NVIDIA did, in detail, "
-        "in regards to AI in their latest quarters and what the net revenues were."
+        "Ask 'amd_agent' to ingest the AMD document and answer two queries (a) what AMD did in regards to AI and (b) what was the Q4 2024 GAAP revenue."
+        "Ask 'nvidia_agent' to ingest the NVIDIA document and answer two queries (a) what NVIDIA did in regards to AI and (b) what was Q3 2025 GAAP revenue."
     ),
     swarm_manager_args={
         "llm_config": llm_config,
@@ -207,6 +209,23 @@ result, _, _ = initiate_swarm_chat(
     after_work=AfterWorkOption.SWARM_MANAGER,
 )
 ```
+
+### Tips for DocAgent
+
+-   When asking for information from ingested information, be precise.
+    For example, asking for revenue for the quarter in the previous
+    example could retrieve a number of different revenue values, so we
+    ask for “GAAP revenue” for the specific quarter.
+-   If you have ingested documents in previous runs and just need to
+    query the information, be clear to the DocAgent that they don’t need
+    to ingest documents you refer to.
+-   Ensure that any files to be ingested can be accessed by the process
+    you are running.
+-   Ingestions take time, be sure to use `collection_name` to reuse
+    collections that have already had the documents ingested in to.
+-   You can review the Markdown files ingested in the `parsed_docs`
+    folder to see how effective the conversion to Markdown was. This
+    will help you investigate any query issues.
 
 <div className="edit-url-container">
     <a className="edit-url" href="https://github.com/ag2ai/ag2/edit/main/notebook/agents_docagent.ipynb" target='_blank'><Icon icon="pen" iconType="solid" size="13px"/> Edit this page</a>
