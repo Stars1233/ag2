@@ -431,7 +431,7 @@ how many turns of conversation to have between the concerned agent
 pairs.
 
 ```python
-def writer_init_messsage(recipient, messages, sender, config):
+def writer_init_message(recipient, messages, sender, config):
     if recipient.success:
         return None
     msg_content = messages[-1].get("content", "")
@@ -502,7 +502,7 @@ def safeguard_summary(recipient, sender):
             return DEBUG_PROMPT.format(error_type=type(execution_rst), error_message=str(execution_rst))
 
 
-writer_chat_queue = [{"recipient": writer, "message": writer_init_messsage, "summary_method": writer_success_summary}]
+writer_chat_queue = [{"recipient": writer, "message": writer_init_message, "summary_method": writer_success_summary}]
 safeguard_chat_queue = [
     {"recipient": safeguard, "message": safeguard_init_message, "max_turns": 1, "summary_method": safeguard_summary}
 ]

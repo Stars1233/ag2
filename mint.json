@@ -1030,7 +1030,6 @@
                         "docs/api-reference/autogen/agentchat/contrib/swarm_agent/ContextStr",
                         "docs/api-reference/autogen/agentchat/contrib/swarm_agent/ON_CONDITION",
                         "docs/api-reference/autogen/agentchat/contrib/swarm_agent/SwarmAgent",
-                        "docs/api-reference/autogen/agentchat/contrib/swarm_agent/SwarmResult",
                         "docs/api-reference/autogen/agentchat/contrib/swarm_agent/create_swarm_transition",
                         "docs/api-reference/autogen/agentchat/contrib/swarm_agent/register_hand_off"
                       ]
@@ -1618,8 +1617,8 @@
                     "docs/api-reference/autogen/oai/cohere/CohereError",
                     "docs/api-reference/autogen/oai/cohere/CohereRateLimitError",
                     "docs/api-reference/autogen/oai/cohere/calculate_cohere_cost",
-                    "docs/api-reference/autogen/oai/cohere/extract_to_cohere_tool_results",
-                    "docs/api-reference/autogen/oai/cohere/oai_messages_to_cohere_messages"
+                    "docs/api-reference/autogen/oai/cohere/clean_return_response_format",
+                    "docs/api-reference/autogen/oai/cohere/extract_to_cohere_tool_results"
                   ]
                 },
                 {

@@ -7,15 +7,20 @@ title: autogen.oai.cohere.extract_to_cohere_tool_results
 #### extract_to_cohere_tool_results
 
 ```python
-extract_to_cohere_tool_results(*args, **kwargs) -> 
+extract_to_cohere_tool_results(
+    tool_call_id: str,
+    content_output: str,
+    all_tool_calls
+) -> list[dict[str, Any]]
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `tool_call_id` | **Type:** str |
+| `content_output` | **Type:** str |
+| `all_tool_calls` |  |
 
 <br />
