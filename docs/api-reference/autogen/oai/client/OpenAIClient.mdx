@@ -83,11 +83,16 @@ create(self, params: dict[str, Any]) -> ChatCompletion
 message_retrieval(self, response: Union[ChatCompletion, Completion]) -> list[str] | list[ChatCompletionMessage]
 ```
 
-    Retrieve the messages from the response.
+    Retrieve the messages from the response.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `response` | **Type:** Union[ChatCompletion, Completion] |
+| `response` | The response from openai.<br/><br/>**Type:** Union[ChatCompletion, Completion] |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| list[str] \| list[openai.types.chat.chat_completion_message.ChatCompletionMessage] | The message from the response. |
 
 <br />

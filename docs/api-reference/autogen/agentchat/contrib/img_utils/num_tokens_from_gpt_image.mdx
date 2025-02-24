@@ -7,15 +7,28 @@ title: autogen.agentchat.contrib.img_utils.num_tokens_from_gpt_image
 #### num_tokens_from_gpt_image
 
 ```python
-num_tokens_from_gpt_image(*args, **kwargs) -> 
+num_tokens_from_gpt_image(
+    image_data: str | ForwardRef('Image'),
+    model: str = 'gpt-4-vision',
+    low_quality: bool = False
+) -> int
 ```
 
-    Call self as a function.
+    Calculate the number of tokens required to process an image based on its dimensions
+    after scaling for different GPT models. Supports "gpt-4-vision", "gpt-4o", and "gpt-4o-mini".<br/>This function scales the image so that its longest edge is at most 2048 pixels and its shortest
+    edge is at most 768 pixels (for "gpt-4-vision"). It then calculates the number of 512x512 tiles
+    needed to cover the scaled image and computes the total tokens based on the number of these tiles.<br/>Reference: https://openai.com/api/pricing/
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `image_data` | Union[str, Image.Image]: The image data which can either be a base64 encoded string, a URL, a file path, or a PIL Image object.<br/><br/>**Type:** str \| ForwardRef('Image.Image') |
+| `model` | str: The model being used for image processing.<br/><br/>Can be "gpt-4-vision", "gpt-4o", or "gpt-4o-mini".<br/><br/>**Type:** str<br/><br/>**Default:** 'gpt-4-vision' |
+| `low_quality` | **Type:** bool<br/><br/>**Default:** False |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| int | int: The total number of tokens required for processing the image. |
 
 <br />

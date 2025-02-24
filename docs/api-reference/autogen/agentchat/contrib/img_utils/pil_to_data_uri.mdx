@@ -7,15 +7,19 @@ title: autogen.agentchat.contrib.img_utils.pil_to_data_uri
 #### pil_to_data_uri
 
 ```python
-pil_to_data_uri(*args, **kwargs) -> 
+pil_to_data_uri(image: Image) -> str
 ```
 
-    Call self as a function.
+    Converts a PIL Image object to a data URI.<br/>Parameters: <br/>    image (Image.Image): The PIL Image object.<br/>Returns: <br/>    str: The data URI string.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `image` | **Type:** Image.Image |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| str | str: The data URI string. |
 
 <br />

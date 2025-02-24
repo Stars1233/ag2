@@ -7,15 +7,45 @@ title: autogen.agentchat.contrib.img_utils.message_formatter_pil_to_b64
 #### message_formatter_pil_to_b64
 
 ```python
-message_formatter_pil_to_b64(*args, **kwargs) -> 
+message_formatter_pil_to_b64(messages: list[dict[str, Any]]) -> list[dict[str, Any]]
 ```
 
-    Call self as a function.
+    Converts the PIL image URLs in the messages to base64 encoded data URIs.<br/>This function iterates over a list of message dictionaries. For each message,
+    if it contains a 'content' key with a list of items, it looks for items
+    with an 'image_url' key. The function then converts the PIL image URL
+    (pointed to by 'image_url') to a base64 encoded data URI.<br/>Parameters: <br/>    messages (List[Dict]): A list of message dictionaries. Each dictionary
+                               may contain a 'content' key with a list of items,
+                               some of which might be image URLs.<br/>Returns: <br/>    List[Dict]: A new list of message dictionaries with PIL image URLs in the
+                    'image_url' key converted to base64 encoded data URIs.<br/>Example Input: <br/>    ```python
+        [
+            \{'content': [\{'type': 'text', 'text': 'You are a helpful AI assistant.'}], 'role': 'system'},
+            \{'content': [
+                \{'type': 'text', 'text': "What's the breed of this dog here?"},
+                \{'type': 'image_url', 'image_url': \{'url': a PIL.Image.Image}},
+                \{'type': 'text', 'text': '.'}],
+            'role': 'user'}
+        ]
+        ```
+    
+    Example Output: <br/>    ```python
+        [
+            \{'content': [\{'type': 'text', 'text': 'You are a helpful AI assistant.'}], 'role': 'system'},
+            \{'content': [
+                \{'type': 'text', 'text': "What's the breed of this dog here?"},
+                \{'type': 'image_url', 'image_url': \{'url': a B64 Image}},
+                \{'type': 'text', 'text': '.'}],
+            'role': 'user'}
+        ]
+        ```
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `messages` | **Type:** list[dict[str, typing.Any]] |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| list[dict[str, typing.Any]] | List[Dict]: A new list of message dictionaries with PIL image URLs in the 'image_url' key converted to base64 encoded data URIs. Example Input: ```python [ \{'content': [\{'type': 'text', 'text': 'You are a helpful AI assistant.'}], 'role': 'system'}, \{'content': [ \{'type': 'text', 'text': "What's the breed of this dog here?"}, \{'type': 'image_url', 'image_url': \{'url': a PIL.Image.Image}}, \{'type': 'text', 'text': '.'}], 'role': 'user'} ] ``` Example Output: ```python [ \{'content': [\{'type': 'text', 'text': 'You are a helpful AI assistant.'}], 'role': 'system'}, \{'content': [ \{'type': 'text', 'text': "What's the breed of this dog here?"}, \{'type': 'image_url', 'image_url': \{'url': a B64 Image}}, \{'type': 'text', 'text': '.'}], 'role': 'user'} ] ``` |
 
 <br />

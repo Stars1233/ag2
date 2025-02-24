@@ -7,15 +7,20 @@ title: autogen.agentchat.contrib.img_utils.gpt4v_formatter
 #### gpt4v_formatter
 
 ```python
-gpt4v_formatter(*args, **kwargs) -> 
+gpt4v_formatter(prompt: str, img_format: str = 'uri') -> list[str | dict[str, Any]]
 ```
 
-    Call self as a function.
+    Formats the input prompt by replacing image tags and returns a list of text and images.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `prompt` | **Type:** str |
+| `img_format` | **Type:** str<br/><br/>**Default:** 'uri' |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| list[str \| dict[str, typing.Any]] | - List[Union[str, dict[str, Any]]]: A list of alternating text and image dictionary items. |
 
 <br />

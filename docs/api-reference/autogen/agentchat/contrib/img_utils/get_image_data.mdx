@@ -7,15 +7,25 @@ title: autogen.agentchat.contrib.img_utils.get_image_data
 #### get_image_data
 
 ```python
-get_image_data(*args, **kwargs) -> 
+get_image_data(image_file: str | ForwardRef('Image'), use_b64=True) -> bytes
 ```
 
-    Call self as a function.
+    Loads an image and returns its data either as raw bytes or in base64-encoded format.<br/>This function first loads an image from the specified file, URL, or base64 string using
+    the `get_pil_image` function. It then saves this image in memory in PNG format and
+    retrieves its binary content. Depending on the `use_b64` flag, this binary content is
+    either returned directly or as a base64-encoded string.<br/>Parameters: <br/>    image_file (str, or Image): The path to the image file, a URL to an image, or a base64-encoded
+                          string of the image.<br/>    use_b64 (bool): If True, the function returns a base64-encoded string of the image data.<br/>                    If False, it returns the raw byte data of the image. Defaults to True.<br/>Returns: <br/>    bytes: The image data in raw bytes if `use_b64` is False, or a base64-encoded string
+               if `use_b64` is True.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `image_file` | **Type:** str \| ForwardRef('Image.Image') |
+| `use_b64=True` |  |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| bytes | bytes: The image data in raw bytes if `use_b64` is False, or a base64-encoded string if `use_b64` is True. |
 
 <br />

@@ -18,6 +18,30 @@ GeminiRealtimeClient(**kwargs)
 |--|--|
 | `**kwargs` |  |
 
+### Static Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_factory
+
+```python
+get_factory(
+    llm_config: dict[str, Any],
+    logger: Logger,
+    **kwargs: Any
+) -> 
+```
+
+    Create a Realtime API client.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `llm_config` | **Type:** dict[str, typing.Any] |
+| `logger` | The logger for the client.<br/><br/>**Type:** logging.Logger |
+| `**kwargs` | **Type:** Any |
+
+<br />
+
 ### Instance Attributes
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
@@ -73,23 +97,6 @@ connect(*args, **kwargs) ->
 
 ```python
 get_event(*args, **kwargs) -> 
-```
-
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
-
-<br />
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
-#### get_factory
-
-```python
-get_factory(*args, **kwargs) -> 
 ```
 
     Call self as a function.

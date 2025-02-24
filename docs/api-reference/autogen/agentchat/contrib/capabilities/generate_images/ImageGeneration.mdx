@@ -8,7 +8,14 @@ title: autogen.agentchat.contrib.capabilities.generate_images.ImageGeneration
 </h2>
 
 ```python
-ImageGeneration(**kwargs)
+ImageGeneration(
+    image_generator: ImageGenerator,
+    cache: AbstractCache | None = None,
+    text_analyzer_llm_config: dict[str, Any] | None = None,
+    text_analyzer_instructions: str = 'In detail, please summarize the provided prompt to generate the image described in the TEXT.\nDO NOT include any advice. RESPOND like the following example:\nEXAMPLE: Blue background, 3D shapes, ...\n',
+    verbosity: int = 0,
+    register_reply_position: int = 2
+)
 ```
 
     This capability allows a ConversableAgent to generate images based on the message received from other Agents.<br/>1. Utilizes a TextAnalyzerAgent to analyze incoming messages to identify requests for image generation and
@@ -32,7 +39,12 @@ ImageGeneration(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `image_generator` | **Type:** [ImageGenerator](/docs/api-reference/autogen/agentchat/contrib/capabilities/generate_images/ImageGenerator) |
+| `cache` | **Type:** [AbstractCache](/docs/api-reference/autogen/cache/AbstractCache) \| None<br/><br/>**Default:** None |
+| `text_analyzer_llm_config` | **Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
+| `text_analyzer_instructions` | **Type:** str<br/><br/>**Default:** 'In detail, please summarize the provided prompt to generate the image described in the TEXT.\nDO NOT include any advice. RESPOND like the following example |
+| `verbosity` | The verbosity level.<br/><br/>Defaults to 0 and must be greater than or equal to 0. The text analyzer llm calls will be silent if verbosity is less than 2.br/>register_reply_position (int): The position of the reply function in the agent's list of reply functions.br/> This capability registers a new reply function to handle messages with image generation requests.br/> Defaults to 2 to place it after the check termination and human reply for a ConversableAgent.<br/><br/>**Type:** int<br/><br/>**Default:** 0 |
+| `register_reply_position` | **Type:** int<br/><br/>**Default:** 2 |
 
 ### Instance Methods
 
@@ -40,15 +52,18 @@ ImageGeneration(**kwargs)
 #### add_to_agent
 
 ```python
-add_to_agent(*args, **kwargs) -> 
+add_to_agent(self, agent: ConversableAgent) -> 
 ```
 
-    Call self as a function.
+    Adds the Image Generation capability to the specified ConversableAgent.<br/>This function performs the following modifications to the agent: <br/>1. Registers a reply function: A new reply function is registered with the agent to handle messages that
+       potentially request image generation. This function analyzes the message and triggers image generation if
+       necessary.<br/>2. Creates an Agent (TextAnalyzerAgent): This is used to analyze messages for image generation requirements.<br/>3. Updates System Message: The agent's system message is updated to include a message indicating the
+       capability to generate images has been added.<br/>4. Updates Description: The agent's description is updated to reflect the addition of the Image Generation
+       capability. This might be helpful in certain use cases, like group chats.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `agent` | The ConversableAgent to add the capability to.<br/><br/>**Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) |
 
 <br />

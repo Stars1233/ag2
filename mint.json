@@ -8,7 +8,7 @@
   "metadata": {
     "og:image": "https://media.githubusercontent.com/media/ag2ai/ag2/refs/heads/main/website/static/img/cover.png"
   },
-  "favicon": "/logo/ag2.svg",
+  "favicon": "/logo/favicon.svg",
   "analytics": {
     "ga4": {
       "measurementId": "G-2GN2KN2CE4"
@@ -147,6 +147,14 @@
                 "docs/user-guide/advanced-concepts/swarm/nested-chat",
                 "docs/user-guide/advanced-concepts/swarm/concept-code",
                 "docs/user-guide/advanced-concepts/swarm/use-case"
+              ]
+            },
+            {
+              "group": "Interoperability",
+              "pages": [
+                "docs/user-guide/advanced-concepts/interop/langchain",
+                "docs/user-guide/advanced-concepts/interop/crewai",
+                "docs/user-guide/advanced-concepts/interop/pydanticai"
               ]
             },
             "docs/user-guide/advanced-concepts/code-execution",
@@ -555,10 +563,7 @@
                           "group": "vision_capability",
                           "pages": [
                             "docs/api-reference/autogen/agentchat/contrib/capabilities/vision_capability/overview",
-                            "docs/api-reference/autogen/agentchat/contrib/capabilities/vision_capability/VisionCapability",
-                            "docs/api-reference/autogen/agentchat/contrib/capabilities/vision_capability/get_image_data",
-                            "docs/api-reference/autogen/agentchat/contrib/capabilities/vision_capability/get_pil_image",
-                            "docs/api-reference/autogen/agentchat/contrib/capabilities/vision_capability/gpt4v_formatter"
+                            "docs/api-reference/autogen/agentchat/contrib/capabilities/vision_capability/VisionCapability"
                           ]
                         }
                       ]
@@ -950,10 +955,8 @@
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/llava_agent/overview",
                         "docs/api-reference/autogen/agentchat/contrib/llava_agent/LLaVAAgent",
-                        "docs/api-reference/autogen/agentchat/contrib/llava_agent/get_image_data",
                         "docs/api-reference/autogen/agentchat/contrib/llava_agent/llava_call",
-                        "docs/api-reference/autogen/agentchat/contrib/llava_agent/llava_call_binary",
-                        "docs/api-reference/autogen/agentchat/contrib/llava_agent/llava_formatter"
+                        "docs/api-reference/autogen/agentchat/contrib/llava_agent/llava_call_binary"
                       ]
                     },
                     {
@@ -969,9 +972,7 @@
                       "group": "multimodal_conversable_agent",
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/multimodal_conversable_agent/overview",
-                        "docs/api-reference/autogen/agentchat/contrib/multimodal_conversable_agent/MultimodalConversableAgent",
-                        "docs/api-reference/autogen/agentchat/contrib/multimodal_conversable_agent/gpt4v_formatter",
-                        "docs/api-reference/autogen/agentchat/contrib/multimodal_conversable_agent/message_formatter_pil_to_b64"
+                        "docs/api-reference/autogen/agentchat/contrib/multimodal_conversable_agent/MultimodalConversableAgent"
                       ]
                     },
                     {
@@ -1720,7 +1721,6 @@
                 "docs/api-reference/autogen/token_count_utils/count_token",
                 "docs/api-reference/autogen/token_count_utils/get_max_token_limit",
                 "docs/api-reference/autogen/token_count_utils/num_tokens_from_functions",
-                "docs/api-reference/autogen/token_count_utils/num_tokens_from_gpt_image",
                 "docs/api-reference/autogen/token_count_utils/percentile_used",
                 "docs/api-reference/autogen/token_count_utils/token_left"
               ]

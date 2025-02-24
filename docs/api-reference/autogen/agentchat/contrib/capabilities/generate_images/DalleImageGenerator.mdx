@@ -8,7 +8,12 @@ title: autogen.agentchat.contrib.capabilities.generate_images.DalleImageGenerato
 </h2>
 
 ```python
-DalleImageGenerator(**kwargs)
+DalleImageGenerator(
+    llm_config: dict[str, Any],
+    resolution: Literal['256x256', '512x512', '1024x1024', '1792x1024', '1024x1792'] = '1024x1024',
+    quality: Literal['standard', 'hd'] = 'standard',
+    num_images: int = 1
+)
 ```
 
     Generates images using OpenAI's DALL-E models.<br/>This class provides a convenient interface for generating images based on textual prompts using OpenAI's DALL-E
@@ -17,7 +22,10 @@ DalleImageGenerator(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `llm_config` | **Type:** dict[str, typing.Any] |
+| `resolution` | **Type:** Literal['256x256', '512x512', '1024x1024', '1792x1024', '1024x1792']<br/><br/>**Default:** '1024x1024' |
+| `quality` | **Type:** Literal['standard', 'hd']<br/><br/>**Default:** 'standard' |
+| `num_images` | **Type:** int<br/><br/>**Default:** 1 |
 
 ### Instance Methods
 
@@ -25,16 +33,15 @@ DalleImageGenerator(**kwargs)
 #### cache_key
 
 ```python
-cache_key(*args, **kwargs) -> 
+cache_key(self, prompt: str) -> str
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `prompt` | **Type:** str |
 
 <br />
 
@@ -42,15 +49,14 @@ cache_key(*args, **kwargs) ->
 #### generate_image
 
 ```python
-generate_image(*args, **kwargs) -> 
+generate_image(self, prompt: str) -> Image
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `prompt` | **Type:** str |
 
 <br />

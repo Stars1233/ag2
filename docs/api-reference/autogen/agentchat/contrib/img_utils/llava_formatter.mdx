@@ -7,15 +7,20 @@ title: autogen.agentchat.contrib.img_utils.llava_formatter
 #### llava_formatter
 
 ```python
-llava_formatter(*args, **kwargs) -> 
+llava_formatter(prompt: str, order_image_tokens: bool = False) -> tuple[str, list[str]]
 ```
 
-    Call self as a function.
+    Formats the input prompt by replacing image tags and returns the new prompt along with image locations.<br/>Parameters: <br/>    - prompt (str): The input string that may contain image tags like `<img ...>`.<br/>    - order_image_tokens (bool, optional): Whether to order the image tokens with numbers.<br/>        It will be useful for GPT-4V. Defaults to False.<br/>Returns: <br/>    - Tuple[str, List[str]]: A tuple containing the formatted string and a list of images (loaded in b64 format).
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `prompt` | **Type:** str |
+| `order_image_tokens` | **Type:** bool<br/><br/>**Default:** False |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| tuple[str, list[str]] | - Tuple[str, List[str]]: A tuple containing the formatted string and a list of images (loaded in b64 format). |
 
 <br />
