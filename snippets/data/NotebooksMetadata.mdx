@@ -5,200 +5,14 @@ Please edit the add_front_matter_to_metadata_mdx function in process_notebooks.p
 
 export const notebooksMetadata = [
     {
-        "title": "Solving Multiple Tasks in a Sequence of Chats",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_multi_task_chats",
-        "description": "Use conversational agents to solve a set of tasks with a sequence of chats.",
+        "title": "AutoBuild",
+        "link": "/docs/use-cases/notebooks/notebooks/autobuild_basic",
+        "description": "Automatically build multi-agent system with AgentBuilder",
         "image": null,
         "tags": [
-            "orchestration",
-            "sequential chats"
+            "autobuild"
         ],
-        "source": "/notebook/agentchat_multi_task_chats.ipynb"
-    },
-    {
-        "title": "Solving Multiple Tasks in a Sequence of Async Chats",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_multi_task_async_chats",
-        "description": "Use conversational agents to solve a set of tasks with a sequence of async chats.",
-        "image": null,
-        "tags": [
-            "orchestration",
-            "async",
-            "sequential chats"
-        ],
-        "source": "/notebook/agentchat_multi_task_async_chats.ipynb"
-    },
-    {
-        "title": "Using RetrieveChat for Retrieve Augmented Code Generation and Question Answering",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat",
-        "description": "Explore the use of AG2's RetrieveChat for tasks like code generation from docstrings, answering complex questions with human feedback, and exploiting features like Update Context, custom prompts, and few-shot learning.",
-        "image": null,
-        "tags": [
-            "RAG"
-        ],
-        "source": "/notebook/agentchat_RetrieveChat.ipynb"
-    },
-    {
-        "title": "Interactive LLM Agent Dealing with Data Stream",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_stream",
-        "description": "Automated continual learning from new data.",
-        "image": null,
-        "tags": [
-            "streaming",
-            "async",
-            "learning"
-        ],
-        "source": "/notebook/agentchat_stream.ipynb"
-    },
-    {
-        "title": "Agent Chat with Async Human Inputs",
-        "link": "/docs/use-cases/notebooks/notebooks/async_human_input",
-        "description": "Async human inputs.",
-        "image": null,
-        "tags": [
-            "async",
-            "human"
-        ],
-        "source": "/notebook/async_human_input.ipynb"
-    },
-    {
-        "title": "Using RetrieveChat Powered by MongoDB Atlas for Retrieve Augmented Code Generation and Question Answering",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat_mongodb",
-        "description": "Explore the use of AG2's RetrieveChat for tasks like code generation from docstrings, answering complex questions with human feedback, and exploiting features like Update Context, custom prompts, and few-shot learning.",
-        "image": null,
-        "tags": [
-            "MongoDB",
-            "integration",
-            "RAG"
-        ],
-        "source": "/notebook/agentchat_RetrieveChat_mongodb.ipynb"
-    },
-    {
-        "title": "Auto Generated Agent Chat: Task Solving with Langchain Provided Tools as Functions",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_langchain",
-        "description": "Use Langchain tools.",
-        "image": null,
-        "tags": [
-            "langchain",
-            "integration",
-            "tool/function"
-        ],
-        "source": "/notebook/agentchat_langchain.ipynb"
-    },
-    {
-        "title": "Task Solving with Code Generation, Execution and Debugging",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_auto_feedback_from_code_execution",
-        "description": "Use conversable language learning model agents to solve tasks and provide automatic feedback through a comprehensive example of writing, executing, and debugging Python code to compare stock price changes.",
-        "image": null,
-        "tags": [
-            "code generation"
-        ],
-        "source": "/notebook/agentchat_auto_feedback_from_code_execution.ipynb"
-    },
-    {
-        "title": "Runtime Logging with AG2",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_logging",
-        "description": "Provide capabilities of runtime logging for debugging and performance analysis.",
-        "image": null,
-        "tags": [
-            "logging",
-            "debugging"
-        ],
-        "source": "/notebook/agentchat_logging.ipynb"
-    },
-    {
-        "title": "Agent Chat with Multimodal Models: DALLE  and GPT-4V",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_dalle_and_gpt4v",
-        "description": "Multimodal agent chat with DALL-E and GPT-4v.",
-        "image": null,
-        "tags": [
-            "multimodal",
-            "gpt-4v"
-        ],
-        "source": "/notebook/agentchat_dalle_and_gpt4v.ipynb"
-    },
-    {
-        "title": "Using RetrieveChat with Qdrant for Retrieve Augmented Code Generation and Question Answering",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat_qdrant",
-        "description": "This notebook demonstrates the usage of QdrantRetrieveUserProxyAgent for RAG.",
-        "image": null,
-        "tags": [
-            "Qdrant",
-            "integration",
-            "RAG"
-        ],
-        "source": "/notebook/agentchat_RetrieveChat_qdrant.ipynb"
-    },
-    {
-        "title": "Enhanced Swarm Orchestration with AG2",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_swarm_enhanced",
-        "description": "Swarm Ochestration",
-        "image": null,
-        "tags": [
-            "orchestration",
-            "group chat",
-            "swarm"
-        ],
-        "source": "/notebook/agentchat_swarm_enhanced.ipynb"
-    },
-    {
-        "title": "Translating Video audio using Whisper and GPT-3.5-turbo",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_video_transcript_translate_with_whisper",
-        "description": "Use tools to extract and translate the transcript of a video file.",
-        "image": null,
-        "tags": [
-            "whisper",
-            "multimodal",
-            "tool/function"
-        ],
-        "source": "/notebook/agentchat_video_transcript_translate_with_whisper.ipynb"
-    },
-    {
-        "title": "Agent Tracking with AgentOps",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_agentops",
-        "description": "Use AgentOps to simplify the development process and monitor your agents in production.",
-        "image": null,
-        "tags": [
-            "integration",
-            "monitoring",
-            "debugging"
-        ],
-        "source": "/notebook/agentchat_agentops.ipynb"
-    },
-    {
-        "title": "Group Chat with Coder and Visualization Critic",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_groupchat_vis",
-        "description": "Explore a group chat example using agents such as a coder and visualization agent.",
-        "image": null,
-        "tags": [
-            "group chat",
-            "code generation"
-        ],
-        "source": "/notebook/agentchat_groupchat_vis.ipynb"
-    },
-    {
-        "title": "ReasoningAgent - Advanced LLM Reasoning with Multiple Search Strategies",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_reasoning_agent",
-        "description": "Use ReasoningAgent for o1 style reasoning in Agentic workflows with LLMs using AG2",
-        "image": null,
-        "tags": [
-            "reasoning agent",
-            "tree of thoughts"
-        ],
-        "source": "/notebook/agentchat_reasoning_agent.ipynb"
-    },
-    {
-        "title": "DeepResearchAgent",
-        "link": "/docs/use-cases/notebooks/notebooks/agents_deep_researcher",
-        "description": "DeepResearch Agent",
-        "image": null,
-        "tags": [
-            "agents",
-            "browser-use",
-            "DeepResearch",
-            "webscraping",
-            "function calling"
-        ],
-        "source": "/notebook/agents_deep_researcher.ipynb"
+        "source": "/notebook/autobuild_basic.ipynb"
     },
     {
         "title": "Tools with Dependency Injection",
@@ -213,6 +27,66 @@ export const notebooksMetadata = [
         "source": "/notebook/tools_dependency_injection.ipynb"
     },
     {
+        "title": "Chatting with a teachable agent",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_teachability",
+        "description": "Learn how to persist memories across chat sessions using the Teachability capability",
+        "image": null,
+        "tags": [
+            "teachability",
+            "learning",
+            "RAG",
+            "capability"
+        ],
+        "source": "/notebook/agentchat_teachability.ipynb"
+    },
+    {
+        "title": "Solving Complex Tasks with Nested Chats",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_nestedchat",
+        "description": "Solve complex tasks with a chat nested as inner monologue.",
+        "image": null,
+        "tags": [
+            "nested chat",
+            "reflection",
+            "reasoning",
+            "orchestration"
+        ],
+        "source": "/notebook/agentchat_nestedchat.ipynb"
+    },
+    {
+        "title": "Agent Tracking with AgentOps",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_agentops",
+        "description": "Use AgentOps to simplify the development process and monitor your agents in production.",
+        "image": null,
+        "tags": [
+            "integration",
+            "monitoring",
+            "debugging"
+        ],
+        "source": "/notebook/agentchat_agentops.ipynb"
+    },
+    {
+        "title": "Config loader utility functions",
+        "link": "/docs/use-cases/notebooks/notebooks/config_loader_utility_functions",
+        "description": "Config loader utility functions",
+        "image": null,
+        "tags": [
+            "utility",
+            "config"
+        ],
+        "source": "/notebook/config_loader_utility_functions.ipynb"
+    },
+    {
+        "title": "Websockets: Streaming input and output using websockets",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_websockets",
+        "description": "Websockets facilitate real-time, bidirectional communication between web clients and servers, enhancing the responsiveness and interactivity of AG2-powered applications.",
+        "image": null,
+        "tags": [
+            "websockets",
+            "streaming"
+        ],
+        "source": "/notebook/agentchat_websockets.ipynb"
+    },
+    {
         "title": "A Uniform interface to call different LLMs",
         "link": "/docs/use-cases/notebooks/notebooks/autogen_uniformed_api_calling",
         "description": "Uniform interface to call different LLM.",
@@ -224,15 +98,212 @@ export const notebooksMetadata = [
         "source": "/notebook/autogen_uniformed_api_calling.ipynb"
     },
     {
-        "title": "SQL Agent for Spider text-to-SQL benchmark",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_sql_spider",
-        "description": "Natural language text to SQL query using the Spider text-to-SQL benchmark.",
+        "title": "RAG OpenAI Assistants in AG2",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_retrieval",
+        "description": "OpenAI Assistant with retrieval augmentation.",
         "image": null,
         "tags": [
-            "SQL",
+            "RAG",
+            "OpenAI Assistant"
+        ],
+        "source": "/notebook/agentchat_oai_assistant_retrieval.ipynb"
+    },
+    {
+        "title": "From Dad Jokes To Sad Jokes: Function Calling with GPTAssistantAgent",
+        "link": "/docs/use-cases/notebooks/notebooks/gpt_assistant_agent_function_call",
+        "description": "Use tools in a GPTAssistantAgent Multi-Agent System by utilizing functions such as calling an API and writing to a file.",
+        "image": null,
+        "tags": [
+            "OpenAI Assistant",
             "tool/function"
         ],
-        "source": "/notebook/agentchat_sql_spider.ipynb"
+        "source": "/notebook/gpt_assistant_agent_function_call.ipynb"
+    },
+    {
+        "title": "Agent Chat with custom model loading",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_custom_model",
+        "description": "Define and load a custom model",
+        "image": null,
+        "tags": [
+            "integration",
+            "custom model"
+        ],
+        "source": "/notebook/agentchat_custom_model.ipynb"
+    },
+    {
+        "title": "Agentic RAG workflow on tabular data from a PDF file",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_tabular_data_rag_workflow",
+        "description": "Agentic RAG workflow on tabular data from a PDF file",
+        "image": null,
+        "tags": [
+            "RAG",
+            "groupchat"
+        ],
+        "source": "/notebook/agentchat_tabular_data_rag_workflow.ipynb"
+    },
+    {
+        "title": "Group Chat with Customized Speaker Selection Method",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_groupchat_customized",
+        "description": "Introduce group chat with customized speaker selection method.",
+        "image": null,
+        "tags": [
+            "orchestration",
+            "group chat"
+        ],
+        "source": "/notebook/agentchat_groupchat_customized.ipynb"
+    },
+    {
+        "title": "RealtimeAgent in a Swarm Orchestration using WebRTC",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_realtime_swarm_webrtc",
+        "description": "Swarm Ochestration",
+        "image": null,
+        "tags": [
+            "orchestration",
+            "group chat",
+            "swarm"
+        ],
+        "source": "/notebook/agentchat_realtime_swarm_webrtc.ipynb"
+    },
+    {
+        "title": "Auto Generated Agent Chat: Task Solving with Code Generation, Execution, Debugging & Human Feedback",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_human_feedback",
+        "description": "Code generation, execution, debugging and human feedback.",
+        "image": null,
+        "tags": [
+            "human",
+            "code generation"
+        ],
+        "source": "/notebook/agentchat_human_feedback.ipynb"
+    },
+    {
+        "title": "Web Scraping using Apify Tools",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_webscraping_with_apify",
+        "description": "Scrapping web pages and summarizing the content using agents with tools.",
+        "image": null,
+        "tags": [
+            "web",
+            "apify",
+            "integration",
+            "tool/function"
+        ],
+        "source": "/notebook/agentchat_webscraping_with_apify.ipynb"
+    },
+    {
+        "title": "Swarm Orchestration with AG2",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_swarm",
+        "description": "Swarm Ochestration",
+        "image": null,
+        "tags": [
+            "orchestration",
+            "group chat",
+            "swarm"
+        ],
+        "source": "/notebook/agentchat_swarm.ipynb"
+    },
+    {
+        "title": "Currency Calculator: Task Solving with Provided Tools as Functions",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_function_call_currency_calculator",
+        "description": "Learn how to register function calls using AssistantAgent and UserProxyAgent.",
+        "image": null,
+        "tags": [
+            "tool/function"
+        ],
+        "source": "/notebook/agentchat_function_call_currency_calculator.ipynb"
+    },
+    {
+        "title": "Agent with memory using Mem0",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_with_memory",
+        "description": "Use Mem0 to create agents with memory.",
+        "image": null,
+        "tags": [
+            "mem0",
+            "integration",
+            "memory"
+        ],
+        "source": "/notebook/agentchat_with_memory.ipynb"
+    },
+    {
+        "title": "RealtimeAgent in a Swarm Orchestration",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_realtime_gemini_swarm_websocket",
+        "description": "Swarm Ochestration",
+        "image": null,
+        "tags": [
+            "orchestration",
+            "group chat",
+            "swarm"
+        ],
+        "source": "/notebook/agentchat_realtime_gemini_swarm_websocket.ipynb"
+    },
+    {
+        "title": "Solving Complex Tasks with A Sequence of Nested Chats",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_nested_sequential_chats",
+        "description": "Solve complex tasks with one or more sequence chats nested as inner monologue.",
+        "image": null,
+        "tags": [
+            "nested chat",
+            "sequential chats",
+            "orchestration"
+        ],
+        "source": "/notebook/agentchat_nested_sequential_chats.ipynb"
+    },
+    {
+        "title": "Auto Generated Agent Chat: Teaching AI New Skills via Natural Language Interaction",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_teaching",
+        "description": "Teach the agent news skills using natural language.",
+        "image": null,
+        "tags": [
+            "learning",
+            "teaching"
+        ],
+        "source": "/notebook/agentchat_teaching.ipynb"
+    },
+    {
+        "title": "(Legacy) Implement Swarm-style orchestration with GroupChat",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_swarm_w_groupchat_legacy",
+        "description": "(Legacy) Implement Swarm-style orchestration with GroupChat",
+        "image": null,
+        "tags": [
+            "orchestration",
+            "group chat",
+            "stateflow",
+            "swarm"
+        ],
+        "source": "/notebook/agentchat_swarm_w_groupchat_legacy.ipynb"
+    },
+    {
+        "title": "Perform Research with Multi-Agent Group Chat",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_groupchat_research",
+        "description": "Perform research using a group chat with a number of specialized agents.",
+        "image": null,
+        "tags": [
+            "group chat",
+            "planning",
+            "code generation"
+        ],
+        "source": "/notebook/agentchat_groupchat_research.ipynb"
+    },
+    {
+        "title": "Usage tracking with AG2",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_cost_token_tracking",
+        "description": "cost calculation",
+        "image": null,
+        "tags": [
+            "cost"
+        ],
+        "source": "/notebook/agentchat_cost_token_tracking.ipynb"
+    },
+    {
+        "title": "Auto Generated Agent Chat: Collaborative Task Solving with Coding and Planning Agent",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_planning",
+        "description": "Use planning agent in a function call.",
+        "image": null,
+        "tags": [
+            "planning",
+            "orchestration",
+            "nested chat",
+            "tool/function"
+        ],
+        "source": "/notebook/agentchat_planning.ipynb"
     },
     {
         "title": "DeepSeek: Adding Browsing Capabilities to AG2",
@@ -249,15 +320,69 @@ export const notebooksMetadata = [
         "source": "/notebook/tools_browser_use_deepseek.ipynb"
     },
     {
-        "title": "CaptainAgent",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_captainagent",
-        "description": "Introducing CaptainAgent, a powerful agent that can manage and orchestrate other agents and tools to solve complex tasks.",
+        "title": "Chat with OpenAI Assistant using function call in AG2: OSS Insights for Advanced GitHub Data Analysis",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_function_call",
+        "description": "This Jupyter Notebook demonstrates how to leverage OSS Insight (Open Source Software Insight) for advanced GitHub data analysis by defining `Function calls` in AG2 for the OpenAI Assistant.",
         "image": null,
         "tags": [
-            "autobuild",
-            "CaptainAgent"
+            "OpenAI Assistant",
+            "tool/function"
         ],
-        "source": "/notebook/agentchat_captainagent.ipynb"
+        "source": "/notebook/agentchat_oai_assistant_function_call.ipynb"
+    },
+    {
+        "title": "RealtimeAgent with gemini client",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_realtime_gemini_websocket",
+        "description": "RealtimeAgent with gemini client using websockets",
+        "image": null,
+        "tags": [
+            "realtime",
+            "websockets",
+            "gemini"
+        ],
+        "source": "/notebook/agentchat_realtime_gemini_websocket.ipynb"
+    },
+    {
+        "title": "Solving Multiple Tasks in a Sequence of Async Chats",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_multi_task_async_chats",
+        "description": "Use conversational agents to solve a set of tasks with a sequence of async chats.",
+        "image": null,
+        "tags": [
+            "orchestration",
+            "async",
+            "sequential chats"
+        ],
+        "source": "/notebook/agentchat_multi_task_async_chats.ipynb"
+    },
+    {
+        "title": "Agent with memory using Mem0",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_memory_using_mem0",
+        "description": "Use Mem0 to create agents with memory.",
+        "image": null,
+        "tags": [
+            "memory"
+        ],
+        "source": "/notebook/agentchat_memory_using_mem0.ipynb"
+    },
+    {
+        "title": "OpenAI Assistants in AG2",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_twoagents_basic",
+        "description": "Two-agent chat with OpenAI assistants.",
+        "image": null,
+        "tags": [
+            "OpenAI Assistant"
+        ],
+        "source": "/notebook/agentchat_oai_assistant_twoagents_basic.ipynb"
+    },
+    {
+        "title": "Demonstrating the `AgentEval` framework using the task of solving math problems as an example",
+        "link": "/docs/use-cases/notebooks/notebooks/agenteval_cq_math",
+        "description": "AgentEval: a multi-agent system for assessing utility of LLM-powered applications",
+        "image": null,
+        "tags": [
+            "eval"
+        ],
+        "source": "/notebook/agenteval_cq_math.ipynb"
     },
     {
         "title": "Adding Browsing Capabilities to AG2",
@@ -273,87 +398,16 @@ export const notebooksMetadata = [
         "source": "/notebook/tools_browser_use.ipynb"
     },
     {
-        "title": "Auto Generated Agent Chat: Teaching AI New Skills via Natural Language Interaction",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_teaching",
-        "description": "Teach the agent news skills using natural language.",
+        "title": "Group Chat with Retrieval Augmented Generation",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_groupchat_RAG",
+        "description": "Implement and manage a multi-agent chat system using AG2, where AI assistants retrieve information, generate code, and interact collaboratively to solve complex tasks, especially in areas not covered by their training data.",
         "image": null,
         "tags": [
-            "learning",
-            "teaching"
-        ],
-        "source": "/notebook/agentchat_teaching.ipynb"
-    },
-    {
-        "title": "Writing a software application using function calls",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_function_call_code_writing",
-        "description": "Equip your agent with functions that can efficiently implement features into your software application.",
-        "image": null,
-        "tags": [
-            "code generation",
-            "tool/function",
-            "fastapi",
-            "software engineering"
-        ],
-        "source": "/notebook/agentchat_function_call_code_writing.ipynb"
-    },
-    {
-        "title": "Auto Generated Agent Chat: Function Inception",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_inception_function",
-        "description": "Function Inception: Enable AG2 agents to update/remove functions during conversations.",
-        "image": null,
-        "tags": [
-            "function inception",
-            "tool/function"
-        ],
-        "source": "/notebook/agentchat_inception_function.ipynb"
-    },
-    {
-        "title": "Agentic RAG workflow on tabular data from a PDF file",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_tabular_data_rag_workflow",
-        "description": "Agentic RAG workflow on tabular data from a PDF file",
-        "image": null,
-        "tags": [
-            "RAG",
-            "groupchat"
-        ],
-        "source": "/notebook/agentchat_tabular_data_rag_workflow.ipynb"
-    },
-    {
-        "title": "RealtimeAgent in a Swarm Orchestration",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_realtime_gemini_swarm_websocket",
-        "description": "Swarm Ochestration",
-        "image": null,
-        "tags": [
-            "orchestration",
             "group chat",
-            "swarm"
+            "orchestration",
+            "RAG"
         ],
-        "source": "/notebook/agentchat_realtime_gemini_swarm_websocket.ipynb"
-    },
-    {
-        "title": "Using FalkorGraphRagCapability with agents for GraphRAG Question & Answering",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_graph_rag_falkordb",
-        "description": "Using FalkorGraphRagCapability with agents for GraphRAG Question & Answering",
-        "image": null,
-        "tags": [
-            "RAG",
-            "FalkorDB"
-        ],
-        "source": "/notebook/agentchat_graph_rag_falkordb.ipynb"
-    },
-    {
-        "title": "Making OpenAI Assistants Teachable",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_teachable_oai_assistants",
-        "description": "Teach OpenAI assistants.",
-        "image": null,
-        "tags": [
-            "teachability",
-            "capability",
-            "learning",
-            "RAG",
-            "OpenAI Assistant"
-        ],
-        "source": "/notebook/agentchat_teachable_oai_assistants.ipynb"
+        "source": "/notebook/agentchat_groupchat_RAG.ipynb"
     },
     {
         "title": "Cross-Framework LLM Tool Integration with AG2",
@@ -369,52 +423,6 @@ export const notebooksMetadata = [
         "source": "/notebook/tools_interoperability.ipynb"
     },
     {
-        "title": "RealtimeAgent with local websocket connection",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_realtime_websocket",
-        "description": "RealtimeAgent using websockets",
-        "image": null,
-        "tags": [
-            "realtime",
-            "websockets"
-        ],
-        "source": "/notebook/agentchat_realtime_websocket.ipynb"
-    },
-    {
-        "title": "Using RetrieveChat Powered by PGVector for Retrieve Augmented Code Generation and Question Answering",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat_pgvector",
-        "description": "Explore the use of AG2's RetrieveChat for tasks like code generation from docstrings, answering complex questions with human feedback, and exploiting features like Update Context, custom prompts, and few-shot learning.",
-        "image": null,
-        "tags": [
-            "PGVector",
-            "integration",
-            "RAG"
-        ],
-        "source": "/notebook/agentchat_RetrieveChat_pgvector.ipynb"
-    },
-    {
-        "title": "OpenAI Assistants in AG2",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_twoagents_basic",
-        "description": "Two-agent chat with OpenAI assistants.",
-        "image": null,
-        "tags": [
-            "OpenAI Assistant"
-        ],
-        "source": "/notebook/agentchat_oai_assistant_twoagents_basic.ipynb"
-    },
-    {
-        "title": "Solving Complex Tasks with Nested Chats",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_nestedchat",
-        "description": "Solve complex tasks with a chat nested as inner monologue.",
-        "image": null,
-        "tags": [
-            "nested chat",
-            "reflection",
-            "reasoning",
-            "orchestration"
-        ],
-        "source": "/notebook/agentchat_nestedchat.ipynb"
-    },
-    {
         "title": "Auto Generated Agent Chat: GPTAssistant with Code Interpreter",
         "link": "/docs/use-cases/notebooks/notebooks/agentchat_oai_code_interpreter",
         "description": "This Jupyter Notebook showcases the integration of the Code Interpreter tool which executes Python code dynamically within applications.",
@@ -426,46 +434,283 @@ export const notebooksMetadata = [
         "source": "/notebook/agentchat_oai_code_interpreter.ipynb"
     },
     {
-        "title": "Group Chat with Customized Speaker Selection Method",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_groupchat_customized",
-        "description": "Introduce group chat with customized speaker selection method.",
+        "title": "Auto Generated Agent Chat: Task Solving with Langchain Provided Tools as Functions",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_langchain",
+        "description": "Use Langchain tools.",
+        "image": null,
+        "tags": [
+            "langchain",
+            "integration",
+            "tool/function"
+        ],
+        "source": "/notebook/agentchat_langchain.ipynb"
+    },
+    {
+        "title": "Using Neo4j's graph database with AG2 agents for Question & Answering",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_graph_rag_neo4j",
+        "description": "Neo4j GraphRAG utilises a knowledge graph and can be added as a capability to agents.",
+        "image": null,
+        "tags": [
+            "RAG"
+        ],
+        "source": "/notebook/agentchat_graph_rag_neo4j.ipynb"
+    },
+    {
+        "title": "Run a standalone AssistantAgent",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_assistant_agent_standalone",
+        "description": "Run a standalone AssistantAgent, browsing the web using the BrowserUseTool",
+        "image": null,
+        "tags": [
+            "assistantagent",
+            "run",
+            "browser-use",
+            "webscraping",
+            "function calling"
+        ],
+        "source": "/notebook/agentchat_assistant_agent_standalone.ipynb"
+    },
+    {
+        "title": "StateFlow: Build Workflows through State-Oriented Actions",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_groupchat_stateflow",
+        "description": "StateFlow: Build workflows through state-oriented actions.",
         "image": null,
         "tags": [
             "orchestration",
-            "group chat"
+            "group chat",
+            "stateflow",
+            "research"
         ],
-        "source": "/notebook/agentchat_groupchat_customized.ipynb"
+        "source": "/notebook/agentchat_groupchat_stateflow.ipynb"
     },
     {
-        "title": "Structured output",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_structured_outputs",
-        "description": "OpenAI offers a functionality for defining a structure of the messages generated by LLMs, AG2 enables this functionality by propagating response_format passed to your agents to the underlying client.",
+        "title": "Using RetrieveChat for Retrieve Augmented Code Generation and Question Answering",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat",
+        "description": "Explore the use of AG2's RetrieveChat for tasks like code generation from docstrings, answering complex questions with human feedback, and exploiting features like Update Context, custom prompts, and few-shot learning.",
+        "image": null,
+        "tags": [
+            "RAG"
+        ],
+        "source": "/notebook/agentchat_RetrieveChat.ipynb"
+    },
+    {
+        "title": "ReasoningAgent - Advanced LLM Reasoning with Multiple Search Strategies",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_reasoning_agent",
+        "description": "Use ReasoningAgent for o1 style reasoning in Agentic workflows with LLMs using AG2",
+        "image": null,
+        "tags": [
+            "reasoning agent",
+            "tree of thoughts"
+        ],
+        "source": "/notebook/agentchat_reasoning_agent.ipynb"
+    },
+    {
+        "title": "Generate Dalle Images With Conversable Agents",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_image_generation_capability",
+        "description": "Generate images with conversable agents.",
+        "image": null,
+        "tags": [
+            "capability",
+            "multimodal"
+        ],
+        "source": "/notebook/agentchat_image_generation_capability.ipynb"
+    },
+    {
+        "title": "DeepResearchAgent",
+        "link": "/docs/use-cases/notebooks/notebooks/agents_deep_researcher",
+        "description": "DeepResearch Agent",
+        "image": null,
+        "tags": [
+            "agents",
+            "browser-use",
+            "DeepResearch",
+            "webscraping",
+            "function calling"
+        ],
+        "source": "/notebook/agents_deep_researcher.ipynb"
+    },
+    {
+        "title": "Enhanced Swarm Orchestration with AG2",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_swarm_enhanced",
+        "description": "Swarm Ochestration",
+        "image": null,
+        "tags": [
+            "orchestration",
+            "group chat",
+            "swarm"
+        ],
+        "source": "/notebook/agentchat_swarm_enhanced.ipynb"
+    },
+    {
+        "title": "Structured output from json configuration",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_structured_outputs_from_config",
+        "description": "OpenAI offers a functionality for defining a structure of the messages generated by LLMs, AutoGen enables this functionality by propagating response_format passed to your agents to the underlying client.",
         "image": null,
         "tags": [
             "structured output"
         ],
-        "source": "/notebook/agentchat_structured_outputs.ipynb"
+        "source": "/notebook/agentchat_structured_outputs_from_config.ipynb"
     },
     {
-        "title": "Agent Chat with custom model loading",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_custom_model",
-        "description": "Define and load a custom model",
+        "title": "Agent Observability with OpenLIT",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_openlit",
+        "description": "Use OpenLIT to easily monitor AI agents in production with OpenTelemetry.",
         "image": null,
         "tags": [
             "integration",
-            "custom model"
+            "monitoring",
+            "observability",
+            "debugging"
         ],
-        "source": "/notebook/agentchat_custom_model.ipynb"
+        "source": "/notebook/agentchat_openlit.ipynb"
     },
     {
-        "title": "AutoBuild",
-        "link": "/docs/use-cases/notebooks/notebooks/autobuild_basic",
-        "description": "Automatically build multi-agent system with AgentBuilder",
+        "title": "Auto Generated Agent Chat: Solving Tasks Requiring Web Info",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_web_info",
+        "description": "Solve tasks requiring web info.",
         "image": null,
         "tags": [
-            "autobuild"
+            "web",
+            "code generation"
         ],
-        "source": "/notebook/autobuild_basic.ipynb"
+        "source": "/notebook/agentchat_web_info.ipynb"
+    },
+    {
+        "title": "Task Solving with Code Generation, Execution and Debugging",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_auto_feedback_from_code_execution",
+        "description": "Use conversable language learning model agents to solve tasks and provide automatic feedback through a comprehensive example of writing, executing, and debugging Python code to compare stock price changes.",
+        "image": null,
+        "tags": [
+            "code generation"
+        ],
+        "source": "/notebook/agentchat_auto_feedback_from_code_execution.ipynb"
+    },
+    {
+        "title": "RealtimeAgent with WebRTC connection",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_realtime_webrtc",
+        "description": "RealtimeAgent using websockets",
+        "image": null,
+        "tags": [
+            "realtime",
+            "websockets"
+        ],
+        "source": "/notebook/agentchat_realtime_webrtc.ipynb"
+    },
+    {
+        "title": "Solving Multiple Tasks in a Sequence of Chats",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_multi_task_chats",
+        "description": "Use conversational agents to solve a set of tasks with a sequence of chats.",
+        "image": null,
+        "tags": [
+            "orchestration",
+            "sequential chats"
+        ],
+        "source": "/notebook/agentchat_multi_task_chats.ipynb"
+    },
+    {
+        "title": "Using RetrieveChat with Qdrant for Retrieve Augmented Code Generation and Question Answering",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat_qdrant",
+        "description": "This notebook demonstrates the usage of QdrantRetrieveUserProxyAgent for RAG.",
+        "image": null,
+        "tags": [
+            "Qdrant",
+            "integration",
+            "RAG"
+        ],
+        "source": "/notebook/agentchat_RetrieveChat_qdrant.ipynb"
+    },
+    {
+        "title": "Writing a software application using function calls",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_function_call_code_writing",
+        "description": "Equip your agent with functions that can efficiently implement features into your software application.",
+        "image": null,
+        "tags": [
+            "code generation",
+            "tool/function",
+            "fastapi",
+            "software engineering"
+        ],
+        "source": "/notebook/agentchat_function_call_code_writing.ipynb"
+    },
+    {
+        "title": "Runtime Logging with AG2",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_logging",
+        "description": "Provide capabilities of runtime logging for debugging and performance analysis.",
+        "image": null,
+        "tags": [
+            "logging",
+            "debugging"
+        ],
+        "source": "/notebook/agentchat_logging.ipynb"
+    },
+    {
+        "title": "Using RetrieveChat Powered by MongoDB Atlas for Retrieve Augmented Code Generation and Question Answering",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat_mongodb",
+        "description": "Explore the use of AG2's RetrieveChat for tasks like code generation from docstrings, answering complex questions with human feedback, and exploiting features like Update Context, custom prompts, and few-shot learning.",
+        "image": null,
+        "tags": [
+            "MongoDB",
+            "integration",
+            "RAG"
+        ],
+        "source": "/notebook/agentchat_RetrieveChat_mongodb.ipynb"
+    },
+    {
+        "title": "WebSurferAgent",
+        "link": "/docs/use-cases/notebooks/notebooks/agents_websurfer",
+        "description": "WebSurfer Agent",
+        "image": null,
+        "tags": [
+            "agents",
+            "browser-use",
+            "crawl4ai",
+            "webscraping",
+            "function calling"
+        ],
+        "source": "/notebook/agents_websurfer.ipynb"
+    },
+    {
+        "title": "Using FalkorGraphRagCapability with agents for GraphRAG Question & Answering",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_graph_rag_falkordb",
+        "description": "Using FalkorGraphRagCapability with agents for GraphRAG Question & Answering",
+        "image": null,
+        "tags": [
+            "RAG",
+            "FalkorDB"
+        ],
+        "source": "/notebook/agentchat_graph_rag_falkordb.ipynb"
+    },
+    {
+        "title": "Auto Generated Agent Chat: Task Solving with Provided Tools as Functions",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_function_call",
+        "description": "Register function calls using AssistantAgent and UserProxyAgent to execute python or shell code in customized ways. Demonstrating two ways of registering functions.",
+        "image": null,
+        "tags": [
+            "code generation",
+            "tool/function"
+        ],
+        "source": "/notebook/agentchat_function_call.ipynb"
+    },
+    {
+        "title": "Preprocessing Chat History with `TransformMessages`",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_transform_messages",
+        "description": "Preprocessing chat history with `TransformMessages`",
+        "image": null,
+        "tags": [
+            "long context handling",
+            "capability"
+        ],
+        "source": "/notebook/agentchat_transform_messages.ipynb"
+    },
+    {
+        "title": "CaptainAgent",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_captainagent",
+        "description": "Introducing CaptainAgent, a powerful agent that can manage and orchestrate other agents and tools to solve complex tasks.",
+        "image": null,
+        "tags": [
+            "autobuild",
+            "CaptainAgent"
+        ],
+        "source": "/notebook/agentchat_captainagent.ipynb"
     },
     {
         "title": "FSM - User can input speaker transition constraints",
@@ -480,14 +725,160 @@ export const notebooksMetadata = [
         "source": "/notebook/agentchat_groupchat_finite_state_machine.ipynb"
     },
     {
-        "title": "Using Neo4j's graph database with AG2 agents for Question & Answering",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_graph_rag_neo4j",
-        "description": "Neo4j GraphRAG utilises a knowledge graph and can be added as a capability to agents.",
+        "title": "OptiGuide with Nested Chats in AG2",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_nestedchat_optiguide",
+        "description": "This is a nested chat re-implementation of OptiGuide which is an LLM-based supply chain optimization framework.",
         "image": null,
         "tags": [
-            "RAG"
+            "nested chat",
+            "hierarchical chat",
+            "code generation",
+            "orchestration"
         ],
-        "source": "/notebook/agentchat_graph_rag_neo4j.ipynb"
+        "source": "/notebook/agentchat_nestedchat_optiguide.ipynb"
+    },
+    {
+        "title": "Group Chat with Coder and Visualization Critic",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_groupchat_vis",
+        "description": "Explore a group chat example using agents such as a coder and visualization agent.",
+        "image": null,
+        "tags": [
+            "group chat",
+            "code generation"
+        ],
+        "source": "/notebook/agentchat_groupchat_vis.ipynb"
+    },
+    {
+        "title": "Mitigating Prompt hacking with JSON Mode in Autogen",
+        "link": "/docs/use-cases/notebooks/notebooks/JSON_mode_example",
+        "description": "Use JSON mode and Agent Descriptions to mitigate prompt manipulation and control speaker transition.",
+        "image": null,
+        "tags": [
+            "JSON",
+            "description",
+            "prompt hacking",
+            "group chat",
+            "orchestration"
+        ],
+        "source": "/notebook/JSON_mode_example.ipynb"
+    },
+    {
+        "title": "Translating Video audio using Whisper and GPT-3.5-turbo",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_video_transcript_translate_with_whisper",
+        "description": "Use tools to extract and translate the transcript of a video file.",
+        "image": null,
+        "tags": [
+            "whisper",
+            "multimodal",
+            "tool/function"
+        ],
+        "source": "/notebook/agentchat_video_transcript_translate_with_whisper.ipynb"
+    },
+    {
+        "title": "Auto Generated Agent Chat: Group Chat with GPTAssistantAgent",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_groupchat",
+        "description": "Use GPTAssistantAgent in group chat.",
+        "image": null,
+        "tags": [
+            "OpenAI Assistant",
+            "group chat"
+        ],
+        "source": "/notebook/agentchat_oai_assistant_groupchat.ipynb"
+    },
+    {
+        "title": "Interactive LLM Agent Dealing with Data Stream",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_stream",
+        "description": "Automated continual learning from new data.",
+        "image": null,
+        "tags": [
+            "streaming",
+            "async",
+            "learning"
+        ],
+        "source": "/notebook/agentchat_stream.ipynb"
+    },
+    {
+        "title": "Engaging with Multimodal Models: GPT-4V in AG2",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_lmm_gpt-4v",
+        "description": "Leveraging multimodal models through two different methodologies: MultimodalConversableAgent and VisionCapability.",
+        "image": null,
+        "tags": [
+            "multimodal",
+            "gpt-4v"
+        ],
+        "source": "/notebook/agentchat_lmm_gpt-4v.ipynb"
+    },
+    {
+        "title": "Using Guidance with AG2",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_guidance",
+        "description": "Constrained responses via guidance.",
+        "image": null,
+        "tags": [
+            "guidance",
+            "integration",
+            "JSON"
+        ],
+        "source": "/notebook/agentchat_guidance.ipynb"
+    },
+    {
+        "title": "SQL Agent for Spider text-to-SQL benchmark",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_sql_spider",
+        "description": "Natural language text to SQL query using the Spider text-to-SQL benchmark.",
+        "image": null,
+        "tags": [
+            "SQL",
+            "tool/function"
+        ],
+        "source": "/notebook/agentchat_sql_spider.ipynb"
+    },
+    {
+        "title": "Conversational Chess using non-OpenAI clients",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_nested_chats_chess_altmodels",
+        "description": "LLM-backed agents playing chess with each other using nested chats.",
+        "image": null,
+        "tags": [
+            "nested chat",
+            "tool/function",
+            "orchestration"
+        ],
+        "source": "/notebook/agentchat_nested_chats_chess_altmodels.ipynb"
+    },
+    {
+        "title": "Group Chat",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_groupchat",
+        "description": "Explore the utilization of large language models in automated group chat scenarios, where agents perform tasks collectively, demonstrating how they can be configured, interact with each other, and retrieve specific information from external resources.",
+        "image": null,
+        "tags": [
+            "orchestration",
+            "group chat",
+            "code generation"
+        ],
+        "source": "/notebook/agentchat_groupchat.ipynb"
+    },
+    {
+        "title": "Auto Generated Agent Chat: Function Inception",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_inception_function",
+        "description": "Function Inception: Enable AG2 agents to update/remove functions during conversations.",
+        "image": null,
+        "tags": [
+            "function inception",
+            "tool/function"
+        ],
+        "source": "/notebook/agentchat_inception_function.ipynb"
+    },
+    {
+        "title": "Making OpenAI Assistants Teachable",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_teachable_oai_assistants",
+        "description": "Teach OpenAI assistants.",
+        "image": null,
+        "tags": [
+            "teachability",
+            "capability",
+            "learning",
+            "RAG",
+            "OpenAI Assistant"
+        ],
+        "source": "/notebook/agentchat_teachable_oai_assistants.ipynb"
     },
     {
         "title": "Use AG2 in Databricks with DBRX",
@@ -507,89 +898,76 @@ export const notebooksMetadata = [
         "source": "/notebook/agentchat_databricks_dbrx.ipynb"
     },
     {
-        "title": "Language Agent Tree Search",
-        "link": "/docs/use-cases/notebooks/notebooks/lats_search",
-        "description": "Language Agent Tree Search.",
+        "title": "Agent Chat with Async Human Inputs",
+        "link": "/docs/use-cases/notebooks/notebooks/async_human_input",
+        "description": "Async human inputs.",
         "image": null,
         "tags": [
-            "LATS",
-            "search",
-            "reasoning",
-            "reflection"
+            "async",
+            "human"
         ],
-        "source": "/notebook/lats_search.ipynb"
+        "source": "/notebook/async_human_input.ipynb"
     },
     {
-        "title": "Using a local Telemetry server to monitor a GraphRAG agent",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_swarm_graphrag_telemetry_trip_planner",
-        "description": "FalkorDB GraphRAG utilises a knowledge graph and can be added as a capability to agents. Together with a swarm orchestration of agents is highly effective at providing a RAG capability.",
+        "title": "Using RetrieveChat Powered by PGVector for Retrieve Augmented Code Generation and Question Answering",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_RetrieveChat_pgvector",
+        "description": "Explore the use of AG2's RetrieveChat for tasks like code generation from docstrings, answering complex questions with human feedback, and exploiting features like Update Context, custom prompts, and few-shot learning.",
         "image": null,
         "tags": [
-            "RAG",
-            "tool/function",
-            "swarm"
+            "PGVector",
+            "integration",
+            "RAG"
         ],
-        "source": "/notebook/agentchat_swarm_graphrag_telemetry_trip_planner.ipynb"
+        "source": "/notebook/agentchat_RetrieveChat_pgvector.ipynb"
     },
     {
-        "title": "SocietyOfMindAgent",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_society_of_mind",
-        "description": "Explore the demonstration of the SocietyOfMindAgent in the AG2 library, which runs a group chat as an internal monologue, but appears to the external world as a single agent, offering a structured way to manage complex interactions among multiple agents and handle issues such as extracting responses from complex dialogues and dealing with context window constraints.",
+        "title": "Groupchat with Llamaindex agents",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_group_chat_with_llamaindex_agents",
+        "description": "Integrate llamaindex agents with Autogen.",
         "image": null,
         "tags": [
-            "orchestration",
-            "nested chat",
-            "group chat"
-        ],
-        "source": "/notebook/agentchat_society_of_mind.ipynb"
-    },
-    {
-        "title": "Perform Research with Multi-Agent Group Chat",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_groupchat_research",
-        "description": "Perform research using a group chat with a number of specialized agents.",
-        "image": null,
-        "tags": [
+            "react",
+            "llamaindex",
+            "integration",
             "group chat",
-            "planning",
-            "code generation"
+            "software engineering"
         ],
-        "source": "/notebook/agentchat_groupchat_research.ipynb"
+        "source": "/notebook/agentchat_group_chat_with_llamaindex_agents.ipynb"
     },
     {
-        "title": "Group Chat",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_groupchat",
-        "description": "Explore the utilization of large language models in automated group chat scenarios, where agents perform tasks collectively, demonstrating how they can be configured, interact with each other, and retrieve specific information from external resources.",
+        "title": "Discord, Slack, and Telegram messaging tools",
+        "link": "/docs/use-cases/notebooks/notebooks/tools_commsplatforms",
+        "description": "Adding Browsing Capabilities to AG2",
         "image": null,
         "tags": [
-            "orchestration",
-            "group chat",
-            "code generation"
+            "tools",
+            "browser-use",
+            "webscraping",
+            "function calling"
         ],
-        "source": "/notebook/agentchat_groupchat.ipynb"
+        "source": "/notebook/tools_commsplatforms.ipynb"
     },
     {
-        "title": "StateFlow: Build Workflows through State-Oriented Actions",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_groupchat_stateflow",
-        "description": "StateFlow: Build workflows through state-oriented actions.",
+        "title": "Chat Context Dependency Injection",
+        "link": "/docs/use-cases/notebooks/notebooks/tools_chat_context_dependency_injection",
+        "description": "Chat Context Dependency Injection",
         "image": null,
         "tags": [
-            "orchestration",
-            "group chat",
-            "stateflow",
-            "research"
+            "tools",
+            "dependency injection",
+            "function calling"
         ],
-        "source": "/notebook/agentchat_groupchat_stateflow.ipynb"
+        "source": "/notebook/tools_chat_context_dependency_injection.ipynb"
     },
     {
-        "title": "Agent Chat with Multimodal Models: LLaVA",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_lmm_llava",
-        "description": "Leveraging multimodal models like llava.",
+        "title": "Structured output",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_structured_outputs",
+        "description": "OpenAI offers a functionality for defining a structure of the messages generated by LLMs, AG2 enables this functionality by propagating response_format passed to your agents to the underlying client.",
         "image": null,
         "tags": [
-            "multimodal",
-            "llava"
+            "structured output"
         ],
-        "source": "/notebook/agentchat_lmm_llava.ipynb"
+        "source": "/notebook/agentchat_structured_outputs.ipynb"
     },
     {
         "title": "Trip planning with a FalkorDB GraphRAG agent using a Swarm",
@@ -604,36 +982,81 @@ export const notebooksMetadata = [
         "source": "/notebook/agentchat_swarm_graphrag_trip_planner.ipynb"
     },
     {
-        "title": "Auto Generated Agent Chat: Collaborative Task Solving with Multiple Agents and Human Users",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_two_users",
-        "description": "Involve multiple human users via function calls and nested chat.",
+        "title": "RealtimeAgent in a Swarm Orchestration",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_realtime_swarm",
+        "description": "Swarm Ochestration",
         "image": null,
         "tags": [
-            "human",
-            "tool/function"
+            "orchestration",
+            "group chat",
+            "swarm"
         ],
-        "source": "/notebook/agentchat_two_users.ipynb"
+        "source": "/notebook/agentchat_realtime_swarm.ipynb"
     },
     {
-        "title": "Agent with memory using Mem0",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_memory_using_mem0",
-        "description": "Use Mem0 to create agents with memory.",
+        "title": "Small, Local Model (IBM Granite) Multi-Agent RAG",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_small_llm_rag_planning",
+        "description": "Optimizing Small, Local LLMs in Multi-Agent RAG Workflows using IBM Granite, Document Retrieval, Web Search, and Ollama",
         "image": null,
         "tags": [
-            "memory"
+            "Small LLMs",
+            "RAG",
+            "Web Search",
+            "IBM Granite",
+            "Ollama",
+            "Planning",
+            "Reflection"
         ],
-        "source": "/notebook/agentchat_memory_using_mem0.ipynb"
+        "source": "/notebook/agentchat_small_llm_rag_planning.ipynb"
     },
     {
-        "title": "Preprocessing Chat History with `TransformMessages`",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_transform_messages",
-        "description": "Preprocessing chat history with `TransformMessages`",
+        "title": "Assistants with Azure Cognitive Search and Azure Identity",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_azr_ai_search",
+        "description": "This notebook demonstrates the use of Assistant Agents in conjunction with Azure Cognitive Search and Azure Identity",
         "image": null,
         "tags": [
-            "long context handling",
-            "capability"
+            "integration",
+            "RAG",
+            "Azure Identity",
+            "Azure AI Search"
         ],
-        "source": "/notebook/agentchat_transform_messages.ipynb"
+        "source": "/notebook/agentchat_azr_ai_search.ipynb"
+    },
+    {
+        "title": "Supercharging Web Crawling with Crawl4AI",
+        "link": "/docs/use-cases/notebooks/notebooks/tools_crawl4ai",
+        "description": "Supercharging Web Crawling with Crawl4AI",
+        "image": null,
+        "tags": [
+            "tools",
+            "browser-use",
+            "webscraping",
+            "function calling"
+        ],
+        "source": "/notebook/tools_crawl4ai.ipynb"
+    },
+    {
+        "title": "RealtimeAgent with local websocket connection",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_realtime_websocket",
+        "description": "RealtimeAgent using websockets",
+        "image": null,
+        "tags": [
+            "realtime",
+            "websockets"
+        ],
+        "source": "/notebook/agentchat_realtime_websocket.ipynb"
+    },
+    {
+        "title": "Using a local Telemetry server to monitor a GraphRAG agent",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_swarm_graphrag_telemetry_trip_planner",
+        "description": "FalkorDB GraphRAG utilises a knowledge graph and can be added as a capability to agents. Together with a swarm orchestration of agents is highly effective at providing a RAG capability.",
+        "image": null,
+        "tags": [
+            "RAG",
+            "tool/function",
+            "swarm"
+        ],
+        "source": "/notebook/agentchat_swarm_graphrag_telemetry_trip_planner.ipynb"
     },
     {
         "title": "AgentOptimizer: An Agentic Way to Train Your LLM Agent",
@@ -657,30 +1080,105 @@ export const notebooksMetadata = [
         "source": "/notebook/agentchat_RetrieveChat_couchbase.ipynb"
     },
     {
-        "title": "Agent Observability with OpenLIT",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_openlit",
-        "description": "Use OpenLIT to easily monitor AI agents in production with OpenTelemetry.",
+        "title": "Using Neo4j's native GraphRAG SDK with AG2 agents for Question & Answering",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_graph_rag_neo4j_native",
+        "description": "Neo4j Native GraphRAG utilizes a knowledge graph and can be added as a capability to agents.",
         "image": null,
         "tags": [
-            "integration",
-            "monitoring",
-            "observability",
-            "debugging"
+            "RAG"
         ],
-        "source": "/notebook/agentchat_openlit.ipynb"
+        "source": "/notebook/agentchat_graph_rag_neo4j_native.ipynb"
     },
     {
-        "title": "Chatting with a teachable agent",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_teachability",
-        "description": "Learn how to persist memories across chat sessions using the Teachability capability",
+        "title": "Automatically Build Multi-agent System from Agent Library",
+        "link": "/docs/use-cases/notebooks/notebooks/autobuild_agent_library",
+        "description": "Automatically build multi-agent system from agent library",
         "image": null,
         "tags": [
-            "teachability",
-            "learning",
-            "RAG",
-            "capability"
+            "autobuild"
         ],
-        "source": "/notebook/agentchat_teachability.ipynb"
+        "source": "/notebook/autobuild_agent_library.ipynb"
+    },
+    {
+        "title": "Nested Chats for Tool Use in Conversational Chess",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_nested_chats_chess",
+        "description": "LLM-backed agents playing chess with each other using nested chats.",
+        "image": null,
+        "tags": [
+            "nested chat",
+            "tool/function",
+            "orchestration"
+        ],
+        "source": "/notebook/agentchat_nested_chats_chess.ipynb"
+    },
+    {
+        "title": "Task Solving with Provided Tools as Functions (Asynchronous Function Calls)",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_function_call_async",
+        "description": "Learn how to implement both synchronous and asynchronous function calls using AssistantAgent and UserProxyAgent in AutoGen, with examples of their application in individual and group chat settings for task execution with language models.",
+        "image": null,
+        "tags": [
+            "tool/function",
+            "async"
+        ],
+        "source": "/notebook/agentchat_function_call_async.ipynb"
+    },
+    {
+        "title": "SocietyOfMindAgent",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_society_of_mind",
+        "description": "Explore the demonstration of the SocietyOfMindAgent in the AG2 library, which runs a group chat as an internal monologue, but appears to the external world as a single agent, offering a structured way to manage complex interactions among multiple agents and handle issues such as extracting responses from complex dialogues and dealing with context window constraints.",
+        "image": null,
+        "tags": [
+            "orchestration",
+            "nested chat",
+            "group chat"
+        ],
+        "source": "/notebook/agentchat_society_of_mind.ipynb"
+    },
+    {
+        "title": "Language Agent Tree Search",
+        "link": "/docs/use-cases/notebooks/notebooks/lats_search",
+        "description": "Language Agent Tree Search.",
+        "image": null,
+        "tags": [
+            "LATS",
+            "search",
+            "reasoning",
+            "reflection"
+        ],
+        "source": "/notebook/lats_search.ipynb"
+    },
+    {
+        "title": "Agent Chat with Multimodal Models: LLaVA",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_lmm_llava",
+        "description": "Leveraging multimodal models like llava.",
+        "image": null,
+        "tags": [
+            "multimodal",
+            "llava"
+        ],
+        "source": "/notebook/agentchat_lmm_llava.ipynb"
+    },
+    {
+        "title": "Agent Chat with Multimodal Models: DALLE  and GPT-4V",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_dalle_and_gpt4v",
+        "description": "Multimodal agent chat with DALL-E and GPT-4v.",
+        "image": null,
+        "tags": [
+            "multimodal",
+            "gpt-4v"
+        ],
+        "source": "/notebook/agentchat_dalle_and_gpt4v.ipynb"
+    },
+    {
+        "title": "Auto Generated Agent Chat: Collaborative Task Solving with Multiple Agents and Human Users",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_two_users",
+        "description": "Involve multiple human users via function calls and nested chat.",
+        "image": null,
+        "tags": [
+            "human",
+            "tool/function"
+        ],
+        "source": "/notebook/agentchat_two_users.ipynb"
     },
     {
         "title": "RealtimeAgent in a Swarm Orchestration",
@@ -695,98 +1193,27 @@ export const notebooksMetadata = [
         "source": "/notebook/agentchat_realtime_swarm_websocket.ipynb"
     },
     {
-        "title": "Conversational Chess using non-OpenAI clients",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_nested_chats_chess_altmodels",
-        "description": "LLM-backed agents playing chess with each other using nested chats.",
+        "title": "Cross-Framework LLM Tool for CaptainAgent",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchat_captainagent_crosstool",
+        "description": "Cross-Framework LLM Tool for CaptainAgent",
         "image": null,
         "tags": [
-            "nested chat",
-            "tool/function",
-            "orchestration"
+            "tools",
+            "langchain",
+            "crewai"
         ],
-        "source": "/notebook/agentchat_nested_chats_chess_altmodels.ipynb"
+        "source": "/notebook/agentchat_captainagent_crosstool.ipynb"
     },
     {
-        "title": "Solving Complex Tasks with A Sequence of Nested Chats",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_nested_sequential_chats",
-        "description": "Solve complex tasks with one or more sequence chats nested as inner monologue.",
+        "title": "Solving Multiple Tasks in a Sequence of Chats with Different Conversable Agent Pairs",
+        "link": "/docs/use-cases/notebooks/notebooks/agentchats_sequential_chats",
+        "description": "Use AG2 to solve a set of tasks with a sequence of chats.",
         "image": null,
         "tags": [
-            "nested chat",
-            "sequential chats",
-            "orchestration"
-        ],
-        "source": "/notebook/agentchat_nested_sequential_chats.ipynb"
-    },
-    {
-        "title": "Config loader utility functions",
-        "link": "/docs/use-cases/notebooks/notebooks/config_loader_utility_functions",
-        "description": "Config loader utility functions",
-        "image": null,
-        "tags": [
-            "utility",
-            "config"
-        ],
-        "source": "/notebook/config_loader_utility_functions.ipynb"
-    },
-    {
-        "title": "Currency Calculator: Task Solving with Provided Tools as Functions",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_function_call_currency_calculator",
-        "description": "Learn how to register function calls using AssistantAgent and UserProxyAgent.",
-        "image": null,
-        "tags": [
-            "tool/function"
-        ],
-        "source": "/notebook/agentchat_function_call_currency_calculator.ipynb"
-    },
-    {
-        "title": "Chat with OpenAI Assistant using function call in AG2: OSS Insights for Advanced GitHub Data Analysis",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_function_call",
-        "description": "This Jupyter Notebook demonstrates how to leverage OSS Insight (Open Source Software Insight) for advanced GitHub data analysis by defining `Function calls` in AG2 for the OpenAI Assistant.",
-        "image": null,
-        "tags": [
-            "OpenAI Assistant",
-            "tool/function"
-        ],
-        "source": "/notebook/agentchat_oai_assistant_function_call.ipynb"
-    },
-    {
-        "title": "Web Scraping using Apify Tools",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_webscraping_with_apify",
-        "description": "Scrapping web pages and summarizing the content using agents with tools.",
-        "image": null,
-        "tags": [
-            "web",
-            "apify",
-            "integration",
-            "tool/function"
-        ],
-        "source": "/notebook/agentchat_webscraping_with_apify.ipynb"
-    },
-    {
-        "title": "Agent with memory using Mem0",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_with_memory",
-        "description": "Use Mem0 to create agents with memory.",
-        "image": null,
-        "tags": [
-            "mem0",
-            "integration",
-            "memory"
-        ],
-        "source": "/notebook/agentchat_with_memory.ipynb"
-    },
-    {
-        "title": "Auto Generated Agent Chat: Collaborative Task Solving with Coding and Planning Agent",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_planning",
-        "description": "Use planning agent in a function call.",
-        "image": null,
-        "tags": [
-            "planning",
             "orchestration",
-            "nested chat",
-            "tool/function"
+            "sequential chats"
         ],
-        "source": "/notebook/agentchat_planning.ipynb"
+        "source": "/notebook/agentchats_sequential_chats.ipynb"
     },
     {
         "title": "RAG with DocAgent",
@@ -802,169 +1229,6 @@ export const notebooksMetadata = [
         "source": "/notebook/agents_docagent.ipynb"
     },
     {
-        "title": "Demonstrating the `AgentEval` framework using the task of solving math problems as an example",
-        "link": "/docs/use-cases/notebooks/notebooks/agenteval_cq_math",
-        "description": "AgentEval: a multi-agent system for assessing utility of LLM-powered applications",
-        "image": null,
-        "tags": [
-            "eval"
-        ],
-        "source": "/notebook/agenteval_cq_math.ipynb"
-    },
-    {
-        "title": "RealtimeAgent with WebRTC connection",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_realtime_webrtc",
-        "description": "RealtimeAgent using websockets",
-        "image": null,
-        "tags": [
-            "realtime",
-            "websockets"
-        ],
-        "source": "/notebook/agentchat_realtime_webrtc.ipynb"
-    },
-    {
-        "title": "Automatically Build Multi-agent System from Agent Library",
-        "link": "/docs/use-cases/notebooks/notebooks/autobuild_agent_library",
-        "description": "Automatically build multi-agent system from agent library",
-        "image": null,
-        "tags": [
-            "autobuild"
-        ],
-        "source": "/notebook/autobuild_agent_library.ipynb"
-    },
-    {
-        "title": "Groupchat with Llamaindex agents",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_group_chat_with_llamaindex_agents",
-        "description": "Integrate llamaindex agents with Autogen.",
-        "image": null,
-        "tags": [
-            "react",
-            "llamaindex",
-            "integration",
-            "group chat",
-            "software engineering"
-        ],
-        "source": "/notebook/agentchat_group_chat_with_llamaindex_agents.ipynb"
-    },
-    {
-        "title": "Using Guidance with AG2",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_guidance",
-        "description": "Constrained responses via guidance.",
-        "image": null,
-        "tags": [
-            "guidance",
-            "integration",
-            "JSON"
-        ],
-        "source": "/notebook/agentchat_guidance.ipynb"
-    },
-    {
-        "title": "RealtimeAgent in a Swarm Orchestration using WebRTC",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_realtime_swarm_webrtc",
-        "description": "Swarm Ochestration",
-        "image": null,
-        "tags": [
-            "orchestration",
-            "group chat",
-            "swarm"
-        ],
-        "source": "/notebook/agentchat_realtime_swarm_webrtc.ipynb"
-    },
-    {
-        "title": "Cross-Framework LLM Tool for CaptainAgent",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_captainagent_crosstool",
-        "description": "Cross-Framework LLM Tool for CaptainAgent",
-        "image": null,
-        "tags": [
-            "tools",
-            "langchain",
-            "crewai"
-        ],
-        "source": "/notebook/agentchat_captainagent_crosstool.ipynb"
-    },
-    {
-        "title": "RealtimeAgent in a Swarm Orchestration",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_realtime_swarm",
-        "description": "Swarm Ochestration",
-        "image": null,
-        "tags": [
-            "orchestration",
-            "group chat",
-            "swarm"
-        ],
-        "source": "/notebook/agentchat_realtime_swarm.ipynb"
-    },
-    {
-        "title": "Websockets: Streaming input and output using websockets",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_websockets",
-        "description": "Websockets facilitate real-time, bidirectional communication between web clients and servers, enhancing the responsiveness and interactivity of AG2-powered applications.",
-        "image": null,
-        "tags": [
-            "websockets",
-            "streaming"
-        ],
-        "source": "/notebook/agentchat_websockets.ipynb"
-    },
-    {
-        "title": "Auto Generated Agent Chat: Solving Tasks Requiring Web Info",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_web_info",
-        "description": "Solve tasks requiring web info.",
-        "image": null,
-        "tags": [
-            "web",
-            "code generation"
-        ],
-        "source": "/notebook/agentchat_web_info.ipynb"
-    },
-    {
-        "title": "Auto Generated Agent Chat: Task Solving with Code Generation, Execution, Debugging & Human Feedback",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_human_feedback",
-        "description": "Code generation, execution, debugging and human feedback.",
-        "image": null,
-        "tags": [
-            "human",
-            "code generation"
-        ],
-        "source": "/notebook/agentchat_human_feedback.ipynb"
-    },
-    {
-        "title": "Assistants with Azure Cognitive Search and Azure Identity",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_azr_ai_search",
-        "description": "This notebook demonstrates the use of Assistant Agents in conjunction with Azure Cognitive Search and Azure Identity",
-        "image": null,
-        "tags": [
-            "integration",
-            "RAG",
-            "Azure Identity",
-            "Azure AI Search"
-        ],
-        "source": "/notebook/agentchat_azr_ai_search.ipynb"
-    },
-    {
-        "title": "(Legacy) Implement Swarm-style orchestration with GroupChat",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_swarm_w_groupchat_legacy",
-        "description": "(Legacy) Implement Swarm-style orchestration with GroupChat",
-        "image": null,
-        "tags": [
-            "orchestration",
-            "group chat",
-            "stateflow",
-            "swarm"
-        ],
-        "source": "/notebook/agentchat_swarm_w_groupchat_legacy.ipynb"
-    },
-    {
-        "title": "Auto Generated Agent Chat: Task Solving with Provided Tools as Functions",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_function_call",
-        "description": "Register function calls using AssistantAgent and UserProxyAgent to execute python or shell code in customized ways. Demonstrating two ways of registering functions.",
-        "image": null,
-        "tags": [
-            "code generation",
-            "tool/function"
-        ],
-        "source": "/notebook/agentchat_function_call.ipynb"
-    },
-    {
         "title": "Auto Generated Agent Chat: Using MathChat to Solve Math Problems",
         "link": "/docs/use-cases/notebooks/notebooks/agentchat_MathChat",
         "description": "Using MathChat to Solve Math Problems",
@@ -973,269 +1237,5 @@ export const notebooksMetadata = [
             "math"
         ],
         "source": "/notebook/agentchat_MathChat.ipynb"
-    },
-    {
-        "title": "Small, Local Model (IBM Granite) Multi-Agent RAG",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_small_llm_rag_planning",
-        "description": "Optimizing Small, Local LLMs in Multi-Agent RAG Workflows using IBM Granite, Document Retrieval, Web Search, and Ollama",
-        "image": null,
-        "tags": [
-            "Small LLMs",
-            "RAG",
-            "Web Search",
-            "IBM Granite",
-            "Ollama",
-            "Planning",
-            "Reflection"
-        ],
-        "source": "/notebook/agentchat_small_llm_rag_planning.ipynb"
-    },
-    {
-        "title": "Group Chat with Retrieval Augmented Generation",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_groupchat_RAG",
-        "description": "Implement and manage a multi-agent chat system using AG2, where AI assistants retrieve information, generate code, and interact collaboratively to solve complex tasks, especially in areas not covered by their training data.",
-        "image": null,
-        "tags": [
-            "group chat",
-            "orchestration",
-            "RAG"
-        ],
-        "source": "/notebook/agentchat_groupchat_RAG.ipynb"
-    },
-    {
-        "title": "Structured output from json configuration",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_structured_outputs_from_config",
-        "description": "OpenAI offers a functionality for defining a structure of the messages generated by LLMs, AutoGen enables this functionality by propagating response_format passed to your agents to the underlying client.",
-        "image": null,
-        "tags": [
-            "structured output"
-        ],
-        "source": "/notebook/agentchat_structured_outputs_from_config.ipynb"
-    },
-    {
-        "title": "Run a standalone AssistantAgent",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_assistant_agent_standalone",
-        "description": "Run a standalone AssistantAgent, browsing the web using the BrowserUseTool",
-        "image": null,
-        "tags": [
-            "assistantagent",
-            "run",
-            "browser-use",
-            "webscraping",
-            "function calling"
-        ],
-        "source": "/notebook/agentchat_assistant_agent_standalone.ipynb"
-    },
-    {
-        "title": "Nested Chats for Tool Use in Conversational Chess",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_nested_chats_chess",
-        "description": "LLM-backed agents playing chess with each other using nested chats.",
-        "image": null,
-        "tags": [
-            "nested chat",
-            "tool/function",
-            "orchestration"
-        ],
-        "source": "/notebook/agentchat_nested_chats_chess.ipynb"
-    },
-    {
-        "title": "Swarm Orchestration with AG2",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_swarm",
-        "description": "Swarm Ochestration",
-        "image": null,
-        "tags": [
-            "orchestration",
-            "group chat",
-            "swarm"
-        ],
-        "source": "/notebook/agentchat_swarm.ipynb"
-    },
-    {
-        "title": "OptiGuide with Nested Chats in AG2",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_nestedchat_optiguide",
-        "description": "This is a nested chat re-implementation of OptiGuide which is an LLM-based supply chain optimization framework.",
-        "image": null,
-        "tags": [
-            "nested chat",
-            "hierarchical chat",
-            "code generation",
-            "orchestration"
-        ],
-        "source": "/notebook/agentchat_nestedchat_optiguide.ipynb"
-    },
-    {
-        "title": "Usage tracking with AG2",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_cost_token_tracking",
-        "description": "cost calculation",
-        "image": null,
-        "tags": [
-            "cost"
-        ],
-        "source": "/notebook/agentchat_cost_token_tracking.ipynb"
-    },
-    {
-        "title": "From Dad Jokes To Sad Jokes: Function Calling with GPTAssistantAgent",
-        "link": "/docs/use-cases/notebooks/notebooks/gpt_assistant_agent_function_call",
-        "description": "Use tools in a GPTAssistantAgent Multi-Agent System by utilizing functions such as calling an API and writing to a file.",
-        "image": null,
-        "tags": [
-            "OpenAI Assistant",
-            "tool/function"
-        ],
-        "source": "/notebook/gpt_assistant_agent_function_call.ipynb"
-    },
-    {
-        "title": "Discord, Slack, and Telegram messaging tools",
-        "link": "/docs/use-cases/notebooks/notebooks/tools_commsplatforms",
-        "description": "Adding Browsing Capabilities to AG2",
-        "image": null,
-        "tags": [
-            "tools",
-            "browser-use",
-            "webscraping",
-            "function calling"
-        ],
-        "source": "/notebook/tools_commsplatforms.ipynb"
-    },
-    {
-        "title": "RAG OpenAI Assistants in AG2",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_retrieval",
-        "description": "OpenAI Assistant with retrieval augmentation.",
-        "image": null,
-        "tags": [
-            "RAG",
-            "OpenAI Assistant"
-        ],
-        "source": "/notebook/agentchat_oai_assistant_retrieval.ipynb"
-    },
-    {
-        "title": "Auto Generated Agent Chat: Group Chat with GPTAssistantAgent",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_oai_assistant_groupchat",
-        "description": "Use GPTAssistantAgent in group chat.",
-        "image": null,
-        "tags": [
-            "OpenAI Assistant",
-            "group chat"
-        ],
-        "source": "/notebook/agentchat_oai_assistant_groupchat.ipynb"
-    },
-    {
-        "title": "Task Solving with Provided Tools as Functions (Asynchronous Function Calls)",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_function_call_async",
-        "description": "Learn how to implement both synchronous and asynchronous function calls using AssistantAgent and UserProxyAgent in AutoGen, with examples of their application in individual and group chat settings for task execution with language models.",
-        "image": null,
-        "tags": [
-            "tool/function",
-            "async"
-        ],
-        "source": "/notebook/agentchat_function_call_async.ipynb"
-    },
-    {
-        "title": "Generate Dalle Images With Conversable Agents",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_image_generation_capability",
-        "description": "Generate images with conversable agents.",
-        "image": null,
-        "tags": [
-            "capability",
-            "multimodal"
-        ],
-        "source": "/notebook/agentchat_image_generation_capability.ipynb"
-    },
-    {
-        "title": "Chat Context Dependency Injection",
-        "link": "/docs/use-cases/notebooks/notebooks/tools_chat_context_dependency_injection",
-        "description": "Chat Context Dependency Injection",
-        "image": null,
-        "tags": [
-            "tools",
-            "dependency injection",
-            "function calling"
-        ],
-        "source": "/notebook/tools_chat_context_dependency_injection.ipynb"
-    },
-    {
-        "title": "Solving Multiple Tasks in a Sequence of Chats with Different Conversable Agent Pairs",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchats_sequential_chats",
-        "description": "Use AG2 to solve a set of tasks with a sequence of chats.",
-        "image": null,
-        "tags": [
-            "orchestration",
-            "sequential chats"
-        ],
-        "source": "/notebook/agentchats_sequential_chats.ipynb"
-    },
-    {
-        "title": "Engaging with Multimodal Models: GPT-4V in AG2",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_lmm_gpt-4v",
-        "description": "Leveraging multimodal models through two different methodologies: MultimodalConversableAgent and VisionCapability.",
-        "image": null,
-        "tags": [
-            "multimodal",
-            "gpt-4v"
-        ],
-        "source": "/notebook/agentchat_lmm_gpt-4v.ipynb"
-    },
-    {
-        "title": "Mitigating Prompt hacking with JSON Mode in Autogen",
-        "link": "/docs/use-cases/notebooks/notebooks/JSON_mode_example",
-        "description": "Use JSON mode and Agent Descriptions to mitigate prompt manipulation and control speaker transition.",
-        "image": null,
-        "tags": [
-            "JSON",
-            "description",
-            "prompt hacking",
-            "group chat",
-            "orchestration"
-        ],
-        "source": "/notebook/JSON_mode_example.ipynb"
-    },
-    {
-        "title": "Using Neo4j's native GraphRAG SDK with AG2 agents for Question & Answering",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_graph_rag_neo4j_native",
-        "description": "Neo4j Native GraphRAG utilizes a knowledge graph and can be added as a capability to agents.",
-        "image": null,
-        "tags": [
-            "RAG"
-        ],
-        "source": "/notebook/agentchat_graph_rag_neo4j_native.ipynb"
-    },
-    {
-        "title": "Supercharging Web Crawling with Crawl4AI",
-        "link": "/docs/use-cases/notebooks/notebooks/tools_crawl4ai",
-        "description": "Supercharging Web Crawling with Crawl4AI",
-        "image": null,
-        "tags": [
-            "tools",
-            "browser-use",
-            "webscraping",
-            "function calling"
-        ],
-        "source": "/notebook/tools_crawl4ai.ipynb"
-    },
-    {
-        "title": "WebSurferAgent",
-        "link": "/docs/use-cases/notebooks/notebooks/agents_websurfer",
-        "description": "WebSurfer Agent",
-        "image": null,
-        "tags": [
-            "agents",
-            "browser-use",
-            "crawl4ai",
-            "webscraping",
-            "function calling"
-        ],
-        "source": "/notebook/agents_websurfer.ipynb"
-    },
-    {
-        "title": "RealtimeAgent with gemini client",
-        "link": "/docs/use-cases/notebooks/notebooks/agentchat_realtime_gemini_websocket",
-        "description": "RealtimeAgent with gemini client using websockets",
-        "image": null,
-        "tags": [
-            "realtime",
-            "websockets",
-            "gemini"
-        ],
-        "source": "/notebook/agentchat_realtime_gemini_websocket.ipynb"
     }
 ];
