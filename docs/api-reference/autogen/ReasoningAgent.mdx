@@ -15,7 +15,6 @@ ReasoningAgent(
     max_depth: int = 4,
     beam_size: int = 3,
     answer_approach: str = 'pool',
-    verbose: bool = True,
     reason_config: dict[str, Any] | None = None,
     **kwargs: Any
 )
@@ -34,7 +33,6 @@ ReasoningAgent(
 | `max_depth` | **Type:** int<br/><br/>**Default:** 4 |
 | `beam_size` | **Type:** int<br/><br/>**Default:** 3 |
 | `answer_approach` | **Type:** str<br/><br/>**Default:** 'pool' |
-| `verbose` | **Type:** bool<br/><br/>**Default:** True |
 | `reason_config` | **Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
 | `**kwargs` | **Type:** Any |
 
@@ -1012,7 +1010,7 @@ rate_node(
 ) -> float
 ```
 
-    Rate the quality of a reasoning path using the grader agent.<br/>
+    Rate the quality of a reasoning path or the final answer using the grader agent.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

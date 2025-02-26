@@ -58,17 +58,16 @@ the reasoning space:
 1.  **Thinker Agent**: Generates potential next steps in the reasoning
     process
 2.  **Grader Agent**: Evaluates the quality of each reasoning step
-3.  **Tree Structure**: Organizes thoughts hierarchically for systematic
+3.  **Code Execution**: a child user agent will execute code
+    automatically during reasoning
+4.  **Tree Structure**: Organizes thoughts hierarchically for systematic
     exploration
-4.  **Visualization Tools**: Built-in Graphviz support for analyzing
+5.  **Visualization Tools**: Built-in Graphviz support for analyzing
     reasoning paths
-5.  **Logging Features**: Log and save thinking trajectories to finetune
+6.  **Logging Features**: Log and save thinking trajectories to finetune
     the language model
-
-## Configuration Options
-
-The agent is highly configurable through a single `reason_config`
-dictionary:
+7.  **Configuration Options**: The agent is highly configurable through
+    a single `reason_config` dictionary
 
 ```python
 import os
@@ -79,7 +78,6 @@ from autogen import AssistantAgent, ReasoningAgent, ThinkNode, UserProxyAgent
 api_key = os.environ.get("OPENAI_API_KEY")
 
 config_list = [{"model": "gpt-4o-mini", "api_key": api_key}]
-verbose = False
 
 question = "What is the expected maximum dice value if you can roll a 6-sided dice three times?"
 random.seed(1)  # setup seed for reproducibility
@@ -130,8 +128,8 @@ reason_agent = ReasoningAgent(
     name="reason_agent",
     system_message="answer math questions",
     llm_config={"config_list": config_list},
-    verbose=verbose,
     reason_config={"method": "dfs", "max_depth": 3},  # Using DFS
+    silent=False,
     # NOTE: it is equivalent to use beam size 1 for O1-style reasoning
     # reason_config={"method": "beam_search", "beam_size": 1, "max_depth": 3},
 )
@@ -146,6 +144,11 @@ user_proxy = UserProxyAgent(
 
 ```python
 ans = user_proxy.initiate_chat(reason_agent, message=question, summary_method=last_meaningful_msg)
+```
+
+
+```python
+reason_agent._root.children
 ```
 
 
@@ -174,7 +177,6 @@ intermediate evaluations are critical to the final outcome.
 reason_agent = ReasoningAgent(
     name="reason_agent",
     llm_config={"config_list": config_list},
-    verbose=verbose,
     reason_config={"method": "beam_search", "beam_size": 3, "max_depth": 3},
 )
 user_proxy = UserProxyAgent(
@@ -189,7 +191,7 @@ user_proxy = UserProxyAgent(
 ```python
 ans = user_proxy.initiate_chat(
     reason_agent,
-    message="Design a mixed integer linear program for a coffee roasting supply chain",
+    message=question,
     summary_method=last_meaningful_msg,
 )
 ```
@@ -214,7 +216,6 @@ mcts_agent = ReasoningAgent(
     name="mcts_agent",
     system_message="answer math questions",
     llm_config={"config_list": config_list},
-    verbose=True,
     # setup small depth and simulations for conciseness.
     reason_config={"method": "mcts", "nsim": 5, "max_depth": 4},
 )
@@ -254,7 +255,6 @@ lats_agent = ReasoningAgent(
     name="mcts_agent",
     system_message="answer math questions",
     llm_config={"config_list": config_list},
-    verbose=True,
     # setup small depth and simulations for conciseness.
     reason_config={"method": "lats", "nsim": 5, "max_depth": 4},
 )
@@ -270,6 +270,114 @@ user_proxy = UserProxyAgent(
 
 
 ```python
+lats_res = user_proxy.initiate_chat(recipient=lats_agent, message=question, summary_method=last_meaningful_msg)
+```
+
+
+```python
+print(lats_res.summary)
+```
+
+## Use a different Model for Grading
+
+To use a different model for grading instead of gpt-4o, pass the
+`grader_llm_config` argument when initializing the `ReasoningAgent`.
+This ensures that the grading of trajectories is performed using the
+specified configuration from the `config_list`, separate from the main
+`llm_config`.
+
+```python
+grader_config_list = [{"model": "gpt-4o-mini", "api_key": api_key}]
+
+grader_llm_config = {"config_list": grader_config_list}
+
+writer = AssistantAgent(
+    name="Writer",
+    llm_config={"config_list": config_list},
+    system_message="""
+    You are a professional writer, known for your insightful and engaging articles.
+    You transform complex concepts into compelling narratives.
+    You should improve the quality of the content based on the feedback from the user.
+    """,
+)
+reason_agent_for_writer = ReasoningAgent(
+    name="reason_agent",
+    llm_config={"config_list": config_list},
+    grader_llm_config=grader_llm_config,
+    reason_config={"method": "lats", "nsim": 2, "max_depth": 3},
+)
+```
+
+
+```python
+import json
+```
+
+
+```python
+data = reason_agent._root.to_dict()
+with open("reasoning_tree.json", "w") as f:
+    json.dump(data, f)
+
+# recover the node
+with open("reasoning_tree.json", "r") as f:
+    new_node = ThinkNode.from_dict(json.load(f))
+```
+
+
+```python
+from autogen.agentchat.contrib.reasoning_agent import extract_rlhf_preference_dataset, extract_sft_dataset
+
+sft_data = extract_sft_dataset(reason_agent._root)
+rlhf_data = extract_rlhf_preference_dataset(reason_agent._root)
+```
+
+
+```python
+print(rlhf_data)
+```
+
+## Utilizing Ground Truth to Enhance Training Data Generation
+
+Access to ground truth answers allows us to improve the evaluation of
+reasoning paths. In this section, we will explore: - The process of
+incorporating ground truth into prompts - The methods by which the agent
+leverages ground truth for evaluation
+
+```python
+ans = user_proxy.initiate_chat(lats_agent, message=question, summary_method=last_meaningful_msg)
+```
+
+
+```python
+print(ans.summary)
+```
+
+## Code Execution During Reasoning
+
+You can setup the parameter `code_execution_config` in reasoning agent
+to enable code execution during reasoning. By default,
+`code_execution_config=False`, which means it will not execute code for
+reasoning.
+
+```python
+lats_agent = ReasoningAgent(
+    name="mcts_agent",
+    system_message="answer math questions",
+    llm_config={"config_list": config_list},
+    reason_config={"method": "lats", "nsim": 5, "max_depth": 4},
+    code_execution_config={"use_docker": False, "work_dir": "mypy_cache"},
+    # Enable Code execution. We skip docker here for simplicity
+)
+
+
+user_proxy = UserProxyAgent(
+    name="user_proxy",
+    human_input_mode="NEVER",
+    code_execution_config=False,
+    max_consecutive_auto_reply=10,
+)
+
 ans = user_proxy.initiate_chat(lats_agent, message=question, summary_method=last_meaningful_msg)
 ```
 
@@ -327,7 +435,6 @@ writer = AssistantAgent(
 reason_agent_for_writer = ReasoningAgent(
     name="reason_agent",
     llm_config={"config_list": config_list},
-    verbose=verbose,
     reason_config={"method": "lats", "nsim": 2, "max_depth": 3},
 )
 
@@ -389,7 +496,6 @@ reason_agent_for_writer = ReasoningAgent(
     name="reason_agent",
     llm_config={"config_list": config_list},
     grader_llm_config=grader_llm_config,
-    verbose=verbose,
     reason_config={"method": "lats", "nsim": 2, "max_depth": 3},
 )
 ```
@@ -418,7 +524,8 @@ with open("reasoning_tree.json", "w") as f:
     json.dump(data, f)
 
 # recover the node
-new_node = ThinkNode.from_dict(json.load(open("reasoning_tree.json")))  # noqa: SIM115
+with open("reasoning_tree.json", "r") as f:
+    new_node = ThinkNode.from_dict(json.load(f))
 ```
 
 
@@ -457,7 +564,6 @@ mcts_agent2 = ReasoningAgent(
     name="mcts_agent",
     system_message="answer math questions",
     llm_config={"config_list": config_list},
-    verbose=True,
     # setup small depth and simulations for conciseness.
     reason_config={"method": "mcts", "nsim": 5, "max_depth": 4},
 )
@@ -491,7 +597,6 @@ forest_agent = ReasoningAgent(
     name="mcts_agent",
     system_message="answer math questions",
     llm_config={"config_list": config_list},
-    verbose=True,
     # setup small depth and simulations for conciseness.
     reason_config={"method": "dfs", "max_depth": 4, "forest_size": 3},
 )

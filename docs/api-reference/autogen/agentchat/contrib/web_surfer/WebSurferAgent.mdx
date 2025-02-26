@@ -10,7 +10,7 @@ title: autogen.agentchat.contrib.web_surfer.WebSurferAgent
 ```python
 WebSurferAgent(
     name: str,
-    system_message: str | list[str] | None = "You are a helpful AI assistant with access to a web browser (via the provided functions). In fact, YOU ARE THE ONLY MEMBER OF YOUR PARTY WITH ACCESS TO A WEB BROWSER, so please help out where you can by performing web searches, navigating pages, and reporting what you find. Today's date is 2025-02-25",
+    system_message: str | list[str] | None = "You are a helpful AI assistant with access to a web browser (via the provided functions). In fact, YOU ARE THE ONLY MEMBER OF YOUR PARTY WITH ACCESS TO A WEB BROWSER, so please help out where you can by performing web searches, navigating pages, and reporting what you find. Today's date is 2025-02-26",
     description: str | None = 'A helpful assistant with access to a web browser. Ask them to perform web searches, open pages, navigate to Wikipedia, answer questions from pages, and or generate summaries.',
     is_termination_msg: Callable[[dict[str, Any]], bool] | None = None,
     max_consecutive_auto_reply: int | None = None,
@@ -31,7 +31,7 @@ WebSurferAgent(
 | Name | Description |
 |--|--|
 | `name` | **Type:** str |
-| `system_message` | **Type:** str \| list[str] \| None<br/><br/>**Default:** "You are a helpful AI assistant with access to a web browser (via the provided functions). In fact, YOU ARE THE ONLY MEMBER OF YOUR PARTY WITH ACCESS TO A WEB BROWSER, so please help out where you can by performing web searches, navigating pages, and reporting what you find. Today's date is 2025-02-25" |
+| `system_message` | **Type:** str \| list[str] \| None<br/><br/>**Default:** "You are a helpful AI assistant with access to a web browser (via the provided functions). In fact, YOU ARE THE ONLY MEMBER OF YOUR PARTY WITH ACCESS TO A WEB BROWSER, so please help out where you can by performing web searches, navigating pages, and reporting what you find. Today's date is 2025-02-26" |
 | `description` | **Type:** str \| None<br/><br/>**Default:** 'A helpful assistant with access to a web browser. Ask them to perform web searches, open pages, navigate to Wikipedia, answer questions from pages, and or generate summaries.' |
 | `is_termination_msg` | **Type:** Callable[[dict[str, Any]], bool] \| None<br/><br/>**Default:** None |
 | `max_consecutive_auto_reply` | **Type:** int \| None<br/><br/>**Default:** None |
