@@ -13,7 +13,8 @@ DocAgent(
     llm_config: dict[str, Any] | None = None,
     system_message: str | None = None,
     parsed_docs_path: Path | str | None = None,
-    collection_name: str | None = None
+    collection_name: str | None = None,
+    query_engine: VectorChromaQueryEngine | InMemoryQueryEngine | None = None
 )
 ```
 
@@ -27,6 +28,7 @@ DocAgent(
 | `system_message` | **Type:** str \| None<br/><br/>**Default:** None |
 | `parsed_docs_path` | **Type:** pathlib.Path \| str \| None<br/><br/>**Default:** None |
 | `collection_name` | **Type:** str \| None<br/><br/>**Default:** None |
+| `query_engine` | **Type:** [VectorChromaQueryEngine](/docs/api-reference/autogen/agents/experimental/document_agent/chroma_query_engine/VectorChromaQueryEngine) \| [InMemoryQueryEngine](/docs/api-reference/autogen/agents/experimental/document_agent/inmemory_query_engine/InMemoryQueryEngine) \| None<br/><br/>**Default:** None |
 
 ### Instance Attributes
 

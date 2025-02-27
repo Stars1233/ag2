@@ -1,0 +1,61 @@
+---
+sidebarTitle: InMemoryQueryEngine
+title: autogen.agents.experimental.document_agent.InMemoryQueryEngine
+---
+<h2 id="autogen.agents.experimental.document_agent.InMemoryQueryEngine" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">InMemoryQueryEngine</span>
+</h2>
+
+```python
+InMemoryQueryEngine(llm_config: dict[str, Any])
+```
+
+    This engine stores ingested documents in memory and then injects them into an internal agent's system message for answering queries.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `llm_config` | **Type:** dict[str, typing.Any] |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### add_docs
+
+```python
+add_docs(
+    self,
+    new_doc_dir: Path | str | None = None,
+    new_doc_paths: list[Path | str] | None = None
+) -> None
+```
+
+    Add additional documents to the in-memory store
+    
+    Loads new Docling-parsed Markdown files from a specified directory or a list of file paths
+    and inserts them into the in-memory store.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `new_doc_dir` | The directory path from which to load additional documents.<br/><br/>If provided, all eligible files in this directory are loaded.<br/><br/>**Type:** pathlib.Path \| str \| None<br/><br/>**Default:** None |
+| `new_doc_paths` | A list of file paths specifying additional documents to load.<br/><br/>Each file should be a Docling-parsed Markdown file.<br/><br/>**Type:** list[pathlib.Path \| str] \| None<br/><br/>**Default:** None |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### query
+
+```python
+query(self, question: str) -> str
+```
+
+    Run a query against the ingested documents and return the answer.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `question` | **Type:** str |
+
+<br />

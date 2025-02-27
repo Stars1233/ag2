@@ -125,7 +125,20 @@
                 "docs/user-guide/basic-concepts/orchestration/ending-a-chat"
               ]
             },
-            "docs/user-guide/basic-concepts/tools"
+            {
+              "group": "Tools",
+              "pages": [
+                "docs/user-guide/basic-concepts/tools/tools",
+                {
+                  "group": "Experimental",
+                  "pages": [
+                    "docs/user-guide/basic-concepts/tools/experimental/browser-use",
+                    "docs/user-guide/basic-concepts/tools/experimental/crawl4ai",
+                    "docs/user-guide/basic-concepts/tools/experimental/deep-research"
+                  ]
+                }
+              ]
+            }
           ]
         },
         {
@@ -1012,7 +1025,7 @@
                       "group": "rag",
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/rag/overview",
-                        "docs/api-reference/autogen/agentchat/contrib/rag/VectorDbQueryEngine"
+                        "docs/api-reference/autogen/agentchat/contrib/rag/RAGQueryEngine"
                       ]
                     },
                     {
@@ -1240,20 +1253,24 @@
                     "docs/api-reference/autogen/agents/experimental/DiscordAgent",
                     "docs/api-reference/autogen/agents/experimental/DocAgent",
                     "docs/api-reference/autogen/agents/experimental/DoclingDocIngestAgent",
+                    "docs/api-reference/autogen/agents/experimental/InMemoryQueryEngine",
                     "docs/api-reference/autogen/agents/experimental/SlackAgent",
                     "docs/api-reference/autogen/agents/experimental/TelegramAgent",
+                    "docs/api-reference/autogen/agents/experimental/VectorChromaQueryEngine",
                     "docs/api-reference/autogen/agents/experimental/WebSurferAgent",
                     {
                       "group": "document_agent",
                       "pages": [
                         "docs/api-reference/autogen/agents/experimental/document_agent/overview",
+                        "docs/api-reference/autogen/agents/experimental/document_agent/InMemoryQueryEngine",
+                        "docs/api-reference/autogen/agents/experimental/document_agent/VectorChromaQueryEngine",
                         "docs/api-reference/autogen/agents/experimental/document_agent/docling_parse_docs",
                         "docs/api-reference/autogen/agents/experimental/document_agent/handle_input",
                         {
-                          "group": "docling_query_engine",
+                          "group": "chroma_query_engine",
                           "pages": [
-                            "docs/api-reference/autogen/agents/experimental/document_agent/docling_query_engine/overview",
-                            "docs/api-reference/autogen/agents/experimental/document_agent/docling_query_engine/DoclingMdQueryEngine"
+                            "docs/api-reference/autogen/agents/experimental/document_agent/chroma_query_engine/overview",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/chroma_query_engine/VectorChromaQueryEngine"
                           ]
                         },
                         {
@@ -1264,6 +1281,15 @@
                             "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/is_url",
                             "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/list_files",
                             "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/preprocess_path"
+                          ]
+                        },
+                        {
+                          "group": "inmemory_query_engine",
+                          "pages": [
+                            "docs/api-reference/autogen/agents/experimental/document_agent/inmemory_query_engine/overview",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/inmemory_query_engine/DocumentStore",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/inmemory_query_engine/InMemoryQueryEngine",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/inmemory_query_engine/QueryAnswer"
                           ]
                         }
                       ]

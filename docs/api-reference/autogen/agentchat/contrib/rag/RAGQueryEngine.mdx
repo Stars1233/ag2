@@ -1,0 +1,70 @@
+---
+sidebarTitle: RAGQueryEngine
+title: autogen.agentchat.contrib.rag.RAGQueryEngine
+---
+<h2 id="autogen.agentchat.contrib.rag.RAGQueryEngine" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">RAGQueryEngine</span>
+</h2>
+
+```python
+RAGQueryEngine(*args, **kwargs)
+```
+
+    A protocol class that represents a document ingestation and query engine on top of an underlying database.<br/>This interface defines the basic methods for RAG.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` |  |
+| `**kwargs` |  |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### add_docs
+
+```python
+add_docs(
+    self,
+    new_doc_dir: Path | str | None = None,
+    new_doc_paths: list[Path | str] | None = None,
+    *args: Any,
+    **kwargs: Any
+) -> bool
+```
+
+    Add new documents to the underlying data store.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `new_doc_dir` | **Type:** pathlib.Path \| str \| None<br/><br/>**Default:** None |
+| `new_doc_paths` | **Type:** list[pathlib.Path \| str] \| None<br/><br/>**Default:** None |
+| `*args` | **Type:** Any |
+| `**kwargs` | **Type:** Any |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### query
+
+```python
+query(
+    self,
+    question: str,
+    *args: Any,
+    **kwargs: Any
+) -> str
+```
+
+    Transform a string format question into database query and return the result.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `question` | a string format question<br/><br/>**Type:** str |
+| `*args` | Any additional arguments<br/><br/>**Type:** Any |
+| `**kwargs` | Any additional keyword arguments<br/><br/>**Type:** Any |
+
+<br />

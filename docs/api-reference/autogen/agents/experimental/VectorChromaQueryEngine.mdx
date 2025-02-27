@@ -1,14 +1,14 @@
 ---
-sidebarTitle: DoclingMdQueryEngine
-title: autogen.agents.experimental.document_agent.docling_query_engine.DoclingMdQueryEngine
+sidebarTitle: VectorChromaQueryEngine
+title: autogen.agents.experimental.VectorChromaQueryEngine
 ---
-<h2 id="autogen.agents.experimental.document_agent.docling_query_engine.DoclingMdQueryEngine" class="doc doc-heading">
+<h2 id="autogen.agents.experimental.VectorChromaQueryEngine" class="doc doc-heading">
     <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
-    <span class="doc doc-object-name doc-class-name">DoclingMdQueryEngine</span>
+    <span class="doc doc-object-name doc-class-name">VectorChromaQueryEngine</span>
 </h2>
 
 ```python
-DoclingMdQueryEngine(
+VectorChromaQueryEngine(
     db_path: str | None = None,
     embedding_function: Optional[EmbeddingFunction[Any]] = None,
     metadata: dict[str, Any] | None = None,
@@ -20,7 +20,7 @@ DoclingMdQueryEngine(
     This engine leverages Chromadb to persist document embeddings in a named collection
     and LlamaIndex's VectorStoreIndex to efficiently index and retrieve documents, and generate an answer in response
     to natural language queries. The Chromadb collection serves as the storage layer, while
-    the collection name uniquely identifies the set of documents within the persistent database.<br/>Initializes the DoclingMdQueryEngine with db_path, metadata, and embedding function and llm.<br/>
+    the collection name uniquely identifies the set of documents within the persistent database.<br/>Initializes the VectorChromaQueryEngine with db_path, metadata, and embedding function and llm.<br/>
 
 <b>Parameters:</b>
 | Name | Description |

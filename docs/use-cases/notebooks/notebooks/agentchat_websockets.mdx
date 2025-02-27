@@ -72,16 +72,16 @@ and interactivity.
 Some extra dependencies are needed for this notebook, which can be installed via pip:
 
 ```bash
-pip install ag2[websockets] fastapi uvicorn
+pip install ag2[openai,websockets] fastapi uvicorn
 ```
 
 > **Note:** If you have been using `autogen` or `pyautogen`, all you need to do is upgrade it using:  
 > ```bash
-> pip install -U autogen[websockets]
+> pip install -U autogen[openai,websockets]
 > ```
 > or  
 > ```bash
-> pip install -U pyautogen[websockets]
+> pip install -U pyautogen[openai,websockets]
 > ```
 > as `pyautogen`, `autogen`, and `ag2` are aliases for the same PyPI package.  
 
