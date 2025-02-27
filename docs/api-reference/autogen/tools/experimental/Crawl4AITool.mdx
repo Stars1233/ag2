@@ -8,7 +8,11 @@ title: autogen.tools.experimental.Crawl4AITool
 </h2>
 
 ```python
-Crawl4AITool(**kwargs)
+Crawl4AITool(
+    llm_config: dict[str, Any] | None = None,
+    extraction_model: type[BaseModel] | None = None,
+    llm_strategy_kwargs: dict[str, Any] | None = None
+)
 ```
 
     Crawl a website and extract information using the crawl4ai library.<br/>Initialize the Crawl4AITool.<br/>
@@ -16,7 +20,9 @@ Crawl4AITool(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `llm_config` | **Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
+| `extraction_model` | **Type:** type[pydantic.main.BaseModel] \| None<br/><br/>**Default:** None |
+| `llm_strategy_kwargs` | **Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
 
 ### Instance Attributes
 
@@ -62,16 +68,16 @@ Crawl4AITool(**kwargs)
 #### register_for_execution
 
 ```python
-register_for_execution(*args, **kwargs) -> 
+register_for_execution(self, agent: ConversableAgent) -> 
 ```
 
-    Call self as a function.
+    Registers the tool for direct execution by a ConversableAgent.<br/>This method registers the tool so that it can be executed by the agent,
+    typically outside of the context of an LLM interaction.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `agent` | The agent to which the tool will be registered.<br/><br/>**Type:** ConversableAgent |
 
 <br />
 
@@ -79,16 +85,16 @@ register_for_execution(*args, **kwargs) ->
 #### register_for_llm
 
 ```python
-register_for_llm(*args, **kwargs) -> 
+register_for_llm(self, agent: ConversableAgent) -> 
 ```
 
-    Call self as a function.
+    Registers the tool for use with a ConversableAgent's language model (LLM).<br/>This method registers the tool so that it can be invoked by the agent during
+    interactions with the language model.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `agent` | The agent to which the tool will be registered.<br/><br/>**Type:** ConversableAgent |
 
 <br />
 
@@ -96,15 +102,15 @@ register_for_llm(*args, **kwargs) ->
 #### register_tool
 
 ```python
-register_tool(*args, **kwargs) -> 
+register_tool(self, agent: ConversableAgent) -> 
 ```
 
-    Call self as a function.
+    Register a tool to be both proposed and executed by an agent.<br/>Equivalent to calling both `register_for_llm` and `register_for_execution` with the same agent.<br/>Note: This will not make the agent recommend and execute the call in the one step. If the agent
+    recommends the tool, it will need to be the next agent to speak in order to execute the tool.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `agent` | The agent to which the tool will be registered.<br/><br/>**Type:** ConversableAgent |
 
 <br />

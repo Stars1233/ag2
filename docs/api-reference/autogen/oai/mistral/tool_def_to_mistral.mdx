@@ -7,15 +7,14 @@ title: autogen.oai.mistral.tool_def_to_mistral
 #### tool_def_to_mistral
 
 ```python
-tool_def_to_mistral(*args, **kwargs) -> 
+tool_def_to_mistral(tool_definitions: list[dict[str, Any]]) -> list[dict[str, Any]]
 ```
 
-    Call self as a function.
+    Converts AG2 tool definition to a mistral tool format
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `tool_definitions` | **Type:** list[dict[str, typing.Any]] |
 
 <br />

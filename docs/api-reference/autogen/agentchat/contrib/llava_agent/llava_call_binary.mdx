@@ -7,15 +7,26 @@ title: autogen.agentchat.contrib.llava_agent.llava_call_binary
 #### llava_call_binary
 
 ```python
-llava_call_binary(*args, **kwargs) -> 
+llava_call_binary(
+    prompt: str,
+    images: list[Any],
+    config_list: list[dict[str, Any]],
+    max_new_tokens: int = 1000,
+    temperature: float = 0.5,
+    seed: int = 1
+) -> 
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `prompt` | **Type:** str |
+| `images` | **Type:** list[typing.Any] |
+| `config_list` | **Type:** list[dict[str, typing.Any]] |
+| `max_new_tokens` | **Type:** int<br/><br/>**Default:** 1000 |
+| `temperature` | **Type:** float<br/><br/>**Default:** 0.5 |
+| `seed` | **Type:** int<br/><br/>**Default:** 1 |
 
 <br />

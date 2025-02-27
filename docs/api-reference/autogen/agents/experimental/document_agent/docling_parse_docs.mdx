@@ -7,15 +7,33 @@ title: autogen.agents.experimental.document_agent.docling_parse_docs
 #### docling_parse_docs
 
 ```python
-docling_parse_docs(*args, **kwargs) -> 
+docling_parse_docs(
+    input_file_path: Path | str,
+    output_dir_path: Path | str | None = None,
+    output_formats: list[str] | None = None
+) -> list[Path]
 ```
 
-    Call self as a function.
+    Convert documents into a Deep Search document format using EasyOCR
+    with CPU only, and export the document and its tables to the specified
+    output directory.<br/>Supported formats: <br/>    PDF,
+        IMAGE,
+        DOCX,
+        HTML,
+        PPTX,
+        ASCIIDOC,
+        MD,
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `input_file_path` | The path to the input file.<br/><br/>**Type:** pathlib.Path \| str |
+| `output_dir_path` | The path to the output directory.<br/><br/>**Type:** pathlib.Path \| str \| None<br/><br/>**Default:** None |
+| `output_formats` | The output formats.<br/><br/>Defaults to ["markdown"].<br/><br/>**Type:** list[str] \| None<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| list[pathlib.Path] | list[ConversionResult]: The result of the conversion. |
 
 <br />

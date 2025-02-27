@@ -7,15 +7,14 @@ title: autogen.oai.anthropic.oai_messages_to_anthropic_messages
 #### oai_messages_to_anthropic_messages
 
 ```python
-oai_messages_to_anthropic_messages(*args, **kwargs) -> 
+oai_messages_to_anthropic_messages(params: dict[str, Any]) -> list[dict[str, Any]]
 ```
 
-    Call self as a function.
+    Convert messages from OAI format to Anthropic format.<br/>We correct for any specific role orders and types, etc.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `params` | **Type:** dict[str, Any] |
 
 <br />

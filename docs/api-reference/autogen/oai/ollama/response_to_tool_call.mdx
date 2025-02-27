@@ -7,15 +7,14 @@ title: autogen.oai.ollama.response_to_tool_call
 #### response_to_tool_call
 
 ```python
-response_to_tool_call(*args, **kwargs) -> 
+response_to_tool_call(response_string: str) -> Any
 ```
 
-    Call self as a function.
+    Attempts to convert the response to an object, aimed to align with function format `[\{},\{}]`
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `response_string` | **Type:** str |
 
 <br />

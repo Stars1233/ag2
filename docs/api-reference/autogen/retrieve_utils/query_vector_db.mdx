@@ -7,15 +7,36 @@ title: autogen.retrieve_utils.query_vector_db
 #### query_vector_db
 
 ```python
-query_vector_db(*args, **kwargs) -> 
+query_vector_db(
+    query_texts: list[str],
+    n_results: int = 10,
+    client: API = None,
+    db_path: str = 'tmp/chromadb.db',
+    collection_name: str = 'all-my-documents',
+    search_string: str = '',
+    embedding_model: str = 'all-MiniLM-L6-v2',
+    embedding_function: Callable = None
+) -> QueryResult
 ```
 
-    Call self as a function.
+    Query a vector db. We support chromadb compatible APIs, it's not required if you prepared your own vector db
+        and query function.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `query_texts` | the list of strings which will be used to query the vector db.<br/><br/>**Type:** list[str] |
+| `n_results` | the number of results to return.<br/><br/>Default is 10.<br/><br/>**Type:** int<br/><br/>**Default:** 10 |
+| `client` | the chromadb compatible client.<br/><br/>Default is None, a chromadb client will be used.<br/><br/>**Type:** API<br/><br/>**Default:** None |
+| `db_path` | the path to the vector db.<br/><br/>Default is "tmp/chromadb.db".<br/><br/>The default was `/tmp/chromadb.db` for version `=0.2.24`.<br/><br/>**Type:** str<br/><br/>**Default:** 'tmp/chromadb.db' |
+| `collection_name` | the name of the collection.<br/><br/>Default is "all-my-documents".<br/><br/>**Type:** str<br/><br/>**Default:** 'all-my-documents' |
+| `search_string` | the search string.<br/><br/>Only docs that contain an exact match of this string will be retrieved.<br/><br/>Default is "".<br/><br/>**Type:** str<br/><br/>**Default:** '' |
+| `embedding_model` | the embedding model to use.<br/><br/>Default is "all-MiniLM-L6-v2".<br/><br/>Will be ignored if embedding_function is not None.<br/><br/>**Type:** str<br/><br/>**Default:** 'all-MiniLM-L6-v2' |
+| `embedding_function` | the embedding function to use.<br/><br/>Default is None, SentenceTransformer with the given `embedding_model` will be used.<br/><br/>If you want to use OpenAI, Cohere, HuggingFace or other embedding functions, you can pass it here, follow the examples in `https://docs.trychroma.com/embeddings`.<br/><br/>**Type:** Callable<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| QueryResult | The query result. The format is: ```python class QueryResult(TypedDict): ids: List[IDs] embeddings: Optional[List[List[Embedding]]] documents: Optional[List[List[Document]]] metadatas: Optional[List[List[Metadata]]] distances: Optional[List[List[float]]] ``` |
 
 <br />

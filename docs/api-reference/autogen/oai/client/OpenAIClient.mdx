@@ -19,24 +19,6 @@ OpenAIClient(client: Union[OpenAI, AzureOpenAI], response_format: Union[BaseM
 | `client` | **Type:** Union[OpenAI, AzureOpenAI] |
 | `response_format` | **Type:** Union[BaseModel, dict[str, Any], None]<br/><br/>**Default:** None |
 
-### Static Methods
-
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
-#### get_usage
-
-```python
-get_usage(response: Union[ChatCompletion, Completion]) -> dict
-```
-
-    
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `response` | **Type:** Union[ChatCompletion, Completion] |
-
-<br />
-
 ### Instance Methods
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
@@ -72,7 +54,23 @@ create(self, params: dict[str, Any]) -> ChatCompletion
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| openai.types.chat.chat_completion.ChatCompletion | The completion. |
+| ChatCompletion | The completion. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_usage
+
+```python
+get_usage(response: Union[ChatCompletion, Completion]) -> dict
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `response` | **Type:** Union[ChatCompletion, Completion] |
 
 <br />
 
@@ -80,7 +78,7 @@ create(self, params: dict[str, Any]) -> ChatCompletion
 #### message_retrieval
 
 ```python
-message_retrieval(self, response: Union[ChatCompletion, Completion]) -> list[str] | list[ChatCompletionMessage]
+message_retrieval(self, response: Union[ChatCompletion, Completion]) -> Union[list[str], list[ChatCompletionMessage]]
 ```
 
     Retrieve the messages from the response.<br/>
@@ -93,6 +91,6 @@ message_retrieval(self, response: Union[ChatCompletion, Completion]) -> list[s
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| list[str] \| list[openai.types.chat.chat_completion_message.ChatCompletionMessage] | The message from the response. |
+| Union[list[str], list[ChatCompletionMessage]] | The message from the response. |
 
 <br />

@@ -8,7 +8,15 @@ title: autogen.coding.jupyter.DockerJupyterServer
 </h2>
 
 ```python
-DockerJupyterServer(**kwargs)
+DockerJupyterServer(
+    *,
+    custom_image_name: Optional[str] = None,
+    container_name: Optional[str] = None,
+    auto_remove: bool = True,
+    stop_container: bool = True,
+    docker_env: dict[str, str] = {},
+    token: str | GenerateToken = &lt;autogen.coding.jupyter.docker_jupyter_server.DockerJupyterServer.GenerateToken object&gt;
+)
 ```
 
     (Experimental)
@@ -18,7 +26,12 @@ DockerJupyterServer(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `custom_image_name` | **Type:** Optional[str]<br/><br/>**Default:** None |
+| `container_name` | **Type:** Optional[str]<br/><br/>**Default:** None |
+| `auto_remove` | **Type:** bool<br/><br/>**Default:** True |
+| `stop_container` | **Type:** bool<br/><br/>**Default:** True |
+| `docker_env` | **Type:** dict[str, str]<br/><br/>**Default:** \{} |
+| `token` | **Type:** str \| GenerateToken<br/><br/>**Default:** &lt;autogen.coding.jupyter.docker_jupyter_server.DockerJupyterServer.GenerateToken object&gt; |
 
 ### Class Attributes
 
@@ -48,16 +61,10 @@ DockerJupyterServer(**kwargs)
 #### get_client
 
 ```python
-get_client(*args, **kwargs) -> 
+get_client(self) -> JupyterClient
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    
 
 <br />
 
@@ -65,15 +72,9 @@ get_client(*args, **kwargs) ->
 #### stop
 
 ```python
-stop(*args, **kwargs) -> 
+stop(self) -> None
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    
 
 <br />

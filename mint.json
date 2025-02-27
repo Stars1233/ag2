@@ -166,7 +166,6 @@
         {
           "group": "Model Providers",
           "pages": [
-            "docs/user-guide/models/openai",
             "docs/user-guide/models/amazon-bedrock",
             "docs/user-guide/models/anthropic",
             "docs/user-guide/models/cerebras",
@@ -175,10 +174,19 @@
             "docs/user-guide/models/google-gemini",
             "docs/user-guide/models/google-vertexai",
             "docs/user-guide/models/groq",
-            "docs/user-guide/models/litellm-with-watsonx",
+            {
+              "group": "LiteLLM Proxy Server",
+              "pages": [
+                "docs/user-guide/models/litellm-proxy-server/installation",
+                "docs/user-guide/models/litellm-proxy-server/openai",
+                "docs/user-guide/models/litellm-proxy-server/azure",
+                "docs/user-guide/models/litellm-proxy-server/watsonx"
+              ]
+            },
             "docs/user-guide/models/lm-studio",
             "docs/user-guide/models/mistralai",
             "docs/user-guide/models/ollama",
+            "docs/user-guide/models/openai",
             "docs/user-guide/models/togetherai",
             "docs/user-guide/models/vLLM"
           ]
@@ -329,6 +337,22 @@
         "docs/contributor-guide/documentation",
         "docs/contributor-guide/file-bug-report",
         "docs/contributor-guide/maintainer",
+        {
+          "group": "How AG2 Works",
+          "pages": [
+            "docs/contributor-guide/how-ag2-works/overview",
+            "docs/contributor-guide/how-ag2-works/initiate-chat",
+            "docs/contributor-guide/how-ag2-works/generate-reply",
+            "docs/contributor-guide/how-ag2-works/hooks"
+          ]
+        },
+        {
+          "group": "Building Agents & Tools",
+          "pages": [
+            "docs/contributor-guide/building/creating-a-tool",
+            "docs/contributor-guide/building/creating-an-agent"
+          ]
+        },
         "docs/contributor-guide/pre-commit",
         "docs/contributor-guide/tests",
         "docs/contributor-guide/Research"
@@ -1010,9 +1034,7 @@
                       "group": "retrieve_user_proxy_agent",
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/retrieve_user_proxy_agent/overview",
-                        "docs/api-reference/autogen/agentchat/contrib/retrieve_user_proxy_agent/RetrieveUserProxyAgent",
-                        "docs/api-reference/autogen/agentchat/contrib/retrieve_user_proxy_agent/create_vector_db_from_dir",
-                        "docs/api-reference/autogen/agentchat/contrib/retrieve_user_proxy_agent/query_vector_db"
+                        "docs/api-reference/autogen/agentchat/contrib/retrieve_user_proxy_agent/RetrieveUserProxyAgent"
                       ]
                     },
                     {
@@ -1202,6 +1224,14 @@
             {
               "group": "agents",
               "pages": [
+                {
+                  "group": "contrib",
+                  "pages": [
+                    "docs/api-reference/autogen/agents/contrib/overview",
+                    "docs/api-reference/autogen/agents/contrib/TimeReplyAgent",
+                    "docs/api-reference/autogen/agents/contrib/TimeToolAgent"
+                  ]
+                },
                 {
                   "group": "experimental",
                   "pages": [
@@ -1649,6 +1679,66 @@
                   ]
                 },
                 {
+                  "group": "oai_models",
+                  "pages": [
+                    "docs/api-reference/autogen/oai/oai_models/overview",
+                    "docs/api-reference/autogen/oai/oai_models/ChatCompletion",
+                    "docs/api-reference/autogen/oai/oai_models/ChatCompletionMessage",
+                    "docs/api-reference/autogen/oai/oai_models/ChatCompletionMessageToolCall",
+                    "docs/api-reference/autogen/oai/oai_models/Choice",
+                    "docs/api-reference/autogen/oai/oai_models/CompletionUsage",
+                    {
+                      "group": "chat_completion",
+                      "pages": [
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion/overview",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion/ChatCompletion",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion/Choice",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion/ChoiceLogprobs"
+                      ]
+                    },
+                    {
+                      "group": "chat_completion_audio",
+                      "pages": [
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_audio/overview",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_audio/ChatCompletionAudio"
+                      ]
+                    },
+                    {
+                      "group": "chat_completion_message",
+                      "pages": [
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_message/overview",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_message/ChatCompletionMessage",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_message/FunctionCall"
+                      ]
+                    },
+                    {
+                      "group": "chat_completion_message_tool_call",
+                      "pages": [
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_message_tool_call/overview",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_message_tool_call/ChatCompletionMessageToolCall",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_message_tool_call/Function"
+                      ]
+                    },
+                    {
+                      "group": "chat_completion_token_logprob",
+                      "pages": [
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_token_logprob/overview",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_token_logprob/ChatCompletionTokenLogprob",
+                        "docs/api-reference/autogen/oai/oai_models/chat_completion_token_logprob/TopLogprob"
+                      ]
+                    },
+                    {
+                      "group": "completion_usage",
+                      "pages": [
+                        "docs/api-reference/autogen/oai/oai_models/completion_usage/overview",
+                        "docs/api-reference/autogen/oai/oai_models/completion_usage/CompletionTokensDetails",
+                        "docs/api-reference/autogen/oai/oai_models/completion_usage/CompletionUsage",
+                        "docs/api-reference/autogen/oai/oai_models/completion_usage/PromptTokensDetails"
+                      ]
+                    }
+                  ]
+                },
+                {
                   "group": "ollama",
                   "pages": [
                     "docs/api-reference/autogen/oai/ollama/overview",
@@ -1736,6 +1826,13 @@
                 "docs/api-reference/autogen/tools/load_basemodels_if_needed",
                 "docs/api-reference/autogen/tools/serialize_to_str",
                 "docs/api-reference/autogen/tools/tool",
+                {
+                  "group": "contrib",
+                  "pages": [
+                    "docs/api-reference/autogen/tools/contrib/overview",
+                    "docs/api-reference/autogen/tools/contrib/TimeTool"
+                  ]
+                },
                 {
                   "group": "dependency_injection",
                   "pages": [

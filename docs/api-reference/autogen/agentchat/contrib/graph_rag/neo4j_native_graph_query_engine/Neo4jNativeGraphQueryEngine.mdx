@@ -8,7 +8,19 @@ title: autogen.agentchat.contrib.graph_rag.neo4j_native_graph_query_engine.Neo4j
 </h2>
 
 ```python
-Neo4jNativeGraphQueryEngine(**kwargs)
+Neo4jNativeGraphQueryEngine(
+    host: str = 'neo4j://localhost',
+    port: int = 7687,
+    username: str = 'neo4j',
+    password: str = 'password',
+    embeddings: ForwardRef('Embedder') | None = None,
+    embedding_dimension: int | None = 3072,
+    llm: ForwardRef('LLMInterface') | None = None,
+    query_llm: ForwardRef('LLMInterface') | None = None,
+    entities: List[str] | None = None,
+    relations: List[str] | None = None,
+    potential_schema: List[tuple[str, str, str]] | None = None
+)
 ```
 
     A graph query engine implemented using the Neo4j GraphRAG SDK.<br/>Provides functionality to initialize a knowledge graph,
@@ -17,7 +29,17 @@ Neo4jNativeGraphQueryEngine(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `host` | **Type:** str<br/><br/>**Default:** 'neo4j |
+| `port` | **Type:** int<br/><br/>**Default:** 7687 |
+| `username` | **Type:** str<br/><br/>**Default:** 'neo4j' |
+| `password` | **Type:** str<br/><br/>**Default:** 'password' |
+| `embeddings` | **Type:** ForwardRef('Embedder') \| None<br/><br/>**Default:** None |
+| `embedding_dimension` | **Type:** int \| None<br/><br/>**Default:** 3072 |
+| `llm` | **Type:** ForwardRef('LLMInterface') \| None<br/><br/>**Default:** None |
+| `query_llm` | **Type:** ForwardRef('LLMInterface') \| None<br/><br/>**Default:** None |
+| `entities` | **Type:** List[str] \| None<br/><br/>**Default:** None |
+| `relations` | **Type:** List[str] \| None<br/><br/>**Default:** None |
+| `potential_schema` | **Type:** List[tuple[str, str, str]] \| None<br/><br/>**Default:** None |
 
 ### Instance Methods
 
@@ -25,16 +47,20 @@ Neo4jNativeGraphQueryEngine(**kwargs)
 #### add_records
 
 ```python
-add_records(*args, **kwargs) -> 
+add_records(self, new_records: list[Document]) -> bool
 ```
 
-    Call self as a function.
+    Add new records to the Neo4j database.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `new_records` | List of new Documents to be added<br/><br/>**Type:** list[[Document](/docs/api-reference/autogen/agentchat/contrib/graph_rag/document/Document)] |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| bool | bool: True if records were added successfully, False otherwise. |
 
 <br />
 
@@ -42,16 +68,15 @@ add_records(*args, **kwargs) ->
 #### init_db
 
 ```python
-init_db(*args, **kwargs) -> 
+init_db(self, input_doc: list[Document] | None = None) -> None
 ```
 
-    Call self as a function.
+    Initialize the Neo4j graph database using the provided input doc.<br/>Currently this method only supports single document input (only reads the first doc).<br/>This method supports both text and PDF documents. It performs the following steps: <br/>1. Clears the existing database.<br/>2. Extracts graph nodes and relationships from the input data to build a knowledge graph.<br/>3. Creates a vector index for efficient retrieval.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `input_doc` | Input documents for building the graph.<br/><br/>**Type:** list[[Document](/docs/api-reference/autogen/agentchat/contrib/graph_rag/document/Document)] \| None<br/><br/>**Default:** None |
 
 <br />
 
@@ -59,15 +84,26 @@ init_db(*args, **kwargs) ->
 #### query
 
 ```python
-query(*args, **kwargs) -> 
+query(
+    self,
+    question: str,
+    n_results: int = 1,
+    **kwargs: Any
+) -> GraphStoreQueryResult
 ```
 
-    Call self as a function.
+    Query the Neo4j database using a natural language question.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `question` | The question to be answered by querying the graph.<br/><br/>**Type:** str |
+| `n_results` | **Type:** int<br/><br/>**Default:** 1 |
+| `**kwargs` | **Type:** Any |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| [GraphStoreQueryResult](/docs/api-reference/autogen/agentchat/contrib/graph_rag/graph_query_engine/GraphStoreQueryResult) | GraphStoreQueryResult: The result of the query. |
 
 <br />

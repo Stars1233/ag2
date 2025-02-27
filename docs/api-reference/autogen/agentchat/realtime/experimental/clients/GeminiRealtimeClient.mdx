@@ -8,7 +8,11 @@ title: autogen.agentchat.realtime.experimental.clients.GeminiRealtimeClient
 </h2>
 
 ```python
-GeminiRealtimeClient(**kwargs)
+GeminiRealtimeClient(
+    *,
+    llm_config: dict[str, Any],
+    logger: Logger | None = None
+)
 ```
 
     (Experimental) Client for Gemini Realtime API.<br/>(Experimental) Client for Gemini Realtime API.<br/>
@@ -16,7 +20,8 @@ GeminiRealtimeClient(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `llm_config` | **Type:** dict[str, typing.Any] |
+| `logger` | **Type:** logging.Logger \| None<br/><br/>**Default:** None |
 
 ### Static Methods
 
@@ -62,16 +67,15 @@ get_factory(
 #### add_event
 
 ```python
-add_event(*args, **kwargs) -> 
+add_event(self, event: RealtimeEvent | None) -> 
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `event` | **Type:** [RealtimeEvent](/docs/api-reference/autogen/agentchat/realtime/experimental/realtime_events/RealtimeEvent) \| None |
 
 <br />
 
@@ -79,16 +83,10 @@ add_event(*args, **kwargs) ->
 #### connect
 
 ```python
-connect(*args, **kwargs) -> 
+connect(self) -> AsyncGenerator[None, None]
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    Connect to the Gemini Realtime API.
 
 <br />
 
@@ -96,16 +94,10 @@ connect(*args, **kwargs) ->
 #### get_event
 
 ```python
-get_event(*args, **kwargs) -> 
+get_event(self) -> RealtimeEvent | None
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    
 
 <br />
 
@@ -113,16 +105,15 @@ get_event(*args, **kwargs) ->
 #### queue_input_audio_buffer_delta
 
 ```python
-queue_input_audio_buffer_delta(*args, **kwargs) -> 
+queue_input_audio_buffer_delta(self, audio: str) -> None
 ```
 
-    Call self as a function.
+    queue InputAudioBufferDelta.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `audio` | The audio.<br/><br/>**Type:** str |
 
 <br />
 
@@ -130,16 +121,10 @@ queue_input_audio_buffer_delta(*args, **kwargs) ->
 #### read_events
 
 ```python
-read_events(*args, **kwargs) -> 
+read_events(self) -> AsyncGenerator[RealtimeEvent, None]
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    Read Events from the Gemini Realtime Client
 
 <br />
 
@@ -147,16 +132,15 @@ read_events(*args, **kwargs) ->
 #### send_audio
 
 ```python
-send_audio(*args, **kwargs) -> 
+send_audio(self, audio: str) -> None
 ```
 
-    Call self as a function.
+    Send audio to the Gemini Realtime API.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `audio` | The audio to send.<br/><br/>**Type:** str |
 
 <br />
 
@@ -164,16 +148,20 @@ send_audio(*args, **kwargs) ->
 #### send_function_result
 
 ```python
-send_function_result(*args, **kwargs) -> 
+send_function_result(
+    self,
+    call_id: str,
+    result: str
+) -> None
 ```
 
-    Call self as a function.
+    Send the result of a function call to the Gemini Realtime API.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `call_id` | The ID of the function call.<br/><br/>**Type:** str |
+| `result` | The result of the function call.<br/><br/>**Type:** str |
 
 <br />
 
@@ -181,16 +169,23 @@ send_function_result(*args, **kwargs) ->
 #### send_text
 
 ```python
-send_text(*args, **kwargs) -> 
+send_text(
+    self,
+    *,
+    role: Literal['user', 'assistant', 'system'],
+    text: str,
+    turn_complete: bool = True
+) -> None
 ```
 
-    Call self as a function.
+    Send a text message to the Gemini Realtime API.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `role` | The role of the message.<br/><br/>**Type:** Literal['user', 'assistant', 'system'] |
+| `text` | The text of the message.<br/><br/>**Type:** str |
+| `turn_complete` | **Type:** bool<br/><br/>**Default:** True |
 
 <br />
 
@@ -198,16 +193,15 @@ send_text(*args, **kwargs) ->
 #### session_update
 
 ```python
-session_update(*args, **kwargs) -> 
+session_update(self, session_options: dict[str, Any]) -> None
 ```
 
-    Call self as a function.
+    Record session updates to be applied when the connection is established.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `session_options` | The session options to update.<br/><br/>**Type:** dict[str, typing.Any] |
 
 <br />
 
@@ -215,15 +209,21 @@ session_update(*args, **kwargs) ->
 #### truncate_audio
 
 ```python
-truncate_audio(*args, **kwargs) -> 
+truncate_audio(
+    self,
+    audio_end_ms: int,
+    content_index: int,
+    item_id: str
+) -> None
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `audio_end_ms` | **Type:** int |
+| `content_index` | **Type:** int |
+| `item_id` | **Type:** str |
 
 <br />

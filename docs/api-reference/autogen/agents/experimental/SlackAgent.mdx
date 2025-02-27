@@ -9,6 +9,9 @@ title: autogen.agents.experimental.SlackAgent
 
 ```python
 SlackAgent(
+    name: str,
+    system_message: str | None = None,
+    *,
     bot_token: str,
     channel_id: str,
     has_writing_instructions: bool = True,
@@ -21,6 +24,8 @@ SlackAgent(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
+| `name` | **Type:** str |
+| `system_message` | **Type:** str \| None<br/><br/>**Default:** None |
 | `bot_token` | **Type:** str |
 | `channel_id` | **Type:** str |
 | `has_writing_instructions` | **Type:** bool<br/><br/>**Default:** True |

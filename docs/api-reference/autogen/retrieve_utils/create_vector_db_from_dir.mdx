@@ -7,15 +7,49 @@ title: autogen.retrieve_utils.create_vector_db_from_dir
 #### create_vector_db_from_dir
 
 ```python
-create_vector_db_from_dir(*args, **kwargs) -> 
+create_vector_db_from_dir(
+    dir_path: str | list[str],
+    max_tokens: int = 4000,
+    client: API = None,
+    db_path: str = 'tmp/chromadb.db',
+    collection_name: str = 'all-my-documents',
+    get_or_create: bool = False,
+    chunk_mode: str = 'multi_lines',
+    must_break_at_empty_line: bool = True,
+    embedding_model: str = 'all-MiniLM-L6-v2',
+    embedding_function: Callable = None,
+    custom_text_split_function: Callable = None,
+    custom_text_types: list[str] = ['txt', 'json', 'csv', 'tsv', 'md', 'html', 'htm', 'rtf', 'rst', 'jsonl', 'log', 'xml', 'yaml', 'yml', 'pdf', 'mdx'],
+    recursive: bool = True,
+    extra_docs: bool = False
+) -> API
 ```
 
-    Call self as a function.
+    Create a vector db from all the files in a given directory, the directory can also be a single file or a url to
+        a single file. We support chromadb compatible APIs to create the vector db, this function is not required if
+        you prepared your own vector db.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `dir_path` | the path to the directory, file, url or a list of them.<br/><br/>**Type:** str \| list[str] |
+| `max_tokens` | the maximum number of tokens per chunk.<br/><br/>Default is 4000.<br/><br/>**Type:** int<br/><br/>**Default:** 4000 |
+| `client` | the chromadb client.<br/><br/>Default is None.<br/><br/>**Type:** API<br/><br/>**Default:** None |
+| `db_path` | the path to the chromadb.<br/><br/>Default is "tmp/chromadb.db".<br/><br/>The default was `/tmp/chromadb.db` for version `=0.2.24`.<br/><br/>**Type:** str<br/><br/>**Default:** 'tmp/chromadb.db' |
+| `collection_name` | the name of the collection.<br/><br/>Default is "all-my-documents".<br/><br/>**Type:** str<br/><br/>**Default:** 'all-my-documents' |
+| `get_or_create` | Whether to get or create the collection.<br/><br/>Default is False.<br/><br/>If True, the collection will be returned if it already exists.<br/><br/>Will raise ValueError if the collection already exists and get_or_create is False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+| `chunk_mode` | the chunk mode.<br/><br/>Default is "multi_lines".<br/><br/>**Type:** str<br/><br/>**Default:** 'multi_lines' |
+| `must_break_at_empty_line` | Whether to break at empty line.<br/><br/>Default is True.<br/><br/>**Type:** bool<br/><br/>**Default:** True |
+| `embedding_model` | the embedding model to use.<br/><br/>Default is "all-MiniLM-L6-v2".<br/><br/>Will be ignored if embedding_function is not None.<br/><br/>**Type:** str<br/><br/>**Default:** 'all-MiniLM-L6-v2' |
+| `embedding_function` | the embedding function to use.<br/><br/>Default is None, SentenceTransformer with the given `embedding_model` will be used.<br/><br/>If you want to use OpenAI, Cohere, HuggingFace or other embedding functions, you can pass it here, follow the examples in `https://docs.trychroma.com/embeddings`.<br/><br/>**Type:** Callable<br/><br/>**Default:** None |
+| `custom_text_split_function` | a custom function to split a string into a list of strings.<br/><br/>Default is None, will use the default function in `autogen.retrieve_utils.split_text_to_chunks`.<br/><br/>**Type:** Callable<br/><br/>**Default:** None |
+| `custom_text_types` | a list of file types to be processed.<br/><br/>Default is TEXT_FORMATS.<br/><br/>**Type:** list[str]<br/><br/>**Default:** ['txt', 'json', 'csv', 'tsv', 'md', 'html', 'htm', 'rtf', 'rst', 'jsonl', 'log', 'xml', 'yaml', 'yml', 'pdf', 'mdx'] |
+| `recursive` | whether to search documents recursively in the dir_path.<br/><br/>Default is True.<br/><br/>**Type:** bool<br/><br/>**Default:** True |
+| `extra_docs` | whether to add more documents in the collection.<br/><br/>Default is False<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| API | The chromadb client. |
 
 <br />

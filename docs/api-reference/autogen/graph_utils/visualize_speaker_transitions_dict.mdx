@@ -7,15 +7,25 @@ title: autogen.graph_utils.visualize_speaker_transitions_dict
 #### visualize_speaker_transitions_dict
 
 ```python
-visualize_speaker_transitions_dict(*args, **kwargs) -> 
+visualize_speaker_transitions_dict(
+    speaker_transitions_dict: dict[str, list[Agent]],
+    agents: list[Agent],
+    export_path: str | None = None
+) -> None
 ```
 
-    Call self as a function.
+    Visualize the speaker_transitions_dict using networkx.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `speaker_transitions_dict` | A dictionary of keys and list as values.<br/><br/>The keys are the names of the agents, and the values are the names of the agents that the key agent can transition to.<br/><br/>**Type:** dict[str, list[[Agent](/docs/api-reference/autogen/Agent)]] |
+| `agents` | A list of Agents<br/><br/>**Type:** list[[Agent](/docs/api-reference/autogen/Agent)] |
+| `export_path` | The path to export the graph.<br/><br/>If None, the graph will be shown.<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| None | None |
 
 <br />

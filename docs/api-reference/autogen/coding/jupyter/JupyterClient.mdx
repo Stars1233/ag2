@@ -40,16 +40,15 @@ delete_kernel(self, kernel_id: str) -> None
 #### get_kernel_client
 
 ```python
-get_kernel_client(*args, **kwargs) -> 
+get_kernel_client(self, kernel_id: str) -> JupyterKernelClient
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `kernel_id` | **Type:** str |
 
 <br />
 

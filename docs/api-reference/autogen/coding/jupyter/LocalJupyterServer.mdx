@@ -8,7 +8,15 @@ title: autogen.coding.jupyter.LocalJupyterServer
 </h2>
 
 ```python
-LocalJupyterServer(**kwargs)
+LocalJupyterServer(
+    ip: str = '127.0.0.1',
+    port: Optional[int] = None,
+    token: str | GenerateToken = &lt;autogen.coding.jupyter.local_jupyter_server.LocalJupyterServer.GenerateToken object&gt;,
+    log_file: str = 'jupyter_gateway.log',
+    log_level: str = 'INFO',
+    log_max_bytes: int = 1048576,
+    log_backup_count: int = 3
+)
 ```
 
     (Experimental)
@@ -18,7 +26,13 @@ LocalJupyterServer(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `ip` | **Type:** str<br/><br/>**Default:** '127.0.0.1' |
+| `port` | **Type:** Optional[int]<br/><br/>**Default:** None |
+| `token` | **Type:** str \| GenerateToken<br/><br/>**Default:** &lt;autogen.coding.jupyter.local_jupyter_server.LocalJupyterServer.GenerateToken object&gt; |
+| `log_file` | **Type:** str<br/><br/>**Default:** 'jupyter_gateway.log' |
+| `log_level` | **Type:** str<br/><br/>**Default:** 'INFO' |
+| `log_max_bytes` | **Type:** int<br/><br/>**Default:** 1048576 |
+| `log_backup_count` | **Type:** int<br/><br/>**Default:** 3 |
 
 ### Class Attributes
 
@@ -42,16 +56,10 @@ LocalJupyterServer(**kwargs)
 #### get_client
 
 ```python
-get_client(*args, **kwargs) -> 
+get_client(self) -> JupyterClient
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    
 
 <br />
 
@@ -59,15 +67,9 @@ get_client(*args, **kwargs) ->
 #### stop
 
 ```python
-stop(*args, **kwargs) -> 
+stop(self) -> None
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    
 
 <br />

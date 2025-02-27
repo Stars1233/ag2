@@ -8,7 +8,14 @@ title: autogen.browser_utils.SimpleTextBrowser
 </h2>
 
 ```python
-SimpleTextBrowser(**kwargs)
+SimpleTextBrowser(
+    start_page: str | None = None,
+    viewport_size: int | None = 8192,
+    downloads_folder: str | None = None,
+    bing_base_url: str = 'https://api.bing.microsoft.com/v7.0/search',
+    bing_api_key: str | None = None,
+    request_kwargs: dict[str, Any] | None = None
+)
 ```
 
     (In preview) An extremely simple text-based web browser comparable to Lynx. Suitable for Agentic use.<br/>Initialize the browser with the given parameters.<br/>
@@ -16,7 +23,12 @@ SimpleTextBrowser(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `start_page` | **Type:** str \| None<br/><br/>**Default:** None |
+| `viewport_size` | **Type:** int \| None<br/><br/>**Default:** 8192 |
+| `downloads_folder` | **Type:** str \| None<br/><br/>**Default:** None |
+| `bing_base_url` | **Type:** str<br/><br/>**Default:** 'https |
+| `bing_api_key` | **Type:** str \| None<br/><br/>**Default:** None |
+| `request_kwargs` | **Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
 
 ### Instance Attributes
 
@@ -44,16 +56,10 @@ SimpleTextBrowser(**kwargs)
 #### page_down
 
 ```python
-page_down(*args, **kwargs) -> 
+page_down(self) -> None
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    Move the viewport down by one page.
 
 <br />
 
@@ -61,16 +67,10 @@ page_down(*args, **kwargs) ->
 #### page_up
 
 ```python
-page_up(*args, **kwargs) -> 
+page_up(self) -> None
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    Move the viewport up by one page.
 
 <br />
 
@@ -78,16 +78,15 @@ page_up(*args, **kwargs) ->
 #### set_address
 
 ```python
-set_address(*args, **kwargs) -> 
+set_address(self, uri_or_path: str) -> None
 ```
 
-    Call self as a function.
+    Set the address of the current page.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `uri_or_path` | The URI or path to set as the current page.<br/><br/>**Type:** str |
 
 <br />
 
@@ -95,15 +94,14 @@ set_address(*args, **kwargs) ->
 #### visit_page
 
 ```python
-visit_page(*args, **kwargs) -> 
+visit_page(self, path_or_uri: str) -> str
 ```
 
-    Call self as a function.
+    Update the address, visit the page, and return the content of the viewport.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `path_or_uri` | The URI or path to visit.<br/><br/>**Type:** str |
 
 <br />

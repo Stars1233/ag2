@@ -8,7 +8,15 @@ title: autogen.agentchat.contrib.graph_rag.falkor_graph_query_engine.FalkorGraph
 </h2>
 
 ```python
-FalkorGraphQueryEngine(**kwargs)
+FalkorGraphQueryEngine(
+    name: str,
+    host: str = '127.0.0.1',
+    port: int = 6379,
+    username: str | None = None,
+    password: str | None = None,
+    model: ForwardRef('GenerativeModel') | None = None,
+    ontology: ForwardRef('Ontology') | None = None
+)
 ```
 
     This is a wrapper for FalkorDB KnowledgeGraph.<br/>Initialize a FalkorDB knowledge graph.<br/>Please also refer to https://github.com/FalkorDB/GraphRAG-SDK/blob/main/graphrag_sdk/kg.py
@@ -18,7 +26,13 @@ FalkorGraphQueryEngine(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `name` | **Type:** str |
+| `host` | **Type:** str<br/><br/>**Default:** '127.0.0.1' |
+| `port` | **Type:** int<br/><br/>**Default:** 6379 |
+| `username` | **Type:** str \| None<br/><br/>**Default:** None |
+| `password` | **Type:** str \| None<br/><br/>**Default:** None |
+| `model` | **Type:** ForwardRef('GenerativeModel') \| None<br/><br/>**Default:** None |
+| `ontology` | **Type:** ForwardRef('Ontology') \| None<br/><br/>**Default:** None |
 
 ### Instance Methods
 
@@ -26,16 +40,15 @@ FalkorGraphQueryEngine(**kwargs)
 #### add_records
 
 ```python
-add_records(*args, **kwargs) -> 
+add_records(self, new_records: list[Document]) -> bool
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `new_records` | **Type:** list[[Document](/docs/api-reference/autogen/agentchat/contrib/graph_rag/document/Document)] |
 
 <br />
 
@@ -43,16 +56,10 @@ add_records(*args, **kwargs) ->
 #### connect_db
 
 ```python
-connect_db(*args, **kwargs) -> 
+connect_db(self) -> None
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    Connect to an existing knowledge graph.
 
 <br />
 
@@ -60,16 +67,10 @@ connect_db(*args, **kwargs) ->
 #### delete
 
 ```python
-delete(*args, **kwargs) -> 
+delete(self) -> bool
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    Delete graph and its data from database.
 
 <br />
 
@@ -77,16 +78,15 @@ delete(*args, **kwargs) ->
 #### init_db
 
 ```python
-init_db(*args, **kwargs) -> 
+init_db(self, input_doc: list[Document]) -> None
 ```
 
-    Call self as a function.
+    Build the knowledge graph with input documents.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `input_doc` | **Type:** list[[Document](/docs/api-reference/autogen/agentchat/contrib/graph_rag/document/Document)] |
 
 <br />
 
@@ -94,15 +94,26 @@ init_db(*args, **kwargs) ->
 #### query
 
 ```python
-query(*args, **kwargs) -> 
+query(
+    self,
+    question: str,
+    n_results: int = 1,
+    **kwargs: Any
+) -> GraphStoreQueryResult
 ```
 
-    Call self as a function.
+    Query the knowledge graph with a question and optional message history.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `question` | a human input question.<br/><br/>**Type:** str |
+| `n_results` | number of returned results.<br/><br/>**Type:** int<br/><br/>**Default:** 1 |
+| `**kwargs` | **Type:** Any |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| [GraphStoreQueryResult](/docs/api-reference/autogen/agentchat/contrib/graph_rag/graph_query_engine/GraphStoreQueryResult) | FalkorGraphQueryResult |
 
 <br />

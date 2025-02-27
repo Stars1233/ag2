@@ -8,7 +8,7 @@ title: autogen.oai.bedrock.BedrockClient
 </h2>
 
 ```python
-BedrockClient(**kwargs)
+BedrockClient(**kwargs: Any)
 ```
 
     Client for Amazon's Bedrock Converse API.<br/>Initialises BedrockClient for Amazon's Bedrock Converse API
@@ -16,7 +16,7 @@ BedrockClient(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `**kwargs` | **Type:** Any |
 
 ### Instance Methods
 
@@ -24,16 +24,15 @@ BedrockClient(**kwargs)
 #### cost
 
 ```python
-cost(*args, **kwargs) -> 
+cost(self, response: ChatCompletion) -> float
 ```
 
-    Call self as a function.
+    Calculate the cost of the response.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `response` | **Type:** ChatCompletion |
 
 <br />
 
@@ -41,16 +40,15 @@ cost(*args, **kwargs) ->
 #### create
 
 ```python
-create(*args, **kwargs) -> 
+create(self, params) -> ChatCompletionExtended
 ```
 
-    Call self as a function.
+    Run Amazon Bedrock inference and return AG2 response
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `params` |  |
 
 <br />
 
@@ -58,16 +56,15 @@ create(*args, **kwargs) ->
 #### get_usage
 
 ```python
-get_usage(*args, **kwargs) -> 
+get_usage(response) -> dict
 ```
 
-    Call self as a function.
+    Get the usage of tokens and their cost information.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `response` |  |
 
 <br />
 
@@ -75,16 +72,15 @@ get_usage(*args, **kwargs) ->
 #### message_retrieval
 
 ```python
-message_retrieval(*args, **kwargs) -> 
+message_retrieval(self, response) -> 
 ```
 
-    Call self as a function.
+    Retrieve the messages from the response.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `response` |  |
 
 <br />
 
@@ -92,16 +88,15 @@ message_retrieval(*args, **kwargs) ->
 #### parse_custom_params
 
 ```python
-parse_custom_params(*args, **kwargs) -> 
+parse_custom_params(self, params: dict[str, Any]) -> 
 ```
 
-    Call self as a function.
+    Parses custom parameters for logic in this client class
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `params` | **Type:** dict[str, Any] |
 
 <br />
 
@@ -109,15 +104,15 @@ parse_custom_params(*args, **kwargs) ->
 #### parse_params
 
 ```python
-parse_params(*args, **kwargs) -> 
+parse_params(self, params: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]
 ```
 
-    Call self as a function.
+    Loads the valid parameters required to invoke Bedrock Converse
+    Returns a tuple of (base_params, additional_params)
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `params` | **Type:** dict[str, Any] |
 
 <br />

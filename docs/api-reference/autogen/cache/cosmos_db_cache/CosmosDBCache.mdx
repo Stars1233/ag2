@@ -8,7 +8,7 @@ title: autogen.cache.cosmos_db_cache.CosmosDBCache
 </h2>
 
 ```python
-CosmosDBCache(**kwargs)
+CosmosDBCache(seed: str | int, cosmosdb_config: CosmosDBConfig)
 ```
 
     Synchronous implementation of AbstractCache using Azure Cosmos DB NoSQL API.<br/>This class provides a concrete implementation of the AbstractCache
@@ -17,7 +17,8 @@ CosmosDBCache(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `seed` | **Type:** str \| int |
+| `cosmosdb_config` | **Type:** [CosmosDBConfig](/docs/api-reference/autogen/cache/cosmos_db_cache/CosmosDBConfig) |
 
 ### Instance Methods
 
@@ -25,16 +26,10 @@ CosmosDBCache(**kwargs)
 #### close
 
 ```python
-close(*args, **kwargs) -> 
+close(self) -> None
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    Close the Cosmos DB client.<br/>Perform any necessary cleanup, such as closing network connections.
 
 <br />
 
@@ -42,16 +37,16 @@ close(*args, **kwargs) ->
 #### create_cache
 
 ```python
-create_cache(*args, **kwargs) -> 
+create_cache(seed: str | int, cosmosdb_config: CosmosDBConfig) -> 
 ```
 
-    Call self as a function.
+    Factory method to create a CosmosDBCache instance based on the provided configuration.<br/>This method decides whether to use an existing CosmosClient or create a new one.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `seed` | **Type:** str \| int |
+| `cosmosdb_config` | **Type:** [CosmosDBConfig](/docs/api-reference/autogen/cache/cosmos_db_cache/CosmosDBConfig) |
 
 <br />
 
@@ -59,16 +54,16 @@ create_cache(*args, **kwargs) ->
 #### from_config
 
 ```python
-from_config(*args, **kwargs) -> 
+from_config(seed: str | int, cosmosdb_config: CosmosDBConfig) -> 
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `seed` | **Type:** str \| int |
+| `cosmosdb_config` | **Type:** [CosmosDBConfig](/docs/api-reference/autogen/cache/cosmos_db_cache/CosmosDBConfig) |
 
 <br />
 
@@ -76,16 +71,23 @@ from_config(*args, **kwargs) ->
 #### from_connection_string
 
 ```python
-from_connection_string(*args, **kwargs) -> 
+from_connection_string(
+    seed: str | int,
+    connection_string: str,
+    database_id: str,
+    container_id: str
+) -> 
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `seed` | **Type:** str \| int |
+| `connection_string` | **Type:** str |
+| `database_id` | **Type:** str |
+| `container_id` | **Type:** str |
 
 <br />
 
@@ -93,16 +95,23 @@ from_connection_string(*args, **kwargs) ->
 #### from_existing_client
 
 ```python
-from_existing_client(*args, **kwargs) -> 
+from_existing_client(
+    seed: str | int,
+    client: CosmosClient,
+    database_id: str,
+    container_id: str
+) -> 
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `seed` | **Type:** str \| int |
+| `client` | **Type:** CosmosClient |
+| `database_id` | **Type:** str |
+| `container_id` | **Type:** str |
 
 <br />
 
@@ -110,16 +119,25 @@ from_existing_client(*args, **kwargs) ->
 #### get
 
 ```python
-get(*args, **kwargs) -> 
+get(
+    self,
+    key: str,
+    default: Any | None = None
+) -> Any | None
 ```
 
-    Call self as a function.
+    Retrieve an item from the Cosmos DB cache.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `key` | The key identifying the item in the cache.<br/><br/>**Type:** str |
+| `default` | The default value to return if the key is not found.<br/><br/>**Type:** Any \| None<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| Any \| None | The deserialized value associated with the key if found, else the default value. |
 
 <br />
 
@@ -127,15 +145,19 @@ get(*args, **kwargs) ->
 #### set
 
 ```python
-set(*args, **kwargs) -> 
+set(
+    self,
+    key: str,
+    value: Any
+) -> None
 ```
 
-    Call self as a function.
+    Set an item in the Cosmos DB cache.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `key` | The key under which the item is to be stored.<br/><br/>**Type:** str |
+| `value` | The value to be stored in the cache.<br/><br/>**Type:** Any |
 
 <br />

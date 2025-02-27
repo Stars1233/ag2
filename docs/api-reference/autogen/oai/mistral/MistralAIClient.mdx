@@ -24,16 +24,15 @@ MistralAIClient(**kwargs)
 #### cost
 
 ```python
-cost(*args, **kwargs) -> 
+cost(self, response) -> float
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `response` |  |
 
 <br />
 
@@ -41,16 +40,15 @@ cost(*args, **kwargs) ->
 #### create
 
 ```python
-create(*args, **kwargs) -> 
+create(self, params: dict[str, Any]) -> ChatCompletionExtended
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `params` | **Type:** dict[str, typing.Any] |
 
 <br />
 
@@ -58,16 +56,15 @@ create(*args, **kwargs) ->
 #### get_usage
 
 ```python
-get_usage(*args, **kwargs) -> 
+get_usage(response: ChatCompletionExtended) -> dict
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `response` | **Type:** autogen.oai.oai_models.chat_completion.ChatCompletionExtended |
 
 <br />
 
@@ -75,16 +72,15 @@ get_usage(*args, **kwargs) ->
 #### message_retrieval
 
 ```python
-message_retrieval(*args, **kwargs) -> 
+message_retrieval(self, response: ChatCompletionExtended) -> list[str] | list[ChatCompletionMessage]
 ```
 
-    Call self as a function.
+    Retrieve the messages from the response.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `response` | **Type:** autogen.oai.oai_models.chat_completion.ChatCompletionExtended |
 
 <br />
 
@@ -92,15 +88,14 @@ message_retrieval(*args, **kwargs) ->
 #### parse_params
 
 ```python
-parse_params(*args, **kwargs) -> 
+parse_params(self, params: dict[str, Any]) -> dict[str, Any]
 ```
 
-    Call self as a function.
+    Loads the parameters for Mistral.AI API from the passed in parameters and returns a validated set. Checks types, ranges, and sets defaults
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `params` | **Type:** dict[str, typing.Any] |
 
 <br />

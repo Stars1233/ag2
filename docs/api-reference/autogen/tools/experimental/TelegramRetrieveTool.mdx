@@ -8,7 +8,12 @@ title: autogen.tools.experimental.TelegramRetrieveTool
 </h2>
 
 ```python
-TelegramRetrieveTool(**kwargs)
+TelegramRetrieveTool(
+    *,
+    api_id: str,
+    api_hash: str,
+    chat_id: str
+)
 ```
 
     Retrieves messages from a Telegram channel.<br/>Initialize the TelegramRetrieveTool.<br/>
@@ -16,7 +21,9 @@ TelegramRetrieveTool(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `api_id` | **Type:** str |
+| `api_hash` | **Type:** str |
+| `chat_id` | **Type:** str |
 
 ### Instance Attributes
 
@@ -62,16 +69,16 @@ TelegramRetrieveTool(**kwargs)
 #### register_for_execution
 
 ```python
-register_for_execution(*args, **kwargs) -> 
+register_for_execution(self, agent: ConversableAgent) -> 
 ```
 
-    Call self as a function.
+    Registers the tool for direct execution by a ConversableAgent.<br/>This method registers the tool so that it can be executed by the agent,
+    typically outside of the context of an LLM interaction.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `agent` | The agent to which the tool will be registered.<br/><br/>**Type:** ConversableAgent |
 
 <br />
 
@@ -79,16 +86,16 @@ register_for_execution(*args, **kwargs) ->
 #### register_for_llm
 
 ```python
-register_for_llm(*args, **kwargs) -> 
+register_for_llm(self, agent: ConversableAgent) -> 
 ```
 
-    Call self as a function.
+    Registers the tool for use with a ConversableAgent's language model (LLM).<br/>This method registers the tool so that it can be invoked by the agent during
+    interactions with the language model.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `agent` | The agent to which the tool will be registered.<br/><br/>**Type:** ConversableAgent |
 
 <br />
 
@@ -96,15 +103,15 @@ register_for_llm(*args, **kwargs) ->
 #### register_tool
 
 ```python
-register_tool(*args, **kwargs) -> 
+register_tool(self, agent: ConversableAgent) -> 
 ```
 
-    Call self as a function.
+    Register a tool to be both proposed and executed by an agent.<br/>Equivalent to calling both `register_for_llm` and `register_for_execution` with the same agent.<br/>Note: This will not make the agent recommend and execute the call in the one step. If the agent
+    recommends the tool, it will need to be the next agent to speak in order to execute the tool.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `agent` | The agent to which the tool will be registered.<br/><br/>**Type:** ConversableAgent |
 
 <br />

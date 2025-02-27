@@ -7,7 +7,7 @@ title: autogen.oai.openai_utils.retrieve_assistants_by_name
 #### retrieve_assistants_by_name
 
 ```python
-retrieve_assistants_by_name(client: OpenAI, name: str) -> list[Assistant]
+retrieve_assistants_by_name(client: OpenAI, name: str) -> list['Assistant']
 ```
 
     Return the assistants with the given name from OAI assistant API
@@ -15,7 +15,7 @@ retrieve_assistants_by_name(client: OpenAI, name: str) -> list[Assistant]
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `client` | **Type:** openai.OpenAI |
+| `client` | **Type:** OpenAI |
 | `name` | **Type:** str |
 
 <br />

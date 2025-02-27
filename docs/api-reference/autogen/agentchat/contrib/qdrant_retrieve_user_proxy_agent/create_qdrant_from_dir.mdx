@@ -7,15 +7,49 @@ title: autogen.agentchat.contrib.qdrant_retrieve_user_proxy_agent.create_qdrant_
 #### create_qdrant_from_dir
 
 ```python
-create_qdrant_from_dir(*args, **kwargs) -> 
+create_qdrant_from_dir(
+    dir_path: str,
+    max_tokens: int = 4000,
+    client: QdrantClient = None,
+    collection_name: str = 'all-my-documents',
+    chunk_mode: str = 'multi_lines',
+    must_break_at_empty_line: bool = True,
+    embedding_model: str = 'BAAI/bge-small-en-v1.5',
+    custom_text_split_function: Callable = None,
+    custom_text_types: list[str] = ['txt', 'json', 'csv', 'tsv', 'md', 'html', 'htm', 'rtf', 'rst', 'jsonl', 'log', 'xml', 'yaml', 'yml', 'pdf', 'mdx'],
+    recursive: bool = True,
+    extra_docs: bool = False,
+    parallel: int = 0,
+    on_disk: bool = False,
+    quantization_config: ForwardRef('QuantizationConfig') | None = None,
+    hnsw_config: ForwardRef('HnswConfigDiff') | None = None,
+    payload_indexing: bool = False,
+    qdrant_client_options: dict[str, Any] | None = {}
+) -> 
 ```
 
-    Call self as a function.
+    Create a Qdrant collection from all the files in a given directory, the directory can also be a single file or a
+      url to a single file.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `dir_path` | the path to the directory, file or url.<br/><br/>**Type:** str |
+| `max_tokens` | the maximum number of tokens per chunk.<br/><br/>Default is 4000.<br/><br/>**Type:** int<br/><br/>**Default:** 4000 |
+| `client` | the QdrantClient instance.<br/><br/>Default is None.<br/><br/>**Type:** QdrantClient<br/><br/>**Default:** None |
+| `collection_name` | the name of the collection.<br/><br/>Default is "all-my-documents".<br/><br/>**Type:** str<br/><br/>**Default:** 'all-my-documents' |
+| `chunk_mode` | the chunk mode.<br/><br/>Default is "multi_lines".<br/><br/>**Type:** str<br/><br/>**Default:** 'multi_lines' |
+| `must_break_at_empty_line` | Whether to break at empty line.<br/><br/>Default is True.<br/><br/>**Type:** bool<br/><br/>**Default:** True |
+| `embedding_model` | the embedding model to use.<br/><br/>Default is "BAAI/bge-small-en-v1.5".<br/><br/>The list of all the available models can be at https://qdrant.github.io/fastembed/examples/Supported_Models/.<br/><br/>**Type:** str<br/><br/>**Default:** 'BAAI/bge-small-en-v1.5' |
+| `custom_text_split_function` | a custom function to split a string into a list of strings.<br/><br/>Default is None, will use the default function in `autogen.retrieve_utils.split_text_to_chunks`.<br/><br/>**Type:** Callable<br/><br/>**Default:** None |
+| `custom_text_types` | a list of file types to be processed.<br/><br/>Default is TEXT_FORMATS.<br/><br/>**Type:** list[str]<br/><br/>**Default:** ['txt', 'json', 'csv', 'tsv', 'md', 'html', 'htm', 'rtf', 'rst', 'jsonl', 'log', 'xml', 'yaml', 'yml', 'pdf', 'mdx'] |
+| `recursive` | whether to search documents recursively in the dir_path.<br/><br/>Default is True.<br/><br/>**Type:** bool<br/><br/>**Default:** True |
+| `extra_docs` | whether to add more documents in the collection.<br/><br/>Default is False<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+| `parallel` | How many parallel workers to use for embedding.<br/><br/>Defaults to the number of CPU cores<br/><br/>**Type:** int<br/><br/>**Default:** 0 |
+| `on_disk` | Whether to store the collection on disk.<br/><br/>Default is False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+| `quantization_config` | Quantization configuration.<br/><br/>If None, quantization will be disabled.<br/><br/>Ref: https://qdrant.github.io/qdrant/redoc/index.html#tag/collections/operation/create_collection<br/><br/>**Type:** ForwardRef('models.QuantizationConfig') \| None<br/><br/>**Default:** None |
+| `hnsw_config` | HNSW configuration.<br/><br/>If None, default configuration will be used.<br/><br/>Ref: https://qdrant.github.io/qdrant/redoc/index.html#tag/collections/operation/create_collection<br/><br/>**Type:** ForwardRef('models.HnswConfigDiff') \| None<br/><br/>**Default:** None |
+| `payload_indexing` | Whether to create a payload index for the document field.<br/><br/>Default is False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+| `qdrant_client_options` | (Optional, dict): the options for instantiating the qdrant client.<br/><br/>Ref: https://github.com/qdrant/qdrant-client/blob/master/qdrant_client/qdrant_client.py#L36-L58.<br/><br/>**Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** \{} |
 
 <br />

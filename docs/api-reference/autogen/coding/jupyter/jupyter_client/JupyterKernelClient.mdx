@@ -8,7 +8,7 @@ title: autogen.coding.jupyter.jupyter_client.JupyterKernelClient
 </h2>
 
 ```python
-JupyterKernelClient(**kwargs)
+JupyterKernelClient(websocket: WebSocket)
 ```
 
     (Experimental) A client for communicating with a Jupyter kernel.
@@ -16,7 +16,7 @@ JupyterKernelClient(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `websocket` | **Type:** WebSocket |
 
 ### Class Attributes
 
@@ -32,16 +32,20 @@ JupyterKernelClient(**kwargs)
 #### execute
 
 ```python
-execute(*args, **kwargs) -> 
+execute(
+    self,
+    code: str,
+    timeout_seconds: Optional[float] = None
+) -> ExecutionResult
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `code` | **Type:** str |
+| `timeout_seconds` | **Type:** Optional[float]<br/><br/>**Default:** None |
 
 <br />
 
@@ -49,16 +53,10 @@ execute(*args, **kwargs) ->
 #### stop
 
 ```python
-stop(*args, **kwargs) -> 
+stop(self) -> None
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    
 
 <br />
 
@@ -66,15 +64,14 @@ stop(*args, **kwargs) ->
 #### wait_for_ready
 
 ```python
-wait_for_ready(*args, **kwargs) -> 
+wait_for_ready(self, timeout_seconds: Optional[float] = None) -> bool
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `timeout_seconds` | **Type:** Optional[float]<br/><br/>**Default:** None |
 
 <br />

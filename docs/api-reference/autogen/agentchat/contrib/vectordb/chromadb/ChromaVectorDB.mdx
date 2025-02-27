@@ -8,7 +8,14 @@ title: autogen.agentchat.contrib.vectordb.chromadb.ChromaVectorDB
 </h2>
 
 ```python
-ChromaVectorDB(**kwargs)
+ChromaVectorDB(
+    *,
+    client=None,
+    path: str = 'tmp/db',
+    embedding_function: Callable = None,
+    metadata: dict = None,
+    **kwargs
+)
 ```
 
     A vector database that uses ChromaDB as the backend.<br/>Initialize the vector database.<br/>
@@ -16,6 +23,10 @@ ChromaVectorDB(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
+| `client=None` |  |
+| `path` | **Type:** str<br/><br/>**Default:** 'tmp/db' |
+| `embedding_function` | **Type:** Callable<br/><br/>**Default:** None |
+| `metadata` | **Type:** dict<br/><br/>**Default:** None |
 | `**kwargs` |  |
 
 ### Class Attributes
@@ -44,16 +55,28 @@ ChromaVectorDB(**kwargs)
 #### create_collection
 
 ```python
-create_collection(*args, **kwargs) -> 
+create_collection(
+    self,
+    collection_name: str,
+    overwrite: bool = False,
+    get_or_create: bool = True
+) -> Collection
 ```
 
-    Call self as a function.
+    Create a collection in the vector database.<br/>Case 1. if the collection does not exist, create the collection.<br/>Case 2. the collection exists, if overwrite is True, it will overwrite the collection.<br/>Case 3. the collection exists and overwrite is False, if get_or_create is True, it will get the collection,
+        otherwise it raise a ValueError.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `collection_name` | str | The name of the collection.<br/><br/>**Type:** str |
+| `overwrite` | bool | Whether to overwrite the collection if it exists.<br/><br/>Default is False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+| `get_or_create` | bool | Whether to get the collection if it exists.<br/><br/>Default is True.<br/><br/>**Type:** bool<br/><br/>**Default:** True |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| Collection | Collection \| The collection object. |
 
 <br />
 
@@ -61,16 +84,20 @@ create_collection(*args, **kwargs) ->
 #### delete_collection
 
 ```python
-delete_collection(*args, **kwargs) -> 
+delete_collection(self, collection_name: str) -> None
 ```
 
-    Call self as a function.
+    Delete the collection from the vector database.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `collection_name` | str | The name of the collection.<br/><br/>**Type:** str |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| None | None |
 
 <br />
 
@@ -78,16 +105,27 @@ delete_collection(*args, **kwargs) ->
 #### delete_docs
 
 ```python
-delete_docs(*args, **kwargs) -> 
+delete_docs(
+    self,
+    ids: list[str | int],
+    collection_name: str = None,
+    **kwargs
+) -> None
 ```
 
-    Call self as a function.
+    Delete documents from the collection of the vector database.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
+| `ids` | List[ItemID] | A list of document ids.<br/><br/>Each id is a typed `ItemID`.<br/><br/>**Type:** list[str \| int] |
+| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** str<br/><br/>**Default:** None |
 | `**kwargs` |  |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| None | None |
 
 <br />
 
@@ -95,16 +133,20 @@ delete_docs(*args, **kwargs) ->
 #### get_collection
 
 ```python
-get_collection(*args, **kwargs) -> 
+get_collection(self, collection_name: str = None) -> Collection
 ```
 
-    Call self as a function.
+    Get the collection from the vector database.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>If None, return the current active collection.<br/><br/>**Type:** str<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| Collection | Collection \| The collection object. |
 
 <br />
 
@@ -112,16 +154,29 @@ get_collection(*args, **kwargs) ->
 #### get_docs_by_ids
 
 ```python
-get_docs_by_ids(*args, **kwargs) -> 
+get_docs_by_ids(
+    self,
+    ids: list[str | int] = None,
+    collection_name: str = None,
+    include=None,
+    **kwargs
+) -> list[Document]
 ```
 
-    Call self as a function.
+    Retrieve documents from the collection of the vector database based on the ids.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
+| `ids` | List[ItemID] | A list of document ids.<br/><br/>If None, will return all the documents.<br/><br/>Default is None.<br/><br/>**Type:** list[str \| int]<br/><br/>**Default:** None |
+| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** str<br/><br/>**Default:** None |
+| `include=None` |  |
 | `**kwargs` |  |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| list[[Document](/docs/api-reference/autogen/agentchat/contrib/vectordb/base/Document)] | List[Document] \| The results. |
 
 <br />
 
@@ -129,16 +184,27 @@ get_docs_by_ids(*args, **kwargs) ->
 #### insert_docs
 
 ```python
-insert_docs(*args, **kwargs) -> 
+insert_docs(
+    self,
+    docs: list[Document],
+    collection_name: str = None,
+    upsert: bool = False
+) -> None
 ```
 
-    Call self as a function.
+    Insert documents into the collection of the vector database.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `docs` | List[Document] | A list of documents.<br/><br/>Each document is a TypedDict `Document`.<br/><br/>**Type:** list[[Document](/docs/api-reference/autogen/agentchat/contrib/vectordb/base/Document)] |
+| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** str<br/><br/>**Default:** None |
+| `upsert` | bool | Whether to update the document if it exists.<br/><br/>Default is False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| None | None |
 
 <br />
 
@@ -146,16 +212,31 @@ insert_docs(*args, **kwargs) ->
 #### retrieve_docs
 
 ```python
-retrieve_docs(*args, **kwargs) -> 
+retrieve_docs(
+    self,
+    queries: list[str],
+    collection_name: str = None,
+    n_results: int = 10,
+    distance_threshold: float = -1,
+    **kwargs: Any
+) -> list[list[tuple[Document, float]]]
 ```
 
-    Call self as a function.
+    Retrieve documents from the collection of the vector database based on the queries.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `queries` | List[str] | A list of queries.<br/><br/>Each query is a string.<br/><br/>**Type:** list[str] |
+| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** str<br/><br/>**Default:** None |
+| `n_results` | int | The number of relevant documents to return.<br/><br/>Default is 10.<br/><br/>**Type:** int<br/><br/>**Default:** 10 |
+| `distance_threshold` | float | The threshold for the distance score, only distance smaller than it will be returned.<br/><br/>Don't filter with it if ` 0`.<br/><br/>Default is -1.<br/><br/>**Type:** float<br/><br/>**Default:** -1 |
+| `**kwargs` | **Type:** Any |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| list[list[tuple[[Document](/docs/api-reference/autogen/agentchat/contrib/vectordb/base/Document), float]]] | QueryResults \| The query results. Each query result is a list of list of tuples containing the document and the distance. |
 
 <br />
 
@@ -163,15 +244,24 @@ retrieve_docs(*args, **kwargs) ->
 #### update_docs
 
 ```python
-update_docs(*args, **kwargs) -> 
+update_docs(
+    self,
+    docs: list[Document],
+    collection_name: str = None
+) -> None
 ```
 
-    Call self as a function.
+    Update documents in the collection of the vector database.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `docs` | List[Document] | A list of documents.<br/><br/>**Type:** list[[Document](/docs/api-reference/autogen/agentchat/contrib/vectordb/base/Document)] |
+| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** str<br/><br/>**Default:** None |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| None | None |
 
 <br />

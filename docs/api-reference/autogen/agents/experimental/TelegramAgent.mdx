@@ -9,6 +9,9 @@ title: autogen.agents.experimental.TelegramAgent
 
 ```python
 TelegramAgent(
+    name: str,
+    system_message: str | None = None,
+    *,
     api_id: str,
     api_hash: str,
     chat_id: str,
@@ -22,6 +25,8 @@ TelegramAgent(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
+| `name` | **Type:** str |
+| `system_message` | **Type:** str \| None<br/><br/>**Default:** None |
 | `api_id` | **Type:** str |
 | `api_hash` | **Type:** str |
 | `chat_id` | **Type:** str |

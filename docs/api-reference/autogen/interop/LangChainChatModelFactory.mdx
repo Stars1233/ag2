@@ -33,16 +33,15 @@ register_factory() -> Callable[[type[~T]], type[~T]]
 #### accepts
 
 ```python
-accepts(*args, **kwargs) -> 
+accepts(first_llm_config: dict[str, Any]) -> bool
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `first_llm_config` | **Type:** dict[str, typing.Any] |
 
 <br />
 
@@ -50,16 +49,15 @@ accepts(*args, **kwargs) ->
 #### create
 
 ```python
-create(*args, **kwargs) -> 
+create(first_llm_config: dict[str, Any]) -> 
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `first_llm_config` | **Type:** dict[str, typing.Any] |
 
 <br />
 
@@ -67,16 +65,15 @@ create(*args, **kwargs) ->
 #### create_base_chat_model
 
 ```python
-create_base_chat_model(*args, **kwargs) -> 
+create_base_chat_model(llm_config: dict[str, Any]) -> 
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `llm_config` | **Type:** dict[str, typing.Any] |
 
 <br />
 
@@ -84,16 +81,10 @@ create_base_chat_model(*args, **kwargs) ->
 #### get_api_type
 
 ```python
-get_api_type(*args, **kwargs) -> 
+get_api_type() -> str
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    
 
 <br />
 
@@ -101,15 +92,14 @@ get_api_type(*args, **kwargs) ->
 #### prepare_config
 
 ```python
-prepare_config(*args, **kwargs) -> 
+prepare_config(first_llm_config: dict[str, Any]) -> dict[str, Any]
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `first_llm_config` | **Type:** dict[str, typing.Any] |
 
 <br />

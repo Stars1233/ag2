@@ -9,6 +9,9 @@ title: autogen.agents.experimental.DiscordAgent
 
 ```python
 DiscordAgent(
+    name: str,
+    system_message: str | None = None,
+    *,
     bot_token: str,
     channel_name: str,
     guild_name: str,
@@ -22,6 +25,8 @@ DiscordAgent(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
+| `name` | **Type:** str |
+| `system_message` | **Type:** str \| None<br/><br/>**Default:** None |
 | `bot_token` | **Type:** str |
 | `channel_name` | **Type:** str |
 | `guild_name` | **Type:** str |

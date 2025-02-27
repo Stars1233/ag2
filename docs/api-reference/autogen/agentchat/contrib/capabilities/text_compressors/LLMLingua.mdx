@@ -8,7 +8,7 @@ title: autogen.agentchat.contrib.capabilities.text_compressors.LLMLingua
 </h2>
 
 ```python
-LLMLingua(**kwargs)
+LLMLingua(prompt_compressor_kwargs: dict = {'model_name': 'microsoft/llmlingua-2-bert-base-multilingual-cased-meetingbank', 'use_llmlingua2': True, 'device_map': 'cpu'}, structured_compression: bool = False)
 ```
 
     Compresses text messages using LLMLingua for improved efficiency in processing and response generation.<br/>NOTE: The effectiveness of compression and the resultant token savings can vary based on the content of the messages
@@ -17,7 +17,8 @@ LLMLingua(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `prompt_compressor_kwargs` | **Type:** dict<br/><br/>**Default:** \{'model_name' |
+| `structured_compression` | **Type:** bool<br/><br/>**Default:** False |
 
 ### Instance Methods
 
@@ -25,15 +26,19 @@ LLMLingua(**kwargs)
 #### compress_text
 
 ```python
-compress_text(*args, **kwargs) -> 
+compress_text(
+    self,
+    text: str,
+    **compression_params
+) -> dict[str, Any]
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `text` | **Type:** str |
+| `**compression_params` |  |
 
 <br />

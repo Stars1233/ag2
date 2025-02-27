@@ -23,16 +23,29 @@ PydanticAIInteroperability()
 #### convert_tool
 
 ```python
-convert_tool(*args, **kwargs) -> 
+convert_tool(
+    cls,
+    tool: Any,
+    deps: Any = None,
+    **kwargs: Any
+) -> PydanticAITool
 ```
 
-    Call self as a function.
+    Converts a given Pydantic AI tool into a general `Tool` format.<br/>This method verifies that the provided tool is a valid `PydanticAITool`,
+    handles context dependencies if necessary, and returns a standardized `Tool` object.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `cls` |  |
+| `tool` | The tool to convert, expected to be an instance of `PydanticAITool`.<br/><br/>**Type:** Any |
+| `deps` | The dependencies to inject into the context, required if the tool takes a context.<br/><br/>Defaults to None.<br/><br/>**Type:** Any<br/><br/>**Default:** None |
+| `**kwargs` | Additional arguments that are not used in this method.<br/><br/>**Type:** Any |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| [PydanticAITool](/docs/api-reference/autogen/interop/pydantic_ai/pydantic_ai_tool/PydanticAITool) | AG2PydanticAITool: A standardized `Tool` object converted from the Pydantic AI tool. |
 
 <br />
 
@@ -51,15 +64,21 @@ get_unsupported_reason() -> str | None
 #### inject_params
 
 ```python
-inject_params(*args, **kwargs) -> 
+inject_params(ctx: Any, tool: Any) -> Callable[..., Any]
 ```
 
-    Call self as a function.
+    Wraps the tool's function to inject context parameters and handle retries.<br/>This method ensures that context parameters are properly passed to the tool
+    when invoked and that retries are managed according to the tool's settings.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `ctx` | The run context, which may include dependencies and retry information.<br/><br/>**Type:** Any |
+| `tool` | The Pydantic AI tool whose function is to be wrapped.<br/><br/>**Type:** Any |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| Callable[..., Any] | Callable[..., Any]: A wrapped function that includes context injection and retry handling. |
 
 <br />

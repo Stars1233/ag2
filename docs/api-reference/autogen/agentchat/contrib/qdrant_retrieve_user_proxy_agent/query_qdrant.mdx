@@ -7,15 +7,33 @@ title: autogen.agentchat.contrib.qdrant_retrieve_user_proxy_agent.query_qdrant
 #### query_qdrant
 
 ```python
-query_qdrant(*args, **kwargs) -> 
+query_qdrant(
+    query_texts: list[str],
+    n_results: int = 10,
+    client: QdrantClient = None,
+    collection_name: str = 'all-my-documents',
+    search_string: str = '',
+    embedding_model: str = 'BAAI/bge-small-en-v1.5',
+    qdrant_client_options: dict[str, Any] | None = {}
+) -> list[list['QueryResponse']]
 ```
 
-    Call self as a function.
+    Perform a similarity search with filters on a Qdrant collection
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `query_texts` | the query texts.<br/><br/>**Type:** list[str] |
+| `n_results` | the number of results to return.<br/><br/>Default is 10.<br/><br/>**Type:** int<br/><br/>**Default:** 10 |
+| `client` | the QdrantClient instance.<br/><br/>A default in-memory client will be instantiated if None.<br/><br/>**Type:** QdrantClient<br/><br/>**Default:** None |
+| `collection_name` | the name of the collection.<br/><br/>Default is "all-my-documents".<br/><br/>**Type:** str<br/><br/>**Default:** 'all-my-documents' |
+| `search_string` | the search string.<br/><br/>Default is "".<br/><br/>**Type:** str<br/><br/>**Default:** '' |
+| `embedding_model` | the embedding model to use.<br/><br/>Default is "all-MiniLM-L6-v2".<br/><br/>Will be ignored if embedding_function is not None.<br/><br/>**Type:** str<br/><br/>**Default:** 'BAAI/bge-small-en-v1.5' |
+| `qdrant_client_options` | (Optional, dict): the options for instantiating the qdrant client.<br/><br/>Reference: https://github.com/qdrant/qdrant-client/blob/master/qdrant_client/qdrant_client.py#L36-L58.<br/><br/>**Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** \{} |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| list[list['QueryResponse']] | List[List[QueryResponse]]: the query result. The format is: class QueryResponse(BaseModel, extra="forbid"): # type: ignore id: Union[str, int] embedding: Optional[List[float]] metadata: Dict[str, Any] document: str score: float |
 
 <br />

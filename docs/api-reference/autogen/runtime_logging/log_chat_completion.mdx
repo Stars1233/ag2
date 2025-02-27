@@ -13,7 +13,7 @@ log_chat_completion(
     wrapper_id: int,
     agent: str | Agent,
     request: dict[str, float | str | list[dict[str, str]]],
-    response: str | ChatCompletion,
+    response: "str | 'ChatCompletion'",
     is_cached: int,
     cost: float,
     start_time: str
@@ -30,7 +30,7 @@ log_chat_completion(
 | `wrapper_id` | **Type:** int |
 | `agent` | **Type:** str \| Agent |
 | `request` | **Type:** dict[str, float \| str \| list[dict[str, str]]] |
-| `response` | **Type:** str \| ChatCompletion |
+| `response` | **Type:** "str \| 'ChatCompletion'" |
 | `is_cached` | **Type:** int |
 | `cost` | **Type:** float |
 | `start_time` | **Type:** str |

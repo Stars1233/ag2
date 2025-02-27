@@ -8,7 +8,7 @@ title: autogen.oai.anthropic.AnthropicClient
 </h2>
 
 ```python
-AnthropicClient(**kwargs)
+AnthropicClient(**kwargs: Any)
 ```
 
     Initialize the Anthropic API client.<br/>
@@ -16,7 +16,7 @@ AnthropicClient(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `**kwargs` | **Type:** Any |
 
 ### Instance Attributes
 
@@ -74,16 +74,21 @@ AnthropicClient(**kwargs)
 #### convert_tools_to_functions
 
 ```python
-convert_tools_to_functions(*args, **kwargs) -> 
+convert_tools_to_functions(tools: list) -> list
 ```
 
-    Call self as a function.
+    Convert tool definitions into Anthropic-compatible functions,
+    updating nested $ref paths in property schemas.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `tools` | List of tool definitions.<br/><br/>**Type:** list |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| list | list: List of functions with updated $ref paths. |
 
 <br />
 
@@ -91,16 +96,15 @@ convert_tools_to_functions(*args, **kwargs) ->
 #### cost
 
 ```python
-cost(*args, **kwargs) -> 
+cost(self, response) -> float
 ```
 
-    Call self as a function.
+    Calculate the cost of the completion using the Anthropic pricing.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `response` |  |
 
 <br />
 
@@ -108,16 +112,15 @@ cost(*args, **kwargs) ->
 #### create
 
 ```python
-create(*args, **kwargs) -> 
+create(self, params: dict[str, Any]) -> ChatCompletionExtended
 ```
 
-    Call self as a function.
+    Creates a completion using the Anthropic API.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `params` | **Type:** dict[str, Any] |
 
 <br />
 
@@ -125,16 +128,15 @@ create(*args, **kwargs) ->
 #### get_usage
 
 ```python
-get_usage(*args, **kwargs) -> 
+get_usage(response: ChatCompletion) -> dict
 ```
 
-    Call self as a function.
+    Get the usage of tokens and their cost information.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `response` | **Type:** ChatCompletion |
 
 <br />
 
@@ -142,16 +144,15 @@ get_usage(*args, **kwargs) ->
 #### load_config
 
 ```python
-load_config(*args, **kwargs) -> 
+load_config(self, params: dict[str, Any]) -> 
 ```
 
-    Call self as a function.
+    Load the configuration for the Anthropic API client.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `params` | **Type:** dict[str, Any] |
 
 <br />
 
@@ -159,16 +160,16 @@ load_config(*args, **kwargs) ->
 #### message_retrieval
 
 ```python
-message_retrieval(*args, **kwargs) -> 
+message_retrieval(self, response) -> list
 ```
 
-    Call self as a function.
+    Retrieve and return a list of strings or a list of Choice.Message from the response.<br/>NOTE: if a list of Choice.Message is returned, it currently needs to contain the fields of OpenAI's ChatCompletion Message object,
+    since that is expected for function or tool calling in the rest of the codebase at the moment, unless a custom agent is being used.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `response` |  |
 
 <br />
 
@@ -176,15 +177,14 @@ message_retrieval(*args, **kwargs) ->
 #### openai_func_to_anthropic
 
 ```python
-openai_func_to_anthropic(*args, **kwargs) -> 
+openai_func_to_anthropic(openai_func: dict) -> dict
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `openai_func` | **Type:** dict |
 
 <br />

@@ -8,7 +8,11 @@ title: autogen.agentchat.contrib.capabilities.teachability.MemoStore
 </h2>
 
 ```python
-MemoStore(**kwargs)
+MemoStore(
+    verbosity: int | None = 0,
+    reset: bool | None = False,
+    path_to_db_dir: str | None = './tmp/teachable_agent_db'
+)
 ```
 
     Provides memory storage and retrieval for a teachable agent, using a vector database.<br/>Each DB entry (called a memo) is a pair of strings: an input text and an output text.<br/>The input text might be a question, or a task to perform.<br/>The output text might be an answer to the question, or advice on how to perform the task.<br/>Vector embeddings are currently supplied by Chroma's default Sentence Transformers.<br/>
@@ -16,7 +20,9 @@ MemoStore(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `verbosity` | **Type:** int \| None<br/><br/>**Default:** 0 |
+| `reset` | **Type:** bool \| None<br/><br/>**Default:** False |
+| `path_to_db_dir` | **Type:** str \| None<br/><br/>**Default:** './tmp/teachable_agent_db' |
 
 ### Instance Methods
 
@@ -24,16 +30,20 @@ MemoStore(**kwargs)
 #### add_input_output_pair
 
 ```python
-add_input_output_pair(*args, **kwargs) -> 
+add_input_output_pair(
+    self,
+    input_text: str,
+    output_text: str
+) -> 
 ```
 
-    Call self as a function.
+    Adds an input-output pair to the vector DB.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `input_text` | **Type:** str |
+| `output_text` | **Type:** str |
 
 <br />
 
@@ -41,16 +51,15 @@ add_input_output_pair(*args, **kwargs) ->
 #### get_nearest_memo
 
 ```python
-get_nearest_memo(*args, **kwargs) -> 
+get_nearest_memo(self, query_text: str) -> 
 ```
 
-    Call self as a function.
+    Retrieves the nearest memo to the given query text.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `query_text` | **Type:** str |
 
 <br />
 
@@ -58,16 +67,22 @@ get_nearest_memo(*args, **kwargs) ->
 #### get_related_memos
 
 ```python
-get_related_memos(*args, **kwargs) -> 
+get_related_memos(
+    self,
+    query_text: str,
+    n_results: int,
+    threshold: int | float
+) -> 
 ```
 
-    Call self as a function.
+    Retrieves memos that are related to the given query text within the specified distance threshold.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `query_text` | **Type:** str |
+| `n_results` | **Type:** int |
+| `threshold` | **Type:** int \| float |
 
 <br />
 
@@ -75,16 +90,10 @@ get_related_memos(*args, **kwargs) ->
 #### list_memos
 
 ```python
-list_memos(*args, **kwargs) -> 
+list_memos(self) -> 
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    Prints the contents of MemoStore.
 
 <br />
 
@@ -92,16 +101,10 @@ list_memos(*args, **kwargs) ->
 #### prepopulate
 
 ```python
-prepopulate(*args, **kwargs) -> 
+prepopulate(self) -> 
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    Adds a few arbitrary examples to the vector DB, just to make retrieval less trivial.
 
 <br />
 
@@ -109,15 +112,9 @@ prepopulate(*args, **kwargs) ->
 #### reset_db
 
 ```python
-reset_db(*args, **kwargs) -> 
+reset_db(self) -> 
 ```
 
-    Call self as a function.
-
-<b>Parameters:</b>
-| Name | Description |
-|--|--|
-| `*args` |  |
-| `**kwargs` |  |
+    Forces immediate deletion of the DB's contents, in memory and on disk.
 
 <br />

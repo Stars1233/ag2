@@ -8,7 +8,7 @@ title: autogen.io.IOWebsockets
 </h2>
 
 ```python
-IOWebsockets(**kwargs)
+IOWebsockets(websocket: ServerConnection)
 ```
 
     A websocket input/output stream.<br/>Initialize the websocket input/output stream.<br/>
@@ -16,7 +16,7 @@ IOWebsockets(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `websocket` | **Type:** autogen.io.websockets.ServerConnection |
 
 ### Instance Attributes
 
@@ -32,16 +32,15 @@ IOWebsockets(**kwargs)
 #### get_default
 
 ```python
-get_default(*args, **kwargs) -> 
+get_default() -> IOStream
 ```
 
-    Call self as a function.
+    Get the default input/output stream.<br/>Returns: <br/>    IOStream: The default input/output stream.
 
-<b>Parameters:</b>
-| Name | Description |
+<b>Returns:</b>
+| Type | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| [IOStream](/docs/api-reference/autogen/io/IOStream) | IOStream: The default input/output stream. |
 
 <br />
 
@@ -49,16 +48,15 @@ get_default(*args, **kwargs) ->
 #### get_global_default
 
 ```python
-get_global_default(*args, **kwargs) -> 
+get_global_default() -> IOStream
 ```
 
-    Call self as a function.
+    Get the default input/output stream.<br/>Returns: <br/>    IOStream: The default input/output stream.
 
-<b>Parameters:</b>
-| Name | Description |
+<b>Returns:</b>
+| Type | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| [IOStream](/docs/api-reference/autogen/io/IOStream) | IOStream: The default input/output stream. |
 
 <br />
 
@@ -66,16 +64,26 @@ get_global_default(*args, **kwargs) ->
 #### input
 
 ```python
-input(*args, **kwargs) -> 
+input(
+    self,
+    prompt: str = '',
+    *,
+    password: bool = False
+) -> str
 ```
 
-    Call self as a function.
+    Read a line from the input stream.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `prompt` | The prompt to display.<br/><br/>Defaults to "".<br/><br/>**Type:** str<br/><br/>**Default:** '' |
+| `password` | Whether to read a password.<br/><br/>Defaults to False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| str | str: The line read from the input stream. |
 
 <br />
 
@@ -83,16 +91,24 @@ input(*args, **kwargs) ->
 #### print
 
 ```python
-print(*args, **kwargs) -> 
+print(
+    self,
+    *objects: Any,
+    sep: str = ' ',
+    end: str = '\n',
+    flush: bool = False
+) -> None
 ```
 
-    Call self as a function.
+    Print data to the output stream.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `*objects` | **Type:** Any |
+| `sep` | The separator between objects.<br/><br/>Defaults to " ".<br/><br/>**Type:** str<br/><br/>**Default:** ' ' |
+| `end` | The end of the output.<br/><br/>Defaults to "<br/><br/>**Type:** str<br/><br/>**Default:** '\n' |
+| `flush` | Whether to flush the output.<br/><br/>Defaults to False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
 
 <br />
 
@@ -100,16 +116,26 @@ print(*args, **kwargs) ->
 #### run_server_in_thread
 
 ```python
-run_server_in_thread(*args, **kwargs) -> 
+run_server_in_thread(
+    *,
+    host: str = '127.0.0.1',
+    port: int = 8765,
+    on_connect: Callable[[ForwardRef('IOWebsockets')], None],
+    ssl_context: SSLContext | None = None,
+    **kwargs: Any
+) -> Iterator[str]
 ```
 
-    Call self as a function.
+    Factory function to create a websocket input/output stream.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `host` | The host to bind the server to.<br/><br/>Defaults to "127.0.0.1".<br/><br/>**Type:** str<br/><br/>**Default:** '127.0.0.1' |
+| `port` | The port to bind the server to.<br/><br/>Defaults to 8765.<br/><br/>**Type:** int<br/><br/>**Default:** 8765 |
+| `on_connect` | The function to be executed on client connection.<br/><br/>Typically creates agents and initiate chat.<br/><br/>**Type:** Callable[[ForwardRef('[IOWebsockets](/docs/api-reference/autogen/io/IOWebsockets)')], None] |
+| `ssl_context` | The SSL context to use for secure connections.<br/><br/>Defaults to None.<br/><br/>**Type:** ssl.SSLContext \| None<br/><br/>**Default:** None |
+| `**kwargs` | **Type:** Any |
 
 <br />
 
@@ -117,16 +143,15 @@ run_server_in_thread(*args, **kwargs) ->
 #### send
 
 ```python
-send(*args, **kwargs) -> 
+send(self, message: BaseMessage) -> None
 ```
 
-    Call self as a function.
+    Send a message to the output stream.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `message` | The message to send.<br/><br/>**Type:** [BaseMessage](/docs/api-reference/autogen/messages/BaseMessage) |
 
 <br />
 
@@ -134,16 +159,15 @@ send(*args, **kwargs) ->
 #### set_default
 
 ```python
-set_default(*args, **kwargs) -> 
+set_default(stream: ForwardRef('IOStream') | None) -> Iterator[None]
 ```
 
-    Call self as a function.
+    Set the default input/output stream.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `stream` | The input/output stream to set as the default.<br/><br/>**Type:** ForwardRef('[IOStream](/docs/api-reference/autogen/io/IOStream)') \| None |
 
 <br />
 
@@ -151,15 +175,14 @@ set_default(*args, **kwargs) ->
 #### set_global_default
 
 ```python
-set_global_default(*args, **kwargs) -> 
+set_global_default(stream: IOStream) -> None
 ```
 
-    Call self as a function.
+    Set the default input/output stream.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `stream` | The input/output stream to set as the default.<br/><br/>**Type:** [IOStream](/docs/api-reference/autogen/io/IOStream) |
 
 <br />

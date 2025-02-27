@@ -8,7 +8,11 @@ title: autogen.agentchat.contrib.captainagent.ToolBuilder
 </h2>
 
 ```python
-ToolBuilder(**kwargs)
+ToolBuilder(
+    corpus_root,
+    retriever='all-mpnet-base-v2',
+    type='default'
+)
 ```
 
     
@@ -16,7 +20,9 @@ ToolBuilder(**kwargs)
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `**kwargs` |  |
+| `corpus_root` |  |
+| `retriever='all-mpnet-base-v2'` |  |
+| `type='default'` |  |
 
 ### Class Attributes
 
@@ -38,16 +44,20 @@ ToolBuilder(**kwargs)
 #### bind
 
 ```python
-bind(*args, **kwargs) -> 
+bind(
+    self,
+    agent: AssistantAgent,
+    functions: str
+) -> 
 ```
 
-    Call self as a function.
+    Binds the function to the agent so that agent is aware of it.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `agent` | **Type:** [AssistantAgent](/docs/api-reference/autogen/AssistantAgent) |
+| `functions` | **Type:** str |
 
 <br />
 
@@ -55,16 +65,20 @@ bind(*args, **kwargs) ->
 #### bind_user_proxy
 
 ```python
-bind_user_proxy(*args, **kwargs) -> 
+bind_user_proxy(
+    self,
+    agent: UserProxyAgent,
+    tool_root: str | list
+) -> 
 ```
 
-    Call self as a function.
+    Updates user proxy agent with a executor so that code executor can successfully execute function-related code.<br/>Returns an updated user proxy.
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `agent` | **Type:** [UserProxyAgent](/docs/api-reference/autogen/UserProxyAgent) |
+| `tool_root` | **Type:** str \| list |
 
 <br />
 
@@ -72,15 +86,19 @@ bind_user_proxy(*args, **kwargs) ->
 #### retrieve
 
 ```python
-retrieve(*args, **kwargs) -> 
+retrieve(
+    self,
+    query,
+    top_k=3
+) -> 
 ```
 
-    Call self as a function.
+    
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `query` |  |
+| `top_k=3` |  |
 
 <br />

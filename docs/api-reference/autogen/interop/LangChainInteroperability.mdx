@@ -22,16 +22,28 @@ LangChainInteroperability()
 #### convert_tool
 
 ```python
-convert_tool(*args, **kwargs) -> 
+convert_tool(
+    cls,
+    tool: Any,
+    **kwargs: Any
+) -> Tool
 ```
 
-    Call self as a function.
+    Converts a given Langchain tool into a general `Tool` format.<br/>This method verifies that the provided tool is a valid `LangchainTool`,
+    processes the tool's input and description, and returns a standardized
+    `Tool` object.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `*args` |  |
-| `**kwargs` |  |
+| `cls` |  |
+| `tool` | The tool to convert, expected to be an instance of `LangchainTool`.<br/><br/>**Type:** Any |
+| `**kwargs` | Additional arguments, which are not supported by this method.<br/><br/>**Type:** Any |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| [Tool](/docs/api-reference/autogen/tools/Tool) | Tool: A standardized `Tool` object converted from the Langchain tool. |
 
 <br />
 

@@ -64,6 +64,22 @@ get_factory(
 ### Instance Methods
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### add_event
+
+```python
+add_event(self, event: RealtimeEvent | None) -> 
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `event` | **Type:** [RealtimeEvent](/docs/api-reference/autogen/agentchat/realtime/experimental/realtime_events/RealtimeEvent) \| None |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### connect
 
 ```python
@@ -71,6 +87,33 @@ connect(self) -> AsyncGenerator[None, None]
 ```
 
     Connect to the OpenAI Realtime API.
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_event
+
+```python
+get_event(self) -> RealtimeEvent | None
+```
+
+    
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### queue_input_audio_buffer_delta
+
+```python
+queue_input_audio_buffer_delta(self, audio: str) -> None
+```
+
+    queue InputAudioBufferDelta.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `audio` | The audio.<br/><br/>**Type:** str |
 
 <br />
 
