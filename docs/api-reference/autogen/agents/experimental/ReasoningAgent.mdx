@@ -1,8 +1,8 @@
 ---
 sidebarTitle: ReasoningAgent
-title: autogen.ReasoningAgent
+title: autogen.agents.experimental.ReasoningAgent
 ---
-<h2 id="autogen.ReasoningAgent" class="doc doc-heading">
+<h2 id="autogen.agents.experimental.ReasoningAgent" class="doc doc-heading">
     <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
     <span class="doc doc-object-name doc-class-name">ReasoningAgent</span>
 </h2>
@@ -14,7 +14,7 @@ ReasoningAgent(
     grader_llm_config: dict[str, Any] | None = None,
     max_depth: int = 4,
     beam_size: int = 3,
-    answer_approach: str = 'pool',
+    answer_approach: Literal['pool', 'best'] = 'pool',
     reason_config: dict[str, Any] | None = None,
     **kwargs: Any
 )
@@ -32,7 +32,7 @@ ReasoningAgent(
 | `grader_llm_config` | **Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
 | `max_depth` | **Type:** int<br/><br/>**Default:** 4 |
 | `beam_size` | **Type:** int<br/><br/>**Default:** 3 |
-| `answer_approach` | **Type:** str<br/><br/>**Default:** 'pool' |
+| `answer_approach` | **Type:** Literal['pool', 'best']<br/><br/>**Default:** 'pool' |
 | `reason_config` | **Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
 | `**kwargs` | **Type:** Any |
 
@@ -66,7 +66,7 @@ ReasoningAgent(
 #### method
 <br />
 
-    <br />
+    Get the reasoning method being used.<br/>Returns: <br/>    str: The name of the reasoning method
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
 #### name
@@ -561,6 +561,43 @@ execute_function(
 <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### extract_rlhf_preference_dataset
+
+```python
+extract_rlhf_preference_dataset(self, contrastive_threshold: float = 0.2) -> list[dict[str, Any]]
+```
+
+    Extract and generate preference pairs for RLHF training by comparing sibling nodes.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `contrastive_threshold` | between (0, 1), a distance measure that we are confident to call one is positive and another is negative.<br/><br/>**Type:** float<br/><br/>**Default:** 0.2 |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| list[dict[str, typing.Any]] | list[dict]: list of preference pairs, where each pair contains two responses and indicates which one is preferred. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### extract_sft_dataset
+
+```python
+extract_sft_dataset(self) -> list[dict[str, Any]]
+```
+
+    Extract the best trajectory or multiple equally good trajectories for SFT training.<br/>Returns: <br/>    list[dict]: list of best trajectories, each one is a pair of instruction and response.<br/>Raises: <br/>    RuntimeError: If the tree has not been generated yet.
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| list[dict[str, typing.Any]] | list[dict]: list of best trajectories, each one is a pair of instruction and response. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
 #### generate_code_execution_reply
 
 ```python
@@ -589,8 +626,8 @@ generate_code_execution_reply(
 ```python
 generate_forest_response(
     self,
-    messages: list[dict[str, Any]],
-    sender: Agent,
+    messages: list[dict[str, Any]] | None = None,
+    sender: Agent | None = None,
     config: dict[str, Any] | None = None
 ) -> tuple[bool, str]
 ```
@@ -600,8 +637,8 @@ generate_forest_response(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `messages` | Input messages to respond to<br/><br/>**Type:** list[dict[str, typing.Any]] |
-| `sender` | Agent sending the messages<br/><br/>**Type:** [Agent](/docs/api-reference/autogen/Agent) |
+| `messages` | Input messages to respond to<br/><br/>**Type:** list[dict[str, typing.Any]] \| None<br/><br/>**Default:** None |
+| `sender` | Agent sending the messages<br/><br/>**Type:** [Agent](/docs/api-reference/autogen/Agent) \| None<br/><br/>**Default:** None |
 | `config` | Optional configuration<br/><br/>**Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
 
 <b>Returns:</b>
@@ -1005,7 +1042,7 @@ process_last_received_message(self, messages: list[dict[str, Any]]) -> list[di
 rate_node(
     self,
     node: ThinkNode,
-    ground_truth: str = None,
+    ground_truth: str | None = None,
     is_outcome: bool = False
 ) -> float
 ```
@@ -1015,8 +1052,8 @@ rate_node(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `node` | Node containing the reasoning trajectory to evaluate<br/><br/>**Type:** [ThinkNode](/docs/api-reference/autogen/ThinkNode) |
-| `ground_truth` | Optional ground truth to provide to the grader<br/><br/>**Type:** str<br/><br/>**Default:** None |
+| `node` | Node containing the reasoning trajectory to evaluate<br/><br/>**Type:** [ThinkNode](/docs/api-reference/autogen/agents/experimental/ThinkNode) |
+| `ground_truth` | Optional ground truth to provide to the grader<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
 | `is_outcome` | indicates whether the rating is for an outcome (final answer) or a process (thinking trajectory).<br/><br/>**Type:** bool<br/><br/>**Default:** False |
 
 <b>Returns:</b>
@@ -1521,5 +1558,16 @@ update_tool_signature(
 |--|--|
 | `tool_sig` | description/name of the tool to update/remove to the model.<br/><br/>See: https://platform.openai.com/docs/api-reference/chat/create#chat-create-tools<br/><br/>**Type:** dict[str, typing.Any] \| str |
 | `is_remove` | whether removing the tool from llm_config with name 'tool_sig'<br/><br/>**Type:** bool |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### visualize_tree
+
+```python
+visualize_tree(self) -> None
+```
+
+    Visualize the tree of thoughts using graphviz.<br/>Raises: <br/>    RuntimeError: If the tree has not been generated yet.
 
 <br />

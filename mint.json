@@ -420,11 +420,9 @@
             "docs/api-reference/autogen/ON_CONDITION",
             "docs/api-reference/autogen/OnCondition",
             "docs/api-reference/autogen/OpenAIWrapper",
-            "docs/api-reference/autogen/ReasoningAgent",
             "docs/api-reference/autogen/SenderRequiredError",
             "docs/api-reference/autogen/SwarmAgent",
             "docs/api-reference/autogen/SwarmResult",
-            "docs/api-reference/autogen/ThinkNode",
             "docs/api-reference/autogen/UPDATE_SYSTEM_MESSAGE",
             "docs/api-reference/autogen/UndefinedNextAgentError",
             "docs/api-reference/autogen/UpdateSystemMessage",
@@ -442,7 +440,6 @@
             "docs/api-reference/autogen/initiate_swarm_chat",
             "docs/api-reference/autogen/register_function",
             "docs/api-reference/autogen/register_hand_off",
-            "docs/api-reference/autogen/visualize_tree",
             {
               "group": "agentchat",
               "pages": [
@@ -1029,14 +1026,6 @@
                       ]
                     },
                     {
-                      "group": "reasoning_agent",
-                      "pages": [
-                        "docs/api-reference/autogen/agentchat/contrib/reasoning_agent/overview",
-                        "docs/api-reference/autogen/agentchat/contrib/reasoning_agent/extract_rlhf_preference_dataset",
-                        "docs/api-reference/autogen/agentchat/contrib/reasoning_agent/extract_sft_dataset"
-                      ]
-                    },
-                    {
                       "group": "retrieve_assistant_agent",
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/retrieve_assistant_agent/overview",
@@ -1254,8 +1243,10 @@
                     "docs/api-reference/autogen/agents/experimental/DocAgent",
                     "docs/api-reference/autogen/agents/experimental/DoclingDocIngestAgent",
                     "docs/api-reference/autogen/agents/experimental/InMemoryQueryEngine",
+                    "docs/api-reference/autogen/agents/experimental/ReasoningAgent",
                     "docs/api-reference/autogen/agents/experimental/SlackAgent",
                     "docs/api-reference/autogen/agents/experimental/TelegramAgent",
+                    "docs/api-reference/autogen/agents/experimental/ThinkNode",
                     "docs/api-reference/autogen/agents/experimental/VectorChromaQueryEngine",
                     "docs/api-reference/autogen/agents/experimental/WebSurferAgent",
                     {

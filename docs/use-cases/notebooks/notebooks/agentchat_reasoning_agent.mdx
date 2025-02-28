@@ -73,7 +73,8 @@ the reasoning space:
 import os
 import random
 
-from autogen import AssistantAgent, ReasoningAgent, ThinkNode, UserProxyAgent
+from autogen import AssistantAgent, ThinkNode, UserProxyAgent
+from autogen.agents.experimental import ReasoningAgent
 
 api_key = os.environ.get("OPENAI_API_KEY")
 
@@ -326,10 +327,8 @@ with open("reasoning_tree.json", "r") as f:
 
 
 ```python
-from autogen.agentchat.contrib.reasoning_agent import extract_rlhf_preference_dataset, extract_sft_dataset
-
-sft_data = extract_sft_dataset(reason_agent._root)
-rlhf_data = extract_rlhf_preference_dataset(reason_agent._root)
+sft_data = reason_agent.extract_sft_dataset()
+rlhf_data = reason_agent.extract_rlhf_preference_dataset()
 ```
 
 
@@ -400,7 +399,7 @@ Graphviz.
 ### To save the visualization as “tree_of_thoughts.png”, run the following command: 
 
 ```python
-visualize_tree(mcts_agent._root)
+mcts_agent.visualize_tree()
 ```
 
 ## Utilizing ReasoningAgent for Nested Chat Interactions
@@ -530,10 +529,8 @@ with open("reasoning_tree.json", "r") as f:
 
 
 ```python
-from autogen.agentchat.contrib.reasoning_agent import extract_rlhf_preference_dataset, extract_sft_dataset
-
-sft_data = extract_sft_dataset(reason_agent._root)
-rlhf_data = extract_rlhf_preference_dataset(reason_agent._root)
+sft_data = reason_agent.extract_sft_dataset()
+rlhf_data = reason_agent.extract_rlhf_preference_dataset()
 ```
 
 

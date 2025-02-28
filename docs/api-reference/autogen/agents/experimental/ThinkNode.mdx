@@ -1,8 +1,8 @@
 ---
 sidebarTitle: ThinkNode
-title: autogen.ThinkNode
+title: autogen.agents.experimental.ThinkNode
 ---
-<h2 id="autogen.ThinkNode" class="doc doc-heading">
+<h2 id="autogen.agents.experimental.ThinkNode" class="doc doc-heading">
     <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
     <span class="doc doc-object-name doc-class-name">ThinkNode</span>
 </h2>
@@ -19,7 +19,7 @@ ThinkNode(content: str, parent: ForwardRef('ThinkNode') | None = None)
 | Name | Description |
 |--|--|
 | `content` | **Type:** str |
-| `parent` | **Type:** ForwardRef('[ThinkNode](/docs/api-reference/autogen/ThinkNode)') \| None<br/><br/>**Default:** None |
+| `parent` | **Type:** ForwardRef('[ThinkNode](/docs/api-reference/autogen/agents/experimental/ThinkNode)') \| None<br/><br/>**Default:** None |
 
 ### Static Methods
 
@@ -35,13 +35,13 @@ from_dict(data: dict[str, Any], parent: ForwardRef('ThinkNode') | None = 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `data` | Dictionary containing node data<br/><br/>**Type:** dict[str, typing.Any] |
-| `parent` | Parent node to attach to<br/><br/>**Type:** ForwardRef('[ThinkNode](/docs/api-reference/autogen/ThinkNode)') \| None<br/><br/>**Default:** None |
+| `data` | dictionary containing node data<br/><br/>**Type:** dict[str, typing.Any] |
+| `parent` | Parent node to attach to<br/><br/>**Type:** ForwardRef('[ThinkNode](/docs/api-reference/autogen/agents/experimental/ThinkNode)') \| None<br/><br/>**Default:** None |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| [ThinkNode](/docs/api-reference/autogen/ThinkNode) | ThinkNode: Reconstructed node with all children |
+| [ThinkNode](/docs/api-reference/autogen/agents/experimental/ThinkNode) | ThinkNode: Reconstructed node with all children |
 
 <br />
 
@@ -75,14 +75,25 @@ backpropagate(self, reward: float) -> None
 #### to_dict
 
 ```python
-to_dict(self) -> dict
+to_dict(self) -> dict[str, Any]
 ```
 
-    Convert ThinkNode to dictionary representation.<br/>Returns: <br/>    Dict: Dictionary containing all node attributes and recursive children
+    Convert ThinkNode to dictionary representation.<br/>Returns: <br/>    dict[str, Any]: dictionary containing all node attributes and recursive children
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| dict | Dict: Dictionary containing all node attributes and recursive children |
+| dict[str, typing.Any] | dict[str, Any]: dictionary containing all node attributes and recursive children |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### visualize_tree
+
+```python
+visualize_tree(self) -> None
+```
+
+    Visualize the tree of thoughts using graphviz.<br/>
 
 <br />

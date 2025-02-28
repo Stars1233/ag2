@@ -144,8 +144,8 @@ ragproxyagent = RetrieveUserProxyAgent(
         "chunk_token_size": 2000,
         "model": config_list[0]["model"],
         "vector_db": "chroma",
-        "overwrite": False,  # set to True if you want to overwrite an existing collection
-        "get_or_create": True,  # set to False if don't want to reuse an existing collection
+        "overwrite": True,  # set to False if you want to use an existing collection and not overwrite it
+        "get_or_create": True,  # True means get the collection if it exists, if 'overwrite' is False and this is True the collection must exist
     },
     code_execution_config=False,  # set to False if you don't want to execute the code
 )
