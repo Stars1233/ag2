@@ -75,13 +75,12 @@ from these platforms.
 
 ### LLM Configuration
 
-The examples in this notebook will use OpenAI’s `GPT-4o mini` model. As
-OpenAI is the default model provider in AG2 and the `OPENAI_API_TOKEN`
-will be retrieved from environment variables, we can use an LLM
-configuration as follows:
+The examples in this notebook will use OpenAI’s `GPT-4o mini` model and
+the `OPENAI_API_TOKEN` will be retrieved from environment variables, we
+can use an LLM configuration as follows:
 
 ```python
-llm_config = {"model": "gpt-4o-mini"}
+llm_config = {"model": "gpt-4o-mini", "api_type": "openai"}
 ```
 
 For further information on LLM configurations and how to set your
@@ -131,7 +130,7 @@ executed by another agent in a simple 2-agent chat.
 from autogen import ConversableAgent
 from autogen.tools.experimental import DiscordRetrieveTool, DiscordSendTool
 
-llm_config = {"model": "gpt-4o-mini"}
+llm_config = {"model": "gpt-4o-mini", "api_type": "openai"}
 ```
 
 Create our two agents.
@@ -349,7 +348,7 @@ forecast.
 from autogen import ConversableAgent, register_function
 from autogen.tools.experimental import SlackRetrieveTool, SlackSendTool
 
-llm_config = {"model": "gpt-4o-mini"}
+llm_config = {"model": "gpt-4o-mini", "api_type": "openai"}
 ```
 
 Create our two agents.
@@ -610,7 +609,7 @@ executed by another agent in as simple 2-agent chat.
 from autogen import ConversableAgent
 from autogen.tools.experimental import TelegramRetrieveTool, TelegramSendTool
 
-llm_config = {"model": "gpt-4o-mini"}
+llm_config = {"model": "gpt-4o-mini", "api_type": "openai"}
 ```
 
 Create our two agents.

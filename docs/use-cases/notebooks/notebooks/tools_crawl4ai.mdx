@@ -74,7 +74,7 @@ nest_asyncio.apply()
 ## LLM-Free Crawl4AI
 
 ```python
-config_list = [{"model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
+config_list = [{"api_type": "openai", "model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
 
 llm_config = {
     "config_list": config_list,
@@ -112,7 +112,7 @@ result = user_proxy.initiate_chat(
 > issues.
 
 ```python
-config_list = [{"model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
+config_list = [{"api_type": "openai", "model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
 
 llm_config = {
     "config_list": config_list,
@@ -143,7 +143,7 @@ result = user_proxy.initiate_chat(
 ## Crawl4AI with LLM & Schema for Structured Data 
 
 ```python
-config_list = [{"model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
+config_list = [{"api_type": "openai", "model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
 
 llm_config = {
     "config_list": config_list,

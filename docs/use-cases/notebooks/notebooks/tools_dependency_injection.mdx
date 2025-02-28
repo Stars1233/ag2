@@ -146,7 +146,7 @@ Configure the agents for the interaction.
     settings.
 
 ```python
-config_list = [{"model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
+config_list = [{"api_type": "openai", "model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
 
 assistant = ConversableAgent(
     name="assistant",
@@ -203,7 +203,7 @@ Configure the agents for the interaction.
     settings.
 
 ```python
-config_list = [{"model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
+config_list = [{"api_type": "openai", "model": "gpt-4o-mini", "api_key": os.environ["OPENAI_API_KEY"]}]
 assistant = ConversableAgent(
     name="assistant",
     llm_config={"config_list": config_list},
