@@ -73,15 +73,7 @@
          <lastmod>2025-02-28</lastmod>
     </url>
     <url>
-         <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/ReasoningAgent/</loc>
-         <lastmod>2025-02-28</lastmod>
-    </url>
-    <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/SenderRequiredError/</loc>
-         <lastmod>2025-02-28</lastmod>
-    </url>
-    <url>
-         <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/ThinkNode/</loc>
          <lastmod>2025-02-28</lastmod>
     </url>
     <url>
@@ -138,10 +130,6 @@
     </url>
     <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/register_function/</loc>
-         <lastmod>2025-02-28</lastmod>
-    </url>
-    <url>
-         <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/visualize_tree/</loc>
          <lastmod>2025-02-28</lastmod>
     </url>
     <url>
@@ -313,11 +301,19 @@
          <lastmod>2025-02-28</lastmod>
     </url>
     <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/agents/experimental/ReasoningAgent/</loc>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/agents/experimental/SlackAgent/</loc>
          <lastmod>2025-02-28</lastmod>
     </url>
     <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/agents/experimental/TelegramAgent/</loc>
+         <lastmod>2025-02-28</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/agents/experimental/ThinkNode/</loc>
          <lastmod>2025-02-28</lastmod>
     </url>
     <url>
