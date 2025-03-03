@@ -20,7 +20,7 @@ VectorChromaQueryEngine(
     This engine leverages Chromadb to persist document embeddings in a named collection
     and LlamaIndex's VectorStoreIndex to efficiently index and retrieve documents, and generate an answer in response
     to natural language queries. The Chromadb collection serves as the storage layer, while
-    the collection name uniquely identifies the set of documents within the persistent database.<br/>Initializes the VectorChromaQueryEngine with db_path, metadata, and embedding function and llm.<br/>
+    the collection name uniquely identifies the set of documents within the persistent database.<br/>This is a autogen.agentchat.contrib.rag.RAGQueryEngine.<br/>Initializes the VectorChromaQueryEngine with db_path, metadata, and embedding function and llm.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
@@ -56,10 +56,10 @@ add_docs(
 <br />
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
-#### establish_db
+#### connect_db
 
 ```python
-establish_db(self) -> None
+connect_db(self) -> None
 ```
 
     Establish a connection to the Chromadb database and initialize the collection.
