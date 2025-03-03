@@ -433,6 +433,10 @@
          <lastmod>2025-03-03</lastmod>
     </url>
     <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/import_utils/run_for_optional_imports/</loc>
+         <lastmod>2025-03-03</lastmod>
+    </url>
+    <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/import_utils/skip_on_missing_imports/</loc>
          <lastmod>2025-03-03</lastmod>
     </url>
@@ -897,10 +901,6 @@
          <lastmod>2025-03-03</lastmod>
     </url>
     <url>
-         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/advanced-concepts/tools-with-secrets/</loc>
-         <lastmod>2025-03-03</lastmod>
-    </url>
-    <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/advanced-concepts/groupchat/custom-group-chat/</loc>
          <lastmod>2025-03-03</lastmod>
     </url>
@@ -910,18 +910,6 @@
     </url>
     <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/advanced-concepts/groupchat/resuming-group-chat/</loc>
-         <lastmod>2025-03-03</lastmod>
-    </url>
-    <url>
-         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/advanced-concepts/interop/crewai/</loc>
-         <lastmod>2025-03-03</lastmod>
-    </url>
-    <url>
-         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/advanced-concepts/interop/langchain/</loc>
-         <lastmod>2025-03-03</lastmod>
-    </url>
-    <url>
-         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/advanced-concepts/interop/pydanticai/</loc>
          <lastmod>2025-03-03</lastmod>
     </url>
     <url>
@@ -953,10 +941,6 @@
          <lastmod>2025-03-03</lastmod>
     </url>
     <url>
-         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/basic-concepts/tools/</loc>
-         <lastmod>2025-03-03</lastmod>
-    </url>
-    <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/basic-concepts/llm-configuration/llm-configuration/</loc>
          <lastmod>2025-03-03</lastmod>
     </url>
@@ -982,6 +966,30 @@
     </url>
     <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/basic-concepts/orchestration/swarm/</loc>
+         <lastmod>2025-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/basic-concepts/tools/</loc>
+         <lastmod>2025-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/basic-concepts/tools/basics/</loc>
+         <lastmod>2025-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/basic-concepts/tools/tools-with-secrets/</loc>
+         <lastmod>2025-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/basic-concepts/tools/interop/crewai/</loc>
+         <lastmod>2025-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/basic-concepts/tools/interop/langchain/</loc>
+         <lastmod>2025-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/basic-concepts/tools/interop/pydanticai/</loc>
          <lastmod>2025-03-03</lastmod>
     </url>
     <url>
@@ -1078,6 +1086,10 @@
     </url>
     <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-agents/websurferagent/</loc>
+         <lastmod>2025-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-tools/</loc>
          <lastmod>2025-03-03</lastmod>
     </url>
     <url>
