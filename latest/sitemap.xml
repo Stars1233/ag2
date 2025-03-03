@@ -953,6 +953,10 @@
          <lastmod>2025-03-03</lastmod>
     </url>
     <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/basic-concepts/tools/</loc>
+         <lastmod>2025-03-03</lastmod>
+    </url>
+    <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/basic-concepts/llm-configuration/llm-configuration/</loc>
          <lastmod>2025-03-03</lastmod>
     </url>
@@ -978,22 +982,6 @@
     </url>
     <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/basic-concepts/orchestration/swarm/</loc>
-         <lastmod>2025-03-03</lastmod>
-    </url>
-    <url>
-         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/basic-concepts/tools/tools/</loc>
-         <lastmod>2025-03-03</lastmod>
-    </url>
-    <url>
-         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/basic-concepts/tools/experimental/browser-use/</loc>
-         <lastmod>2025-03-03</lastmod>
-    </url>
-    <url>
-         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/basic-concepts/tools/experimental/crawl4ai/</loc>
-         <lastmod>2025-03-03</lastmod>
-    </url>
-    <url>
-         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/basic-concepts/tools/experimental/deep-research/</loc>
          <lastmod>2025-03-03</lastmod>
     </url>
     <url>
@@ -1090,6 +1078,18 @@
     </url>
     <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-agents/websurferagent/</loc>
+         <lastmod>2025-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-tools/browser-use/</loc>
+         <lastmod>2025-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-tools/crawl4ai/</loc>
+         <lastmod>2025-03-03</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-tools/deep-research/</loc>
          <lastmod>2025-03-03</lastmod>
     </url>
     <url>
