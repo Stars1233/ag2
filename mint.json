@@ -125,7 +125,22 @@
                 "docs/user-guide/basic-concepts/orchestration/ending-a-chat"
               ]
             },
-            "docs/user-guide/basic-concepts/tools"
+            {
+              "group": "Tools",
+              "pages": [
+                "docs/user-guide/basic-concepts/tools/index",
+                "docs/user-guide/basic-concepts/tools/basics",
+                "docs/user-guide/basic-concepts/tools/tools-with-secrets",
+                {
+                  "group": "Interoperability",
+                  "pages": [
+                    "docs/user-guide/basic-concepts/tools/interop/langchain",
+                    "docs/user-guide/basic-concepts/tools/interop/crewai",
+                    "docs/user-guide/basic-concepts/tools/interop/pydanticai"
+                  ]
+                }
+              ]
+            }
           ]
         },
         {
@@ -149,16 +164,7 @@
                 "docs/user-guide/advanced-concepts/swarm/use-case"
               ]
             },
-            {
-              "group": "Interoperability",
-              "pages": [
-                "docs/user-guide/advanced-concepts/interop/langchain",
-                "docs/user-guide/advanced-concepts/interop/crewai",
-                "docs/user-guide/advanced-concepts/interop/pydanticai"
-              ]
-            },
             "docs/user-guide/advanced-concepts/code-execution",
-            "docs/user-guide/advanced-concepts/tools-with-secrets",
             "docs/user-guide/advanced-concepts/conversation-patterns-deep-dive",
             "docs/user-guide/advanced-concepts/llm-configuration-deep-dive"
           ]
@@ -205,6 +211,7 @@
         {
           "group": "Reference Tools",
           "pages": [
+            "docs/user-guide/reference-tools/index",
             "docs/user-guide/reference-tools/browser-use",
             "docs/user-guide/reference-tools/crawl4ai",
             "docs/user-guide/reference-tools/deep-research"
@@ -1464,6 +1471,7 @@
                 "docs/api-reference/autogen/import_utils/optional_import_block",
                 "docs/api-reference/autogen/import_utils/patch_object",
                 "docs/api-reference/autogen/import_utils/require_optional_import",
+                "docs/api-reference/autogen/import_utils/run_for_optional_imports",
                 "docs/api-reference/autogen/import_utils/skip_on_missing_imports"
               ]
             },

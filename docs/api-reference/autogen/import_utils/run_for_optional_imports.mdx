@@ -1,16 +1,16 @@
 ---
-sidebarTitle: skip_on_missing_imports
-title: autogen.import_utils.skip_on_missing_imports
+sidebarTitle: run_for_optional_imports
+title: autogen.import_utils.run_for_optional_imports
 ---
 
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
-#### skip_on_missing_imports
+#### run_for_optional_imports
 
 ```python
-skip_on_missing_imports(modules: str | Iterable[str], dep_target: str) -> Callable[[~T], ~T]
+run_for_optional_imports(modules: str | Iterable[str], dep_target: str) -> Callable[[~G], ~G]
 ```
 
-    Decorator to skip a test if an optional module is missing
+    Decorator to run a test if and only if optional modules are installed
 
 <b>Parameters:</b>
 | Name | Description |
