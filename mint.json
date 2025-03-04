@@ -1024,7 +1024,14 @@
                       "group": "rag",
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/rag/overview",
-                        "docs/api-reference/autogen/agentchat/contrib/rag/RAGQueryEngine"
+                        "docs/api-reference/autogen/agentchat/contrib/rag/RAGQueryEngine",
+                        {
+                          "group": "chroma_db_query_engine",
+                          "pages": [
+                            "docs/api-reference/autogen/agentchat/contrib/rag/chroma_db_query_engine/overview",
+                            "docs/api-reference/autogen/agentchat/contrib/rag/chroma_db_query_engine/ChromaDBQueryEngine"
+                          ]
+                        }
                       ]
                     },
                     {

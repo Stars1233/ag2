@@ -1,0 +1,161 @@
+---
+sidebarTitle: ChromaDBQueryEngine
+title: autogen.agentchat.contrib.rag.chroma_db_query_engine.ChromaDBQueryEngine
+---
+<h2 id="autogen.agentchat.contrib.rag.chroma_db_query_engine.ChromaDBQueryEngine" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">ChromaDBQueryEngine</span>
+</h2>
+
+```python
+ChromaDBQueryEngine(
+    host: str | None = 'localhost',
+    port: int | None = 8000,
+    settings: ForwardRef('Settings') | None = None,
+    tenant: str | None = None,
+    database: str | None = None,
+    embedding_function: Optional[EmbeddingFunction[Any]] = None,
+    metadata: dict[str, Any] | None = None,
+    llm: ForwardRef('LLM') | None = None,
+    collection_name: str | None = None
+)
+```
+
+    This engine leverages Chromadb to persist document embeddings in a named collection
+    and LlamaIndex's VectorStoreIndex to efficiently index and retrieve documents, and generate an answer in response
+    to natural language queries. Collection can be regarded as an abstraction of group of documents in the database.<br/>It expects a Chromadb server to be running and accessible at the specified host and port.<br/>Refer to this [link](https://docs.trychroma.com/production/containers/docker) for running Chromadb in a Docker container.<br/>If the host and port are not provided, the engine will create an in-memory ChromaDB client.<br/>Initializes the ChromaDBQueryEngine with db_path, metadata, and embedding function and llm.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `host` | **Type:** str \| None<br/><br/>**Default:** 'localhost' |
+| `port` | **Type:** int \| None<br/><br/>**Default:** 8000 |
+| `settings` | **Type:** ForwardRef('Settings') \| None<br/><br/>**Default:** None |
+| `tenant` | **Type:** str \| None<br/><br/>**Default:** None |
+| `database` | **Type:** str \| None<br/><br/>**Default:** None |
+| `embedding_function` | **Type:** Optional[EmbeddingFunction[Any]]<br/><br/>**Default:** None |
+| `metadata` | **Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
+| `llm` | **Type:** ForwardRef('LLM') \| None<br/><br/>**Default:** None |
+| `collection_name` | **Type:** str \| None<br/><br/>**Default:** None |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### add_docs
+
+```python
+add_docs(
+    self,
+    new_doc_dir: Path | str | None = None,
+    new_doc_paths_or_urls: Sequence[Path | str] | None = None,
+    *args: Any,
+    **kwargs: Any
+) -> None
+```
+
+    Add new documents to the underlying database and add to the index.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `new_doc_dir` | a dir of input documents that are used to create the records in database.<br/><br/>**Type:** pathlib.Path \| str \| None<br/><br/>**Default:** None |
+| `new_doc_paths_or_urls` | **Type:** Sequence[pathlib.Path \| str] \| None<br/><br/>**Default:** None |
+| `*args` | Any additional arguments<br/><br/>**Type:** Any |
+| `**kwargs` | Any additional keyword arguments<br/><br/>**Type:** Any |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### connect_db
+
+```python
+connect_db(
+    self,
+    *args: Any,
+    **kwargs: Any
+) -> bool
+```
+
+    Connect to the database.<br/>It does not overwrite the existing collection in the database.<br/> It takes the following steps,
+    1. Set up ChromaDB and LlamaIndex storage.<br/>2. Create the llamaIndex vector store index for querying or inserting docs later
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` | Any additional arguments<br/><br/>**Type:** Any |
+| `**kwargs` | Any additional keyword arguments<br/><br/>**Type:** Any |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| bool | bool: True if connection is successful |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_collection_name
+
+```python
+get_collection_name(self) -> str
+```
+
+    Get the name of the collection used by the query engine.<br/>Returns: <br/>    The name of the collection.
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| str | The name of the collection. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### init_db
+
+```python
+init_db(
+    self,
+    new_doc_dir: Path | str | None = None,
+    new_doc_paths_or_urls: Sequence[Path | str] | None = None,
+    *args: Any,
+    **kwargs: Any
+) -> bool
+```
+
+    Initialize the database with the input documents or records.<br/>It overwrites the existing collection in the database.<br/>It takes the following steps,
+    1. Set up ChromaDB and LlamaIndex storage.<br/>2. insert documents and build indexes upon them.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `new_doc_dir` | a dir of input documents that are used to create the records in database.<br/><br/>**Type:** pathlib.Path \| str \| None<br/><br/>**Default:** None |
+| `new_doc_paths_or_urls` | a sequence of input documents that are used to create the records in database.<br/><br/>a document can be a path to a file or a url.<br/><br/>**Type:** Sequence[pathlib.Path \| str] \| None<br/><br/>**Default:** None |
+| `*args` | Any additional arguments<br/><br/>**Type:** Any |
+| `**kwargs` | Any additional keyword arguments<br/><br/>**Type:** Any |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| bool | bool: True if initialization is successful |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### query
+
+```python
+query(self, question: str) -> str
+```
+
+    Retrieve information from indexed documents by processing a query using the engine's LLM.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `question` | A natural language query string used to search the indexed documents.<br/><br/>**Type:** str |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| str | A string containing the response generated by LLM. |
+
+<br />

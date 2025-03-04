@@ -28,7 +28,7 @@ RAGQueryEngine(*args, **kwargs)
 add_docs(
     self,
     new_doc_dir: Path | str | None = None,
-    new_doc_paths: list[Path | str] | None = None,
+    new_doc_paths_or_urls: Sequence[Path | str] | None = None,
     *args: Any,
     **kwargs: Any
 ) -> None
@@ -40,7 +40,7 @@ add_docs(
 | Name | Description |
 |--|--|
 | `new_doc_dir` | **Type:** pathlib.Path \| str \| None<br/><br/>**Default:** None |
-| `new_doc_paths` | **Type:** list[pathlib.Path \| str] \| None<br/><br/>**Default:** None |
+| `new_doc_paths_or_urls` | **Type:** Sequence[pathlib.Path \| str] \| None<br/><br/>**Default:** None |
 | `*args` | **Type:** Any |
 | `**kwargs` | **Type:** Any |
 
@@ -79,7 +79,7 @@ connect_db(
 init_db(
     self,
     new_doc_dir: Path | str | None = None,
-    new_doc_paths: list[Path | str] | None = None,
+    new_doc_paths_or_urls: Sequence[Path | str] | None = None,
     *args: Any,
     **kwargs: Any
 ) -> bool
@@ -93,7 +93,7 @@ init_db(
 | Name | Description |
 |--|--|
 | `new_doc_dir` | a dir of input documents that are used to create the records in database.<br/><br/>**Type:** pathlib.Path \| str \| None<br/><br/>**Default:** None |
-| `new_doc_paths` | a list of input documents that are used to create the records in database.<br/><br/>a document can be a path to a file or a url.<br/><br/>**Type:** list[pathlib.Path \| str] \| None<br/><br/>**Default:** None |
+| `new_doc_paths_or_urls` | **Type:** Sequence[pathlib.Path \| str] \| None<br/><br/>**Default:** None |
 | `*args` | Any additional arguments<br/><br/>**Type:** Any |
 | `**kwargs` | Any additional keyword arguments<br/><br/>**Type:** Any |
 
