@@ -12,7 +12,7 @@ DoclingDocIngestAgent(
     name: str | None = None,
     llm_config: dict | Literal[False] | None = None,
     parsed_docs_path: Path | str | None = None,
-    query_engine: VectorChromaQueryEngine | InMemoryQueryEngine | None = None,
+    query_engine: RAGQueryEngine | None = None,
     return_agent_success: str = 'TaskManagerAgent',
     return_agent_error: str = 'ErrorManagerAgent',
     collection_name: str | None = None
@@ -27,7 +27,7 @@ DoclingDocIngestAgent(
 | `name` | **Type:** str \| None<br/><br/>**Default:** None |
 | `llm_config` | **Type:** dict \| Literal[False] \| None<br/><br/>**Default:** None |
 | `parsed_docs_path` | **Type:** pathlib.Path \| str \| None<br/><br/>**Default:** None |
-| `query_engine` | **Type:** [VectorChromaQueryEngine](/docs/api-reference/autogen/agents/experimental/document_agent/chroma_query_engine/VectorChromaQueryEngine) \| [InMemoryQueryEngine](/docs/api-reference/autogen/agents/experimental/document_agent/inmemory_query_engine/InMemoryQueryEngine) \| None<br/><br/>**Default:** None |
+| `query_engine` | **Type:** [RAGQueryEngine](/docs/api-reference/autogen/agentchat/contrib/rag/RAGQueryEngine) \| None<br/><br/>**Default:** None |
 | `return_agent_success` | **Type:** str<br/><br/>**Default:** 'TaskManagerAgent' |
 | `return_agent_error` | **Type:** str<br/><br/>**Default:** 'ErrorManagerAgent' |
 | `collection_name` | **Type:** str \| None<br/><br/>**Default:** None |

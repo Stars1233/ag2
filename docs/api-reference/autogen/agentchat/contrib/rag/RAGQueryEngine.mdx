@@ -85,15 +85,14 @@ init_db(
 ) -> bool
 ```
 
-    Initialize the database with the input documents or records.<br/>This method initializes database with the input documents or records.<br/>Usually, it takes the following steps,
-    1. connecting to a database.<br/>2. insert records
+    Initialize the database with the input documents or records.<br/>This method initializes database with the input documents or records.<br/>Usually, it takes the following steps: <br/>1. connecting to a database.<br/>2. insert records
     3. build indexes etc.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `new_doc_dir` | a dir of input documents that are used to create the records in database.<br/><br/>**Type:** pathlib.Path \| str \| None<br/><br/>**Default:** None |
-| `new_doc_paths_or_urls` | **Type:** Sequence[pathlib.Path \| str] \| None<br/><br/>**Default:** None |
+| `new_doc_dir` | A directory containing documents to be ingested.<br/><br/>**Type:** pathlib.Path \| str \| None<br/><br/>**Default:** None |
+| `new_doc_paths_or_urls` | A list of paths or URLs to documents to be ingested.<br/><br/>**Type:** Sequence[pathlib.Path \| str] \| None<br/><br/>**Default:** None |
 | `*args` | Any additional arguments<br/><br/>**Type:** Any |
 | `**kwargs` | Any additional keyword arguments<br/><br/>**Type:** Any |
 

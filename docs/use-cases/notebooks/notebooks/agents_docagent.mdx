@@ -21,6 +21,9 @@ In this notebook, see how DocAgent, through natural language, can
 1.  Ingest documents from a local file or URL
 2.  and answer questions with RAG capability
 
+For more information on DocAgent, read about [DocAgent in our Reference
+Agents](../../../../docs/user-guide/reference-agents/docagent) section.
+
 ### Installation
 
 To get started with the document agent integration in AG2, follow these
@@ -43,8 +46,10 @@ You’re all set! Now you can start using DocAgent feature in AG2.
 
 ## Documents supported
 
-The following documents can be ingested: - PDF - IMAGE - DOCX - HTML -
-PPTX - ASCIIDOC - MD
+The following documents can be ingested: - PDF - DOCX (DOCX, DOTX, DOCM,
+DOTM) - XLSX - PPTX (PPTX, POTX, PPSX, PPTM, POTM, PPSM) - HTML -
+ASCIIDOC (ADOC, ASCIIDOC, ASC) - MD (MD, MARKDOWN) - XML (XML, NXML) -
+TXT - JSON - CSV - IMAGE (BMP, JPG, JPEG, PNG, TIFF, TIF)
 
 You can also have the DocAgent use a web page by giving it a URL to
 ingest.
@@ -153,7 +158,7 @@ collections](https://cookbook.chromadb.dev/core/collections/)).
 
 ```python
 # Ensure the OPENAI_API_KEY is set in the environment
-llm_config = {"model": "gpt-4o-mini", "api_type": "openai", "cache_seed": None}
+llm_config = {"model": "gpt-4o", "api_type": "openai", "cache_seed": None}
 
 # Create agents for the NVIDIA and AMD documents
 # Each agent has a unique collection_name so that data and queries are run in different vector store spaces

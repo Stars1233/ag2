@@ -1,0 +1,164 @@
+---
+sidebarTitle: URLAnalyzer
+title: autogen.agents.experimental.document_agent.url_utils.URLAnalyzer
+---
+<h2 id="autogen.agents.experimental.document_agent.url_utils.URLAnalyzer" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">URLAnalyzer</span>
+</h2>
+
+```python
+URLAnalyzer(url: str)
+```
+
+    A class that analyzes URLs to determine if they point to web pages or files.<br/>Initialize the URLAnalyzer with a URL.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `url` | **Type:** str |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### FormatToMimeType
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### MimeTypeToFormat
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### format_type
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### mime_type
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### mime_types
+<br />
+
+    <br />
+
+### Static Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_supported_extensions
+
+```python
+get_supported_extensions() -> list[str]
+```
+
+    Return a list of supported file extensions.
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_supported_formats
+
+```python
+get_supported_formats() -> list[InputFormat]
+```
+
+    Return a list of supported file formats.
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_supported_mime_types
+
+```python
+get_supported_mime_types() -> list[str]
+```
+
+    Return a list of all supported MIME types.
+
+<br />
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### analyze
+
+```python
+analyze(
+    self,
+    test_url: bool = False,
+    follow_redirects: bool = True,
+    prioritize_extension: bool = True
+) -> dict[str, Any]
+```
+
+    Analyze the URL to determine if it points to a web page or a file.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `test_url` | Whether to test the URL by making a request<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+| `follow_redirects` | Whether to follow redirects when testing the URL<br/><br/>**Type:** bool<br/><br/>**Default:** True |
+| `prioritize_extension` | Whether to prioritize file extension over MIME type<br/><br/>**Type:** bool<br/><br/>**Default:** True |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| dict[str, typing.Any] | dict: A dictionary containing the analysis results |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### follow_redirects
+
+```python
+follow_redirects(self) -> Tuple[str, list[str]]
+```
+
+    Follow redirects for the URL without analyzing content types.<br/>Returns: <br/>    Tuple[str, list[str]]: The final URL and the redirect chain
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| Tuple[str, list[str]] | Tuple[str, list[str]]: The final URL and the redirect chain |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_redirect_info
+
+```python
+get_redirect_info(self) -> dict[str, Any]
+```
+
+    Get information about redirects that occurred during the last request.<br/>Returns: <br/>    dict: Information about redirects
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| dict[str, typing.Any] | dict: Information about redirects |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_result
+
+```python
+get_result(self) -> dict[str, Any] | None
+```
+
+    Get the last analysis result, or None if the URL hasn't been analyzed yet.<br/>Returns: <br/>    Optional[dict]: The analysis result or None
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| dict[str, typing.Any] \| None | Optional[dict]: The analysis result or None |
+
+<br />

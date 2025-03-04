@@ -1025,14 +1025,8 @@
                       "group": "rag",
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/rag/overview",
-                        "docs/api-reference/autogen/agentchat/contrib/rag/RAGQueryEngine",
-                        {
-                          "group": "chroma_db_query_engine",
-                          "pages": [
-                            "docs/api-reference/autogen/agentchat/contrib/rag/chroma_db_query_engine/overview",
-                            "docs/api-reference/autogen/agentchat/contrib/rag/chroma_db_query_engine/ChromaDBQueryEngine"
-                          ]
-                        }
+                        "docs/api-reference/autogen/agentchat/contrib/rag/ChromaDBQueryEngine",
+                        "docs/api-reference/autogen/agentchat/contrib/rag/RAGQueryEngine"
                       ]
                     },
                     {
@@ -1263,34 +1257,14 @@
                       "group": "document_agent",
                       "pages": [
                         "docs/api-reference/autogen/agents/experimental/document_agent/overview",
-                        "docs/api-reference/autogen/agents/experimental/document_agent/InMemoryQueryEngine",
-                        "docs/api-reference/autogen/agents/experimental/document_agent/VectorChromaQueryEngine",
                         "docs/api-reference/autogen/agents/experimental/document_agent/docling_parse_docs",
                         "docs/api-reference/autogen/agents/experimental/document_agent/handle_input",
                         {
-                          "group": "chroma_query_engine",
+                          "group": "url_utils",
                           "pages": [
-                            "docs/api-reference/autogen/agents/experimental/document_agent/chroma_query_engine/overview",
-                            "docs/api-reference/autogen/agents/experimental/document_agent/chroma_query_engine/VectorChromaQueryEngine"
-                          ]
-                        },
-                        {
-                          "group": "document_utils",
-                          "pages": [
-                            "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/overview",
-                            "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/download_url",
-                            "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/is_url",
-                            "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/list_files",
-                            "docs/api-reference/autogen/agents/experimental/document_agent/document_utils/preprocess_path"
-                          ]
-                        },
-                        {
-                          "group": "inmemory_query_engine",
-                          "pages": [
-                            "docs/api-reference/autogen/agents/experimental/document_agent/inmemory_query_engine/overview",
-                            "docs/api-reference/autogen/agents/experimental/document_agent/inmemory_query_engine/DocumentStore",
-                            "docs/api-reference/autogen/agents/experimental/document_agent/inmemory_query_engine/InMemoryQueryEngine",
-                            "docs/api-reference/autogen/agents/experimental/document_agent/inmemory_query_engine/QueryAnswer"
+                            "docs/api-reference/autogen/agents/experimental/document_agent/url_utils/overview",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/url_utils/InputFormat",
+                            "docs/api-reference/autogen/agents/experimental/document_agent/url_utils/URLAnalyzer"
                           ]
                         }
                       ]
