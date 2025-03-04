@@ -177,6 +177,10 @@
          <lastmod>2025-03-04</lastmod>
     </url>
     <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/agentchat/contrib/rag/ChromaDBQueryEngine/</loc>
+         <lastmod>2025-03-04</lastmod>
+    </url>
+    <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/agentchat/contrib/rag/RAGQueryEngine/</loc>
          <lastmod>2025-03-04</lastmod>
     </url>
@@ -301,6 +305,10 @@
          <lastmod>2025-03-04</lastmod>
     </url>
     <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/agents/experimental/InMemoryQueryEngine/</loc>
+         <lastmod>2025-03-04</lastmod>
+    </url>
+    <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/agents/experimental/ReasoningAgent/</loc>
          <lastmod>2025-03-04</lastmod>
     </url>
@@ -317,6 +325,10 @@
          <lastmod>2025-03-04</lastmod>
     </url>
     <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/agents/experimental/VectorChromaQueryEngine/</loc>
+         <lastmod>2025-03-04</lastmod>
+    </url>
+    <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/agents/experimental/WebSurferAgent/</loc>
          <lastmod>2025-03-04</lastmod>
     </url>
@@ -326,14 +338,6 @@
     </url>
     <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/agents/experimental/document_agent/handle_input/</loc>
-         <lastmod>2025-03-04</lastmod>
-    </url>
-    <url>
-         <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/agents/experimental/document_agent/chroma_query_engine/VectorChromaQueryEngine/</loc>
-         <lastmod>2025-03-04</lastmod>
-    </url>
-    <url>
-         <loc>https://ag2ai.github.io/ag2/latest/docs/api-reference/autogen/agents/experimental/document_agent/inmemory_query_engine/InMemoryQueryEngine/</loc>
          <lastmod>2025-03-04</lastmod>
     </url>
     <url>
@@ -1081,6 +1085,10 @@
          <lastmod>2025-03-04</lastmod>
     </url>
     <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-agents/docagent-performance/</loc>
+         <lastmod>2025-03-04</lastmod>
+    </url>
+    <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-agents/docagent/</loc>
          <lastmod>2025-03-04</lastmod>
     </url>
@@ -1090,6 +1098,14 @@
     </url>
     <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-agents/websurferagent/</loc>
+         <lastmod>2025-03-04</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-agents/assets/docagent_tests_story1/</loc>
+         <lastmod>2025-03-04</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-agents/assets/docagent_tests_story2/</loc>
          <lastmod>2025-03-04</lastmod>
     </url>
     <url>
