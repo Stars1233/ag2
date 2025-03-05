@@ -1,27 +1,27 @@
 ---
-sidebarTitle: OnCondition
-title: autogen.OnCondition
+sidebarTitle: OnContextCondition
+title: autogen.OnContextCondition
 ---
-<h2 id="autogen.OnCondition" class="doc doc-heading">
+<h2 id="autogen.OnContextCondition" class="doc doc-heading">
     <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
-    <span class="doc doc-object-name doc-class-name">OnCondition</span>
+    <span class="doc doc-object-name doc-class-name">OnContextCondition</span>
 </h2>
 
 ```python
-OnCondition(
+OnContextCondition(
     target: ConversableAgent | dict[str, Any] | None = None,
-    condition: str | ContextStr | Callable[[ConversableAgent, list[dict[str, Any]]], str] | None = None,
+    condition: str | ContextExpression | None = None,
     available: Callable[[ConversableAgent, list[dict[str, Any]]], bool] | str | ContextExpression | None = None
 )
 ```
 
-    Defines a condition for transitioning to another agent or nested chats.<br/>This is for LLM-based condition evaluation where these conditions are translated into tools and attached to the agent.<br/>These are evaluated after the OnCondition conditions but before the AfterWork conditions.<br/>
+    Defines a condition for transitioning to another agent or nested chats using context variables and the ContextExpression class.<br/>This is for context variable-based condition evaluation (does not use the agent's LLM).<br/>These are evaluated before the OnCondition and AfterWork conditions.<br/>
 
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
 | `target` | **Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) \| dict[str, typing.Any] \| None<br/><br/>**Default:** None |
-| `condition` | **Type:** str \| [ContextStr](/docs/api-reference/autogen/agentchat/contrib/swarm_agent/ContextStr) \| Callable[[[ConversableAgent](/docs/api-reference/autogen/ConversableAgent), list[dict[str, Any]]], str] \| None<br/><br/>**Default:** None |
+| `condition` | **Type:** str \| [ContextExpression](/docs/api-reference/autogen/ContextExpression) \| None<br/><br/>**Default:** None |
 | `available` | **Type:** Callable[[[ConversableAgent](/docs/api-reference/autogen/ConversableAgent), list[dict[str, Any]]], bool] \| str \| [ContextExpression](/docs/api-reference/autogen/ContextExpression) \| None<br/><br/>**Default:** None |
 
 ### Class Attributes

@@ -7,7 +7,7 @@ title: autogen.agentchat.utils.consolidate_chat_info
 #### consolidate_chat_info
 
 ```python
-consolidate_chat_info(chat_info, uniform_sender=None) -> None
+consolidate_chat_info(chat_info: dict[str, Any] | list[dict[str, Any]], uniform_sender: Agent | None = None) -> None
 ```
 
     
@@ -15,7 +15,7 @@ consolidate_chat_info(chat_info, uniform_sender=None) -> None
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `chat_info` |  |
-| `uniform_sender=None` |  |
+| `chat_info` | **Type:** dict[str, typing.Any] \| list[dict[str, typing.Any]] |
+| `uniform_sender` | **Type:** [Agent](/docs/api-reference/autogen/Agent) \| None<br/><br/>**Default:** None |
 
 <br />

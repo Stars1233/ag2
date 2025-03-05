@@ -1,0 +1,50 @@
+---
+sidebarTitle: ContextExpression
+title: autogen.ContextExpression
+---
+<h2 id="autogen.ContextExpression" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">ContextExpression</span>
+</h2>
+
+```python
+ContextExpression(expression: str)
+```
+
+    A class to evaluate logical expressions using context variables.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `expression` | **Type:** str |
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### expression
+<br />
+
+    <br />
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### evaluate
+
+```python
+evaluate(self, context_variables: dict[str, Any]) -> bool
+```
+
+    Evaluate the expression using the provided context variables.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `context_variables` | Dictionary of context variables to use for evaluation<br/><br/>**Type:** dict[str, typing.Any] |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| bool | bool: The result of evaluating the expression |
+
+<br />

@@ -13,7 +13,7 @@ create_swarm_transition(
     swarm_agent_names: list[str],
     user_agent: UserProxyAgent | None,
     swarm_after_work: AfterWorkOption | Callable[..., Any] | None
-) -> Callable[[ConversableAgent, GroupChat], Agent | None]
+) -> Callable[[ConversableAgent, GroupChat], Agent | Literal['auto'] | None]
 ```
 
     Creates a transition function for swarm chat with enclosed state for the use_initial_agent.<br/>
@@ -30,6 +30,6 @@ create_swarm_transition(
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| Callable[[[ConversableAgent](/docs/api-reference/autogen/ConversableAgent), [GroupChat](/docs/api-reference/autogen/GroupChat)], [Agent](/docs/api-reference/autogen/Agent) \| None] | Callable transition function (for sync and async swarm chats) |
+| Callable[[[ConversableAgent](/docs/api-reference/autogen/ConversableAgent), [GroupChat](/docs/api-reference/autogen/GroupChat)], [Agent](/docs/api-reference/autogen/Agent) \| Literal['auto'] \| None] | Callable transition function (for sync and async swarm chats) |
 
 <br />

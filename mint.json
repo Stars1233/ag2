@@ -164,6 +164,15 @@
                 "docs/user-guide/advanced-concepts/swarm/use-case"
               ]
             },
+            {
+              "group": "RealtimeAgent",
+              "pages": [
+                "docs/user-guide/advanced-concepts/realtime-agent/index",
+                "docs/user-guide/advanced-concepts/realtime-agent/twilio",
+                "docs/user-guide/advanced-concepts/realtime-agent/websocket",
+                "docs/user-guide/advanced-concepts/realtime-agent/webrtc"
+              ]
+            },
             "docs/user-guide/advanced-concepts/code-execution",
             "docs/user-guide/advanced-concepts/conversation-patterns-deep-dive",
             "docs/user-guide/advanced-concepts/llm-configuration-deep-dive"
@@ -414,6 +423,7 @@
             "docs/api-reference/autogen/ChatCompletion",
             "docs/api-reference/autogen/ChatResult",
             "docs/api-reference/autogen/Completion",
+            "docs/api-reference/autogen/ContextExpression",
             "docs/api-reference/autogen/ConversableAgent",
             "docs/api-reference/autogen/GroupChat",
             "docs/api-reference/autogen/GroupChatManager",
@@ -422,6 +432,7 @@
             "docs/api-reference/autogen/NoEligibleSpeakerError",
             "docs/api-reference/autogen/ON_CONDITION",
             "docs/api-reference/autogen/OnCondition",
+            "docs/api-reference/autogen/OnContextCondition",
             "docs/api-reference/autogen/OpenAIWrapper",
             "docs/api-reference/autogen/SenderRequiredError",
             "docs/api-reference/autogen/SwarmAgent",

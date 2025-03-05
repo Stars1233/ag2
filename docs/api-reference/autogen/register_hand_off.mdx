@@ -7,7 +7,7 @@ title: autogen.register_hand_off
 #### register_hand_off
 
 ```python
-register_hand_off(agent: ConversableAgent, hand_to: list[OnCondition | AfterWork] | OnCondition | AfterWork) -> 
+register_hand_off(agent: ConversableAgent, hand_to: list[OnCondition | OnContextCondition | AfterWork] | OnCondition | OnContextCondition | AfterWork) -> None
 ```
 
     Register a function to hand off to another agent.<br/>
@@ -16,6 +16,6 @@ register_hand_off(agent: ConversableAgent, hand_to: list[OnCondition | After
 | Name | Description |
 |--|--|
 | `agent` | The agent to register the hand off with.<br/><br/>**Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) |
-| `hand_to` | A list of OnCondition's and an, optional, AfterWork condition<br/><br/>**Type:** list[[OnCondition](/docs/api-reference/autogen/OnCondition) \| [AfterWork](/docs/api-reference/autogen/AfterWork)] \| [OnCondition](/docs/api-reference/autogen/OnCondition) \| [AfterWork](/docs/api-reference/autogen/AfterWork) |
+| `hand_to` | A list of OnCondition's and an, optional, AfterWork condition<br/><br/>**Type:** list[[OnCondition](/docs/api-reference/autogen/OnCondition) \| [OnContextCondition](/docs/api-reference/autogen/OnContextCondition) \| [AfterWork](/docs/api-reference/autogen/AfterWork)] \| [OnCondition](/docs/api-reference/autogen/OnCondition) \| [OnContextCondition](/docs/api-reference/autogen/OnContextCondition) \| [AfterWork](/docs/api-reference/autogen/AfterWork) |
 
 <br />
