@@ -436,9 +436,7 @@
             "docs/api-reference/autogen/AgentNameConflictError",
             "docs/api-reference/autogen/AssistantAgent",
             "docs/api-reference/autogen/Cache",
-            "docs/api-reference/autogen/ChatCompletion",
             "docs/api-reference/autogen/ChatResult",
-            "docs/api-reference/autogen/Completion",
             "docs/api-reference/autogen/ContextExpression",
             "docs/api-reference/autogen/ConversableAgent",
             "docs/api-reference/autogen/GroupChat",
@@ -1354,7 +1352,6 @@
               "group": "code_utils",
               "pages": [
                 "docs/api-reference/autogen/code_utils/overview",
-                "docs/api-reference/autogen/code_utils/PassAssertionFilter",
                 "docs/api-reference/autogen/code_utils/check_can_use_docker_or_throw",
                 "docs/api-reference/autogen/code_utils/content_str",
                 "docs/api-reference/autogen/code_utils/create_virtual_env",
@@ -1362,12 +1359,7 @@
                 "docs/api-reference/autogen/code_utils/eval_function_completions",
                 "docs/api-reference/autogen/code_utils/execute_code",
                 "docs/api-reference/autogen/code_utils/extract_code",
-                "docs/api-reference/autogen/code_utils/generate_assertions",
-                "docs/api-reference/autogen/code_utils/generate_code",
                 "docs/api-reference/autogen/code_utils/get_powershell_command",
-                "docs/api-reference/autogen/code_utils/implement",
-                "docs/api-reference/autogen/code_utils/improve_code",
-                "docs/api-reference/autogen/code_utils/improve_function",
                 "docs/api-reference/autogen/code_utils/in_docker_container",
                 "docs/api-reference/autogen/code_utils/infer_lang",
                 "docs/api-reference/autogen/code_utils/is_docker_running",
@@ -1562,7 +1554,6 @@
                 "docs/api-reference/autogen/math_utils/is_equiv_chain_of_thought",
                 "docs/api-reference/autogen/math_utils/last_boxed_only_string",
                 "docs/api-reference/autogen/math_utils/remove_boxed",
-                "docs/api-reference/autogen/math_utils/solve_problem",
                 "docs/api-reference/autogen/math_utils/voting_counts"
               ]
             },

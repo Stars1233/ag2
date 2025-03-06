@@ -17,7 +17,8 @@ EmbeddedIPythonCodeExecutor(**kwargs: Any)
     Each execution is stateful and can access variables created from previous
     executions in the same session. The kernel must be installed before using
     this class. The kernel can be installed using the following command: <br/>`python -m ipykernel install --user --name \{kernel_name}`
-    where `kernel_name` is the name of the kernel to install.<br/>
+    where `kernel_name` is the name of the kernel to install.<br/>Create a new model by parsing and validating input data from keyword arguments.<br/>Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be
+    validated to form a valid model.<br/>`self` is explicitly positional-only to allow `self` as a field name.
 
 <b>Parameters:</b>
 | Name | Description |

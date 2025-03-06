@@ -147,7 +147,7 @@ a_check_termination_and_human_reply(
 ```python
 a_execute_function(
     self,
-    func_call,
+    func_call: dict[str, Any],
     call_id: str | None = None,
     verbose: bool = False
 ) -> tuple[bool, dict[str, Any]]
@@ -158,7 +158,7 @@ a_execute_function(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `func_call` | a dictionary extracted from openai message at key "function_call" or "tool_calls" with keys "name" and "arguments".<br/><br/> |
+| `func_call` | a dictionary extracted from openai message at key "function_call" or "tool_calls" with keys "name" and "arguments".<br/><br/>**Type:** dict[str, typing.Any] |
 | `call_id` | a string to identify the tool call.<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
 | `verbose` | Whether to send messages about the execution details to the output stream.<br/><br/>When True, both the function call arguments and the execution result will be displayed.<br/><br/>Defaults to False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
 
@@ -566,7 +566,7 @@ execute_code_blocks(self, code_blocks) ->
 ```python
 execute_function(
     self,
-    func_call,
+    func_call: dict[str, Any],
     call_id: str | None = None,
     verbose: bool = False
 ) -> tuple[bool, dict[str, Any]]
@@ -577,7 +577,7 @@ execute_function(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `func_call` | a dictionary extracted from openai message at "function_call" or "tool_calls" with keys "name" and "arguments".<br/><br/> |
+| `func_call` | a dictionary extracted from openai message at "function_call" or "tool_calls" with keys "name" and "arguments".<br/><br/>**Type:** dict[str, typing.Any] |
 | `call_id` | a string to identify the tool call.<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
 | `verbose` | Whether to send messages about the execution details to the output stream.<br/><br/>When True, both the function call arguments and the execution result will be displayed.<br/><br/>Defaults to False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
 
@@ -853,9 +853,9 @@ initiate_chat(
 | `silent` | (Experimental) whether to print the messages for this conversation.<br/><br/>Default is False.<br/><br/>**Type:** bool \| None<br/><br/>**Default:** False |
 | `cache` | the cache client to be used for this conversation.<br/><br/>Default is None.<br/><br/>**Type:** [AbstractCache](/docs/api-reference/autogen/cache/AbstractCache) \| None<br/><br/>**Default:** None |
 | `max_turns` | the maximum number of turns for the chat between the two agents.<br/><br/>One turn means one conversation round trip.<br/><br/>Note that this is different from [max_consecutive_auto_reply](#max-consecutive-auto-reply) which is the maximum number of consecutive auto replies; and it is also different from [max_rounds in GroupChat](./groupchat) which is the maximum number of rounds in a group chat session.<br/><br/>If max_turns is set to None, the chat will continue until a termination condition is met.<br/><br/>Default is None.<br/><br/>**Type:** int \| None<br/><br/>**Default:** None |
-| `summary_method` | a method to get a summary from the chat.<br/><br/>Default is DEFAULT_SUMMARY_METHOD, i.e., "last_msg".<br/><br/>**Type:** str \| Callable[..., Any] \| None<br/><br/>**Default:** 'last_msg' |
+| `summary_method` | a method to get a summary from the chat.<br/><br/>Default is DEFAULT_SUMMARY_METHOD, i.e., "last_msg".<br/><br/>Supported strings are "last_msg" and "reflection_with_llm": - when set to "last_msg", it returns the last message of the dialog as the summary.<br/><br/>- when set to "reflection_with_llm", it returns a summary extracted using an llm client.<br/><br/>`llm_config` must be set in either the recipient or sender.<br/><br/>A callable summary_method should take the recipient and sender agent in a chat as input and return a string of summary.<br/><br/>E.g., ```def my_summary_method( sender: ConversableAgent, recipient: ConversableAgent, summary_args: dict, ): return recipient.last_message(sender)["content"] ```<br/><br/>**Type:** str \| Callable[..., Any] \| None<br/><br/>**Default:** 'last_msg' |
 | `summary_args` | a dictionary of arguments to be passed to the summary_method.<br/><br/>One example key is "summary_prompt", and value is a string of text used to prompt a LLM-based agent (the sender or recipient agent) to reflect on the conversation and extract a summary when summary_method is "reflection_with_llm".<br/><br/>The default summary_prompt is DEFAULT_SUMMARY_PROMPT, i.e., "Summarize takeaway from the conversation.<br/><br/>Do not add any introductory phrases.<br/><br/>If the intended request is NOT properly addressed, please point it out." Another available key is "summary_role", which is the role of the message sent to the agent in charge of summarizing.<br/><br/>Default is "system".<br/><br/>**Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** \{} |
-| `message` | the initial message to be sent to the recipient.<br/><br/>Needs to be provided.<br/><br/>Otherwise, input() will be called to get the initial message.<br/><br/>- If a string or a dict is provided, it will be used as the initial message.<br/><br/>`generate_init_message` is called to generate the initial message for the agent based on this string and the context.<br/><br/>If dict, it may contain the following reserved fields (either content or tool_calls need to be provided).<br/><br/>1. "content": content of the message, can be None.<br/><br/>2. "function_call": a dictionary containing the function name and arguments.<br/><br/>(deprecated in favor of "tool_calls") 3. "tool_calls": a list of dictionaries containing the function name and arguments.<br/><br/>4. "role": role of the message, can be "assistant", "user", "function".<br/><br/>This field is only needed to distinguish between "function" or "assistant"/"user".<br/><br/>5. "name": In most cases, this field is not needed.<br/><br/>When the role is "function", this field is needed to indicate the function name.<br/><br/>6. "context" (dict): the context of the message, which will be passed to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create).<br/><br/>- If a callable is provided, it will be called to get the initial message in the form of a string or a dict.<br/><br/>If the returned type is dict, it may contain the reserved fields mentioned above.<br/><br/>Example of a callable message (returning a string): ```python<br/><br/>**Type:** dict[str, typing.Any] \| str \| Callable[..., Any] \| None<br/><br/>**Default:** None |
+| `message` | the initial message to be sent to the recipient.<br/><br/>Needs to be provided.<br/><br/>Otherwise, input() will be called to get the initial message.<br/><br/>- If a string or a dict is provided, it will be used as the initial message.<br/><br/>`generate_init_message` is called to generate the initial message for the agent based on this string and the context.<br/><br/>If dict, it may contain the following reserved fields (either content or tool_calls need to be provided).<br/><br/>1. "content": content of the message, can be None.<br/><br/>2. "function_call": a dictionary containing the function name and arguments.<br/><br/>(deprecated in favor of "tool_calls") 3. "tool_calls": a list of dictionaries containing the function name and arguments.<br/><br/>4. "role": role of the message, can be "assistant", "user", "function".<br/><br/>This field is only needed to distinguish between "function" or "assistant"/"user".<br/><br/>5. "name": In most cases, this field is not needed.<br/><br/>When the role is "function", this field is needed to indicate the function name.<br/><br/>6. "context" (dict): the context of the message, which will be passed to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#create).<br/><br/>- If a callable is provided, it will be called to get the initial message in the form of a string or a dict.<br/><br/>If the returned type is dict, it may contain the reserved fields mentioned above.<br/><br/>Example of a callable message (returning a string): ```def my_message( sender: ConversableAgent, recipient: ConversableAgent, context: dict ) -> Union[str, Dict]: carryover = context.get("carryover", "") if isinstance(message, list): carryover = carryover[-1] final_msg = "Write a blogpost." + "\nContext: \n" + carryover return final_msg ``` Example of a callable message (returning a dict): ```def my_message( sender: ConversableAgent, recipient: ConversableAgent, context: dict ) -> Union[str, Dict]: final_msg = \{} carryover = context.get("carryover", "") if isinstance(message, list): carryover = carryover[-1] final_msg["content"] = "Write a blogpost." + "\nContext: \n" + carryover final_msg["context"] = \{"prefix": "Today I feel"} return final_msg ```<br/><br/>**Type:** dict[str, typing.Any] \| str \| Callable[..., Any] \| None<br/><br/>**Default:** None |
 | `**kwargs` | any additional information.<br/><br/>It has the following reserved fields: - "carryover": a string or a list of string to specify the carryover information to be passed to this chat.<br/><br/>If provided, we will combine this carryover (by attaching a "context: " string and the carryover content after the message content) with the "message" content when generating the initial chat message in `generate_init_message`.<br/><br/>- "verbose": a boolean to specify whether to print the message and carryover in a chat.<br/><br/>Default is False.<br/><br/>**Type:** Any |
 
 <b>Returns:</b>
@@ -1150,7 +1150,7 @@ register_nested_chats(
     reply_func_from_nested_chats: str | Callable[..., Any] = 'summary_from_nested_chats',
     position: int = 2,
     use_async: bool | None = None,
-    **kwargs
+    **kwargs: Any
 ) -> None
 ```
 
@@ -1161,10 +1161,10 @@ register_nested_chats(
 |--|--|
 | `chat_queue` | a list of chat objects to be initiated.<br/><br/>If use_async is used, then all messages in chat_queue must have a chat-id associated with them.<br/><br/>**Type:** list[dict[str, typing.Any]] |
 | `trigger` | refer to `register_reply` for details.<br/><br/>**Type:** type[[Agent](/docs/api-reference/autogen/Agent)] \| str \| [Agent](/docs/api-reference/autogen/Agent) \| Callable[[[Agent](/docs/api-reference/autogen/Agent)], bool] \| list |
-| `reply_func_from_nested_chats` | the reply function for the nested chat.<br/><br/>The function takes a chat_queue for nested chat, recipient agent, a list of messages, a sender agent and a config as input and returns a reply message.<br/><br/>Default to "summary_from_nested_chats", which corresponds to a built-in reply function that get summary from the nested chat_queue.<br/><br/>```def reply_func_from_nested_chats( chat_queue: List[Dict], recipient: ConversableAgent, messages: Optional[List[Dict]] = None, sender: Optional[Agent] = None, config: Optional[Any] = None,<br/><br/>**Type:** str \| Callable[..., Any]<br/><br/>**Default:** 'summary_from_nested_chats' |
+| `reply_func_from_nested_chats` | the reply function for the nested chat.<br/><br/>The function takes a chat_queue for nested chat, recipient agent, a list of messages, a sender agent and a config as input and returns a reply message.<br/><br/>Default to "summary_from_nested_chats", which corresponds to a built-in reply function that get summary from the nested chat_queue.<br/><br/>```def reply_func_from_nested_chats( chat_queue: List[Dict], recipient: ConversableAgent, messages: Optional[List[Dict]] = None, sender: Optional[Agent] = None, config: Optional[Any] = None, ) -> Tuple[bool, Union[str, Dict, None]]: ```<br/><br/>**Type:** str \| Callable[..., Any]<br/><br/>**Default:** 'summary_from_nested_chats' |
 | `position` | Ref to `register_reply` for details.<br/><br/>Default to 2. It means we first check the termination and human reply, then check the registered nested chat reply.<br/><br/>**Type:** int<br/><br/>**Default:** 2 |
 | `use_async` | Uses a_initiate_chats internally to start nested chats.<br/><br/>If the original chat is initiated with a_initiate_chats, you may set this to true so nested chats do not run in sync.<br/><br/>**Type:** bool \| None<br/><br/>**Default:** None |
-| `**kwargs` |  |
+| `**kwargs` | **Type:** Any |
 
 <br />
 
@@ -1310,7 +1310,7 @@ run_code(
     self,
     code,
     **kwargs: Any
-) -> 
+) -> tuple[int, str, str | None]
 ```
 
     Run the code and return the result.<br/>Override this function to modify the way to run the code.<br/>
@@ -1320,6 +1320,11 @@ run_code(
 |--|--|
 | `code` | the code to be executed.<br/><br/> |
 | `**kwargs` | other keyword arguments.<br/><br/>**Type:** Any |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| tuple[int, str, str \| None] | A tuple of (exitcode, logs, image). exitcode (int): the exit code of the code execution. logs (str): the logs of the code execution. image (str or None): the docker image used for the code execution. |
 
 <br />
 

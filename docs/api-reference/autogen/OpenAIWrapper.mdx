@@ -148,7 +148,7 @@ print_usage_summary(self, mode: Union[str, list[str]] = ['actual', 'total'])
 register_model_client(
     self,
     model_client_cls: ModelClient,
-    **kwargs
+    **kwargs: Any
 ) -> 
 ```
 
@@ -158,6 +158,6 @@ register_model_client(
 | Name | Description |
 |--|--|
 | `model_client_cls` | A custom client class that follows the ModelClient interface<br/><br/>**Type:** [ModelClient](/docs/api-reference/autogen/ModelClient) |
-| `**kwargs` | The kwargs for the custom client class to be initialized with<br/><br/> |
+| `**kwargs` | The kwargs for the custom client class to be initialized with<br/><br/>**Type:** Any |
 
 <br />

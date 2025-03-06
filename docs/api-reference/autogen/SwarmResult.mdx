@@ -11,7 +11,8 @@ title: autogen.SwarmResult
 SwarmResult(**data: Any)
 ```
 
-    Encapsulates the possible return values for a swarm agent function.<br/>
+    Encapsulates the possible return values for a swarm agent function.<br/>Create a new model by parsing and validating input data from keyword arguments.<br/>Raises [`ValidationError`][pydantic_core.ValidationError] if the input data cannot be
+    validated to form a valid model.<br/>`self` is explicitly positional-only to allow `self` as a field name.
 
 <b>Parameters:</b>
 | Name | Description |
