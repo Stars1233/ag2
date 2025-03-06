@@ -1101,10 +1101,6 @@
          <lastmod>2025-03-06</lastmod>
     </url>
     <url>
-         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-agents/communication-agents/</loc>
-         <lastmod>2025-03-06</lastmod>
-    </url>
-    <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-agents/deepresearchagent/</loc>
          <lastmod>2025-03-06</lastmod>
     </url>
@@ -1133,6 +1129,22 @@
          <lastmod>2025-03-06</lastmod>
     </url>
     <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-agents/communication-platforms/discordagent/</loc>
+         <lastmod>2025-03-06</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-agents/communication-platforms/overview/</loc>
+         <lastmod>2025-03-06</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-agents/communication-platforms/slackagent/</loc>
+         <lastmod>2025-03-06</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-agents/communication-platforms/telegramagent/</loc>
+         <lastmod>2025-03-06</lastmod>
+    </url>
+    <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-tools/</loc>
          <lastmod>2025-03-06</lastmod>
     </url>
@@ -1146,6 +1158,18 @@
     </url>
     <url>
          <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-tools/deep-research/</loc>
+         <lastmod>2025-03-06</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-tools/communication-platforms/discord/</loc>
+         <lastmod>2025-03-06</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-tools/communication-platforms/slack/</loc>
+         <lastmod>2025-03-06</lastmod>
+    </url>
+    <url>
+         <loc>https://ag2ai.github.io/ag2/latest/docs/user-guide/reference-tools/communication-platforms/telegram/</loc>
          <lastmod>2025-03-06</lastmod>
     </url>
     <url>
