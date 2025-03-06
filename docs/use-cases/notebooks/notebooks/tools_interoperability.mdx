@@ -377,6 +377,7 @@ def get_player(ctx: RunContext[Player], additional_info: Optional[str] = None) -
     """Get the player's name.
 
     Args:
+        ctx: Run context
         additional_info: Additional information which can be used.
     """
     return f"Name: {ctx.deps.name}, Age: {ctx.deps.age}, Additional info: {additional_info}"  # type: ignore[attr-defined]

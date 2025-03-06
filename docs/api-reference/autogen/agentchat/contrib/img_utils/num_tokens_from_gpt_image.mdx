@@ -24,7 +24,7 @@ num_tokens_from_gpt_image(
 |--|--|
 | `image_data` | Union[str, Image.Image]: The image data which can either be a base64 encoded string, a URL, a file path, or a PIL Image object.<br/><br/>**Type:** str \| ForwardRef('Image.Image') |
 | `model` | str: The model being used for image processing.<br/><br/>Can be "gpt-4-vision", "gpt-4o", or "gpt-4o-mini".<br/><br/>**Type:** str<br/><br/>**Default:** 'gpt-4-vision' |
-| `low_quality` | **Type:** bool<br/><br/>**Default:** False |
+| `low_quality` | bool: Whether to use low-quality processing.<br/><br/>Defaults to False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
 
 <b>Returns:</b>
 | Type | Description |

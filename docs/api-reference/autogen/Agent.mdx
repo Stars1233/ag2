@@ -55,7 +55,7 @@ a_generate_reply(
 |--|--|
 | `messages` | a list of messages received from other agents.<br/><br/>The messages are dictionaries that are JSON-serializable and follows the OpenAI's ChatCompletion schema.<br/><br/>**Type:** list[dict[str, typing.Any]] \| None<br/><br/>**Default:** None |
 | `sender` | sender of an Agent instance.<br/><br/>**Type:** ForwardRef('[Agent](/docs/api-reference/autogen/Agent)') \| None<br/><br/>**Default:** None |
-| `**kwargs` | **Type:** Any |
+| `**kwargs` | Additional keyword arguments.<br/><br/>**Type:** Any |
 
 <b>Returns:</b>
 | Type | Description |
@@ -129,7 +129,7 @@ generate_reply(
 |--|--|
 | `messages` | a list of messages received from other agents.<br/><br/>The messages are dictionaries that are JSON-serializable and follows the OpenAI's ChatCompletion schema.<br/><br/>**Type:** list[dict[str, typing.Any]] \| None<br/><br/>**Default:** None |
 | `sender` | sender of an Agent instance.<br/><br/>**Type:** ForwardRef('[Agent](/docs/api-reference/autogen/Agent)') \| None<br/><br/>**Default:** None |
-| `**kwargs` | **Type:** Any |
+| `**kwargs` | Additional keyword arguments.<br/><br/>**Type:** Any |
 
 <b>Returns:</b>
 | Type | Description |

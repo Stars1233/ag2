@@ -29,7 +29,7 @@ eval_function_completions(
 | `entry_point` | The name of the function.<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
 | `assertions` | The assertion code which serves as a filter of the responses, or an assertion generator.<br/><br/>When provided, only the responses that pass the assertions will be considered for the actual test (if provided).<br/><br/>**Type:** str \| Callable[[str], tuple[str, float]] \| None<br/><br/>**Default:** None |
 | `timeout` | The timeout for executing the code.<br/><br/>**Type:** float \| None<br/><br/>**Default:** 3 |
-| `use_docker` | **Type:** bool \| None<br/><br/>**Default:** True |
+| `use_docker` | Whether to use docker for code execution.<br/><br/>**Type:** bool \| None<br/><br/>**Default:** True |
 
 <b>Returns:</b>
 | Type | Description |

@@ -95,7 +95,7 @@ create_index_if_not_exists(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `index_name` | **Type:** str<br/><br/>**Default:** 'vector_index' |
+| `index_name` | The name of the vector search index to create.<br/><br/>Defaults to "vector_search_index".<br/><br/>**Type:** str<br/><br/>**Default:** 'vector_index' |
 | `collection` | The MongoDB collection to create the index on.<br/><br/>Defaults to None.<br/><br/>**Type:** Collection<br/><br/>**Default:** None |
 
 <br />
@@ -156,9 +156,9 @@ delete_docs(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `ids` | List[ItemID] | A list of document ids.<br/><br/>Each id is a typed `ItemID`.<br/><br/>**Type:** list[str \| int] |
-| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** str<br/><br/>**Default:** None |
-| `**kwargs` |  |
+| `ids` | A list of document ids.<br/><br/>Each id is a typed `ItemID`.<br/><br/>**Type:** list[str \| int] |
+| `collection_name` | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** str<br/><br/>**Default:** None |
+| `**kwargs` | Additional keyword arguments.<br/><br/> |
 
 <br />
 
@@ -232,11 +232,11 @@ insert_docs(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `docs` | List[Document] | A list of documents.<br/><br/>Each document is a TypedDict `Document`.<br/><br/>**Type:** list[[Document](/docs/api-reference/autogen/agentchat/contrib/vectordb/base/Document)] |
-| `collection_name` | str | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** str<br/><br/>**Default:** None |
-| `upsert` | bool | Whether to update the document if it exists.<br/><br/>Default is False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
+| `docs` | A list of documents.<br/><br/>Each document is a TypedDict `Document`.<br/><br/>**Type:** list[[Document](/docs/api-reference/autogen/agentchat/contrib/vectordb/base/Document)] |
+| `collection_name` | The name of the collection.<br/><br/>Default is None.<br/><br/>**Type:** str<br/><br/>**Default:** None |
+| `upsert` | Whether to update the document if it exists.<br/><br/>Default is False.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
 | `batch_size` | Number of documents to be inserted in each batch<br/><br/>**Type:** int<br/><br/>**Default:** 100000 |
-| `**kwargs` | **Type:** Any |
+| `**kwargs` | Additional keyword arguments.<br/><br/>**Type:** Any |
 
 <br />
 

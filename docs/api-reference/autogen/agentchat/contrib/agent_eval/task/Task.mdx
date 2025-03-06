@@ -57,7 +57,7 @@ Task(**data: Any)
 #### parse_json_str
 
 ```python
-parse_json_str(task: str) -> 
+parse_json_str(task: str) -> Task
 ```
 
     Create a Task object from a json object.<br/>
@@ -65,7 +65,12 @@ parse_json_str(task: str) ->
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `task` | **Type:** str |
+| `task` | A json string that represents the task information.<br/><br/>**Type:** str |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| [Task](/docs/api-reference/autogen/agentchat/contrib/agent_eval/task/Task) | Task: A Task object that represents the json task information. |
 
 <br />
 

@@ -257,15 +257,15 @@ a_auto_select_speaker(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `last_speaker` | **Type:** [Agent](/docs/api-reference/autogen/Agent) |
-| `selector` | **Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) |
-| `messages` | **Type:** list[dict[str, typing.Any]] \| None |
-| `agents` | **Type:** list[[Agent](/docs/api-reference/autogen/Agent)] \| None |
+| `last_speaker` | The previous speaker in the group chat<br/><br/>**Type:** [Agent](/docs/api-reference/autogen/Agent) |
+| `selector` | The ConversableAgent that initiated the speaker selection<br/><br/>**Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) |
+| `messages` | Current chat messages<br/><br/>**Type:** list[dict[str, typing.Any]] \| None |
+| `agents` | Valid list of agents for speaker selection<br/><br/>**Type:** list[[Agent](/docs/api-reference/autogen/Agent)] \| None |
 
 <b>Returns:</b>
 | Type | Description |
 |--|--|
-| [Agent](/docs/api-reference/autogen/Agent) | Dict: a counter for mentioned agents. |
+| [Agent](/docs/api-reference/autogen/Agent) | A counter for mentioned agents. |
 
 <br />
 

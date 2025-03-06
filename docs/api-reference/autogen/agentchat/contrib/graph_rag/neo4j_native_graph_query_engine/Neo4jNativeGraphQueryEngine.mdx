@@ -84,12 +84,7 @@ init_db(self, input_doc: list[Document] | None = None) -> None
 #### query
 
 ```python
-query(
-    self,
-    question: str,
-    n_results: int = 1,
-    **kwargs: Any
-) -> GraphStoreQueryResult
+query(self, question: str) -> GraphStoreQueryResult
 ```
 
     Query the Neo4j database using a natural language question.<br/>
@@ -98,8 +93,6 @@ query(
 | Name | Description |
 |--|--|
 | `question` | The question to be answered by querying the graph.<br/><br/>**Type:** str |
-| `n_results` | **Type:** int<br/><br/>**Default:** 1 |
-| `**kwargs` | **Type:** Any |
 
 <b>Returns:</b>
 | Type | Description |

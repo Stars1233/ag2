@@ -96,7 +96,7 @@ clear_cache(seed: int | None = None, cache_path_root: str | None = '.c
 | Name | Description |
 |--|--|
 | `seed` | The integer identifier for the pseudo seed.<br/><br/>If omitted, all caches under cache_path_root will be cleared.<br/><br/>**Type:** int \| None<br/><br/>**Default:** None |
-| `cache_path_root` | **Type:** str \| None<br/><br/>**Default:** '.cache' |
+| `cache_path_root` | The root path for the cache.<br/><br/>The complete cache path will be \{cache_path_root}/\{seed}.<br/><br/>**Type:** str \| None<br/><br/>**Default:** '.cache' |
 
 <br />
 
@@ -234,7 +234,7 @@ set_cache(seed: int | None = 41, cache_path_root: str | None = '.cache
 | Name | Description |
 |--|--|
 | `seed` | The integer identifier for the pseudo seed.<br/><br/>Results corresponding to different seeds will be cached in different places.<br/><br/>**Type:** int \| None<br/><br/>**Default:** 41 |
-| `cache_path_root` | **Type:** str \| None<br/><br/>**Default:** '.cache' |
+| `cache_path_root` | The root path for the cache.<br/><br/>The complete cache path will be \{cache_path_root}/\{seed}.<br/><br/>**Type:** str \| None<br/><br/>**Default:** '.cache' |
 
 <br />
 

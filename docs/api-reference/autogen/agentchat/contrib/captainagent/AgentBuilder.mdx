@@ -130,8 +130,8 @@ build(
 | `code_execution_config` | specific configs for user proxy (e.g., last_n_messages, work_dir, ...).<br/><br/>**Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
 | `use_oai_assistant` | use OpenAI assistant api instead of self-constructed agent.<br/><br/>**Type:** bool \| None<br/><br/>**Default:** False |
 | `user_proxy` | user proxy's class that can be used to replace the default user proxy.<br/><br/>**Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) \| None<br/><br/>**Default:** None |
-| `max_agents` | **Type:** int \| None<br/><br/>**Default:** None |
-| `**kwargs` | **Type:** Any |
+| `max_agents` | Maximum number of agents to create for the task.<br/><br/>If None, uses the value from self.max_agents.<br/><br/>**Type:** int \| None<br/><br/>**Default:** None |
+| `**kwargs` | Additional arguments to pass to _build_agents.<br/><br/>- agent_configs: Optional list of predefined agent configurations to use.<br/><br/>**Type:** Any |
 
 <b>Returns:</b>
 | Type | Description |
@@ -167,13 +167,13 @@ build_from_library(
 | `building_task` | instruction that helps build manager (gpt-4) to decide what agent should be built.<br/><br/>**Type:** str |
 | `library_path_or_json` | path or JSON string config of agent library.<br/><br/>**Type:** str |
 | `default_llm_config` | specific configs for LLM (e.g., config_list, seed, temperature, ...).<br/><br/>**Type:** dict[str, typing.Any] |
-| `top_k` | **Type:** int<br/><br/>**Default:** 3 |
+| `top_k` | number of results to return.<br/><br/>**Type:** int<br/><br/>**Default:** 3 |
 | `coding` | use to identify if the user proxy (a code interpreter) should be added.<br/><br/>**Type:** bool \| None<br/><br/>**Default:** None |
 | `code_execution_config` | specific configs for user proxy (e.g., last_n_messages, work_dir, ...).<br/><br/>**Type:** dict[str, typing.Any] \| None<br/><br/>**Default:** None |
 | `use_oai_assistant` | use OpenAI assistant api instead of self-constructed agent.<br/><br/>**Type:** bool \| None<br/><br/>**Default:** False |
 | `embedding_model` | a Sentence-Transformers model use for embedding similarity to select agents from library.<br/><br/>As reference, chromadb use "all-mpnet-base-v2" as default.<br/><br/>**Type:** str \| None<br/><br/>**Default:** 'all-mpnet-base-v2' |
 | `user_proxy` | user proxy's class that can be used to replace the default user proxy.<br/><br/>**Type:** [ConversableAgent](/docs/api-reference/autogen/ConversableAgent) \| None<br/><br/>**Default:** None |
-| `**kwargs` | **Type:** Any |
+| `**kwargs` | Additional arguments to pass to _build_agents.<br/><br/>**Type:** Any |
 
 <b>Returns:</b>
 | Type | Description |
@@ -240,7 +240,7 @@ load(
 | `filepath` | filepath or JSON string for the save config.<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
 | `config_json` | JSON string for the save config.<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
 | `use_oai_assistant` | use OpenAI assistant api instead of self-constructed agent.<br/><br/>**Type:** bool \| None<br/><br/>**Default:** False |
-| `**kwargs` | **Type:** Any |
+| `**kwargs` | Additional arguments to pass to _build_agents: - code_execution_config (Optional[dict[str, Any]]): If provided, overrides the code execution configuration from the loaded config.<br/><br/>**Type:** Any |
 
 <b>Returns:</b>
 | Type | Description |

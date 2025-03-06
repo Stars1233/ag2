@@ -41,9 +41,9 @@ get_factory(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `llm_config` | **Type:** dict[str, typing.Any] |
+| `llm_config` | The LLM config for the client.<br/><br/>**Type:** dict[str, typing.Any] |
 | `logger` | The logger for the client.<br/><br/>**Type:** logging.Logger |
-| `**kwargs` | **Type:** Any |
+| `**kwargs` | Additional arguments.<br/><br/>**Type:** Any |
 
 <br />
 
@@ -185,7 +185,7 @@ send_text(
 |--|--|
 | `role` | The role of the message.<br/><br/>**Type:** Literal['user', 'assistant', 'system'] |
 | `text` | The text of the message.<br/><br/>**Type:** str |
-| `turn_complete` | **Type:** bool<br/><br/>**Default:** True |
+| `turn_complete` | A flag indicating if the turn is complete.<br/><br/>**Type:** bool<br/><br/>**Default:** True |
 
 <br />
 
