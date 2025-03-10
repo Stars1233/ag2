@@ -151,6 +151,7 @@
               "group": "GroupChat",
               "pages": [
                 "docs/user-guide/advanced-concepts/groupchat/groupchat",
+                "docs/user-guide/advanced-concepts/groupchat/tools",
                 "docs/user-guide/advanced-concepts/groupchat/custom-group-chat",
                 "docs/user-guide/advanced-concepts/groupchat/resuming-group-chat"
               ]
@@ -168,9 +169,9 @@
               "group": "RealtimeAgent",
               "pages": [
                 "docs/user-guide/advanced-concepts/realtime-agent/index",
-                "docs/user-guide/advanced-concepts/realtime-agent/twilio",
                 "docs/user-guide/advanced-concepts/realtime-agent/websocket",
-                "docs/user-guide/advanced-concepts/realtime-agent/webrtc"
+                "docs/user-guide/advanced-concepts/realtime-agent/webrtc",
+                "docs/user-guide/advanced-concepts/realtime-agent/twilio"
               ]
             },
             "docs/user-guide/advanced-concepts/code-execution",
@@ -1051,6 +1052,7 @@
                       "pages": [
                         "docs/api-reference/autogen/agentchat/contrib/rag/overview",
                         "docs/api-reference/autogen/agentchat/contrib/rag/ChromaDBQueryEngine",
+                        "docs/api-reference/autogen/agentchat/contrib/rag/MongoDBQueryEngine",
                         "docs/api-reference/autogen/agentchat/contrib/rag/RAGQueryEngine"
                       ]
                     },

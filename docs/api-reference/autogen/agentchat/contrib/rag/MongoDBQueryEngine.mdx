@@ -1,0 +1,163 @@
+---
+sidebarTitle: MongoDBQueryEngine
+title: autogen.agentchat.contrib.rag.MongoDBQueryEngine
+---
+<h2 id="autogen.agentchat.contrib.rag.MongoDBQueryEngine" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">MongoDBQueryEngine</span>
+</h2>
+
+```python
+MongoDBQueryEngine(
+    connection_string: str,
+    llm: ForwardRef('LLM') | None = None,
+    database_name: str | None = None,
+    embedding_function: ForwardRef('BaseEmbedding') | Callable[..., Any] | None = None,
+    embedding_model: ForwardRef('BaseEmbedding') | str | None = None,
+    collection_name: str | None = None
+)
+```
+
+    A query engine backed by MongoDB Atlas that supports document insertion and querying.<br/>This engine initializes a vector database, builds an index from input documents,
+    and allows querying using the chat engine interface.<br/>Attributes: <br/>    vector_db (MongoDBAtlasVectorDB): The MongoDB vector database instance.<br/>    vector_search_engine (MongoDBAtlasVectorSearch): The vector search engine.<br/>    storage_context (StorageContext): The storage context for the vector store.<br/>    index (Optional[VectorStoreIndex]): The index built from the documents.<br/>Initializes a MongoDBQueryEngine instance.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `connection_string` | **Type:** str |
+| `llm` | **Type:** ForwardRef('LLM') \| None<br/><br/>**Default:** None |
+| `database_name` | **Type:** str \| None<br/><br/>**Default:** None |
+| `embedding_function` | **Type:** ForwardRef('BaseEmbedding') \| Callable[..., Any] \| None<br/><br/>**Default:** None |
+| `embedding_model` | **Type:** ForwardRef('BaseEmbedding') \| str \| None<br/><br/>**Default:** None |
+| `collection_name` | **Type:** str \| None<br/><br/>**Default:** None |
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### add_docs
+
+```python
+add_docs(
+    self,
+    new_doc_dir: Path | str | None = None,
+    new_doc_paths_or_urls: Sequence[Path | str] | None = None,
+    *args: Any,
+    **kwargs: Any
+) -> None
+```
+
+    Adds new documents to the existing vector store index.<br/>This method validates that the index exists, loads documents from the specified directory or file paths,
+    and inserts them into the vector store index.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `new_doc_dir` | Directory containing new documents.<br/><br/>**Type:** pathlib.Path \| str \| None<br/><br/>**Default:** None |
+| `new_doc_paths_or_urls` | List of file paths or URLs for new documents.<br/><br/>**Type:** Sequence[pathlib.Path \| str] \| None<br/><br/>**Default:** None |
+| `*args` | Additional positional arguments.<br/><br/>**Type:** Any |
+| `**kwargs` | Additional keyword arguments.<br/><br/>**Type:** Any |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### connect_db
+
+```python
+connect_db(
+    self,
+    *args: Any,
+    **kwargs: Any
+) -> bool
+```
+
+    Connects to the MongoDB database and initializes the query index from the existing collection.<br/>This method verifies the existence of the collection, sets up the database connection,
+    builds the vector store index, and pings the MongoDB server.<br/>Returns: <br/>    bool: True if connection is successful; False otherwise.
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `*args` | **Type:** Any |
+| `**kwargs` | **Type:** Any |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| bool | bool: True if connection is successful; False otherwise. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### get_collection_name
+
+```python
+get_collection_name(self) -> str
+```
+
+    Retrieves the name of the MongoDB collection.<br/>Returns: <br/>    str: The collection name.<br/>Raises: <br/>    ValueError: If the collection name is not set.
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| str | str: The collection name. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### init_db
+
+```python
+init_db(
+    self,
+    new_doc_dir: Path | str | None = None,
+    new_doc_paths_or_urls: Sequence[Path | str] | None = None,
+    *args: Any,
+    **kwargs: Any
+) -> bool
+```
+
+    Initializes the MongoDB database by creating or overwriting the collection and indexing documents.<br/>This method loads documents from a directory or provided file paths, sets up the database (optionally
+    overwriting any existing collection), builds the vector store index, and inserts the documents.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `new_doc_dir` | Directory containing documents to be indexed.<br/><br/>**Type:** pathlib.Path \| str \| None<br/><br/>**Default:** None |
+| `new_doc_paths_or_urls` | List of file paths or URLs for documents.<br/><br/>**Type:** Sequence[pathlib.Path \| str] \| None<br/><br/>**Default:** None |
+| `*args` | Additional positional arguments.<br/><br/>**Type:** Any |
+| `**kwargs` | Additional keyword arguments.<br/><br/>**Type:** Any |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| bool | bool: True if the database is successfully initialized; False otherwise. |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### query
+
+```python
+query(
+    self,
+    question: str,
+    *args: Any,
+    **kwargs: Any
+) -> Any
+```
+
+    Queries the indexed documents using the provided question.<br/>This method validates that the query index is initialized, creates a query engine from the vector store index,
+    and executes the query. If the response is empty, a default reply is returned.<br/>
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `question` | The query question.<br/><br/>**Type:** str |
+| `*args` | **Type:** Any |
+| `**kwargs` | **Type:** Any |
+
+<b>Returns:</b>
+| Type | Description |
+|--|--|
+| Any | Any: The query response as a string, or a default reply if no results are found. |
+
+<br />
