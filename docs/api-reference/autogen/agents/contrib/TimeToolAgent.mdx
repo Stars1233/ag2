@@ -989,7 +989,9 @@ receive(
 register_for_execution(
     self,
     name: str | None = None,
-    description: str | None = None
+    description: str | None = None,
+    *,
+    serialize: bool = True
 ) -> Callable[[~F | Tool], Tool]
 ```
 
@@ -1000,6 +1002,7 @@ register_for_execution(
 |--|--|
 | `name` | name of the function.<br/><br/>If None, the function name will be used (default: None).<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
 | `description` | description of the function (default: None).<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
+| `serialize` | whether to serialize the return value<br/><br/>**Type:** bool<br/><br/>**Default:** True |
 
 <b>Returns:</b>
 | Type | Description |
@@ -1267,7 +1270,7 @@ run(
 ```python
 run_code(
     self,
-    code,
+    code: str,
     **kwargs: Any
 ) -> tuple[int, str, str | None]
 ```
@@ -1277,7 +1280,7 @@ run_code(
 <b>Parameters:</b>
 | Name | Description |
 |--|--|
-| `code` | the code to be executed.<br/><br/> |
+| `code` | the code to be executed.<br/><br/>**Type:** str |
 | `**kwargs` | other keyword arguments.<br/><br/>**Type:** Any |
 
 <b>Returns:</b>
