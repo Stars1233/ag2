@@ -1,0 +1,239 @@
+---
+sidebarTitle: CallModel
+title: autogen.fast_depends.core.model.CallModel
+---
+<h2 id="autogen.fast_depends.core.model.CallModel" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">CallModel</span>
+</h2>
+
+```python
+CallModel(
+    call: Callable[~P, ~T] | Callable[~P, Awaitable[~T]],
+    model: Type[BaseModel] | None,
+    params: Dict[str, Tuple[Any, Any]],
+    response_model: Type[ResponseModel] | None = None,
+    use_cache: bool = True,
+    cast: bool = True,
+    is_async: bool = False,
+    is_generator: bool = False,
+    dependencies: Dict[str, ForwardRef('CallModel[..., Any]')] | None = None,
+    extra_dependencies: Iterable[ForwardRef('CallModel[..., Any]')] | None = None,
+    keyword_args: List[str] | None = None,
+    positional_args: List[str] | None = None,
+    var_positional_arg: str | None = None,
+    var_keyword_arg: str | None = None,
+    custom_fields: Dict[str, CustomField] | None = None
+)
+```
+
+    Abstract base class for generic types.<br/>On Python 3.12 and newer, generic classes implicitly inherit from
+    Generic when they declare a parameter list after the class's name:: <br/>    class Mapping[KT, VT]: <br/>        def __getitem__(self, key: KT) -> VT: <br/>            ...<br/>        # Etc.<br/>On older versions of Python, however, generic classes have to
+    explicitly inherit from Generic.<br/>After a class has been declared to be generic, it can then be used as
+    follows:: <br/>    def lookup_name[KT, VT](mapping: Mapping[KT, VT], key: KT, default: VT) -> VT: <br/>        try: <br/>            return mapping[key]
+            except KeyError: <br/>            return default
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `call` | **Type:** Callable[~P, ~T] \| Callable[~P, Awaitable[~T]] |
+| `model` | **Type:** Type[pydantic.main.BaseModel] \| None |
+| `params` | **Type:** Dict[str, Tuple[Any, Any]] |
+| `response_model` | **Type:** Type[[ResponseModel](/docs/api-reference/autogen/fast_depends/core/model/ResponseModel)] \| None<br/><br/>**Default:** None |
+| `use_cache` | **Type:** bool<br/><br/>**Default:** True |
+| `cast` | **Type:** bool<br/><br/>**Default:** True |
+| `is_async` | **Type:** bool<br/><br/>**Default:** False |
+| `is_generator` | **Type:** bool<br/><br/>**Default:** False |
+| `dependencies` | **Type:** Dict[str, ForwardRef('[CallModel](/docs/api-reference/autogen/fast_depends/core/model/CallModel)[..., Any]')] \| None<br/><br/>**Default:** None |
+| `extra_dependencies` | **Type:** Iterable[ForwardRef('[CallModel](/docs/api-reference/autogen/fast_depends/core/model/CallModel)[..., Any]')] \| None<br/><br/>**Default:** None |
+| `keyword_args` | **Type:** List[str] \| None<br/><br/>**Default:** None |
+| `positional_args` | **Type:** List[str] \| None<br/><br/>**Default:** None |
+| `var_positional_arg` | **Type:** str \| None<br/><br/>**Default:** None |
+| `var_keyword_arg` | **Type:** str \| None<br/><br/>**Default:** None |
+| `custom_fields` | **Type:** Dict[str, [CustomField](/docs/api-reference/autogen/fast_depends/library/model/CustomField)] \| None<br/><br/>**Default:** None |
+
+### Instance Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### alias_arguments
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### call
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### call_name
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### cast
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### custom_fields
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### dependencies
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### extra_dependencies
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### flat_dependencies
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### flat_params
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### is_async
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### is_generator
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### keyword_args
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### model
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### params
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### positional_args
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### response_model
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### sorted_dependencies
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### use_cache
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### var_keyword_arg
+<br />
+
+    <br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### var_positional_arg
+<br />
+
+    <br />
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### asolve
+
+```python
+asolve(
+    self,
+    /,
+    *args: Any,
+    stack: AsyncExitStack,
+    cache_dependencies: Dict[Callable[~P, ~T] | Callable[~P, Awaitable[~T]], ~T],
+    dependency_overrides: Dict[Callable[~P, ~T] | Callable[~P, Awaitable[~T]], Callable[~P, ~T] | Callable[~P, Awaitable[~T]]] | None = None,
+    nested: bool = False,
+    **kwargs: Any
+) -> ~T
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `/` |  |
+| `*args` | **Type:** Any |
+| `stack` | **Type:** contextlib.AsyncExitStack |
+| `cache_dependencies` | **Type:** Dict[Callable[~P, ~T] \| Callable[~P, Awaitable[~T]], ~T] |
+| `dependency_overrides` | **Type:** Dict[Callable[~P, ~T] \| Callable[~P, Awaitable[~T]], Callable[~P, ~T] \| Callable[~P, Awaitable[~T]]] \| None<br/><br/>**Default:** None |
+| `nested` | **Type:** bool<br/><br/>**Default:** False |
+| `**kwargs` | **Type:** Any |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### solve
+
+```python
+solve(
+    self,
+    /,
+    *args: Any,
+    stack: ExitStack,
+    cache_dependencies: Dict[Callable[~P, ~T] | Callable[~P, Awaitable[~T]], ~T],
+    dependency_overrides: Dict[Callable[~P, ~T] | Callable[~P, Awaitable[~T]], Callable[~P, ~T] | Callable[~P, Awaitable[~T]]] | None = None,
+    nested: bool = False,
+    **kwargs: Any
+) -> ~T
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `/` |  |
+| `*args` | **Type:** Any |
+| `stack` | **Type:** contextlib.ExitStack |
+| `cache_dependencies` | **Type:** Dict[Callable[~P, ~T] \| Callable[~P, Awaitable[~T]], ~T] |
+| `dependency_overrides` | **Type:** Dict[Callable[~P, ~T] \| Callable[~P, Awaitable[~T]], Callable[~P, ~T] \| Callable[~P, Awaitable[~T]]] \| None<br/><br/>**Default:** None |
+| `nested` | **Type:** bool<br/><br/>**Default:** False |
+| `**kwargs` | **Type:** Any |
+
+<br />

@@ -1451,6 +1451,110 @@
               ]
             },
             {
+              "group": "fast_depends",
+              "pages": [
+                "docs/api-reference/autogen/fast_depends/overview",
+                "docs/api-reference/autogen/fast_depends/Depends",
+                "docs/api-reference/autogen/fast_depends/Provider",
+                "docs/api-reference/autogen/fast_depends/inject",
+                {
+                  "group": "core",
+                  "pages": [
+                    "docs/api-reference/autogen/fast_depends/core/overview",
+                    "docs/api-reference/autogen/fast_depends/core/CallModel",
+                    "docs/api-reference/autogen/fast_depends/core/build_call_model",
+                    {
+                      "group": "build",
+                      "pages": [
+                        "docs/api-reference/autogen/fast_depends/core/build/overview",
+                        "docs/api-reference/autogen/fast_depends/core/build/build_call_model"
+                      ]
+                    },
+                    {
+                      "group": "model",
+                      "pages": [
+                        "docs/api-reference/autogen/fast_depends/core/model/overview",
+                        "docs/api-reference/autogen/fast_depends/core/model/CallModel",
+                        "docs/api-reference/autogen/fast_depends/core/model/PriorityPair",
+                        "docs/api-reference/autogen/fast_depends/core/model/ResponseModel"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "group": "dependencies",
+                  "pages": [
+                    "docs/api-reference/autogen/fast_depends/dependencies/overview",
+                    "docs/api-reference/autogen/fast_depends/dependencies/Depends",
+                    "docs/api-reference/autogen/fast_depends/dependencies/Provider",
+                    {
+                      "group": "model",
+                      "pages": [
+                        "docs/api-reference/autogen/fast_depends/dependencies/model/overview",
+                        "docs/api-reference/autogen/fast_depends/dependencies/model/Depends"
+                      ]
+                    },
+                    {
+                      "group": "provider",
+                      "pages": [
+                        "docs/api-reference/autogen/fast_depends/dependencies/provider/overview",
+                        "docs/api-reference/autogen/fast_depends/dependencies/provider/Provider"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "group": "library",
+                  "pages": [
+                    "docs/api-reference/autogen/fast_depends/library/overview",
+                    "docs/api-reference/autogen/fast_depends/library/CustomField",
+                    {
+                      "group": "model",
+                      "pages": [
+                        "docs/api-reference/autogen/fast_depends/library/model/overview",
+                        "docs/api-reference/autogen/fast_depends/library/model/CustomField"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "group": "schema",
+                  "pages": [
+                    "docs/api-reference/autogen/fast_depends/schema/overview",
+                    "docs/api-reference/autogen/fast_depends/schema/get_schema"
+                  ]
+                },
+                {
+                  "group": "use",
+                  "pages": [
+                    "docs/api-reference/autogen/fast_depends/use/overview",
+                    "docs/api-reference/autogen/fast_depends/use/Depends",
+                    "docs/api-reference/autogen/fast_depends/use/inject",
+                    "docs/api-reference/autogen/fast_depends/use/solve_async_gen",
+                    "docs/api-reference/autogen/fast_depends/use/solve_gen"
+                  ]
+                },
+                {
+                  "group": "utils",
+                  "pages": [
+                    "docs/api-reference/autogen/fast_depends/utils/overview",
+                    "docs/api-reference/autogen/fast_depends/utils/async_map",
+                    "docs/api-reference/autogen/fast_depends/utils/collect_outer_stack_locals",
+                    "docs/api-reference/autogen/fast_depends/utils/contextmanager_in_threadpool",
+                    "docs/api-reference/autogen/fast_depends/utils/get_typed_annotation",
+                    "docs/api-reference/autogen/fast_depends/utils/get_typed_signature",
+                    "docs/api-reference/autogen/fast_depends/utils/is_async_gen_callable",
+                    "docs/api-reference/autogen/fast_depends/utils/is_coroutine_callable",
+                    "docs/api-reference/autogen/fast_depends/utils/is_gen_callable",
+                    "docs/api-reference/autogen/fast_depends/utils/run_async",
+                    "docs/api-reference/autogen/fast_depends/utils/run_in_threadpool",
+                    "docs/api-reference/autogen/fast_depends/utils/solve_generator_async",
+                    "docs/api-reference/autogen/fast_depends/utils/solve_generator_sync"
+                  ]
+                }
+              ]
+            },
+            {
               "group": "formatting_utils",
               "pages": [
                 "docs/api-reference/autogen/formatting_utils/overview",

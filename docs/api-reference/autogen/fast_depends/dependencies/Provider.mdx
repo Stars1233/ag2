@@ -1,0 +1,77 @@
+---
+sidebarTitle: Provider
+title: autogen.fast_depends.dependencies.Provider
+---
+<h2 id="autogen.fast_depends.dependencies.Provider" class="doc doc-heading">
+    <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>
+    <span class="doc doc-object-name doc-class-name">Provider</span>
+</h2>
+
+```python
+Provider()
+```
+
+    
+
+### Class Attributes
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>
+#### dependency_overrides
+<br />
+
+    <br />
+
+### Instance Methods
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### clear
+
+```python
+clear(self) -> None
+```
+
+    
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### override
+
+```python
+override(
+    self,
+    original: Callable[..., Any],
+    override: Callable[..., Any]
+) -> None
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `original` | **Type:** Callable[..., Any] |
+| `override` | **Type:** Callable[..., Any] |
+
+<br />
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>
+#### scope
+
+```python
+scope(
+    self,
+    original: Callable[..., Any],
+    override: Callable[..., Any]
+) -> Iterator[None]
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `original` | **Type:** Callable[..., Any] |
+| `override` | **Type:** Callable[..., Any] |
+
+<br />

@@ -1,0 +1,33 @@
+---
+sidebarTitle: build_call_model
+title: autogen.fast_depends.core.build.build_call_model
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### build_call_model
+
+```python
+build_call_model(
+    call: Callable[~P, ~T] | Callable[~P, Awaitable[~T]],
+    *,
+    cast: bool = True,
+    use_cache: bool = True,
+    is_sync: bool | None = None,
+    extra_dependencies: Sequence[Depends] = (),
+    pydantic_config: ConfigDict | None = None
+) -> CallModel[~P, ~T]
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `call` | **Type:** Callable[~P, ~T] \| Callable[~P, Awaitable[~T]] |
+| `cast` | **Type:** bool<br/><br/>**Default:** True |
+| `use_cache` | **Type:** bool<br/><br/>**Default:** True |
+| `is_sync` | **Type:** bool \| None<br/><br/>**Default:** None |
+| `extra_dependencies` | **Type:** Sequence[[Depends](/docs/api-reference/autogen/fast_depends/dependencies/model/Depends)]<br/><br/>**Default:** () |
+| `pydantic_config` | **Type:** pydantic.config.ConfigDict \| None<br/><br/>**Default:** None |
+
+<br />

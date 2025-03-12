@@ -1,0 +1,33 @@
+---
+sidebarTitle: inject
+title: autogen.fast_depends.use.inject
+---
+
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>
+#### inject
+
+```python
+inject(
+    func: Callable[~P, ~T] | None = None,
+    *,
+    cast: bool = True,
+    extra_dependencies: Sequence[Depends] = (),
+    pydantic_config: ConfigDict | None = None,
+    dependency_overrides_provider: Any | None = &lt;autogen.fast_depends.dependencies.provider.Provider object&gt;,
+    wrap_model: Callable[[CallModel[~P, ~T]], CallModel[~P, ~T]] = &lt;function &lt;lambda&gt;&gt;
+) -> Callable[~P, ~T] | _InjectWrapper[~P, ~T]
+```
+
+    
+
+<b>Parameters:</b>
+| Name | Description |
+|--|--|
+| `func` | **Type:** Callable[~P, ~T] \| None<br/><br/>**Default:** None |
+| `cast` | **Type:** bool<br/><br/>**Default:** True |
+| `extra_dependencies` | **Type:** Sequence[[Depends](/docs/api-reference/autogen/fast_depends/dependencies/model/Depends)]<br/><br/>**Default:** () |
+| `pydantic_config` | **Type:** pydantic.config.ConfigDict \| None<br/><br/>**Default:** None |
+| `dependency_overrides_provider` | **Type:** Any \| None<br/><br/>**Default:** &lt;autogen.fast_depends.dependencies.provider.Provider object&gt; |
+| `wrap_model` | **Type:** Callable[[[CallModel](/docs/api-reference/autogen/fast_depends/core/model/CallModel)[~P, ~T]], [CallModel](/docs/api-reference/autogen/fast_depends/core/model/CallModel)[~P, ~T]]<br/><br/>**Default:** &lt;function &lt;lambda&gt;&gt; |
+
+<br />
