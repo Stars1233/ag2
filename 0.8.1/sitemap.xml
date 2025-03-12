@@ -605,6 +605,38 @@
          <lastmod>2025-03-12</lastmod>
     </url>
     <url>
+         <loc>http://docs.ag2.ai/latest/docs/api-reference/autogen/fast_depends/_compat/get_config_base/</loc>
+         <lastmod>2025-03-12</lastmod>
+    </url>
+    <url>
+         <loc>http://docs.ag2.ai/latest/docs/api-reference/autogen/fast_depends/core/build/build_call_model/</loc>
+         <lastmod>2025-03-12</lastmod>
+    </url>
+    <url>
+         <loc>http://docs.ag2.ai/latest/docs/api-reference/autogen/fast_depends/core/model/CallModel/</loc>
+         <lastmod>2025-03-12</lastmod>
+    </url>
+    <url>
+         <loc>http://docs.ag2.ai/latest/docs/api-reference/autogen/fast_depends/dependencies/model/Depends/</loc>
+         <lastmod>2025-03-12</lastmod>
+    </url>
+    <url>
+         <loc>http://docs.ag2.ai/latest/docs/api-reference/autogen/fast_depends/dependencies/provider/Provider/</loc>
+         <lastmod>2025-03-12</lastmod>
+    </url>
+    <url>
+         <loc>http://docs.ag2.ai/latest/docs/api-reference/autogen/fast_depends/library/model/CustomField/</loc>
+         <lastmod>2025-03-12</lastmod>
+    </url>
+    <url>
+         <loc>http://docs.ag2.ai/latest/docs/api-reference/autogen/fast_depends/use/Depends/</loc>
+         <lastmod>2025-03-12</lastmod>
+    </url>
+    <url>
+         <loc>http://docs.ag2.ai/latest/docs/api-reference/autogen/fast_depends/use/inject/</loc>
+         <lastmod>2025-03-12</lastmod>
+    </url>
+    <url>
          <loc>http://docs.ag2.ai/latest/docs/api-reference/autogen/import_utils/optional_import_block/</loc>
          <lastmod>2025-03-12</lastmod>
     </url>
