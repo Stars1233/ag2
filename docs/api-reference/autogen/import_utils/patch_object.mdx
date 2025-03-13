@@ -10,7 +10,7 @@ title: autogen.import_utils.patch_object
 patch_object(
     o: ~T,
     *,
-    missing_modules: Iterable[str],
+    missing_modules: dict[str, str],
     dep_target: str,
     fail_if_not_patchable: bool = True,
     except_for: str | Iterable[str] | None = None
@@ -23,7 +23,7 @@ patch_object(
 | Name | Description |
 |--|--|
 | `o` | **Type:** ~T |
-| `missing_modules` | **Type:** Iterable[str] |
+| `missing_modules` | **Type:** dict[str, str] |
 | `dep_target` | **Type:** str |
 | `fail_if_not_patchable` | **Type:** bool<br/><br/>**Default:** True |
 | `except_for` | **Type:** str \| Iterable[str] \| None<br/><br/>**Default:** None |

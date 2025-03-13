@@ -1012,7 +1012,8 @@ register_for_execution(
     name: str | None = None,
     description: str | None = None,
     *,
-    serialize: bool = True
+    serialize: bool = True,
+    silent_override: bool = False
 ) -> Callable[[~F | Tool], Tool]
 ```
 
@@ -1024,6 +1025,7 @@ register_for_execution(
 | `name` | name of the function.<br/><br/>If None, the function name will be used (default: None).<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
 | `description` | description of the function (default: None).<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
 | `serialize` | whether to serialize the return value<br/><br/>**Type:** bool<br/><br/>**Default:** True |
+| `silent_override` | whether to suppress any override warning messages<br/><br/>**Type:** bool<br/><br/>**Default:** False |
 
 <b>Returns:</b>
 | Type | Description |
@@ -1041,7 +1043,8 @@ register_for_llm(
     *,
     name: str | None = None,
     description: str | None = None,
-    api_style: Literal['function', 'tool'] = 'tool'
+    api_style: Literal['function', 'tool'] = 'tool',
+    silent_override: bool = False
 ) -> Callable[[~F | Tool], Tool]
 ```
 
@@ -1056,6 +1059,7 @@ register_for_llm(
 | `name` | name of the function.<br/><br/>If None, the function name will be used (default: None).<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
 | `description` | description of the function (default: None).<br/><br/>It is mandatory for the initial decorator, but the following ones can omit it.<br/><br/>**Type:** str \| None<br/><br/>**Default:** None |
 | `api_style` | (literal): the API style for function call.<br/><br/>For Azure OpenAI API, use version 2023-12-01-preview or later.<br/><br/>`"function"` style will be deprecated.<br/><br/>For earlier version use `"function"` if `"tool"` doesn't work.<br/><br/>See [Azure OpenAI documentation](https://learn.microsoft.com/en-us/azure/ai-services/openai/how-to/function-calling?tabs=python) for details.<br/><br/>**Type:** Literal['function', 'tool']<br/><br/>**Default:** 'tool' |
+| `silent_override` | whether to suppress any override warning messages.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
 
 <b>Returns:</b>
 | Type | Description |
@@ -1068,7 +1072,11 @@ register_for_llm(
 #### register_function
 
 ```python
-register_function(self, function_map: dict[str, Callable[..., Any]]) -> 
+register_function(
+    self,
+    function_map: dict[str, Callable[..., Any]],
+    silent_override: bool = False
+) -> 
 ```
 
     Register functions to the agent.<br/>
@@ -1077,6 +1085,7 @@ register_function(self, function_map: dict[str, Callable[..., Any]]) ->
 | Name | Description |
 |--|--|
 | `function_map` | a dictionary mapping function names to functions.<br/><br/>if function_map[name] is None, the function will be removed from the function_map.<br/><br/>**Type:** dict[str, typing.Callable[..., typing.Any]] |
+| `silent_override` | whether to print warnings when overriding functions.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
 
 <br />
 
@@ -1412,7 +1421,8 @@ update_context(self, context_variables: dict[str, Any]) -> None
 update_function_signature(
     self,
     func_sig: dict[str, Any] | str,
-    is_remove: None
+    is_remove: None,
+    silent_override: bool = False
 ) -> 
 ```
 
@@ -1423,6 +1433,7 @@ update_function_signature(
 |--|--|
 | `func_sig` | description/name of the function to update/remove to the model.<br/><br/>See: https://platform.openai.com/docs/api-reference/chat/create#chat/create-functions<br/><br/>**Type:** dict[str, typing.Any] \| str |
 | `is_remove` | whether removing the function from llm_config with name 'func_sig'<br/><br/>**Type:** None |
+| `silent_override` | whether to print warnings when overriding functions.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
 
 <br />
 
@@ -1470,7 +1481,8 @@ update_system_message(self, system_message: str) -> None
 update_tool_signature(
     self,
     tool_sig: dict[str, Any] | str,
-    is_remove: bool
+    is_remove: bool,
+    silent_override: bool = False
 ) -> 
 ```
 
@@ -1481,5 +1493,6 @@ update_tool_signature(
 |--|--|
 | `tool_sig` | description/name of the tool to update/remove to the model.<br/><br/>See: https://platform.openai.com/docs/api-reference/chat/create#chat-create-tools<br/><br/>**Type:** dict[str, typing.Any] \| str |
 | `is_remove` | whether removing the tool from llm_config with name 'tool_sig'<br/><br/>**Type:** bool |
+| `silent_override` | whether to print warnings when overriding functions.<br/><br/>**Type:** bool<br/><br/>**Default:** False |
 
 <br />
