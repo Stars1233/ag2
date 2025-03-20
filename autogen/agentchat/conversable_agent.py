@@ -43,6 +43,7 @@ from ..coding.factory import CodeExecutorFactory
 from ..doc_utils import export_module
 from ..exception_utils import InvalidCarryOverTypeError, SenderRequiredError
 from ..io.base import IOStream
+from ..llm_config import LLMConfig
 from ..messages.agent_messages import (
     ClearConversableAgentHistoryMessage,
     ClearConversableAgentHistoryWarningMessage,
@@ -151,7 +152,7 @@ class ConversableAgent(LLMAgent):
         human_input_mode: Literal["ALWAYS", "NEVER", "TERMINATE"] = "TERMINATE",
         function_map: Optional[dict[str, Callable[..., Any]]] = None,
         code_execution_config: Union[dict[str, Any], Literal[False]] = False,
-        llm_config: Optional[Union[dict[str, Any], Literal[False]]] = None,
+        llm_config: Optional[Union[LLMConfig, dict[str, Any], Literal[False]]] = None,
         default_auto_reply: Union[str, dict[str, Any]] = "",
         description: Optional[str] = None,
         chat_messages: Optional[dict[Agent, list[dict[str, Any]]]] = None,
@@ -197,7 +198,7 @@ class ConversableAgent(LLMAgent):
                 - timeout (Optional, int): The maximum execution time in seconds.
                 - last_n_messages (Experimental, int or str): The number of messages to look back for code execution.
                     If set to 'auto', it will scan backwards through all messages arriving since the agent last spoke, which is typically the last time execution was attempted. (Default: auto)
-            llm_config (dict or False or None): llm inference configuration.
+            llm_config (LLMConfig or dict or False or None): llm inference configuration.
                 Please refer to [OpenAIWrapper.create](/docs/api-reference/autogen/OpenAIWrapper#autogen.OpenAIWrapper.create)
                 for available options.
                 When using OpenAI or Azure OpenAI endpoints, please specify a non-empty 'model' either in `llm_config` or in each config of 'config_list' in `llm_config`.
@@ -253,7 +254,8 @@ class ConversableAgent(LLMAgent):
                     " Refer to the docs for more details: https://docs.ag2.ai/docs/topics/llm_configuration#adding-http-client-in-llm-config-for-proxy"
                 ) from e
 
-        self._validate_llm_config(llm_config)
+        self.llm_config = self._validate_llm_config(llm_config)
+        self.client = self._create_client(self.llm_config)
         self._validate_name(name)
         self._name = name
 
@@ -366,17 +368,12 @@ class ConversableAgent(LLMAgent):
         self._register_update_agent_state_before_reply(update_agent_state_before_reply)
 
     def _validate_name(self, name: str) -> None:
-        if not self.llm_config or "config_list" not in self.llm_config or len(self.llm_config["config_list"]) == 0:
+        if not self.llm_config:
             return
 
-        config_list = self.llm_config.get("config_list")
-        # The validation is currently done only for openai endpoints
-        # (other ones do not have the issue with whitespace in the name)
-        if "api_type" in config_list[0] and config_list[0]["api_type"] != "openai":
-            return
-
-        # Validation for name using regex to detect any whitespace
-        if re.search(r"\s", name):
+        if any([
+            entry for entry in self.llm_config.config_list if entry.api_type == "openai" and re.search(r"\s", name)
+        ]):
             raise ValueError(f"The name of the agent cannot contain any whitespace. The name provided is: '{name}'")
 
     def _get_display_name(self):
@@ -471,19 +468,33 @@ class ConversableAgent(LLMAgent):
             else:
                 self.register_hook(hookable_method="update_agent_state", hook=func)
 
-    def _validate_llm_config(self, llm_config):
-        assert llm_config in (None, False) or isinstance(llm_config, dict), (
-            "llm_config must be a dict or False or None."
-        )
+    @classmethod
+    def _validate_llm_config(
+        cls, llm_config: Optional[Union[LLMConfig, dict[str, Any], Literal[False]]]
+    ) -> Union[LLMConfig, Literal[False]]:
+        # if not(llm_config in (None, False) or isinstance(llm_config, [dict, LLMConfig])):
+        #     raise ValueError(
+        #         "llm_config must be a dict or False or None."
+        #     )
+
         if llm_config is None:
-            llm_config = self.DEFAULT_CONFIG
-        self.llm_config = self.DEFAULT_CONFIG if llm_config is None else llm_config
-        # TODO: more complete validity check
-        if self.llm_config in [{}, {"config_list": []}, {"config_list": [{"model": ""}]}]:
-            raise ValueError(
-                "When using OpenAI or Azure OpenAI endpoints, specify a non-empty 'model' either in 'llm_config' or in each config of 'config_list'."
-            )
-        self.client = None if self.llm_config is False else OpenAIWrapper(**self.llm_config)
+            llm_config = LLMConfig.get_current_llm_config()
+            if llm_config is None:
+                llm_config = cls.DEFAULT_CONFIG
+        elif isinstance(llm_config, dict):
+            llm_config = LLMConfig(**llm_config)
+        elif isinstance(llm_config, LLMConfig):
+            llm_config = llm_config.copy()
+        elif llm_config is False:
+            pass
+        else:
+            raise ValueError("llm_config must be a LLMConfig, dict or False or None.")
+
+        return llm_config
+
+    @classmethod
+    def _create_client(cls, llm_config: Union[LLMConfig, Literal[False]]) -> Optional[OpenAIWrapper]:
+        return None if llm_config is False else OpenAIWrapper(**llm_config)
 
     @staticmethod
     def _is_silent(agent: Agent, silent: Optional[bool] = False) -> bool:
@@ -1472,6 +1483,9 @@ class ConversableAgent(LLMAgent):
         if isinstance(max_turns, int):
             self._prepare_chat(recipient, clear_history, reply_at_receive=False)
             for i in range(max_turns):
+                # check recipient max consecutive auto reply limit
+                if self._consecutive_auto_reply_counter[recipient] >= recipient._max_consecutive_auto_reply:
+                    break
                 if i == 0:
                     if isinstance(message, Callable):
                         msg2send = message(_chat_info["sender"], _chat_info["recipient"], kwargs)
@@ -2989,13 +3003,13 @@ class ConversableAgent(LLMAgent):
         Deprecated as of [OpenAI API v1.1.0](https://github.com/openai/openai-python/releases/tag/v1.1.0)
         See https://platform.openai.com/docs/api-reference/chat/create#chat-create-function_call
         """
-        if not isinstance(self.llm_config, dict):
+        if not isinstance(self.llm_config, (dict, LLMConfig)):
             error_msg = "To update a function signature, agent must have an llm_config"
             logger.error(error_msg)
             raise AssertionError(error_msg)
 
         if is_remove:
-            if "functions" not in self.llm_config:
+            if "functions" not in self.llm_config or len(self.llm_config["functions"]) == 0:
                 error_msg = f"The agent config doesn't have function {func_sig}."
                 logger.error(error_msg)
                 raise AssertionError(error_msg)
@@ -3023,7 +3037,8 @@ class ConversableAgent(LLMAgent):
             else:
                 self.llm_config["functions"] = [func_sig]
 
-        if len(self.llm_config["functions"]) == 0:
+        # Do this only if llm_config is a dict. If llm_config is LLMConfig, LLMConfig will handle this.
+        if len(self.llm_config["functions"]) == 0 and isinstance(self.llm_config, dict):
             del self.llm_config["functions"]
 
         self.client = OpenAIWrapper(**self.llm_config)
@@ -3044,7 +3059,7 @@ class ConversableAgent(LLMAgent):
             raise AssertionError(error_msg)
 
         if is_remove:
-            if "tools" not in self.llm_config:
+            if "tools" not in self.llm_config or len(self.llm_config["tools"]) == 0:
                 error_msg = f"The agent config doesn't have tool {tool_sig}."
                 logger.error(error_msg)
                 raise AssertionError(error_msg)
@@ -3069,7 +3084,7 @@ class ConversableAgent(LLMAgent):
                     f"The tool signature must be of the type dict. Received tool signature type {type(tool_sig)}"
                 )
             self._assert_valid_name(tool_sig["function"]["name"])
-            if "tools" in self.llm_config:
+            if "tools" in self.llm_config and len(self.llm_config["tools"]) > 0:
                 if not silent_override and any(
                     tool["function"]["name"] == tool_sig["function"]["name"] for tool in self.llm_config["tools"]
                 ):
@@ -3082,7 +3097,8 @@ class ConversableAgent(LLMAgent):
             else:
                 self.llm_config["tools"] = [tool_sig]
 
-        if len(self.llm_config["tools"]) == 0:
+        # Do this only if llm_config is a dict. If llm_config is LLMConfig, LLMConfig will handle this.
+        if len(self.llm_config["tools"]) == 0 and isinstance(self.llm_config, dict):
             del self.llm_config["tools"]
 
         self.client = OpenAIWrapper(**self.llm_config)
